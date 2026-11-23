@@ -192,7 +192,7 @@ A hypsometric atlas palette: greens, ochres and stone tints read as elevation, w
 - **Ink on Mustard** (#1b1500): text placed on mustard (selection, contact button).
 - Contour lines are Relief Ink at 34% (rgba(27,38,32,.34)); thicker index contours at the 3rd and 5th levels.
 
-The site is light-only by decision, on a pistachio palette whose lightest colour is pale pistachio (#e1f0c9), with no white or cream grounds; the footer is full pistachio (#93c572): it keeps the same bright daylight palette even when the visitor's device is in dark mode, because the night version read as gloomy. The contact band is a pale lowland green (#a9d184) with ink text, and the footer sits on the foothill tint.
+Each section owns one colour, and the same colour is the key beside its name in the navigation (and fills the active link): About pistachio #dcedc3, Research sand #f6dcae, Publications butter #f1ecb3, People light green #c7e09a, Contact peach #f2c9a6. The site is light-only by decision, on a pistachio palette whose lightest colour is pale pistachio (#e1f0c9), with no white or cream grounds; the footer is full pistachio (#93c572): it keeps the same bright daylight palette even when the visitor's device is in dark mode, because the night version read as gloomy. The contact band is a pale lowland green (#a9d184) with ink text, and the footer sits on the foothill tint.
 
 ### Named Rules
 **The One Line Rule.** Mustard is the Diagonal. It appears as the dashed line, its legend key, focus and selection, and the single action that ends a visit. It is never a section background, a heading colour or decoration.
