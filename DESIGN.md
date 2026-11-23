@@ -4,23 +4,23 @@ description: A bilingual lab site drawn as a hypsometric relief map of Anatolia,
 colors:
   diagonal-mustard: "#efb100"
   relief-ink: "#1b2620"
-  relief-ink-soft: "#4a5a50"
-  survey-paper: "#fdfdf9"
-  alpine-stone: "#f2f5ec"
-  steppe-ochre: "#fbefc8"
-  steppe-ink: "#6b5418"
-  foothill-sage: "#e5f1d3"
+  relief-ink-soft: "#3f4f45"
+  survey-paper: "#e1f0c9"
+  alpine-stone: "#d6eabb"
+  steppe-ochre: "#cbe3a6"
+  steppe-ink: "#3a5417"
+  foothill-sage: "#bfdc96"
   lowland-green: "#276a3e"
   on-lowland: "#f3f8ee"
   on-lowland-soft: "#d2e6cf"
-  map-rule: "#d5dccb"
+  map-rule: "#a9c98a"
   band-0-lowland: "#4f9a5c"
   band-1-plain: "#86b866"
-  band-2-hill: "#c3d98d"
-  band-3-plateau: "#f2e6a6"
+  band-2-hill: "#c7e09a"
+  band-3-plateau: "#e3e3a0"
   band-4-steppe: "#eec27c"
   band-5-upland: "#d9955f"
-  band-6-alpine: "#fbfaf6"
+  band-6-alpine: "#e1f0c9"
   ink-on-mustard: "#1b1500"
 typography:
   display:
@@ -176,23 +176,23 @@ A hypsometric atlas palette: greens, ochres and stone tints read as elevation, w
 
 ### Secondary
 - **Lowland Green** (#276a3e): the contact section's band and the role line under each person's name. It is the bottom of the map, where the page ends.
-- **Steppe Ochre** (#fbefc8) with **Steppe Ink** (#6b5418): the research band, and the chips and place lines that sit on it.
-- **Foothill Sage** (#e5f1d3): the people band.
+- **Steppe Ochre** (#cbe3a6) with **Steppe Ink** (#3a5417): the research band, and the chips and place lines that sit on it.
+- **Foothill Sage** (#bfdc96): the people band.
 
 ### Tertiary: the hypsometric ramp
-- **Band 0 Lowland** (#4f9a5c) through **Band 1 Plain** (#86b866), **Band 2 Hill** (#c3d98d), **Band 3 Plateau** (#f2e6a6), **Band 4 Steppe** (#eec27c), **Band 5 Upland** (#d9955f) to **Band 6 Alpine** (#fbfaf6). These seven steps fill the contour field between isolines (six levels), the team tiles and the legend ramp, and key the navigation (About = alpine, Research = steppe, Publications = plateau, People = hill, Contact = lowland). The canvas reads them from CSS at runtime, so a theme change repaints the map.
+- **Band 0 Lowland** (#4f9a5c) through **Band 1 Plain** (#86b866), **Band 2 Hill** (#c7e09a), **Band 3 Plateau** (#e3e3a0), **Band 4 Steppe** (#eec27c), **Band 5 Upland** (#d9955f) to **Band 6 Alpine** (#e1f0c9). These seven steps fill the contour field between isolines (six levels), the team tiles and the legend ramp, and key the navigation (About = alpine, Research = steppe, Publications = plateau, People = hill, Contact = lowland). The canvas reads them from CSS at runtime, so a theme change repaints the map.
 
 ### Neutral
-- **Survey Paper** (#fdfdf9): page ground, cartouche, the publications band and the join panel.
-- **Alpine Stone** (#f2f5ec): the about band, the active legend entry and hover fills.
+- **Survey Paper** (#e1f0c9): page ground, cartouche, the publications band and the join panel.
+- **Alpine Stone** (#d6eabb): the about band, the active legend entry and hover fills.
 - **Relief Ink** (#1b2620): text, solid buttons, the 1px frame on cartouche, tiles and ruled-list tops, and the footer ground.
-- **Relief Ink Soft** (#4a5a50): secondary prose, citations, idle nav links.
-- **Map Rule** (#d5dccb): row dividers, header underline, toggle borders.
+- **Relief Ink Soft** (#3f4f45): secondary prose, citations, idle nav links.
+- **Map Rule** (#a9c98a): row dividers, header underline, toggle borders.
 - **On Lowland** (#f3f8ee) / **On Lowland Soft** (#d2e6cf): text and dividers on the lowland band.
 - **Ink on Mustard** (#1b1500): text placed on mustard (selection, contact button).
 - Contour lines are Relief Ink at 34% (rgba(27,38,32,.34)); thicker index contours at the 3rd and 5th levels.
 
-The site is light-only by decision: it keeps the same bright daylight palette even when the visitor's device is in dark mode, because the night version read as gloomy. The contact band is a pale lowland green (#d6ebcb) with ink text, and the footer sits on the foothill tint.
+The site is light-only by decision, on a pistachio palette whose lightest colour is pale pistachio (#e1f0c9), with no white or cream grounds; the footer is full pistachio (#93c572): it keeps the same bright daylight palette even when the visitor's device is in dark mode, because the night version read as gloomy. The contact band is a pale lowland green (#a9d184) with ink text, and the footer sits on the foothill tint.
 
 ### Named Rules
 **The One Line Rule.** Mustard is the Diagonal. It appears as the dashed line, its legend key, focus and selection, and the single action that ends a visit. It is never a section background, a heading colour or decoration.
