@@ -172,7 +172,7 @@ Illustration stands in for photography: each team member gets their own small se
 A hypsometric atlas palette: greens, ochres and stone tints read as elevation, with one saturated mustard reserved for the Diagonal.
 
 ### Primary
-- **Diagonal Mustard** (#efb100): the Anatolian Diagonal line on the relief (dashed, 3.5px), its legend key, the focus ring, text selection, link underlines, small fills inside line icons, and the contact button on the lowland band. Dark mode lifts it to #f2bb1d.
+- **Diagonal Mustard** (#efb100): the Anatolian Diagonal line on the relief (dashed, 3.5px), its legend key, the focus ring, text selection, link underlines, small fills inside line icons, and the contact button on the lowland band.
 
 ### Secondary
 - **Lowland Green** (#276a3e): the contact section's band and the role line under each person's name. It is the bottom of the map, where the page ends.
@@ -192,7 +192,7 @@ A hypsometric atlas palette: greens, ochres and stone tints read as elevation, w
 - **Ink on Mustard** (#1b1500): text placed on mustard (selection, contact button).
 - Contour lines are Relief Ink at 34% (rgba(27,38,32,.34)); thicker index contours at the 3rd and 5th levels.
 
-Dark mode inverts the map to a night survey: paper #111813, ink #e5eade, bands darkened to deep greens and umbers (#1d3d27 to #8b8f86), contours in pale ink at 26%. It follows the system setting unless `data-theme` forces light or dark.
+The site is light-only by decision: it keeps the same bright daylight palette even when the visitor's device is in dark mode, because the night version read as gloomy. The contact band is a pale lowland green (#d6ebcb) with ink text, and the footer sits on the foothill tint.
 
 ### Named Rules
 **The One Line Rule.** Mustard is the Diagonal. It appears as the dashed line, its legend key, focus and selection, and the single action that ends a visit. It is never a section background, a heading colour or decoration.
