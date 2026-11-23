@@ -143,7 +143,8 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .study .taxon .plain{font-style:normal}
 .study .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .5rem;color:var(--steppe-ink)}
 .study .meta svg{width:14px;height:14px;flex:none;margin-right:-.15rem}
-.study .meta .sep{opacity:.6}
+.study .meta .sep{display:none}
+.study .meta .src{flex-basis:100%;opacity:.85}
 .study p.desc{color:var(--ink-soft);max-width:52ch}
 
 /* publications */
@@ -301,7 +302,7 @@ footer .data{opacity:.8}
       <div class="wrap data">
         <span class="ramp"><span class="en">Lowland</span><span class="tr">Ova</span><span class="sw"><i style="background:var(--b0)"></i><i style="background:var(--b1)"></i><i style="background:var(--b2)"></i><i style="background:var(--b3)"></i><i style="background:var(--b4)"></i><i style="background:var(--b5)"></i><i style="background:var(--b6)"></i></span><span class="en">Alpine</span><span class="tr">Alpin</span></span>
         <span class="dline"><span class="en">Anatolian Diagonal</span><span class="tr">Anadolu Diyagonali</span></span>
-        <span class="note"><span class="en">Relief illustrative</span><span class="tr">Rölyef temsilîdir</span><span class="loc"><span class="en"> · lab at 39.87° N 32.73° E</span><span class="tr"> · lab 39,87° K 32,73° D</span></span></span>
+        <span class="note"><span class="en">Relief illustrative</span><span class="tr">Rölyef temsilîdir</span><span class="loc"><span class="en"> · lab at <span style="white-space:nowrap">39.87° N 32.73° E</span></span><span class="tr"> · lab <span style="white-space:nowrap">39,87° K 32,73° D</span></span></span></span>
       </div>
     </div>
   </section>
