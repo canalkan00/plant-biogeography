@@ -27,6 +27,7 @@
   --on-lowland-soft:#c4d2bd;
   --rule:#c7ccbc;
   --diag:#efb100;
+  --diag-on-low:#f7d26a;
   --leaf:#2d5638;
   --diag-ink:#6a5000;
   /* hypsometric bands, lowland to alpine */
@@ -191,8 +192,8 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .visit{display:grid;gap:1.1rem;border-top:1px solid var(--on-lowland-soft);padding-top:1.1rem}
 .visit .k{font-family:var(--f-map);font-size:.85rem;font-weight:600;color:var(--on-lowland-soft);margin-bottom:.15rem}
 .visit p{color:var(--on-lowland)}
-.visit .data{color:var(--diag)}
-.toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag);min-height:1.4em}
+.visit .data{color:var(--diag-on-low)}
+.toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag-on-low);min-height:1.4em}
 
 footer{background:var(--ink);color:var(--paper)}
 footer .wrap{padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
@@ -585,6 +586,7 @@ footer .data{opacity:.8}
     pal.contour=cs.getPropertyValue('--contour').trim();
     pal.diag=cs.getPropertyValue('--diag').trim();
     pal.ink=cs.getPropertyValue('--ink').trim();
+    pal.paper=cs.getPropertyValue('--paper').trim();
   }
   function hex(h){h=h.replace('#','');if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
   var LEVELS=[.2,.32,.44,.56,.68,.8];
@@ -648,7 +650,7 @@ footer .data{opacity:.8}
     var label=root.dataset.lang==='tr'?'ANADOLU DİYAGONALİ':'ANATOLIAN DIAGONAL';
     c.font='700 '+(W<700?11:13)+'px Archivo, Arial, sans-serif';c.textAlign='center';
     try{c.letterSpacing='3px'}catch(e){}
-    c.lineWidth=4;c.strokeStyle='rgba(247,248,243,.85)';c.strokeText(label,0,-10);c.fillStyle=pal.ink;c.fillText(label,0,-10);
+    c.lineWidth=4;c.strokeStyle=pal.paper;c.strokeText(label,0,-10);c.fillStyle=pal.ink;c.fillText(label,0,-10);
     c.restore();
   }
   function render(time){
