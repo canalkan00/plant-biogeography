@@ -4,23 +4,23 @@ description: A bilingual lab site drawn as a hypsometric relief map of Anatolia,
 colors:
   diagonal-mustard: "#efb100"
   relief-ink: "#1b2620"
-  relief-ink-soft: "#45534a"
-  survey-paper: "#f7f8f3"
-  alpine-stone: "#eceee5"
-  steppe-ochre: "#ebdcae"
-  steppe-ink: "#5c4a1c"
-  foothill-sage: "#d9e3c5"
-  lowland-green: "#2d5638"
-  on-lowland: "#eef2e5"
-  on-lowland-soft: "#c4d2bd"
-  map-rule: "#c7ccbc"
-  band-0-lowland: "#3f6c48"
-  band-1-plain: "#6b9160"
-  band-2-hill: "#a6b97f"
-  band-3-plateau: "#d6cf99"
-  band-4-steppe: "#d6b36b"
-  band-5-upland: "#bf8d58"
-  band-6-alpine: "#ebe7dc"
+  relief-ink-soft: "#4a5a50"
+  survey-paper: "#fdfdf9"
+  alpine-stone: "#f2f5ec"
+  steppe-ochre: "#fbefc8"
+  steppe-ink: "#6b5418"
+  foothill-sage: "#e5f1d3"
+  lowland-green: "#276a3e"
+  on-lowland: "#f3f8ee"
+  on-lowland-soft: "#d2e6cf"
+  map-rule: "#d5dccb"
+  band-0-lowland: "#4f9a5c"
+  band-1-plain: "#86b866"
+  band-2-hill: "#c3d98d"
+  band-3-plateau: "#f2e6a6"
+  band-4-steppe: "#eec27c"
+  band-5-upland: "#d9955f"
+  band-6-alpine: "#fbfaf6"
   ink-on-mustard: "#1b1500"
 typography:
   display:
@@ -154,7 +154,7 @@ components:
 
 The site is a printed survey map of Anatolia that has come slightly alive. The first screen is a full-bleed hypsometric contour field, its tint bands stepping from lowland green through steppe ochre to pale alpine stone, crossed corner to corner by a dashed mustard line: the Anatolian Diagonal. Everything else is map furniture. The lab's name sits in a bordered cartouche, navigation is the map legend (each link keyed by a tint swatch), study groups are annotations with a location pin and a mono place line, and every section below the hero is laid on one tint band of that legend, so scrolling reads as descending from alpine stone to the lowland green of the contact section.
 
-Density is that of a well-set reference sheet: hairline rules between rows, ruled lists instead of cards, wide-set map lettering for region-scale headings, a quiet serif for reading, and small mono coordinates for data. Colour comes from the land, never from a brand accent; the single exception is mustard, which belongs to the Diagonal and to the one action that ends a visit (writing to the lab). Motion is geological: the contour field drifts slowly, isolines lift gently around a pointer or finger, and nothing bounces. With reduced motion the map is drawn once and stays still.
+Density is that of a well-set reference sheet: hairline rules between rows, ruled lists instead of cards, wide-set map lettering for region-scale headings, a quiet serif for reading, and small mono coordinates for data. Colour comes from the land, never from a brand accent; the single exception is mustard, which belongs to the Diagonal and to the one action that ends a visit (writing to the lab). Motion is geological: the land rises once on load and then holds still; it lifts gently around a pointer or finger, and nothing bounces. With reduced motion the map is drawn once and stays still.
 
 Illustration stands in for photography: each team member gets their own small seeded relief tile with a monogram label, which also leaves a slot that a real portrait can replace without redesign.
 
@@ -164,7 +164,7 @@ Illustration stands in for photography: each team member gets their own small se
 - Wide-set uppercase map lettering (Archivo at 125% width) for the name and section titles; Source Serif 4 for reading; Martian Mono for coordinates and years.
 - Ruled rows and hairline borders instead of cards and shadows.
 - Navigation as a legend, buttons as legend keys, sections as tint bands.
-- Slow drift motion; a still map under reduced motion.
+- The land rises once, then holds still; a still map under reduced motion.
 - Every string exists in Turkish and English with equal visual weight.
 
 ## Colors
@@ -175,24 +175,24 @@ A hypsometric atlas palette: greens, ochres and stone tints read as elevation, w
 - **Diagonal Mustard** (#efb100): the Anatolian Diagonal line on the relief (dashed, 3.5px), its legend key, the focus ring, text selection, link underlines, small fills inside line icons, and the contact button on the lowland band. Dark mode lifts it to #f2bb1d.
 
 ### Secondary
-- **Lowland Green** (#2d5638): the contact section's band and the role line under each person's name. It is the bottom of the map, where the page ends.
-- **Steppe Ochre** (#ebdcae) with **Steppe Ink** (#5c4a1c): the research band, and the chips and place lines that sit on it.
-- **Foothill Sage** (#d9e3c5): the people band.
+- **Lowland Green** (#276a3e): the contact section's band and the role line under each person's name. It is the bottom of the map, where the page ends.
+- **Steppe Ochre** (#fbefc8) with **Steppe Ink** (#6b5418): the research band, and the chips and place lines that sit on it.
+- **Foothill Sage** (#e5f1d3): the people band.
 
 ### Tertiary: the hypsometric ramp
-- **Band 0 Lowland** (#3f6c48) through **Band 1 Plain** (#6b9160), **Band 2 Hill** (#a6b97f), **Band 3 Plateau** (#d6cf99), **Band 4 Steppe** (#d6b36b), **Band 5 Upland** (#bf8d58) to **Band 6 Alpine** (#ebe7dc). These seven steps fill the contour field between isolines (six levels), the team tiles and the legend ramp, and key the navigation (About = alpine, Research = steppe, Publications = plateau, People = hill, Contact = lowland). The canvas reads them from CSS at runtime, so a theme change repaints the map.
+- **Band 0 Lowland** (#4f9a5c) through **Band 1 Plain** (#86b866), **Band 2 Hill** (#c3d98d), **Band 3 Plateau** (#f2e6a6), **Band 4 Steppe** (#eec27c), **Band 5 Upland** (#d9955f) to **Band 6 Alpine** (#fbfaf6). These seven steps fill the contour field between isolines (six levels), the team tiles and the legend ramp, and key the navigation (About = alpine, Research = steppe, Publications = plateau, People = hill, Contact = lowland). The canvas reads them from CSS at runtime, so a theme change repaints the map.
 
 ### Neutral
-- **Survey Paper** (#f7f8f3): page ground, cartouche, the publications band and the join panel.
-- **Alpine Stone** (#eceee5): the about band, the active legend entry and hover fills.
+- **Survey Paper** (#fdfdf9): page ground, cartouche, the publications band and the join panel.
+- **Alpine Stone** (#f2f5ec): the about band, the active legend entry and hover fills.
 - **Relief Ink** (#1b2620): text, solid buttons, the 1px frame on cartouche, tiles and ruled-list tops, and the footer ground.
-- **Relief Ink Soft** (#45534a): secondary prose, citations, idle nav links.
-- **Map Rule** (#c7ccbc): row dividers, header underline, toggle borders.
-- **On Lowland** (#eef2e5) / **On Lowland Soft** (#c4d2bd): text and dividers on the lowland band.
+- **Relief Ink Soft** (#4a5a50): secondary prose, citations, idle nav links.
+- **Map Rule** (#d5dccb): row dividers, header underline, toggle borders.
+- **On Lowland** (#f3f8ee) / **On Lowland Soft** (#d2e6cf): text and dividers on the lowland band.
 - **Ink on Mustard** (#1b1500): text placed on mustard (selection, contact button).
 - Contour lines are Relief Ink at 34% (rgba(27,38,32,.34)); thicker index contours at the 3rd and 5th levels.
 
-Dark mode inverts the map to a night survey: paper #111813, ink #e5eade, bands darkened to deep greens and umbers (#16301f to #2b322c), contours in pale ink at 26%. It follows the system setting unless `data-theme` forces light or dark.
+Dark mode inverts the map to a night survey: paper #111813, ink #e5eade, bands darkened to deep greens and umbers (#1d3d27 to #8b8f86), contours in pale ink at 26%. It follows the system setting unless `data-theme` forces light or dark.
 
 ### Named Rules
 **The One Line Rule.** Mustard is the Diagonal. It appears as the dashed line, its legend key, focus and selection, and the single action that ends a visit. It is never a section background, a heading colour or decoration.
@@ -271,7 +271,7 @@ Legend keys: plain, framed, unambiguous.
 The hero title block: paper fill, 1px ink frame, 4px corners, max 38rem, containing the display name, the place line, the one-line thesis and the two actions. It settles into place on load (14px rise over 1.1s).
 
 ### Relief field and legend strip (signature)
-A canvas contour field: seven tint bands, six isolines (index contours heavier), a ridge raised along the Diagonal, drifting slowly and lifting within roughly 95px of the pointer. The Diagonal is drawn on top with an uppercase Archivo label. Below it a mono legend strip carries the tint ramp, the dashed Diagonal key, "Relief illustrative" and the lab's coordinates.
+A canvas shaded-relief map: a continuous hypsometric tint (b0 to b6) with north-west hillshading and faint isolines. A ridged mountain belt follows a schematic, gently bending Anatolian Diagonal from the north-east to the Gulf of İskenderun, with real places marked in their true order along it (Gümüşhane, Erzincan, Malatya, Kahramanmaraş; fewer on phones). The land rises once on load, then holds still and lifts within roughly 90px of the pointer. The Diagonal is a dashed mustard line on a paper halo with an uppercase Archivo label. Below it a mono legend strip carries the tint ramp, the dashed Diagonal key, "Schematic relief" and the lab's coordinates.
 
 ### Study annotation
 A ruled entry on the steppe band: italic taxon title, a description in soft ink (max 52ch), and a mono place line in steppe ink led by a 14px location pin, with the source citation on its own line beneath. Rows divide with steppe ink at 35%.
@@ -291,7 +291,7 @@ A 4:5 tile with a 1px ink frame and 3px corners holding a relief generated from 
 - **Do** separate content with 1px rules: an ink rule to open a list, map-rule lines between rows.
 - **Do** put coordinates, years, place lines and the e-mail address in Martian Mono with tabular numerals.
 - **Do** give every string a Turkish and an English version at the same size and weight.
-- **Do** keep motion slow and continuous (drift, lift, settle on the ease-out curve) and render a still map under reduced motion.
+- **Do** keep motion slow and rare (one rise on load, lift under the pointer, settle on the ease-out curve) and render a still map under reduced motion.
 - **Do** draw new icons as inline 1.6px line SVGs in the contour, pin and specimen vocabulary, with at most a small mustard fill.
 
 ### Don't:

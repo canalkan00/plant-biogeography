@@ -1,7 +1,7 @@
 <title>Plant Biogeography</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
-<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f8f3">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#fdfdf9">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111813">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -10,23 +10,23 @@
 /* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
 :root{
   --ink:#1b2620;
-  --ink-soft:#45534a;
-  --paper:#f7f8f3;
-  --stone:#eceee5;
-  --steppe:#ebdcae;
-  --steppe-ink:#5c4a1c;
-  --foothill:#d9e3c5;
-  --lowland:#2d5638;
-  --on-lowland:#eef2e5;
-  --on-lowland-soft:#c4d2bd;
-  --rule:#c7ccbc;
+  --ink-soft:#4a5a50;
+  --paper:#fdfdf9;
+  --stone:#f2f5ec;
+  --steppe:#fbefc8;
+  --steppe-ink:#6b5418;
+  --foothill:#e5f1d3;
+  --lowland:#276a3e;
+  --on-lowland:#f3f8ee;
+  --on-lowland-soft:#d2e6cf;
+  --rule:#d5dccb;
   --diag:#efb100;
-  --diag-on-low:#f7d26a;
+  --diag-on-low:#fbdc85;
   --leaf:#2d5638;
   --diag-ink:#6a5000;
   /* hypsometric bands, lowland to alpine */
-  --b0:#3f6c48; --b1:#6b9160; --b2:#a6b97f; --b3:#d6cf99; --b4:#d6b36b; --b5:#bf8d58; --b6:#ebe7dc;
-  --contour:rgba(27,38,32,.34);
+  --b0:#4f9a5c; --b1:#86b866; --b2:#c3d98d; --b3:#f2e6a6; --b4:#eec27c; --b5:#d9955f; --b6:#fbfaf6;
+  --contour:rgba(28,42,34,.2);
   --f-map:"Archivo","Arial Narrow",Arial,sans-serif;
   --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
   --f-data:"Martian Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -37,13 +37,13 @@
   --ink:#e5eade; --ink-soft:#a9b5aa; --paper:#111813; --stone:#151e18; --steppe:#26241a; --steppe-ink:#e2cd8f;
   --foothill:#18241b; --lowland:#1e3a28; --on-lowland:#eef2e5; --on-lowland-soft:#b7c7b0; --rule:#2c3a30;
   --diag:#f2bb1d; --diag-ink:#f2bb1d; --leaf:#a6c48a;
-  --b0:#16301f; --b1:#21402a; --b2:#34512f; --b3:#4f5331; --b4:#5f4d2b; --b5:#57422f; --b6:#2b322c;
+  --b0:#1d3d27; --b1:#2c5233; --b2:#456538; --b3:#6a6a3a; --b4:#7a5f33; --b5:#6e5038; --b6:#8b8f86;
   --contour:rgba(229,234,222,.26); color-scheme:dark}}
 :root[data-theme="dark"]{
   --ink:#e5eade; --ink-soft:#a9b5aa; --paper:#111813; --stone:#151e18; --steppe:#26241a; --steppe-ink:#e2cd8f;
   --foothill:#18241b; --lowland:#1e3a28; --on-lowland:#eef2e5; --on-lowland-soft:#b7c7b0; --rule:#2c3a30;
   --diag:#f2bb1d; --diag-ink:#f2bb1d; --leaf:#a6c48a;
-  --b0:#16301f; --b1:#21402a; --b2:#34512f; --b3:#4f5331; --b4:#5f4d2b; --b5:#57422f; --b6:#2b322c;
+  --b0:#1d3d27; --b1:#2c5233; --b2:#456538; --b3:#6a6a3a; --b4:#7a5f33; --b5:#6e5038; --b6:#8b8f86;
   --contour:rgba(229,234,222,.26); color-scheme:dark}
 
 /* bilingual: every string exists as .en and .tr */
@@ -339,7 +339,7 @@ footer .data{opacity:.8}
       <div class="wrap data">
         <span class="ramp"><span class="en">Lowland</span><span class="tr">Ova</span><span class="sw"><i style="background:var(--b0)"></i><i style="background:var(--b1)"></i><i style="background:var(--b2)"></i><i style="background:var(--b3)"></i><i style="background:var(--b4)"></i><i style="background:var(--b5)"></i><i style="background:var(--b6)"></i></span><span class="en">Alpine</span><span class="tr">Alpin</span></span>
         <span class="dline"><span class="en">Anatolian Diagonal</span><span class="tr">Anadolu Diyagonali</span></span>
-        <span class="note"><span class="en">Relief illustrative</span><span class="tr">Rölyef temsilîdir</span><span class="loc"><span class="en"> · lab at <span style="white-space:nowrap">39.87° N 32.73° E</span></span><span class="tr"> · lab <span style="white-space:nowrap">39,87° K 32,73° D</span></span></span></span>
+        <span class="note"><span class="en">Schematic relief</span><span class="tr">Şematik rölyef</span><span class="loc"><span class="en"> · lab at <span style="white-space:nowrap">39.87° N 32.73° E</span></span><span class="tr"> · lab <span style="white-space:nowrap">39,87° K 32,73° D</span></span></span></span>
       </div>
     </div>
   </section>
@@ -904,15 +904,37 @@ footer .data{opacity:.8}
     }}
     ctx.stroke();
   }
-  function bandIndex(v){for(var i=0;i<LEVELS.length;i++)if(v<LEVELS[i])return i;return LEVELS.length}
-  /* bands are filled from the bilinear surface the isolines are traced on, at ~2px, so band edges and contours coincide */
-  function paintBands(ctx,f,cols,rows,cell,off){
-    var k=Math.max(1,Math.round(cell/2)),FW=(cols-1)*k+1,FH=(rows-1)*k+1;
+  /* continuous hypsometric tint: b0 (lowland) .. b6 (alpine snow) */
+  var STOPS=[.12,.26,.38,.5,.62,.74,.88];
+  function tint(v,out){
+    var b=pal.bands;
+    if(v<=STOPS[0]){out[0]=b[0][0];out[1]=b[0][1];out[2]=b[0][2];return}
+    for(var i=1;i<STOPS.length;i++)if(v<STOPS[i]){var t=(v-STOPS[i-1])/(STOPS[i]-STOPS[i-1]),a=b[i-1],c=b[i];out[0]=a[0]+(c[0]-a[0])*t;out[1]=a[1]+(c[1]-a[1])*t;out[2]=a[2]+(c[2]-a[2])*t;return}
+    var l=b[6];out[0]=l[0];out[1]=l[1];out[2]=l[2];
+  }
+  /* hillshade per grid vertex, light from the north-west like a printed relief map */
+  function hillshade(f,cols,rows,cell,exag){
+    var s=new Float32Array(f.length),lx=-.58,ly=-.58,lz=.57;
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      var o=j*cols+i,il=i>0?o-1:o,ir=i<cols-1?o+1:o,ju=j>0?o-cols:o,jd=j<rows-1?o+cols:o;
+      var dx=(f[ir]-f[il])*exag/((ir-il)||1)/cell,dy=(f[jd]-f[ju])*exag/(((jd-ju)/cols)||1)/cell;
+      var nx=-dx,ny=-dy,nz=1,len=Math.sqrt(nx*nx+ny*ny+1);
+      s[o]=(nx*lx+ny*ly+nz*lz)/len;
+    }
+    return s;
+  }
+  /* fill at ~2px from the same bilinear surface the contours are traced on, then shade */
+  function paintBands(ctx,f,cols,rows,cell,off,exag){
+    var sh=hillshade(f,cols,rows,cell,exag||260),base=.57;
+    var k=Math.max(1,Math.round(cell/2)),FW=(cols-1)*k+1,FH=(rows-1)*k+1,c=[0,0,0];
     off.width=FW;off.height=FH;var oc=off.getContext('2d'),img=oc.createImageData(FW,FH),d=img.data,p=0;
     for(var y=0;y<FH;y++){var j=Math.min(rows-2,(y/k)|0),fy=y/k-j;
       for(var x=0;x<FW;x++){var i=Math.min(cols-2,(x/k)|0),fx=x/k-i,o=j*cols+i;
         var v=(f[o]*(1-fx)+f[o+1]*fx)*(1-fy)+(f[o+cols]*(1-fx)+f[o+cols+1]*fx)*fy;
-        var c=pal.bands[bandIndex(v)];d[p]=c[0];d[p+1]=c[1];d[p+2]=c[2];d[p+3]=255;p+=4}}
+        var s=(sh[o]*(1-fx)+sh[o+1]*fx)*(1-fy)+(sh[o+cols]*(1-fx)+sh[o+cols+1]*fx)*fy;
+        var m=1+(s-base)*.95;m=m<.62?.62:m>1.18?1.18:m;
+        tint(v,c);var r=c[0]*m,g=c[1]*m,b=c[2]*m;
+        d[p]=r>255?255:r;d[p+1]=g>255?255:g;d[p+2]=b>255?255:b;d[p+3]=255;p+=4}}
     oc.putImageData(img,0,0);
     ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,FW,FH,0,0,(cols-1)*cell,(rows-1)*cell);
   }
@@ -921,64 +943,101 @@ footer .data{opacity:.8}
   var cv=document.getElementById('relief'),ctx=cv.getContext('2d'),off=document.createElement('canvas');
   var noise=makeNoise(1907),W=0,H=0,dpr=1,cell=14,cols=0,rows=0,field=null,t0=performance.now(),running=false,visible=true,last=0;
   var ptr={x:-9999,y:-9999,a:0,ta:0};
+  /* the Anatolian Diagonal, schematic: from the Pontic ranges in the north-east down to the Gulf of İskenderun.
+     Points are hero-relative (0..1). Places are listed in their real order along it. */
+  var DIAG=[[1.02,-.04],[.9,.1],[.83,.2],[.76,.27],[.7,.37],[.62,.44],[.55,.55],[.47,.63],[.4,.74],[.33,.83],[.24,.97],[.2,1.06]];
+  var PLACES=[{t:.13,en:'Gümüşhane',tr:'Gümüşhane'},{t:.3,en:'Erzincan',tr:'Erzincan'},{t:.5,en:'Malatya',tr:'Malatya'},{t:.68,en:'Kahramanmaraş',tr:'Kahramanmaraş'},{t:.9,en:'Gulf of İskenderun',tr:'İskenderun Körfezi',sea:1}];
+  var dpts=[],dlen=[],dtotal=0;
   function size(){
     var r=cv.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(window.devicePixelRatio||1,2);
     cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
-    cell=W<700?12:15;cols=Math.ceil(W/cell)+2;rows=Math.ceil(H/cell)+2;field=new Float32Array(cols*rows);
+    cell=W<700?10:13;cols=Math.ceil(W/cell)+2;rows=Math.ceil(H/cell)+2;field=new Float32Array(cols*rows);
+    dpts=DIAG.map(function(p){return[p[0]*W,p[1]*H]});dlen=[0];dtotal=0;
+    for(var i=1;i<dpts.length;i++){dtotal+=Math.hypot(dpts[i][0]-dpts[i-1][0],dpts[i][1]-dpts[i-1][1]);dlen.push(dtotal)}
   }
-  function diagDist(x,y){ /* distance to the line from top-right to bottom-left */
-    var x1=W*.98,y1=-H*.02,x2=W*.18,y2=H*1.02,dx=x2-x1,dy=y2-y1;
-    return Math.abs(dy*x-dx*y+x2*y1-y2*x1)/Math.hypot(dx,dy);
+  function diagDist(x,y){
+    var best=1e9;
+    for(var i=1;i<dpts.length;i++){
+      var ax=dpts[i-1][0],ay=dpts[i-1][1],bx=dpts[i][0],by=dpts[i][1],vx=bx-ax,vy=by-ay,t=((x-ax)*vx+(y-ay)*vy)/(vx*vx+vy*vy);
+      t=t<0?0:t>1?1:t;var dx=x-(ax+vx*t),dy=y-(ay+vy*t),dd=dx*dx+dy*dy;if(dd<best)best=dd;
+    }
+    return Math.sqrt(best);
   }
-  function compute(time,amp){
-    var s=W<700?.0026:.0019,drift=time*.000010,ridgeW=Math.max(W,H)*.13;
+  function along(t){ /* point at fraction t of the diagonal */
+    var L=t*dtotal;for(var i=1;i<dpts.length;i++)if(dlen[i]>=L){var u=(L-dlen[i-1])/(dlen[i]-dlen[i-1]);return[dpts[i-1][0]+(dpts[i][0]-dpts[i-1][0])*u,dpts[i-1][1]+(dpts[i][1]-dpts[i-1][1])*u,Math.atan2(dpts[i][1]-dpts[i-1][1],dpts[i][0]-dpts[i-1][0])]}
+    var q=dpts[dpts.length-1];return[q[0],q[1],0];
+  }
+  function compute(amp){
+    var s=W<700?.0034:.0024,rw=Math.max(W*.11,90);
     for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
-      var x=i*cell,y=j*cell,nx=x*s+drift,ny=y*s-drift*.6;
-      var v=noise(nx,ny)*.7+noise(nx*2.1+11,ny*2.1)*.22+noise(nx*4.3+31,ny*4.3)*.08;
-      var dd=diagDist(x,y);v=v*.42+.5;v+=.34*Math.exp(-(dd*dd)/(2*ridgeW*ridgeW))-.12;
-      if(ptr.a>0.001){var px=x-ptr.x,py=y-ptr.y;v+=.2*ptr.a*Math.exp(-(px*px+py*py)/(2*95*95))}
-      field[j*cols+i]=.5+(v-.5)*amp;
+      var x=i*cell,y=j*cell,nx=x*s,ny=y*s;
+      /* rolling steppe plateau */
+      var v=.36+noise(nx,ny)*.14+noise(nx*2.2+11,ny*2.2)*.06+noise(nx*5+3,ny*5)*.025;
+      /* the mountain belt: ridged noise makes sharp crests and valleys along the Diagonal */
+      var dd=diagDist(x,y),belt=Math.exp(-(dd*dd)/(2*rw*rw));
+      var r1=1-Math.abs(noise(nx*2.6+40,ny*2.6)),r2=1-Math.abs(noise(nx*6+70,ny*6+9));
+      v+=belt*(.26+.3*r1*r1+.08*r2*r2);
+      /* lowlands toward the south-west coast */
+      v-=.14*Math.max(0,(y/H)-(x/W)-.2);
+      if(ptr.a>0.001){var px=x-ptr.x,py=y-ptr.y;v+=.16*ptr.a*Math.exp(-(px*px+py*py)/(2*90*90))}
+      field[j*cols+i]=.36+(v-.36)*amp;
     }}
   }
   function drawDiag(c){
-    var x1=W*.98,y1=-H*.02,x2=W*.18,y2=H*1.02;
-    c.save();c.setLineDash([12,9]);c.lineWidth=3.5;c.strokeStyle=pal.diag;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();c.restore();
-    var ang=Math.atan2(y2-y1,x2-x1),t=W<700?.2:.24,lx=x1+(x2-x1)*t,ly=y1+(y2-y1)*t;
-    c.save();c.translate(lx,ly);c.rotate(ang+Math.PI);
-    var label=root.dataset.lang==='tr'?'ANADOLU DİYAGONALİ':'ANATOLIAN DIAGONAL';
-    c.font='700 '+(W<700?11:13)+'px Archivo, Arial, sans-serif';c.textAlign='center';
+    var small=W<700,tr=root.dataset.lang==='tr';
+    c.save();c.lineCap='round';c.lineJoin='round';
+    function path(){c.beginPath();c.moveTo(dpts[0][0],dpts[0][1]);for(var i=1;i<dpts.length-1;i++){var mx=(dpts[i][0]+dpts[i+1][0])/2,my=(dpts[i][1]+dpts[i+1][1])/2;c.quadraticCurveTo(dpts[i][0],dpts[i][1],mx,my)}c.lineTo(dpts[dpts.length-1][0],dpts[dpts.length-1][1])}
+    c.globalAlpha=.55;c.lineWidth=7;c.strokeStyle=pal.paper;path();c.stroke();c.globalAlpha=1;
+    c.setLineDash([14,9]);c.lineWidth=3.5;c.strokeStyle=pal.diag;path();c.stroke();c.setLineDash([]);
+    /* places along the belt */
+    c.font='600 '+(small?11:12.5)+'px Archivo, Arial, sans-serif';c.textBaseline='middle';
+    PLACES.forEach(function(p,n){
+      if(small&&(n===0||n===3))return;
+      var q=along(p.t),label=tr?p.tr:p.en,side=n%2?-1:1,lx=q[0]+side*14,w=c.measureText(label).width;
+      if(side<0)lx-=w;
+      if(lx<6||lx+w>W-6)return;
+      if(p.sea){c.font='italic 500 '+(small?11:12.5)+'px "Source Serif 4", Georgia, serif'}
+      c.beginPath();c.arc(q[0],q[1],p.sea?0:3.6,0,7);c.fillStyle=pal.ink;c.fill();
+      c.lineWidth=3.5;c.strokeStyle=pal.paper;c.strokeText(label,lx,q[1]);c.fillStyle=pal.ink;c.fillText(label,lx,q[1]);
+    });
+    /* belt name, set along the line like map lettering */
+    var q=along(small?.2:.21),label=tr?'ANADOLU DİYAGONALİ':'ANATOLIAN DIAGONAL';
+    c.translate(q[0],q[1]);c.rotate(q[2]+Math.PI);
+    c.font='700 '+(small?11:13)+'px Archivo, Arial, sans-serif';c.textAlign='center';c.textBaseline='alphabetic';
     try{c.letterSpacing='3px'}catch(e){}
-    c.lineWidth=4;c.strokeStyle=pal.paper;c.strokeText(label,0,-10);c.fillStyle=pal.ink;c.fillText(label,0,-10);
+    c.lineWidth=4;c.strokeStyle=pal.paper;c.strokeText(label,0,-12);c.fillStyle=pal.ink;c.fillText(label,0,-12);
     c.restore();
   }
   function render(time){
-    var e=Math.min(1,(time-t0)/1600),amp=reduce?1:1-Math.pow(2,-10*e);
-    ptr.a+=(ptr.ta-ptr.a)*.08;
-    compute(reduce?0:time-t0,amp);
+    var e=Math.min(1,(time-t0)/1500),amp=reduce?1:1-Math.pow(2,-10*e);
+    ptr.a+=(ptr.ta-ptr.a)*.12;
+    compute(amp);
     ctx.setTransform(dpr,0,0,dpr,0,0);
-    paintBands(ctx,field,cols,rows,cell,off);
-    ctx.lineWidth=1;ctx.strokeStyle=pal.contour;
-    for(var l=0;l<LEVELS.length;l++){ctx.lineWidth=l===2||l===4?1.6:.9;isolines(ctx,field,cols,rows,cell,cell,LEVELS[l])}
+    paintBands(ctx,field,cols,rows,cell,off,W<700?220:300);
+    ctx.strokeStyle=pal.contour;
+    for(var l=0;l<LEVELS.length;l++){ctx.lineWidth=l===3?1.2:.7;isolines(ctx,field,cols,rows,cell,cell,LEVELS[l])}
     drawDiag(ctx);
+    return e<1||ptr.ta>0||ptr.a>.01;
   }
+  /* the land rises once, then holds still; it only moves again under the pointer */
   function loop(time){
     if(!running)return;
-    if(time-last>33){last=time;render(time)}
-    requestAnimationFrame(loop);
+    var more=true;if(time-last>33){last=time;more=render(time)}
+    if(more)requestAnimationFrame(loop);else running=false;
   }
   function start(){if(reduce||running||!visible||document.hidden)return;running=true;requestAnimationFrame(loop)}
   function stop(){running=false}
   readPal();size();render(performance.now());start();
-  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;visible?start():stop()}).observe(cv);
-  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
-  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){size();render(performance.now());drawTiles()},120)});
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(!visible)stop()}).observe(cv);
+  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
+  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){size();render(performance.now()+1e6);drawTiles()},120)});
   if(!reduce){
     var hero=cv.parentNode;
-    hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.ta=1},{passive:true});
-    hero.addEventListener('pointerleave',function(){ptr.ta=0},{passive:true});
-    hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse')ptr.ta=0},{passive:true});
+    hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.ta=1;start()},{passive:true});
+    hero.addEventListener('pointerleave',function(){ptr.ta=0;start()},{passive:true});
+    hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse'){ptr.ta=0;start()}},{passive:true});
   }
-  listeners.push(function(){if(!running)render(performance.now())});
+  listeners.push(function(){if(!running)render(performance.now()+1e6)});
 
   /* ---------- team tiles: each person gets their own small relief ---------- */
   function drawTiles(){
@@ -987,16 +1046,16 @@ footer .data{opacity:.8}
       var d=Math.min(window.devicePixelRatio||1,2),w=r.width,h=r.height;c.width=Math.round(w*d);c.height=Math.round(h*d);
       var g=c.getContext('2d'),nz=makeNoise(hash(c.dataset.seed)),ce=6,co=Math.ceil(w/ce)+2,ro=Math.ceil(h/ce)+2,f=new Float32Array(co*ro);
       for(var j=0;j<ro;j++)for(var i=0;i<co;i++){var x=i*ce*.0075,y=j*ce*.0075;f[j*co+i]=(nz(x,y)*.7+nz(x*2.3+5,y*2.3)*.3)*.5+.5}
-      g.setTransform(d,0,0,d,0,0);paintBands(g,f,co,ro,ce,document.createElement('canvas'));
+      g.setTransform(d,0,0,d,0,0);paintBands(g,f,co,ro,ce,document.createElement('canvas'),140);
       g.strokeStyle=pal.contour;g.lineWidth=.9;for(var l=0;l<LEVELS.length;l++)isolines(g,f,co,ro,ce,ce,LEVELS[l]);
     });
   }
   drawTiles();
 
   /* ---------- theme changes ---------- */
-  function retheme(){readPal();render(performance.now());drawTiles()}
+  function retheme(){readPal();render(performance.now()+1e6);drawTiles()}
   matchMedia('(prefers-color-scheme: dark)').addEventListener('change',retheme);
   new MutationObserver(retheme).observe(root,{attributes:true,attributeFilter:['data-theme']});
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(!running)render(performance.now())});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(!running)render(performance.now()+1e6)});
 })();
 </script>

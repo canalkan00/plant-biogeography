@@ -41,7 +41,7 @@
       "relief-ink-soft": {
         "role": "neutral",
         "displayName": "Relief Ink Soft",
-        "canonical": "#45534a",
+        "canonical": "#4a5a50",
         "cssVar": "--ink-soft",
         "dark": "#a9b5aa",
         "tonalRamp": [
@@ -58,7 +58,7 @@
       "survey-paper": {
         "role": "neutral",
         "displayName": "Survey Paper",
-        "canonical": "#f7f8f3",
+        "canonical": "#fdfdf9",
         "cssVar": "--paper",
         "dark": "#111813",
         "tonalRamp": [
@@ -75,7 +75,7 @@
       "alpine-stone": {
         "role": "neutral",
         "displayName": "Alpine Stone",
-        "canonical": "#eceee5",
+        "canonical": "#f2f5ec",
         "cssVar": "--stone",
         "dark": "#151e18",
         "tonalRamp": [
@@ -92,7 +92,7 @@
       "steppe-ochre": {
         "role": "secondary",
         "displayName": "Steppe Ochre",
-        "canonical": "#ebdcae",
+        "canonical": "#fbefc8",
         "cssVar": "--steppe",
         "dark": "#26241a",
         "tonalRamp": [
@@ -109,7 +109,7 @@
       "steppe-ink": {
         "role": "secondary",
         "displayName": "Steppe Ink",
-        "canonical": "#5c4a1c",
+        "canonical": "#6b5418",
         "cssVar": "--steppe-ink",
         "dark": "#e2cd8f",
         "tonalRamp": [
@@ -126,7 +126,7 @@
       "foothill-sage": {
         "role": "secondary",
         "displayName": "Foothill Sage",
-        "canonical": "#d9e3c5",
+        "canonical": "#e5f1d3",
         "cssVar": "--foothill",
         "dark": "#18241b",
         "tonalRamp": [
@@ -143,7 +143,7 @@
       "lowland-green": {
         "role": "secondary",
         "displayName": "Lowland Green",
-        "canonical": "#2d5638",
+        "canonical": "#276a3e",
         "cssVar": "--lowland (also --leaf)",
         "dark": "#1e3a28",
         "tonalRamp": [
@@ -160,9 +160,9 @@
       "on-lowland": {
         "role": "neutral",
         "displayName": "On Lowland",
-        "canonical": "#eef2e5",
+        "canonical": "#f3f8ee",
         "cssVar": "--on-lowland",
-        "dark": "#eef2e5",
+        "dark": "#f3f8ee",
         "tonalRamp": [
           "#0b0c08",
           "#242620",
@@ -177,7 +177,7 @@
       "on-lowland-soft": {
         "role": "neutral",
         "displayName": "On Lowland Soft",
-        "canonical": "#c4d2bd",
+        "canonical": "#d2e6cf",
         "cssVar": "--on-lowland-soft",
         "dark": "#b7c7b0",
         "tonalRamp": [
@@ -194,7 +194,7 @@
       "map-rule": {
         "role": "neutral",
         "displayName": "Map Rule",
-        "canonical": "#c7ccbc",
+        "canonical": "#d5dccb",
         "cssVar": "--rule",
         "dark": "#2c3a30",
         "tonalRamp": [
@@ -211,27 +211,27 @@
       "band-0-lowland": {
         "role": "tertiary",
         "displayName": "Band 0 Lowland",
-        "canonical": "#3f6c48",
+        "canonical": "#4f9a5c",
         "cssVar": "--b0",
-        "dark": "#16301f",
+        "dark": "#1d3d27",
         "tonalRamp": [
-          "#3f6c48",
-          "#6b9160",
-          "#a6b97f",
-          "#d6cf99",
-          "#d6b36b",
-          "#bf8d58",
-          "#ebe7dc",
-          "#f7f8f3"
+          "#4f9a5c",
+          "#86b866",
+          "#c3d98d",
+          "#f2e6a6",
+          "#eec27c",
+          "#d9955f",
+          "#fbfaf6",
+          "#fdfdf9"
         ],
         "note": "The hypsometric ramp is the project-defined scale (--b0..--b6); shown here with survey paper as the eighth step."
       },
       "band-1-plain": {
         "role": "tertiary",
         "displayName": "Band 1 Plain",
-        "canonical": "#6b9160",
+        "canonical": "#86b866",
         "cssVar": "--b1",
-        "dark": "#21402a",
+        "dark": "#2c5233",
         "tonalRamp": [
           "#030f01",
           "#172b11",
@@ -246,9 +246,9 @@
       "band-2-hill": {
         "role": "tertiary",
         "displayName": "Band 2 Hill",
-        "canonical": "#a6b97f",
+        "canonical": "#c3d98d",
         "cssVar": "--b2",
-        "dark": "#34512f",
+        "dark": "#456538",
         "tonalRamp": [
           "#080e00",
           "#202909",
@@ -263,9 +263,9 @@
       "band-3-plateau": {
         "role": "tertiary",
         "displayName": "Band 3 Plateau",
-        "canonical": "#d6cf99",
+        "canonical": "#f2e6a6",
         "cssVar": "--b3",
-        "dark": "#4f5331",
+        "dark": "#6a6a3a",
         "tonalRamp": [
           "#0e0b00",
           "#2a2608",
@@ -280,9 +280,9 @@
       "band-4-steppe": {
         "role": "tertiary",
         "displayName": "Band 4 Steppe",
-        "canonical": "#d6b36b",
+        "canonical": "#eec27c",
         "cssVar": "--b4",
-        "dark": "#5f4d2b",
+        "dark": "#7a5f33",
         "tonalRamp": [
           "#110a00",
           "#312200",
@@ -297,9 +297,9 @@
       "band-5-upland": {
         "role": "tertiary",
         "displayName": "Band 5 Upland",
-        "canonical": "#bf8d58",
+        "canonical": "#d9955f",
         "cssVar": "--b5",
-        "dark": "#57422f",
+        "dark": "#6e5038",
         "tonalRamp": [
           "#140800",
           "#381e00",
@@ -314,9 +314,9 @@
       "band-6-alpine": {
         "role": "tertiary",
         "displayName": "Band 6 Alpine",
-        "canonical": "#ebe7dc",
+        "canonical": "#fbfaf6",
         "cssVar": "--b6",
-        "dark": "#2b322c",
+        "dark": "#8b8f86",
         "tonalRamp": [
           "#0c0b08",
           "#272520",
@@ -501,7 +501,7 @@
       "refersTo": "button-solid",
       "description": "Primary legend-key action: ink fill, paper text.",
       "html": "<a class=\"ds-btn-solid\" href=\"#\">See our research <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><path d=\"M12 5v14m0 0 6-6m-6 6-6-6\"/></svg></a>",
-      "css": ".ds-btn-solid{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink,#1b2620);cursor:pointer;transition:transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color .16s,color .16s;background:var(--ink,#1b2620);color:var(--paper,#f7f8f3);}.ds-btn-solid:hover{background:color-mix(in srgb,var(--ink,#1b2620) 86%,var(--b0,#3f6c48));}.ds-btn-solid:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-btn-solid:active{transform:scale(.97);}"
+      "css": ".ds-btn-solid{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink,#1b2620);cursor:pointer;transition:transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color .16s,color .16s;background:var(--ink,#1b2620);color:var(--paper,#fdfdf9);}.ds-btn-solid:hover{background:color-mix(in srgb,var(--ink,#1b2620) 86%,var(--b0,#4f9a5c));}.ds-btn-solid:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-btn-solid:active{transform:scale(.97);}"
     },
     {
       "name": "Line Button",
@@ -517,7 +517,7 @@
       "refersTo": "button-contact",
       "description": "The one mustard action, on the lowland contact band.",
       "html": "<div class=\"ds-lowland\"><a class=\"ds-btn-contact\" href=\"#\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.8\" aria-hidden=\"true\"><rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"1.5\"/><path d=\"m4 6 8 7 8-7\"/></svg> Send an e-mail</a></div>",
-      "css": ".ds-lowland{background:var(--lowland,#2d5638);padding:1.5rem;}.ds-btn-contact{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink,#1b2620);cursor:pointer;transition:transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color .16s,color .16s;background:var(--diag,#efb100);border-color:var(--diag,#efb100);color:#1b1500;}.ds-btn-contact:hover{background:#ffc928;}.ds-btn-contact:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-btn-contact:active{transform:scale(.97);}"
+      "css": ".ds-lowland{background:var(--lowland,#276a3e);padding:1.5rem;}.ds-btn-contact{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink,#1b2620);cursor:pointer;transition:transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1)),background-color .16s,color .16s;background:var(--diag,#efb100);border-color:var(--diag,#efb100);color:#1b1500;}.ds-btn-contact:hover{background:#ffc928;}.ds-btn-contact:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-btn-contact:active{transform:scale(.97);}"
     },
     {
       "name": "Filter Chip",
@@ -525,15 +525,15 @@
       "refersTo": "chip",
       "description": "Study-group filter on the steppe band; selected state is ink-filled.",
       "html": "<div class=\"ds-steppe\"><button class=\"ds-chip\" aria-pressed=\"true\">All</button> <button class=\"ds-chip\" aria-pressed=\"false\">Phylogeny &amp; biogeography</button></div>",
-      "css": ".ds-steppe{background:var(--steppe,#ebdcae);padding:1.25rem;display:flex;gap:.45rem;flex-wrap:wrap;}.ds-chip{display:inline-flex;align-items:center;min-height:2.5rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--steppe-ink,#5c4a1c);background:transparent;color:var(--steppe-ink,#5c4a1c);font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.9rem;font-weight:500;cursor:pointer;transition:background-color .16s,color .16s,transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-chip:hover:not([aria-pressed=\"true\"]){background:color-mix(in srgb,var(--steppe-ink,#5c4a1c) 12%,transparent);}.ds-chip[aria-pressed=\"true\"]{background:var(--ink,#1b2620);border-color:var(--ink,#1b2620);color:var(--paper,#f7f8f3);}.ds-chip:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-chip:active{transform:scale(.97);}"
+      "css": ".ds-steppe{background:var(--steppe,#fbefc8);padding:1.25rem;display:flex;gap:.45rem;flex-wrap:wrap;}.ds-chip{display:inline-flex;align-items:center;min-height:2.5rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--steppe-ink,#6b5418);background:transparent;color:var(--steppe-ink,#6b5418);font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.9rem;font-weight:500;cursor:pointer;transition:background-color .16s,color .16s,transform .12s var(--ease-out,cubic-bezier(.16,1,.3,1));}.ds-chip:hover:not([aria-pressed=\"true\"]){background:color-mix(in srgb,var(--steppe-ink,#6b5418) 12%,transparent);}.ds-chip[aria-pressed=\"true\"]{background:var(--ink,#1b2620);border-color:var(--ink,#1b2620);color:var(--paper,#fdfdf9);}.ds-chip:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-chip:active{transform:scale(.97);}"
     },
     {
       "name": "Legend Navigation",
       "kind": "nav",
       "refersTo": "nav-link",
       "description": "Header navigation as a map legend: tint swatch plus label; active entry on stone. TR/EN toggle beside it.",
-      "html": "<nav class=\"ds-nav\"><a href=\"#\"><span class=\"k\" style=\"background:var(--b6,#ebe7dc)\"></span>About</a><a href=\"#\" class=\"on\"><span class=\"k\" style=\"background:var(--b4,#d6b36b)\"></span>Research</a><a href=\"#\"><span class=\"k\" style=\"background:var(--b3,#d6cf99)\"></span>Publications</a><a href=\"#\"><span class=\"k\" style=\"background:var(--b0,#3f6c48)\"></span>Contact</a><span class=\"ds-lang\"><button aria-pressed=\"false\">TR</button><button aria-pressed=\"true\">EN</button></span></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:.15rem;padding:.6rem 1rem;background:var(--paper,#f7f8f3);border-bottom:1px solid var(--rule,#c7ccbc);}.ds-nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.9rem;font-weight:500;color:var(--ink-soft,#45534a);transition:background-color .16s var(--ease-out,cubic-bezier(.16,1,.3,1)),color .16s;}.ds-nav a .k{width:.7rem;height:.7rem;border-radius:2px;border:1px solid var(--rule,#c7ccbc);}.ds-nav a:hover,.ds-nav a.on{background:var(--stone,#eceee5);color:var(--ink,#1b2620);}.ds-nav a:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-lang{display:inline-flex;margin-left:auto;border:1px solid var(--rule,#c7ccbc);border-radius:7px;overflow:hidden;}.ds-lang button{border:0;background:transparent;color:var(--ink-soft,#45534a);font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;}.ds-lang button+button{border-left:1px solid var(--rule,#c7ccbc);}.ds-lang button[aria-pressed=\"true\"]{background:var(--ink,#1b2620);color:var(--paper,#f7f8f3);}.ds-lang button:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}"
+      "html": "<nav class=\"ds-nav\"><a href=\"#\"><span class=\"k\" style=\"background:var(--b6,#fbfaf6)\"></span>About</a><a href=\"#\" class=\"on\"><span class=\"k\" style=\"background:var(--b4,#eec27c)\"></span>Research</a><a href=\"#\"><span class=\"k\" style=\"background:var(--b3,#f2e6a6)\"></span>Publications</a><a href=\"#\"><span class=\"k\" style=\"background:var(--b0,#4f9a5c)\"></span>Contact</a><span class=\"ds-lang\"><button aria-pressed=\"false\">TR</button><button aria-pressed=\"true\">EN</button></span></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;gap:.15rem;padding:.6rem 1rem;background:var(--paper,#fdfdf9);border-bottom:1px solid var(--rule,#d5dccb);}.ds-nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.9rem;font-weight:500;color:var(--ink-soft,#4a5a50);transition:background-color .16s var(--ease-out,cubic-bezier(.16,1,.3,1)),color .16s;}.ds-nav a .k{width:.7rem;height:.7rem;border-radius:2px;border:1px solid var(--rule,#d5dccb);}.ds-nav a:hover,.ds-nav a.on{background:var(--stone,#f2f5ec);color:var(--ink,#1b2620);}.ds-nav a:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}.ds-lang{display:inline-flex;margin-left:auto;border:1px solid var(--rule,#d5dccb);border-radius:7px;overflow:hidden;}.ds-lang button{border:0;background:transparent;color:var(--ink-soft,#4a5a50);font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;}.ds-lang button+button{border-left:1px solid var(--rule,#d5dccb);}.ds-lang button[aria-pressed=\"true\"]{background:var(--ink,#1b2620);color:var(--paper,#fdfdf9);}.ds-lang button:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}"
     },
     {
       "name": "Cartouche",
@@ -541,28 +541,28 @@
       "refersTo": "cartouche",
       "description": "Hero title block framed like printed map furniture over the relief.",
       "html": "<div class=\"ds-field\"><div class=\"ds-cartouche\"><h1>Plant<br>Biogeography</h1><p class=\"pl\">Laboratory · Hacettepe University, Ankara</p><p class=\"th\">We study how the mustard family, <i>Brassicaceae</i>, came to live where it lives across Anatolia.</p></div></div>",
-      "css": ".ds-field{padding:2rem 1rem;background:repeating-radial-gradient(circle at 70% 40%,var(--b2,#a6b97f) 0 22px,var(--b3,#d6cf99) 22px 44px,var(--b4,#d6b36b) 44px 66px);}.ds-cartouche{max-width:30rem;background:var(--paper,#f7f8f3);color:var(--ink,#1b2620);border:1px solid var(--ink,#1b2620);border-radius:4px;padding:1.6rem;display:grid;gap:1rem;}.ds-cartouche h1{margin:0;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:.02em;line-height:.95;font-size:2.6rem;}.ds-cartouche .pl{margin:0;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.95rem;color:var(--ink-soft,#45534a);}.ds-cartouche .th{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);font-size:1.3rem;line-height:1.4;max-width:30ch;}"
+      "css": ".ds-field{padding:2rem 1rem;background:repeating-radial-gradient(circle at 70% 40%,var(--b2,#c3d98d) 0 22px,var(--b3,#f2e6a6) 22px 44px,var(--b4,#eec27c) 44px 66px);}.ds-cartouche{max-width:30rem;background:var(--paper,#fdfdf9);color:var(--ink,#1b2620);border:1px solid var(--ink,#1b2620);border-radius:4px;padding:1.6rem;display:grid;gap:1rem;}.ds-cartouche h1{margin:0;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-weight:800;font-stretch:125%;text-transform:uppercase;letter-spacing:.02em;line-height:.95;font-size:2.6rem;}.ds-cartouche .pl{margin:0;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);font-size:.95rem;color:var(--ink-soft,#4a5a50);}.ds-cartouche .th{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);font-size:1.3rem;line-height:1.4;max-width:30ch;}"
     },
     {
       "name": "Legend Strip",
       "kind": "custom",
       "description": "Mono strip along the hero bottom: tint ramp, dashed Diagonal key, coordinates.",
-      "html": "<div class=\"ds-legend\"><span class=\"r\">Lowland <span class=\"sw\"><i style=\"background:var(--b0,#3f6c48)\"></i><i style=\"background:var(--b1,#6b9160)\"></i><i style=\"background:var(--b2,#a6b97f)\"></i><i style=\"background:var(--b3,#d6cf99)\"></i><i style=\"background:var(--b4,#d6b36b)\"></i><i style=\"background:var(--b5,#bf8d58)\"></i><i style=\"background:var(--b6,#ebe7dc)\"></i></span> Alpine</span><span class=\"d\">Anatolian Diagonal</span><span>Relief illustrative · lab at 39.87° N 32.73° E</span></div>",
-      "css": ".ds-legend{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.4rem;padding:.6rem 1rem;background:color-mix(in srgb,var(--paper,#f7f8f3) 90%,transparent);border-top:1px solid var(--ink,#1b2620);font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.78rem;letter-spacing:.02em;font-variant-numeric:tabular-nums;color:var(--ink-soft,#45534a);}.ds-legend .r,.ds-legend .d{display:flex;align-items:center;gap:.5rem;}.ds-legend .sw{display:flex;height:.7rem;width:7.5rem;border:1px solid var(--ink,#1b2620);border-radius:1px;overflow:hidden;}.ds-legend .sw i{flex:1;}.ds-legend .d::before{content:\"\";width:1.8rem;border-top:3px dashed var(--diag,#efb100);}"
+      "html": "<div class=\"ds-legend\"><span class=\"r\">Lowland <span class=\"sw\"><i style=\"background:var(--b0,#4f9a5c)\"></i><i style=\"background:var(--b1,#86b866)\"></i><i style=\"background:var(--b2,#c3d98d)\"></i><i style=\"background:var(--b3,#f2e6a6)\"></i><i style=\"background:var(--b4,#eec27c)\"></i><i style=\"background:var(--b5,#d9955f)\"></i><i style=\"background:var(--b6,#fbfaf6)\"></i></span> Alpine</span><span class=\"d\">Anatolian Diagonal</span><span>Relief illustrative · lab at 39.87° N 32.73° E</span></div>",
+      "css": ".ds-legend{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.4rem;padding:.6rem 1rem;background:color-mix(in srgb,var(--paper,#fdfdf9) 90%,transparent);border-top:1px solid var(--ink,#1b2620);font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.78rem;letter-spacing:.02em;font-variant-numeric:tabular-nums;color:var(--ink-soft,#4a5a50);}.ds-legend .r,.ds-legend .d{display:flex;align-items:center;gap:.5rem;}.ds-legend .sw{display:flex;height:.7rem;width:7.5rem;border:1px solid var(--ink,#1b2620);border-radius:1px;overflow:hidden;}.ds-legend .sw i{flex:1;}.ds-legend .d::before{content:\"\";width:1.8rem;border-top:3px dashed var(--diag,#efb100);}"
     },
     {
       "name": "Study Annotation",
       "kind": "custom",
       "description": "Ruled research entry: italic taxon, description, mono place line with pin.",
       "html": "<article class=\"ds-study\"><h3>Noccaea iberidea</h3><p class=\"d\">Niche models and phylogeography trace how a plant of Anatolia's high steppe moved through the Quaternary.</p><p class=\"m\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 16 16\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" aria-hidden=\"true\"><path d=\"M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z\"/><circle cx=\"8\" cy=\"7\" r=\"1.6\"/></svg> Subalpine–alpine steppe · Anatolia</p></article>",
-      "css": ".ds-study{display:grid;gap:.6rem;padding:1.6rem 1rem;background:var(--steppe,#ebdcae);border-top:1px solid var(--ink,#1b2620);border-bottom:1px solid color-mix(in srgb,var(--steppe-ink,#5c4a1c) 35%,transparent);}.ds-study h3{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);font-style:italic;font-weight:600;font-size:1.8rem;line-height:1.1;color:var(--ink,#1b2620);}.ds-study .d{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);color:var(--ink-soft,#45534a);max-width:52ch;line-height:1.6;}.ds-study .m{margin:0;display:flex;align-items:center;gap:.35rem;font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.78rem;letter-spacing:.02em;color:var(--steppe-ink,#5c4a1c);}"
+      "css": ".ds-study{display:grid;gap:.6rem;padding:1.6rem 1rem;background:var(--steppe,#fbefc8);border-top:1px solid var(--ink,#1b2620);border-bottom:1px solid color-mix(in srgb,var(--steppe-ink,#6b5418) 35%,transparent);}.ds-study h3{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);font-style:italic;font-weight:600;font-size:1.8rem;line-height:1.1;color:var(--ink,#1b2620);}.ds-study .d{margin:0;font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);color:var(--ink-soft,#4a5a50);max-width:52ch;line-height:1.6;}.ds-study .m{margin:0;display:flex;align-items:center;gap:.35rem;font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.78rem;letter-spacing:.02em;color:var(--steppe-ink,#6b5418);}"
     },
     {
       "name": "Publication Row",
       "kind": "custom",
       "description": "Ruled citation row with a mono year column.",
       "html": "<ol class=\"ds-pubs\"><li><span class=\"y\">2022</span><div><p class=\"t\">Ecological specialization promotes diversity and diversification in the Eastern Mediterranean genus <i>Ricotia</i> (Brassicaceae)</p><p class=\"a\">Özüdoğru B. et al.</p><p class=\"a\"><i>Journal of Systematics and Evolution</i> 60(2): 331–343 · <a href=\"#\">doi:10.1111/jse.12749</a></p></div></li></ol>",
-      "css": ".ds-pubs{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink,#1b2620);font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);color:var(--ink,#1b2620);}.ds-pubs li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid var(--rule,#c7ccbc);}.ds-pubs .y{font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.95rem;padding-top:.15rem;}.ds-pubs p{margin:0;}.ds-pubs .t{font-size:1.08rem;font-weight:600;line-height:1.35;}.ds-pubs .a{color:var(--ink-soft,#45534a);font-size:.95rem;margin-top:.3rem;}.ds-pubs a{color:inherit;text-decoration-color:var(--diag,#efb100);text-decoration-thickness:2px;text-underline-offset:4px;overflow-wrap:anywhere;}.ds-pubs a:hover{text-decoration-thickness:3px;}.ds-pubs a:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}"
+      "css": ".ds-pubs{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink,#1b2620);font-family:var(--f-text,\"Source Serif 4\",Georgia,serif);color:var(--ink,#1b2620);}.ds-pubs li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid var(--rule,#d5dccb);}.ds-pubs .y{font-family:var(--f-data,\"Martian Mono\",ui-monospace,Menlo,monospace);font-size:.95rem;padding-top:.15rem;}.ds-pubs p{margin:0;}.ds-pubs .t{font-size:1.08rem;font-weight:600;line-height:1.35;}.ds-pubs .a{color:var(--ink-soft,#4a5a50);font-size:.95rem;margin-top:.3rem;}.ds-pubs a{color:inherit;text-decoration-color:var(--diag,#efb100);text-decoration-thickness:2px;text-underline-offset:4px;overflow-wrap:anywhere;}.ds-pubs a:hover{text-decoration-thickness:3px;}.ds-pubs a:focus-visible{outline:2px solid var(--diag,#efb100);outline-offset:3px;}"
     },
     {
       "name": "Team Tile",
@@ -570,7 +570,7 @@
       "refersTo": "team-tile",
       "description": "Seeded relief portrait placeholder with a monogram label; a real photo takes the same frame.",
       "html": "<div class=\"ds-member\"><div class=\"ds-tile\"><span>İD</span></div><h3>İlayda Dumlupınar</h3><p>PhD student</p></div>",
-      "css": ".ds-member{display:grid;gap:.65rem;width:11rem;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);}.ds-tile{position:relative;aspect-ratio:4/5;border:1px solid var(--ink,#1b2620);border-radius:3px;overflow:hidden;background:repeating-radial-gradient(circle at 35% 45%,var(--b2,#a6b97f) 0 12px,var(--b3,#d6cf99) 12px 24px,var(--b1,#6b9160) 24px 36px);}.ds-tile span{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper,#f7f8f3);color:var(--ink,#1b2620);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border:1px solid var(--ink,#1b2620);border-radius:2px;}.ds-member h3{margin:0;font-size:1.05rem;font-weight:700;line-height:1.2;color:var(--ink,#1b2620);}.ds-member p{margin:0;font-size:.88rem;font-weight:600;color:var(--leaf,#2d5638);}"
+      "css": ".ds-member{display:grid;gap:.65rem;width:11rem;font-family:var(--f-map,\"Archivo\",\"Arial Narrow\",Arial,sans-serif);}.ds-tile{position:relative;aspect-ratio:4/5;border:1px solid var(--ink,#1b2620);border-radius:3px;overflow:hidden;background:repeating-radial-gradient(circle at 35% 45%,var(--b2,#c3d98d) 0 12px,var(--b3,#f2e6a6) 12px 24px,var(--b1,#86b866) 24px 36px);}.ds-tile span{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper,#fdfdf9);color:var(--ink,#1b2620);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border:1px solid var(--ink,#1b2620);border-radius:2px;}.ds-member h3{margin:0;font-size:1.05rem;font-weight:700;line-height:1.2;color:var(--ink,#1b2620);}.ds-member p{margin:0;font-size:.88rem;font-weight:600;color:var(--leaf,#276a3e);}"
     }
   ],
   "narrative": {
