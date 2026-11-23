@@ -1,199 +1,250 @@
 <title>Plant Biogeography</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae in Anatolia.">
+<meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f8f3">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111813">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Martian+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: herbarium sheet — one centered column, each section opens with a specimen-label header; mustard of Brassica petals on cool paper and deep olive ink */
+/* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
 :root{
-  --paper:#f6f7f2;
-  --sheet:#ffffff;
-  --ink:#1d2a1f;
-  --ink-soft:#4c5a4e;
-  --line:#d8ddd0;
-  --mustard:#c99a06;
-  --mustard-ink:#7a5c00;
-  --olive:#3f5a2a;
-  --olive-tint:#e7eddc;
-  --f-display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --f-body:"Public Sans", "Helvetica Neue", Arial, sans-serif;
-  --f-mono:"JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --s-1:.8125rem; --s0:1rem; --s1:1.25rem; --s2:1.6rem; --s3:clamp(1.75rem,5vw,2.25rem); --s4:clamp(2.3rem,7vw,4.75rem);
+  --ink:#1b2620;
+  --ink-soft:#45534a;
+  --paper:#f7f8f3;
+  --stone:#eceee5;
+  --steppe:#ebdcae;
+  --steppe-ink:#5c4a1c;
+  --foothill:#d9e3c5;
+  --lowland:#2d5638;
+  --on-lowland:#eef2e5;
+  --on-lowland-soft:#c4d2bd;
+  --rule:#c7ccbc;
+  --diag:#efb100;
+  --leaf:#2d5638;
+  --diag-ink:#6a5000;
+  /* hypsometric bands, lowland to alpine */
+  --b0:#3f6c48; --b1:#6b9160; --b2:#a6b97f; --b3:#d6cf99; --b4:#d6b36b; --b5:#bf8d58; --b6:#ebe7dc;
+  --contour:rgba(27,38,32,.34);
+  --f-map:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-data:"Martian Mono",ui-monospace,Menlo,Consolas,monospace;
+  --step--1:.84rem; --step0:1.0625rem; --step1:1.3rem; --step2:clamp(1.55rem,3.6vw,2.1rem); --step3:clamp(2rem,5.4vw,3.2rem); --step4:clamp(2.1rem,7.4vw,4.6rem);
+  --ease-out:cubic-bezier(.16,1,.3,1);
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --paper:#111712; --sheet:#182019; --ink:#e8ede2; --ink-soft:#a9b5a6; --line:#2e3a2f;
-  --mustard:#f0bf2a; --mustard-ink:#f0bf2a; --olive:#a6c48a; --olive-tint:#1f2b1f; color-scheme:dark}}
+  --ink:#e5eade; --ink-soft:#a9b5aa; --paper:#111813; --stone:#151e18; --steppe:#26241a; --steppe-ink:#e2cd8f;
+  --foothill:#18241b; --lowland:#1e3a28; --on-lowland:#eef2e5; --on-lowland-soft:#b7c7b0; --rule:#2c3a30;
+  --diag:#f2bb1d; --diag-ink:#f2bb1d; --leaf:#a6c48a;
+  --b0:#16301f; --b1:#21402a; --b2:#34512f; --b3:#4f5331; --b4:#5f4d2b; --b5:#57422f; --b6:#2b322c;
+  --contour:rgba(229,234,222,.26); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --paper:#111712; --sheet:#182019; --ink:#e8ede2; --ink-soft:#a9b5a6; --line:#2e3a2f;
-  --mustard:#f0bf2a; --mustard-ink:#f0bf2a; --olive:#a6c48a; --olive-tint:#1f2b1f; color-scheme:dark}
+  --ink:#e5eade; --ink-soft:#a9b5aa; --paper:#111813; --stone:#151e18; --steppe:#26241a; --steppe-ink:#e2cd8f;
+  --foothill:#18241b; --lowland:#1e3a28; --on-lowland:#eef2e5; --on-lowland-soft:#b7c7b0; --rule:#2c3a30;
+  --diag:#f2bb1d; --diag-ink:#f2bb1d; --leaf:#a6c48a;
+  --b0:#16301f; --b1:#21402a; --b2:#34512f; --b3:#4f5331; --b4:#5f4d2b; --b5:#57422f; --b6:#2b322c;
+  --contour:rgba(229,234,222,.26); color-scheme:dark}
 
-/* language switching: every text exists twice, .en and .tr */
+/* bilingual: every string exists as .en and .tr */
 :root:not([data-lang="tr"]) .tr{display:none!important}
 :root[data-lang="tr"] .en{display:none!important}
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:4.75rem}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:var(--s0);line-height:1.6;-webkit-text-size-adjust:100%}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
-a{color:var(--olive);text-underline-offset:3px}
-a:focus-visible,button:focus-visible{outline:2px solid var(--mustard);outline-offset:3px;border-radius:2px}
-h1,h2,h3{font-family:var(--f-display);line-height:1.1;text-wrap:balance;margin:0}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:var(--step0);line-height:1.6;font-optical-sizing:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+::selection{background:var(--diag);color:#1b1500}
+:focus-visible{outline:2px solid var(--diag);outline-offset:3px}
+html{scrollbar-color:var(--rule) transparent}
+a{color:inherit;text-decoration-color:var(--diag);text-decoration-thickness:2px;text-underline-offset:4px}
+h1,h2,h3{margin:0;font-family:var(--f-map);font-weight:700;line-height:1.05;text-wrap:balance;font-stretch:112%}
 p{margin:0}
-.wrap{max-width:68rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.label{font-family:var(--f-mono);font-size:var(--s-1);letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft)}
-.prose{max-width:62ch;display:grid;gap:1rem;color:var(--ink-soft)}
+i,em{font-style:italic}
+.wrap{max-width:72rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.data{font-family:var(--f-data);font-size:.78rem;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+button,a.btn,[role="button"]{touch-action:manipulation}
+button{-webkit-user-select:none;user-select:none;font:inherit}
+
+/* ---------- header: the map legend ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}
+.top .bar{display:flex;align-items:center;gap:1rem;min-height:3.75rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto;min-width:0}
+.brand svg{width:30px;height:30px;flex:none}
+.brand b{font-family:var(--f-map);font-weight:700;font-stretch:125%;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;line-height:1.15;white-space:nowrap}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.15rem}
+.nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map);font-size:.9rem;font-weight:500;color:var(--ink-soft);white-space:nowrap;transition:background-color .16s var(--ease-out),color .16s}
+.nav a .key{width:.7rem;height:.7rem;border-radius:2px;border:1px solid var(--rule);flex:none}
+.nav a.on{color:var(--ink);background:var(--stone)}
+.nav .sheet-mail{display:none}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:7px;overflow:hidden;flex:none}
+.lang button{border:0;background:transparent;color:var(--ink-soft);font-family:var(--f-data);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;transition:background-color .14s,color .14s}
+.lang button+button{border-left:1px solid var(--rule)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.menu-btn{display:none;width:2.75rem;height:2.75rem;border:1px solid var(--rule);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer;place-items:center;flex:none}
+.menu-btn svg{width:20px;height:20px}
+.menu-btn .x,.top.open .menu-btn .burger{display:none}
+.top.open .menu-btn .x{display:block}
+
+/* ---------- hero: the relief field ---------- */
+.hero{position:relative;min-height:clamp(36rem,88svh,54rem);display:grid;align-items:center;overflow:hidden;background:var(--b3);isolation:isolate}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;touch-action:pan-y}
+.hero>.wrap{width:100%;padding-block:3rem 5.5rem}
+.cartouche{max-width:38rem;background:var(--paper);border:1px solid var(--ink);border-radius:4px;padding:clamp(1.4rem,3.5vw,2.4rem);display:grid;container-type:inline-size;gap:1.1rem;animation:settle 1.1s var(--ease-out) both .15s}
+@keyframes settle{from{transform:translateY(14px)}to{transform:none}}
+.cartouche h1{font-size:clamp(1.6rem,7.4vw,3.3rem);font-size:min(9.2cqi,3.6rem);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.02em;line-height:.95}
+.cartouche .place{font-family:var(--f-map);font-size:.95rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:.2rem .75rem}
+.cartouche .thesis{font-size:var(--step1);line-height:1.4;max-width:30ch}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;white-space:nowrap;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .12s var(--ease-out),background-color .16s,color .16s;-webkit-user-select:none;user-select:none}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.legend{position:absolute;left:0;right:0;bottom:0;background:color-mix(in srgb,var(--paper) 90%,transparent);border-top:1px solid var(--ink)}
+.legend .wrap{padding-block:.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.4rem;color:var(--ink-soft)}
+.legend .ramp{display:flex;align-items:center;gap:.5rem}
+.legend .ramp span.sw{display:flex;height:.7rem;width:7.5rem;border:1px solid var(--ink);border-radius:1px;overflow:hidden}
+.legend .ramp span.sw i{flex:1}
+.legend .dline{display:flex;align-items:center;gap:.5rem}
+.legend .dline::before{content:"";width:1.8rem;border-top:3px dashed var(--diag)}
+.legend .note{margin-left:auto}
+
+/* ---------- sections on tint bands ---------- */
+section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp(1.75rem,4vw,2.75rem)}
+.band-stone{background:var(--stone)}
+.band-paper{background:var(--paper)}
+.band-steppe{background:var(--steppe)}
+.band-foothill{background:var(--foothill)}
+.band-lowland{background:var(--lowland);color:var(--on-lowland)}
+.sec-title{font-size:clamp(1.8rem,4.8vw,2.9rem);max-width:22ch;font-stretch:125%;letter-spacing:.012em}
+.lede{font-size:var(--step1);line-height:1.45;max-width:40ch}
+.prose{display:grid;gap:1rem;max-width:66ch;color:var(--ink-soft)}
 .prose strong{color:var(--ink);font-weight:600}
 
-/* header */
-header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:color-mix(in srgb,var(--paper) 92%,transparent);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-header.top .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:.7rem}
-.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink);font-family:var(--f-display);font-weight:600;font-size:1.05rem;white-space:nowrap}
-.brand svg{width:28px;height:28px;flex:none}
-.right{display:flex;align-items:center;gap:.5rem}
-nav ul{display:flex;gap:.25rem;list-style:none;margin:0;padding:0}
-nav a{display:block;padding:.35rem .7rem;border-radius:999px;text-decoration:none;color:var(--ink-soft);font-size:.92rem;font-weight:500;white-space:nowrap}
-nav a:hover,nav a.on{background:var(--olive-tint);color:var(--ink)}
-.lang{display:inline-flex;border:1px solid var(--line);border-radius:999px;padding:2px;background:var(--sheet)}
-.lang button{font:600 .78rem var(--f-mono);letter-spacing:.05em;border:0;background:transparent;color:var(--ink-soft);padding:.3rem .6rem;border-radius:999px;cursor:pointer;min-width:2.4rem;min-height:2rem}
-.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
-.menu-btn{display:none;width:2.6rem;height:2.6rem;border:1px solid var(--line);border-radius:8px;background:var(--sheet);color:var(--ink);cursor:pointer;place-items:center}
-.menu-btn svg{width:20px;height:20px}
-.menu-btn .x{display:none}
-header.open .menu-btn .x{display:block}
-header.open .menu-btn .burger{display:none}
-
-/* hero */
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center;padding-block:clamp(2.5rem,8vw,6rem) clamp(2.5rem,6vw,4.5rem)}
-.hero h1{font-size:var(--s4);font-weight:800;letter-spacing:-.02em;margin-top:.75rem}
-.hero h1 em{font-style:normal;color:var(--mustard-ink)}
-.hero .lede{margin-top:1.25rem;font-size:var(--s1);color:var(--ink-soft);max-width:36ch;line-height:1.5}
-.hero .cta{margin-top:2rem;display:flex;gap:.75rem;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.75rem 1.15rem;border-radius:6px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--ink);cursor:pointer;font-family:inherit;min-height:2.75rem}
-.btn.solid{background:var(--ink);color:var(--paper)}
-.btn.ghost{background:transparent;color:var(--ink)}
-.btn:hover{transform:translateY(-1px)}
-
-/* specimen label */
-.specimen{background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:1.5rem;position:relative;box-shadow:0 1px 0 var(--line),0 18px 40px -28px rgba(0,0,0,.35);margin:0}
-.specimen svg.flower{display:block;width:min(100%,240px);margin:0 auto 1.25rem}
-.specimen dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:.35rem 1rem;font-family:var(--f-mono);font-size:var(--s-1);border-top:1px dashed var(--line);padding-top:1rem}
-.specimen dt{color:var(--ink-soft);text-transform:uppercase;letter-spacing:.05em}
-.specimen dd{margin:0;color:var(--ink)}
-.specimen .tag{position:absolute;top:-.7rem;left:1.25rem;background:var(--mustard);color:#1d1600;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.15rem .55rem;border-radius:2px}
-@keyframes bloom{from{transform:scale(.6) rotate(-20deg);opacity:.2}to{transform:none;opacity:1}}
-.petals{transform-origin:130px 130px;animation:bloom 1.1s cubic-bezier(.2,.8,.2,1) both}
-
-/* sections */
-section.block{border-top:1px solid var(--line)}
-section.block>.wrap{padding-block:clamp(2.75rem,7vw,5.5rem);display:grid;gap:2rem}
-.sec-head{display:grid;gap:.6rem}
-.sec-head h2{font-size:var(--s3);font-weight:800;letter-spacing:-.01em}
-
 /* about */
-.about-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:start}
-.facts{display:grid;border:1px solid var(--line);border-radius:4px;background:var(--sheet)}
-.facts div{padding:1rem 1.25rem;display:grid;gap:.15rem}
-.facts div+div{border-top:1px solid var(--line)}
-.facts b{font-family:var(--f-display);font-size:var(--s2);font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15}
-.facts span{color:var(--ink-soft);font-size:.92rem}
-.themes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,15rem),1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:4px;overflow:hidden}
-.themes article{background:var(--paper);padding:1.4rem 1.25rem;display:grid;gap:.5rem;align-content:start}
-.themes h3{font-size:1.15rem;font-weight:600}
-.themes p{color:var(--ink-soft);font-size:.95rem}
-.themes svg{width:30px;height:30px;color:var(--olive)}
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.methods{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.methods li{display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.methods svg{width:2.4rem;height:2.4rem;color:var(--ink)}
+.methods h3{font-size:1.05rem;font-stretch:100%;margin-bottom:.2rem}
+.methods p{font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+.hotspots{display:flex;flex-wrap:wrap;gap:.5rem}
+.hotspots span{font-family:var(--f-map);font-size:.88rem;padding:.3rem .65rem;border:1px solid var(--ink);border-radius:999px}
 
-/* research */
-.filters{display:flex;gap:.5rem;flex-wrap:wrap}
-.chip{font:500 .88rem var(--f-body);padding:.45rem .9rem;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink-soft);cursor:pointer;white-space:nowrap;min-height:2.4rem}
+/* research: annotations on the map */
+.filters{display:flex;gap:.45rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:.45rem;min-height:2.5rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--steppe-ink);background:transparent;color:var(--steppe-ink);font-family:var(--f-map);font-size:.9rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:background-color .16s,color .16s,transform .12s var(--ease-out)}
+.chip:active{transform:scale(.97)}
 .chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
-.projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,20rem),1fr));gap:1.25rem}
-.project{background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:1.4rem;display:grid;gap:.75rem;grid-template-rows:auto auto 1fr auto}
-.project .meta{display:flex;justify-content:space-between;gap:.5rem;flex-wrap:wrap;align-items:center}
-.project h3{font-size:1.2rem;font-weight:600}
-.project p{color:var(--ink-soft);font-size:.95rem}
-.project .taxa{font-family:var(--f-mono);font-size:var(--s-1);color:var(--olive);border-top:1px dashed var(--line);padding-top:.75rem}
-.yr-tag{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;padding:.1rem .5rem;border-radius:2px;border:1px solid currentColor;color:var(--mustard-ink)}
+.studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,5vw,4rem);border-top:1px solid var(--ink)}
+.study{display:grid;gap:.6rem;padding:1.6rem 0;border-bottom:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent);align-content:start}
+.study .taxon{font-family:var(--f-text);font-style:italic;font-weight:600;font-size:var(--step2);line-height:1.1;font-stretch:normal}
+.study .taxon .plain{font-style:normal}
+.study .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .5rem;color:var(--steppe-ink)}
+.study .meta svg{width:14px;height:14px;flex:none;margin-right:-.15rem}
+.study .meta .sep{opacity:.6}
+.study p.desc{color:var(--ink-soft);max-width:52ch}
 
 /* publications */
-.pubs{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--line)}
-.pubs li{display:grid;grid-template-columns:4.5rem minmax(0,1fr);gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
-.pubs .yr{font-family:var(--f-mono);color:var(--mustard-ink);font-variant-numeric:tabular-nums;padding-top:.1rem}
-.pubs .t{font-weight:600}
-.pubs .a,.pubs .j{color:var(--ink-soft);font-size:.93rem}
-.pubs .j i{color:var(--ink)}
+.pubs{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pubs li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid var(--rule)}
+.pubs .yr{font-family:var(--f-data);font-size:.95rem;color:var(--ink);padding-top:.15rem}
+.pubs .t{font-size:1.08rem;font-weight:600;line-height:1.35;max-width:70ch}
+.pubs .a{color:var(--ink-soft);font-size:.95rem;margin-top:.3rem}
+.pubs .j{color:var(--ink-soft);font-size:.95rem}
 .pubs a{overflow-wrap:anywhere}
-.note{font-size:.9rem;color:var(--ink-soft)}
-.links{display:flex;gap:.6rem;flex-wrap:wrap}
-.links a{display:inline-flex;align-items:center;gap:.4rem;padding:.5rem .9rem;border:1px solid var(--line);border-radius:6px;background:var(--sheet);text-decoration:none;color:var(--ink);font-weight:500;font-size:.92rem;min-height:2.6rem}
-.links a:hover{border-color:var(--olive)}
-.links a span{color:var(--ink-soft);font-family:var(--f-mono);font-size:.75rem}
+.profiles{display:flex;flex-wrap:wrap;gap:.6rem}
 
 /* people */
-.pi{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:clamp(1.25rem,4vw,2.5rem);align-items:start;background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:clamp(1.25rem,3vw,2rem)}
-.pi .body{display:grid;gap:.75rem}
-.pi h3{font-size:var(--s2);font-weight:600}
-.people{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,14.5rem),1fr));gap:1.25rem}
-.person{display:grid;gap:.8rem;align-content:start}
-.avatar{aspect-ratio:4/5;max-width:100%;border-radius:4px;background:var(--olive-tint);border:1px solid var(--line);display:grid;place-items:center;font-family:var(--f-display);font-size:2.4rem;font-weight:600;color:var(--olive);position:relative;overflow:hidden}
-.avatar::after{content:"";position:absolute;inset:auto -20% -30% auto;width:70%;aspect-ratio:1;border-radius:50%;background:var(--mustard);opacity:.18}
-.person h3{font-size:1.1rem;font-weight:600}
-.role{font-family:var(--f-mono);font-size:var(--s-1);color:var(--mustard-ink);text-transform:uppercase;letter-spacing:.05em}
-.person p{color:var(--ink-soft);font-size:.92rem}
-.group-title{font-family:var(--f-display);font-size:var(--s1);font-weight:600;padding-bottom:.5rem;border-bottom:1px solid var(--line)}
+.pi{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(1.25rem,5vw,3.5rem);align-items:end}
+.tile{position:relative;aspect-ratio:4/5;max-width:100%;border:1px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--b2)}
+.tile canvas{position:absolute;inset:0;width:100%;height:100%}
+.tile .mono{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper);color:var(--ink);font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border:1px solid var(--ink);border-radius:2px}
+.role{font-family:var(--f-map);font-size:.88rem;font-weight:600;color:var(--leaf)}
+.pi h3{font-size:var(--step2);margin-bottom:.3rem}
+.pi .role{margin-bottom:.75rem}
+.member .role{margin-top:.2rem}
+.pi .aff{color:var(--ink-soft);max-width:52ch}
+.team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.9rem,2.4vw,1.5rem)}
+.member{display:grid;gap:.65rem;align-content:start}
+.member h3{font-size:1.05rem;font-stretch:100%;line-height:1.2}
+.member .note{font-size:.88rem;color:var(--ink-soft);line-height:1.4}
+.join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.4rem;border:1px solid var(--ink);border-radius:4px;background:var(--paper)}
+.join p{max-width:52ch}
 
-/* contact */
-.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem)}
-.contact-card{background:var(--sheet);border:1px solid var(--line);border-radius:4px;padding:1.5rem;display:grid;gap:1.25rem;align-content:start}
-.row{display:grid;gap:.2rem}
-.row .v{font-size:1.02rem}
-.copy{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap}
-.copy code{font-family:var(--f-mono);font-size:.95rem;user-select:all;overflow-wrap:anywhere}
-.copy button{font:500 .85rem var(--f-body);padding:.4rem .8rem;border-radius:4px;border:1px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer;min-height:2.2rem}
-.coords{font-family:var(--f-mono);font-size:var(--s-1);color:var(--olive)}
+/* contact: the lowland */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.band-lowland .sec-title{color:var(--on-lowland)}
+.band-lowland .lede{color:var(--on-lowland-soft)}
+.mail{display:grid;gap:.9rem}
+.mail .addr{font-family:var(--f-data);font-size:clamp(1rem,3.6vw,1.35rem);color:var(--on-lowland);overflow-wrap:anywhere;-webkit-user-select:all;user-select:all}
+.band-lowland .btn.solid{background:var(--diag);border-color:var(--diag);color:#1b1500}
+.band-lowland .btn.line{border-color:var(--on-lowland-soft);color:var(--on-lowland)}
+.visit{display:grid;gap:1.1rem;border-top:1px solid var(--on-lowland-soft);padding-top:1.1rem}
+.visit .k{font-family:var(--f-map);font-size:.85rem;font-weight:600;color:var(--on-lowland-soft);margin-bottom:.15rem}
+.visit p{color:var(--on-lowland)}
+.visit .data{color:var(--diag)}
+.toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag);min-height:1.4em}
 
-footer{border-top:1px solid var(--line)}
-footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--ink-soft);font-size:.88rem}
+footer{background:var(--ink);color:var(--paper)}
+footer .wrap{padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
+footer .data{opacity:.8}
 
-/* tablet */
-@media (max-width:900px){
-  .hero .wrap,.about-grid,.contact-grid{grid-template-columns:minmax(0,1fr)}
-  .hero .specimen{max-width:28rem}
+/* hover only where a precise pointer exists */
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover{background:var(--stone);color:var(--ink)}
+  .lang button:hover:not([aria-pressed="true"]){background:var(--stone);color:var(--ink)}
+  .btn.solid:hover{background:color-mix(in srgb,var(--ink) 86%,var(--b0))}
+  .btn.line:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+  .chip:hover:not([aria-pressed="true"]){background:color-mix(in srgb,var(--steppe-ink) 12%,transparent)}
+  .band-lowland .btn.solid:hover{background:#ffc928}
+  .band-lowland .btn.line:hover{background:rgba(238,242,229,.08)}
+  .pubs a:hover,.member a:hover{text-decoration-thickness:3px}
 }
-/* phone: collapsible menu, stacked content, larger touch targets */
+
+/* ---------- tablet ---------- */
+@media (max-width:980px){
+  .team{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .about,.contact{grid-template-columns:minmax(0,1fr)}
+}
+/* ---------- phone: legend becomes a sheet ---------- */
 @media (max-width:860px){
-  nav ul{flex-direction:column;gap:2px}
-  nav a{font-size:1.05rem;padding:.8rem .9rem;border-radius:8px}
   .menu-btn{display:grid}
-  header.top .bar{flex-wrap:wrap;gap:.5rem}
-  .right{margin-left:auto}
-  header.top nav{display:none;order:3;width:100%;padding-bottom:.5rem}
-  header.open nav{display:block}
+  .top .bar{flex-wrap:wrap;gap:.5rem}
+  .nav{display:none;order:3;width:100%;padding:.25rem 0 1rem;max-height:calc(100dvh - 4.5rem - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
+  .top.open .nav{display:block;animation:sheet .26s var(--ease-out)}
+  @keyframes sheet{from{transform:translateY(-6px);opacity:.4}to{transform:none;opacity:1}}
+  .nav ul{flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+  .nav a{font-size:1.1rem;padding:.95rem .5rem;border-radius:0;border-bottom:1px solid var(--rule)}
+  .nav a .key{width:1rem;height:1rem}
+  .nav .sheet-mail{display:flex;margin-top:1rem}
+  .nav .sheet-mail .btn{width:100%}
 }
 @media (max-width:760px){
-  .hero .lede{font-size:1.1rem}
-  .hero .cta .btn{flex:1 1 10rem}
-  .hero .specimen{padding:1.25rem}
-  .hero .specimen svg.flower{width:170px}
-  .filters{flex-wrap:nowrap;overflow-x:auto;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));padding-bottom:4px;scrollbar-width:none}
+  .hero{align-items:end;min-height:clamp(38rem,92svh,46rem)}
+  .hero>.wrap{padding-block:10rem 7.25rem}
+  .cartouche{max-width:none}
+  .cartouche .thesis{font-size:1.15rem}
+  .actions .btn{flex:1 1 9rem}
+  .legend .note{margin-left:0}
+  .studies{grid-template-columns:minmax(0,1fr)}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-snap-type:x proximity}
   .filters::-webkit-scrollbar{display:none}
-  .pi{grid-template-columns:minmax(0,1fr)}
-  .pi .avatar{max-width:9rem}
-  .people{grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-  .avatar{font-size:1.8rem}
-}
-@media (max-width:560px){
-  .pubs li{grid-template-columns:minmax(0,1fr);gap:.25rem}
-  .brand span.long{display:none}
+  .chip{scroll-snap-align:start}
+  .pi{grid-template-columns:minmax(0,9rem) minmax(0,1fr);align-items:center}
+  .pi h3{font-size:1.4rem}
+  .team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pubs li{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .join .btn{width:100%}
+  .mail .actions .btn{flex:1 1 100%}
 }
 @media (max-width:420px){
-  .brand{font-size:.98rem;gap:.45rem}
-  .brand svg{width:24px;height:24px}
-  .lang button{min-width:2.1rem;padding:.3rem .5rem}
-}
-@media (max-width:380px){
-  .people{grid-template-columns:minmax(0,1fr)}
+  .brand b{font-size:.72rem;letter-spacing:.06em}
+  .brand svg{width:26px;height:26px}
+  .lang button{min-width:2.4rem}
+  .pi{grid-template-columns:minmax(0,1fr)}
+  .pi .tile{max-width:10rem}
 }
 </style>
 
@@ -201,188 +252,147 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
   <div class="wrap">
     <div class="bar">
       <a class="brand" href="#top" aria-label="Plant Biogeography">
-        <svg viewBox="0 0 32 32" aria-hidden="true">
-          <g fill="var(--mustard)"><ellipse cx="16" cy="8" rx="4.2" ry="6"/><ellipse cx="16" cy="24" rx="4.2" ry="6"/><ellipse cx="8" cy="16" rx="6" ry="4.2"/><ellipse cx="24" cy="16" rx="6" ry="4.2"/></g>
-          <circle cx="16" cy="16" r="3" fill="var(--olive)"/>
+        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M3 22c3-9 9-17 16-16 7 1 10 8 8 14-2 7-12 9-18 7-3-1-6-2-6-5z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M9 21c2-6 6-11 11-10 4 1 5 5 4 8-1 4-7 6-11 5-2 0-4-1-4-3z" stroke="currentColor" stroke-width="1.6"/>
+          <path d="M14 19c1-3 3-5 5-4 2 0 2 2 2 3-1 2-3 3-5 3-1 0-2-1-2-2z" fill="var(--diag)" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M28 3 4 29" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 2.5"/>
         </svg>
-        <span>Plant Biogeography</span>
+        <b>Plant<br>Biogeography</b>
       </a>
-      <nav aria-label="Main" id="nav">
+      <nav class="nav" id="nav" aria-label="Sections">
         <ul>
-          <li><a href="#about"><span class="en">About</span><span class="tr">Hakkımızda</span></a></li>
-          <li><a href="#research"><span class="en">Research</span><span class="tr">Araştırma</span></a></li>
-          <li><a href="#publications"><span class="en">Publications</span><span class="tr">Yayınlar</span></a></li>
-          <li><a href="#people"><span class="en">People</span><span class="tr">Ekip</span></a></li>
-          <li><a href="#contact"><span class="en">Contact</span><span class="tr">İletişim</span></a></li>
+          <li><a href="#about"><span class="key" style="background:var(--b6)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a></li>
+          <li><a href="#research"><span class="key" style="background:var(--b4)"></span><span class="en">Research</span><span class="tr">Araştırma</span></a></li>
+          <li><a href="#publications"><span class="key" style="background:var(--b3)"></span><span class="en">Publications</span><span class="tr">Yayınlar</span></a></li>
+          <li><a href="#people"><span class="key" style="background:var(--b2)"></span><span class="en">People</span><span class="tr">Ekip</span></a></li>
+          <li><a href="#contact"><span class="key" style="background:var(--b0)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a></li>
         </ul>
+        <div class="sheet-mail"><a class="btn solid" href="mailto:barisoz@hacettepe.edu.tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6 8 7 8-7"/></svg><span class="en">E-mail the lab</span><span class="tr">Laboratuvara e-posta gönder</span></a></div>
       </nav>
-      <div class="right">
-        <div class="lang" role="group" aria-label="Language / Dil">
-          <button type="button" id="lang-tr" data-lang="tr" aria-pressed="false">TR</button>
-          <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
-        </div>
-        <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav" aria-label="Menu">
-          <svg class="burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-          <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-        </button>
+      <div class="lang" role="group" aria-label="Language / Dil">
+        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="false" lang="tr">TR</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="true" lang="en">EN</button>
       </div>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">
+        <span class="en" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menu</span><span class="tr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menü</span>
+        <svg class="burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
     </div>
   </div>
 </header>
 
-<main id="top">
-  <section class="hero">
+<main>
+  <section class="hero" id="top" aria-labelledby="h1">
+    <canvas id="relief" aria-hidden="true"></canvas>
     <div class="wrap">
-      <div>
-        <p class="label"><span class="en">Plant Biogeography Lab · Hacettepe University</span><span class="tr">Bitki Biyocoğrafyası Laboratuvarı · Hacettepe Üniversitesi</span></p>
-        <h1><span class="en">Where mustards grow, and <em>why they grow there.</em></span><span class="tr">Turpgiller nerede yetişir, <em>neden orada yetişir?</em></span></h1>
-        <p class="lede"><span class="en">We study the evolution, diversity and distribution of the mustard family, Brassicaceae, in Anatolia, where three biodiversity hotspots meet.</span><span class="tr">Üç biyoçeşitlilik sıcak noktasının kesiştiği Anadolu'da turpgiller (Brassicaceae) familyasının evrimini, çeşitliliğini ve yayılışını çalışıyoruz.</span></p>
-        <div class="cta">
-          <a class="btn solid" href="#research"><span class="en">Our research</span><span class="tr">Araştırmalarımız</span></a>
-          <a class="btn ghost" href="#people"><span class="en">Meet the team</span><span class="tr">Ekibimiz</span></a>
+      <div class="cartouche">
+        <h1 id="h1">Plant<br>Biogeography</h1>
+        <p class="place"><span class="en">Laboratory · Hacettepe University, Ankara</span><span class="tr">Laboratuvarı · Hacettepe Üniversitesi, Ankara</span></p>
+        <p class="thesis"><span class="en">We study how the mustard family, <i>Brassicaceae</i>, came to live where it lives across the mountains and steppes of Anatolia.</span><span class="tr">Turpgiller familyasının, <i>Brassicaceae</i>'nin, Anadolu'nun dağlarına ve bozkırlarına nasıl yayıldığını araştırıyoruz.</span></p>
+        <div class="actions">
+          <a class="btn solid" href="#research"><span class="en">See our research</span><span class="tr">Araştırmalarımız</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg></a>
+          <a class="btn line" href="#contact"><span class="en">Contact</span><span class="tr">İletişim</span></a>
         </div>
       </div>
-
-      <figure class="specimen">
-        <span class="tag"><span class="en">Herbarium label</span><span class="tr">Herbaryum etiketi</span></span>
-        <svg class="flower" viewBox="0 0 260 260" role="img" aria-label="Cruciform Brassicaceae flower: four petals, six stamens (four long, two short)">
-          <g class="petals">
-            <g fill="var(--mustard)" stroke="var(--mustard-ink)" stroke-width="1.5" stroke-opacity=".5">
-              <path d="M130 120 C 95 85, 95 30, 130 18 C 165 30, 165 85, 130 120Z"/>
-              <path d="M130 120 C 95 85, 95 30, 130 18 C 165 30, 165 85, 130 120Z" transform="rotate(90 130 130) translate(0 10)"/>
-              <path d="M130 120 C 95 85, 95 30, 130 18 C 165 30, 165 85, 130 120Z" transform="rotate(180 130 130) translate(0 20)"/>
-              <path d="M130 120 C 95 85, 95 30, 130 18 C 165 30, 165 85, 130 120Z" transform="rotate(270 130 130) translate(0 10)"/>
-            </g>
-          </g>
-          <g stroke="var(--olive)" stroke-width="3" stroke-linecap="round" fill="var(--olive)">
-            <line x1="130" y1="135" x2="117" y2="104"/><circle cx="117" cy="104" r="4"/>
-            <line x1="130" y1="135" x2="143" y2="104"/><circle cx="143" cy="104" r="4"/>
-            <line x1="130" y1="135" x2="117" y2="166"/><circle cx="117" cy="166" r="4"/>
-            <line x1="130" y1="135" x2="143" y2="166"/><circle cx="143" cy="166" r="4"/>
-            <line x1="130" y1="135" x2="108" y2="135"/><circle cx="108" cy="135" r="4"/>
-            <line x1="130" y1="135" x2="152" y2="135"/><circle cx="152" cy="135" r="4"/>
-          </g>
-          <circle cx="130" cy="135" r="7" fill="var(--sheet)" stroke="var(--olive)" stroke-width="3"/>
-        </svg>
-        <dl>
-          <dt>Familia</dt><dd>Brassicaceae Burnett</dd>
-          <dt>Syn.</dt><dd>Cruciferae Juss.</dd>
-          <dt>Flos</dt><dd><span class="en">4 petals in a cross, 6 stamens (4 long + 2 short)</span><span class="tr">Çapraz dizilmiş 4 taç yaprak, 6 stamen (4 uzun + 2 kısa)</span></dd>
-          <dt>Fructus</dt><dd><span class="en">Silique or silicle</span><span class="tr">Silikua veya silikula</span></dd>
-          <dt>Loc.</dt><dd><span class="en">Anatolia, Türkiye</span><span class="tr">Anadolu, Türkiye</span></dd>
-        </dl>
-      </figure>
+    </div>
+    <div class="legend" aria-hidden="true">
+      <div class="wrap data">
+        <span class="ramp"><span class="en">Lowland</span><span class="tr">Ova</span><span class="sw"><i style="background:var(--b0)"></i><i style="background:var(--b1)"></i><i style="background:var(--b2)"></i><i style="background:var(--b3)"></i><i style="background:var(--b4)"></i><i style="background:var(--b5)"></i><i style="background:var(--b6)"></i></span><span class="en">Alpine</span><span class="tr">Alpin</span></span>
+        <span class="dline"><span class="en">Anatolian Diagonal</span><span class="tr">Anadolu Diyagonali</span></span>
+        <span class="note"><span class="en">Relief illustrative</span><span class="tr">Rölyef temsilîdir</span><span class="loc"><span class="en"> · lab at 39.87° N 32.73° E</span><span class="tr"> · lab 39,87° K 32,73° D</span></span></span>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section class="block" id="about">
+  <section class="band band-stone" id="about" aria-labelledby="about-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="label"><span class="en">About the lab</span><span class="tr">Laboratuvar hakkında</span></p>
-        <h2><span class="en">Reading history from distributions</span><span class="tr">Yayılış alanlarından geçmişi okumak</span></h2>
-      </div>
-      <div class="about-grid">
+      <h2 class="sec-title" id="about-h"><span class="en">Reading history from where plants grow</span><span class="tr">Bitkilerin yetiştiği yerden geçmişi okumak</span></h2>
+      <div class="about">
         <div class="prose">
-          <p class="en">The <strong>Plant Biogeography Lab</strong> at the Department of Biology, Hacettepe University, asks how plant lineages came to occupy the places they occupy today. We combine field collections, herbarium records, molecular phylogenetics and ecological niche modelling to reconstruct the history of species and to understand what drives plant diversity.</p>
-          <p class="tr">Hacettepe Üniversitesi Biyoloji Bölümü'ndeki <strong>Bitki Biyocoğrafyası Laboratuvarı</strong>, bitki soy hatlarının bugün bulundukları yerlere nasıl ulaştığını araştırır. Arazi toplamalarını, herbaryum kayıtlarını, moleküler filogenetiği ve ekolojik niş modellemesini bir araya getirerek türlerin geçmişini ortaya koyuyor ve bitki çeşitliliğini belirleyen etkenleri inceliyoruz.</p>
-          <p class="en">Our main study group is <strong>Brassicaceae</strong>, the mustard family. Türkiye sits at the intersection of three biodiversity hotspots: the Mediterranean, the Caucasus and the Irano-Anatolian. Its mountains and steppes hold a rich and highly endemic crucifer flora, from <i>Ricotia</i> and <i>Bornmuellera</i> to <i>Noccaea</i> and <i>Iberis</i>.</p>
-          <p class="tr">Ana çalışma grubumuz turpgiller, yani <strong>Brassicaceae</strong> familyasıdır. Türkiye; Akdeniz, Kafkasya ve İran-Anadolu olmak üzere üç biyoçeşitlilik sıcak noktasının kesişiminde yer alır. Dağları ve bozkırları, <i>Ricotia</i> ve <i>Bornmuellera</i>'dan <i>Noccaea</i> ve <i>Iberis</i>'e kadar zengin ve endemizm oranı yüksek bir turpgil florası barındırır.</p>
-          <p class="en">We work closely with colleagues in Türkiye, Germany and the United States, and we train students in field botany, plant systematics and computational biogeography.</p>
-          <p class="tr">Türkiye, Almanya ve ABD'deki araştırmacılarla yakın iş birliği içinde çalışıyor; öğrencilerimizi arazi botaniği, bitki sistematiği ve hesaplamalı biyocoğrafya alanlarında yetiştiriyoruz.</p>
+          <p class="lede" style="color:var(--ink)"><span class="en">Anatolia sits where three biodiversity hotspots meet. Its crucifer flora is rich, old and full of endemics, and its mountains keep a record of how that flora formed.</span><span class="tr">Anadolu, üç biyoçeşitlilik sıcak noktasının buluştuğu yerdedir. Turpgil florası zengin, eski ve endemiklerle doludur; dağları bu floranın nasıl oluştuğunun kaydını saklar.</span></p>
+          <p class="en">The <strong>Plant Biogeography Lab</strong> in the Department of Biology at Hacettepe University asks how plant lineages came to occupy the places they occupy today. Our study group is <strong>Brassicaceae</strong>, the mustard family, from Eastern Mediterranean annuals such as <i>Ricotia</i> to cushion plants of the alpine steppe such as <i>Noccaea iberidea</i>.</p>
+          <p class="tr">Hacettepe Üniversitesi Biyoloji Bölümü'ndeki <strong>Bitki Biyocoğrafyası Laboratuvarı</strong>, bitki soy hatlarının bugün bulundukları yerlere nasıl ulaştığını araştırır. Çalışma grubumuz turpgiller, yani <strong>Brassicaceae</strong>: <i>Ricotia</i> gibi Doğu Akdeniz bir yıllıklarından <i>Noccaea iberidea</i> gibi alpin bozkır yastık bitkilerine kadar.</p>
+          <p class="en">We work with colleagues in Türkiye, Germany and the United States, and train students in field botany, plant systematics and computational biogeography.</p>
+          <p class="tr">Türkiye, Almanya ve ABD'deki araştırmacılarla birlikte çalışıyor; öğrencilerimizi arazi botaniği, bitki sistematiği ve hesaplamalı biyocoğrafya alanlarında yetiştiriyoruz.</p>
+          <div class="hotspots" aria-label="Hotspots">
+            <span class="en">Mediterranean</span><span class="tr">Akdeniz</span>
+            <span class="en">Caucasus</span><span class="tr">Kafkasya</span>
+            <span class="en">Irano-Anatolian</span><span class="tr">İran-Anadolu</span>
+          </div>
         </div>
-        <div class="facts">
-          <div><span class="en">Study family</span><span class="tr">Çalışılan familya</span><b>Brassicaceae</b></div>
-          <div><span class="en">Herbarium records analysed for Türkiye</span><span class="tr">Türkiye için analiz edilen herbaryum kaydı</span><b>15,000+</b></div>
-          <div><span class="en">Approach</span><span class="tr">Yaklaşım</span><b><span class="en">Field · Herbarium · DNA · Niche models</span><span class="tr">Arazi · Herbaryum · DNA · Niş modelleri</span></b></div>
-        </div>
-      </div>
-
-      <div class="themes">
-        <article>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21V9M12 9 6 3M12 9l6-6M12 14l-5-4M12 16l5-4"/></svg>
-          <h3><span class="en">Phylogeny &amp; systematics</span><span class="tr">Filogeni ve sistematik</span></h3>
-          <p><span class="en">Resolving relationships among Brassicaceae genera and species with nuclear and chloroplast markers.</span><span class="tr">Çekirdek ve kloroplast belirteçleriyle Brassicaceae cins ve türleri arasındaki akrabalıkları çözümlemek.</span></p>
-        </article>
-        <article>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z M9 4v14 M15 6v14"/></svg>
-          <h3><span class="en">Historical biogeography</span><span class="tr">Tarihsel biyocoğrafya</span></h3>
-          <p><span class="en">Dating lineages and reconstructing ancestral ranges between Anatolia, the Balkans and the Eastern Mediterranean.</span><span class="tr">Anadolu, Balkanlar ve Doğu Akdeniz arasında soy hatlarını tarihlendirmek ve atasal yayılış alanlarını yeniden kurmak.</span></p>
-        </article>
-        <article>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="10" r="3"/><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/></svg>
-          <h3><span class="en">Niche modelling &amp; phylogeography</span><span class="tr">Niş modelleme ve filocoğrafya</span></h3>
-          <p><span class="en">Tracing Quaternary range shifts of steppe and mountain species with genetic data and climate models.</span><span class="tr">Bozkır ve dağ türlerinin Kuvaterner'deki yayılış değişimlerini genetik veri ve iklim modelleriyle izlemek.</span></p>
-        </article>
-        <article>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
-          <h3><span class="en">Diversity patterns &amp; ecology</span><span class="tr">Çeşitlilik desenleri ve ekoloji</span></h3>
-          <p><span class="en">Mapping species and endemic richness and the environmental drivers behind it, including steppe fire ecology.</span><span class="tr">Tür ve endemik zenginliğini, bunu belirleyen çevresel etkenleri ve bozkır yangın ekolojisini incelemek.</span></p>
-        </article>
+        <ul class="methods">
+          <li>
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 36V20M20 20 9 7M20 20l11-13M20 27l-7-6M20 29l7-6"/><circle cx="9" cy="7" r="2" fill="var(--diag)"/><circle cx="31" cy="7" r="2" fill="var(--diag)"/></svg>
+            <div><h3><span class="en">Phylogeny and dating</span><span class="tr">Filogeni ve tarihlendirme</span></h3><p><span class="en">Nuclear and chloroplast markers, time-calibrated trees.</span><span class="tr">Çekirdek ve kloroplast belirteçleri, zaman kalibrasyonlu ağaçlar.</span></p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 30c5-10 11-18 17-17s10 8 8 13-11 7-17 6c-4 0-8-1-8-2z"/><path d="M12 28c2-6 6-10 10-9s5 4 4 7-6 4-9 3"/><path d="M34 4 8 36" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 3"/></svg>
+            <div><h3><span class="en">Historical biogeography</span><span class="tr">Tarihsel biyocoğrafya</span></h3><p><span class="en">Ancestral ranges between Anatolia, the Balkans and the Eastern Mediterranean.</span><span class="tr">Anadolu, Balkanlar ve Doğu Akdeniz arasında atasal yayılış alanları.</span></p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="30" height="26" rx="1"/><path d="M5 25c6-3 9 2 15-2s9-1 15-4"/><circle cx="15" cy="16" r="2.2" fill="var(--diag)"/><circle cx="26" cy="14" r="2.2" fill="var(--diag)"/></svg>
+            <div><h3><span class="en">Niche modelling</span><span class="tr">Niş modelleme</span></h3><p><span class="en">Quaternary range shifts from climate layers and occurrences.</span><span class="tr">İklim katmanları ve kayıtlarla Kuvaterner yayılış değişimleri.</span></p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="4" width="24" height="32" rx="1"/><path d="M20 30V14m0 6-5-4m5 1 5-4"/><path d="M13 33h14"/></svg>
+            <div><h3><span class="en">Herbarium records</span><span class="tr">Herbaryum kayıtları</span></h3><p><span class="en">Over 15,000 georeferenced records analysed for Türkiye.</span><span class="tr">Türkiye için 15.000'den fazla koordinatlı kayıt analiz edildi.</span></p></div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
   <!-- RESEARCH -->
-  <section class="block" id="research">
+  <section class="band band-steppe" id="research" aria-labelledby="research-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="label"><span class="en">Research</span><span class="tr">Araştırma</span></p>
-        <h2><span class="en">Study groups &amp; projects</span><span class="tr">Çalışma grupları ve projeler</span></h2>
-      </div>
+      <h2 class="sec-title" id="research-h"><span class="en">Study groups</span><span class="tr">Çalışma grupları</span></h2>
       <div class="filters" role="group" aria-label="Filter">
-        <button class="chip" id="f-all" data-f="all" aria-pressed="true"><span class="en">All</span><span class="tr">Tümü</span></button>
-        <button class="chip" id="f-phy" data-f="phy" aria-pressed="false"><span class="en">Phylogeny &amp; biogeography</span><span class="tr">Filogeni ve biyocoğrafya</span></button>
-        <button class="chip" id="f-eco" data-f="eco" aria-pressed="false"><span class="en">Diversity &amp; ecology</span><span class="tr">Çeşitlilik ve ekoloji</span></button>
+        <button class="chip" type="button" id="f-all" data-f="all" aria-pressed="true"><span class="en">All</span><span class="tr">Tümü</span></button>
+        <button class="chip" type="button" id="f-phy" data-f="phy" aria-pressed="false"><span class="en">Phylogeny &amp; biogeography</span><span class="tr">Filogeni ve biyocoğrafya</span></button>
+        <button class="chip" type="button" id="f-eco" data-f="eco" aria-pressed="false"><span class="en">Diversity &amp; ecology</span><span class="tr">Çeşitlilik ve ekoloji</span></button>
       </div>
-      <div class="projects" id="projects">
-        <article class="project" data-s="eco">
-          <div class="meta"><span class="label"><span class="en">Diversity patterns</span><span class="tr">Çeşitlilik desenleri</span></span><span class="yr-tag">2026</span></div>
-          <h3><span class="en">Brassicaceae richness in Türkiye</span><span class="tr">Türkiye'de Brassicaceae zenginliği</span></h3>
-          <p><span class="en">Using more than 15,000 georeferenced herbarium records, we showed that topographically complex, climatically stable mountains of southern Anatolia and the Anatolian Diagonal are centres of species and endemic richness.</span><span class="tr">15.000'den fazla koordinatlı herbaryum kaydıyla, güney Anadolu'nun ve Anadolu Diyagonali'nin topoğrafik olarak karmaşık, iklimsel olarak kararlı dağlarının tür ve endemik zenginliği merkezleri olduğunu gösterdik.</span></p>
-          <p class="taxa">Brassicaceae · Türkiye</p>
+      <div class="studies" id="studies">
+        <article class="study" data-s="eco">
+          <h3 class="taxon"><span class="plain">Brassicaceae</span> <span class="en plain">richness</span><span class="tr plain">zenginliği</span></h3>
+          <p class="desc"><span class="en">From more than 15,000 georeferenced herbarium records: topographically complex, climatically stable mountains of southern Anatolia and the Anatolian Diagonal hold the most species and endemics.</span><span class="tr">15.000'den fazla koordinatlı herbaryum kaydına göre en çok tür ve endemik, güney Anadolu'nun ve Anadolu Diyagonali'nin topoğrafik olarak karmaşık, iklimsel olarak kararlı dağlarında.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Türkiye · Anatolian Diagonal</span><span class="tr">Türkiye · Anadolu Diyagonali</span><span class="sep">·</span><span class="src">Ecology and Evolution · 2026</span></p>
         </article>
-        <article class="project" data-s="phy">
-          <div class="meta"><span class="label"><span class="en">Diversification</span><span class="tr">Çeşitlenme</span></span><span class="yr-tag">2015–2022</span></div>
-          <h3><span class="en">Origin and diversification of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i>'nın kökeni ve çeşitlenmesi</span></h3>
-          <p><span class="en">The Eastern Mediterranean genus <i>Ricotia</i> originated in Anatolia. Its diversification tracks the onset of the Mediterranean climate and was driven by local environmental dynamics and ecological specialisation.</span><span class="tr">Doğu Akdeniz cinsi <i>Ricotia</i> Anadolu kökenlidir. Çeşitlenmesi Akdeniz ikliminin başlangıcıyla örtüşür; yerel çevresel dinamikler ve ekolojik özelleşme bu süreci yönlendirmiştir.</span></p>
-          <p class="taxa"><i>Ricotia</i> L.</p>
+        <article class="study" data-s="phy">
+          <h3 class="taxon">Ricotia</h3>
+          <p class="desc"><span class="en">The genus originated in Anatolia. Its diversification follows the onset of the Mediterranean climate and was driven by local environments and ecological specialisation.</span><span class="tr">Cins Anadolu kökenlidir. Çeşitlenmesi Akdeniz ikliminin başlangıcını izler; yerel çevre koşulları ve ekolojik özelleşme bu süreci yönlendirmiştir.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Eastern Mediterranean</span><span class="tr">Doğu Akdeniz</span><span class="sep">·</span><span class="src">Taxon · 2015 &nbsp;·&nbsp; J. Syst. Evol. · 2022</span></p>
         </article>
-        <article class="project" data-s="phy">
-          <div class="meta"><span class="label"><span class="en">Historical biogeography</span><span class="tr">Tarihsel biyocoğrafya</span></span><span class="yr-tag">2020</span></div>
-          <h3><span class="en">Anatolian origin of <i>Bornmuellera</i></span><span class="tr"><i>Bornmuellera</i>'nın Anadolu kökeni</span></h3>
-          <p><span class="en">Nuclear and chloroplast data confirm that <i>Bornmuellera</i> originated in Anatolia, with clades diverging between Anatolia and the Balkans at the Plio-Pleistocene transition.</span><span class="tr">Çekirdek ve kloroplast verileri, <i>Bornmuellera</i>'nın Anadolu kökenli olduğunu ve Anadolu ile Balkanlar arasındaki dalların Pliyo-Pleistosen geçişinde ayrıldığını doğruladı.</span></p>
-          <p class="taxa"><i>Bornmuellera</i> Hausskn.</p>
+        <article class="study" data-s="phy">
+          <h3 class="taxon">Bornmuellera</h3>
+          <p class="desc"><span class="en">Nuclear and chloroplast data confirm an Anatolian origin, with clades splitting between Anatolia and the Balkans at the Plio-Pleistocene transition.</span><span class="tr">Çekirdek ve kloroplast verileri Anadolu kökenini doğruluyor; dallar Pliyo-Pleistosen geçişinde Anadolu ile Balkanlar arasında ayrılıyor.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Anatolia ↔ Balkans</span><span class="tr">Anadolu ↔ Balkanlar</span><span class="sep">·</span><span class="src">Turk. J. Bot. · 2020</span></p>
         </article>
-        <article class="project" data-s="phy">
-          <div class="meta"><span class="label"><span class="en">Phylogeography</span><span class="tr">Filocoğrafya</span></span><span class="yr-tag">2020</span></div>
-          <h3><span class="en">Quaternary range dynamics of <i>Noccaea iberidea</i></span><span class="tr"><i>Noccaea iberidea</i>'nın Kuvaterner yayılış dinamikleri</span></h3>
-          <p><span class="en">Niche modelling and phylogeography of a typical species of the subalpine–alpine steppes of Anatolian mountains reveal a recent population expansion.</span><span class="tr">Anadolu dağlarının subalpin–alpin bozkırlarının tipik bir türünde niş modelleme ve filocoğrafya, yakın zamanlı bir popülasyon genişlemesini ortaya koydu.</span></p>
-          <p class="taxa"><i>Noccaea iberidea</i></p>
+        <article class="study" data-s="phy">
+          <h3 class="taxon">Noccaea iberidea</h3>
+          <p class="desc"><span class="en">Niche models and phylogeography trace how a typical plant of Anatolia's high steppe moved through the Quaternary, and show a recent population expansion.</span><span class="tr">Niş modelleri ve filocoğrafya, Anadolu yüksek bozkırlarının tipik bir bitkisinin Kuvaterner boyunca nasıl yer değiştirdiğini izliyor ve yakın zamanlı bir popülasyon genişlemesi gösteriyor.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Subalpine–alpine steppe</span><span class="tr">Subalpin–alpin bozkır</span><span class="sep">·</span><span class="src">Biol. J. Linn. Soc. · 2020</span></p>
         </article>
-        <article class="project" data-s="phy">
-          <div class="meta"><span class="label"><span class="en">Species complex</span><span class="tr">Tür kompleksi</span></span></div>
-          <h3><span class="en">The <i>Iberis simplex</i> complex</span><span class="tr"><i>Iberis simplex</i> kompleksi</span></h3>
-          <p><span class="en">Systematics and biogeography of a species complex spanning the Mediterranean and Irano-Anatolian regions.</span><span class="tr">Akdeniz ve İran-Anadolu bölgelerine yayılan bir tür kompleksinin sistematiği ve biyocoğrafyası.</span></p>
-          <p class="taxa"><i>Iberis</i> L.</p>
+        <article class="study" data-s="phy">
+          <h3 class="taxon">Iberis simplex <span class="en plain">complex</span><span class="tr plain">kompleksi</span></h3>
+          <p class="desc"><span class="en">Systematics and biogeography of a species complex that spans two floristic regions.</span><span class="tr">İki floristik bölgeye yayılan bir tür kompleksinin sistematiği ve biyocoğrafyası.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Mediterranean · Irano-Anatolian</span><span class="tr">Akdeniz · İran-Anadolu</span><span class="sep">·</span><span class="src"><span class="en">Ongoing</span><span class="tr">Sürüyor</span></span></p>
         </article>
-        <article class="project" data-s="eco">
-          <div class="meta"><span class="label"><span class="en">Fire ecology</span><span class="tr">Yangın ekolojisi</span></span><span class="yr-tag">2015</span></div>
-          <h3><span class="en">Fire and germination in Central Anatolian steppe</span><span class="tr">İç Anadolu bozkırında yangın ve çimlenme</span></h3>
-          <p><span class="en">Fire-related germination and early seedling growth in 21 herbaceous species of the Central Anatolian steppe.</span><span class="tr">İç Anadolu bozkırındaki 21 otsu türde yangınla ilişkili çimlenme ve erken fide gelişimi.</span></p>
-          <p class="taxa"><span class="en">Steppe flora</span><span class="tr">Bozkır florası</span></p>
+        <article class="study" data-s="eco">
+          <h3 class="taxon"><span class="en plain">Fire and germination</span><span class="tr plain">Yangın ve çimlenme</span></h3>
+          <p class="desc"><span class="en">Fire-related germination and early seedling growth in 21 herbaceous steppe species.</span><span class="tr">21 otsu bozkır türünde yangınla ilişkili çimlenme ve erken fide gelişimi.</span></p>
+          <p class="meta data"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 15s-5-4.6-5-8a5 5 0 0 1 10 0c0 3.4-5 8-5 8z"/><circle cx="8" cy="7" r="1.6"/></svg><span class="en">Central Anatolian steppe</span><span class="tr">İç Anadolu bozkırı</span><span class="sep">·</span><span class="src">J. Arid Environ. · 2015</span></p>
         </article>
       </div>
     </div>
   </section>
 
   <!-- PUBLICATIONS -->
-  <section class="block" id="publications">
+  <section class="band band-paper" id="publications" aria-labelledby="pubs-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="label"><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span></p>
-        <h2><span class="en">Publications</span><span class="tr">Yayınlar</span></h2>
-      </div>
+      <h2 class="sec-title" id="pubs-h"><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span></h2>
       <ol class="pubs">
         <li><span class="yr">2026</span><div>
           <p class="t">A plant diversity dark spot at the intersection of three biodiversity hotspots: environmental drivers of Brassicaceae richness in Türkiye</p>
@@ -391,7 +401,7 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
         <li><span class="yr">2022</span><div>
           <p class="t">Ecological specialization promotes diversity and diversification in the Eastern Mediterranean genus <i>Ricotia</i> (Brassicaceae)</p>
           <p class="a">Özüdoğru B., Karacaoğlu Ç., Akaydın G., Erik S., Mummenhoff K., Sağlam İ.K.</p>
-          <p class="j"><i>Journal of Systematics and Evolution</i> 60(2): 331–343. <a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener">doi:10.1111/jse.12749</a></p></div></li>
+          <p class="j"><i>Journal of Systematics and Evolution</i> 60(2): 331–343 · <a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener">doi:10.1111/jse.12749</a></p></div></li>
         <li><span class="yr">2020</span><div>
           <p class="t">Phylogenetic and biogeographical history confirm the Anatolian origin of <i>Bornmuellera</i> (Brassicaceae) and clade divergence between Anatolia and the Balkans in the Plio-Pleistocene transition</p>
           <p class="a">Özüdoğru B., Mummenhoff K.</p>
@@ -409,89 +419,76 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
           <p class="a">Tavşanoğlu Ç., Çatav Ş.S., Özüdoğru B.</p>
           <p class="j"><i>Journal of Arid Environments</i></p></div></li>
       </ol>
-      <p class="note"><span class="en">The full and up-to-date list is on the profiles below.</span><span class="tr">Güncel ve tam liste aşağıdaki profillerde yer alıyor.</span></p>
-      <div class="links">
-        <a href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <span>↗</span></a>
-        <a href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <span>↗</span></a>
-        <a href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <span>↗</span></a>
+      <div class="profiles">
+        <a class="btn line" href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="btn line" href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+        <a class="btn line" href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
     </div>
   </section>
 
   <!-- PEOPLE -->
-  <section class="block" id="people">
+  <section class="band band-foothill" id="people" aria-labelledby="people-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="label"><span class="en">People</span><span class="tr">Ekip</span></p>
-        <h2><span class="en">The team</span><span class="tr">Ekibimiz</span></h2>
-      </div>
-
+      <h2 class="sec-title" id="people-h"><span class="en">The team</span><span class="tr">Ekibimiz</span></h2>
       <article class="pi">
-        <div class="avatar" aria-hidden="true">BÖ</div>
-        <div class="body">
-          <p class="role"><span class="en">Principal investigator</span><span class="tr">Laboratuvar yürütücüsü</span></p>
-          <h3><span class="en">Assoc. Prof. Dr. Barış Özüdoğru</span><span class="tr">Doç. Dr. Barış Özüdoğru</span></h3>
-          <p class="note"><span class="en">Hacettepe University, Faculty of Science, Department of Biology</span><span class="tr">Hacettepe Üniversitesi, Fen Fakültesi, Biyoloji Bölümü</span></p>
-          <p style="color:var(--ink-soft)"><span class="en">Plant systematist and biogeographer working on the evolution and diversification of Brassicaceae in Anatolia and the Eastern Mediterranean, combining molecular phylogenetics, phylogeography and ecological niche modelling.</span><span class="tr">Anadolu ve Doğu Akdeniz'de Brassicaceae'nin evrimi ve çeşitlenmesi üzerine çalışan bitki sistematiği ve biyocoğrafya araştırmacısı. Moleküler filogenetik, filocoğrafya ve ekolojik niş modellemesini birlikte kullanıyor.</span></p>
+        <div class="tile"><canvas data-seed="Barış Özüdoğru" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">BÖ</span></div>
+        <div>
+          <h3>Prof. Dr. Barış Özüdoğru</h3>
+          <p class="role"><span class="en">Principal investigator · Professor</span><span class="tr">Laboratuvar yürütücüsü · Profesör</span></p>
+          <p class="aff"><span class="en">Department of Biology, Faculty of Science, Hacettepe University. Works on the systematics, phylogeography and diversification of Brassicaceae in Anatolia and the Eastern Mediterranean.</span><span class="tr">Hacettepe Üniversitesi Fen Fakültesi Biyoloji Bölümü. Anadolu ve Doğu Akdeniz'de Brassicaceae'nin sistematiği, filocoğrafyası ve çeşitlenmesi üzerine çalışıyor.</span></p>
         </div>
       </article>
-
-      <h3 class="group-title"><span class="en">Researchers &amp; students</span><span class="tr">Araştırmacılar ve öğrenciler</span></h3>
-      <div class="people">
-        <article class="person">
-          <div class="avatar" aria-hidden="true">İD</div>
-          <div><p class="role"><span class="en">Researcher</span><span class="tr">Araştırmacı</span></p><h3>İlayda Dumlupınar</h3></div>
-          <p><span class="en">Brassicaceae richness and its environmental drivers in Türkiye.</span><span class="tr">Türkiye'de Brassicaceae zenginliği ve çevresel belirleyicileri.</span></p>
+      <div class="team">
+        <article class="member">
+          <div class="tile"><canvas data-seed="İlayda Dumlupınar" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">İD</span></div>
+          <div><h3>İlayda Dumlupınar</h3><p class="role"><span class="en">PhD student</span><span class="tr">Doktora öğrencisi</span></p></div>
         </article>
-        <article class="person">
-          <div class="avatar" aria-hidden="true">ÇK</div>
-          <div><p class="role"><span class="en">Researcher</span><span class="tr">Araştırmacı</span></p><h3>Çağaşan Karacaoğlu</h3></div>
-          <p><span class="en">Phylogeny and phylogeography of <i>Ricotia</i>.</span><span class="tr"><i>Ricotia</i> cinsinin filogenisi ve filocoğrafyası.</span></p>
+        <article class="member">
+          <div class="tile"><canvas data-seed="Can Göksu Alkan" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">CA</span></div>
+          <div><h3>Can Göksu Alkan</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
-        <article class="person">
-          <div class="avatar" aria-hidden="true">EÇ</div>
-          <div><p class="role"><span class="en">Researcher</span><span class="tr">Araştırmacı</span></p><h3>Emre Çilden</h3></div>
-          <p><span class="en">Systematics of the <i>Iberis simplex</i> complex.</span><span class="tr"><i>Iberis simplex</i> kompleksinin sistematiği.</span></p>
+        <article class="member">
+          <div class="tile"><canvas data-seed="Eylül Aydoğan" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">EA</span></div>
+          <div><h3>Eylül Aydoğan</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
-      </div>
-
-      <h3 class="group-title"><span class="en">Collaborators</span><span class="tr">İş birlikçiler</span></h3>
-      <div class="people">
-        <article class="person">
-          <div><p class="role"><span class="en">Niche modelling</span><span class="tr">Niş modelleme</span></p><h3>Hakan Gür</h3></div>
-          <p><span class="en">Kırşehir Ahi Evran University</span><span class="tr">Kırşehir Ahi Evran Üniversitesi</span></p>
+        <article class="member">
+          <div class="tile"><canvas data-seed="Gizem İşeri" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">Gİ</span></div>
+          <div><h3>Gizem İşeri</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
-        <article class="person">
-          <div><p class="role"><span class="en">Brassicaceae phylogeny</span><span class="tr">Brassicaceae filogenisi</span></p><h3>Klaus Mummenhoff</h3></div>
-          <p><span class="en">Osnabrück University, Germany</span><span class="tr">Osnabrück Üniversitesi, Almanya</span></p>
+        <article class="member">
+          <div class="tile"><canvas data-seed="Zeynep Al" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">ZA</span></div>
+          <div><h3>Zeynep Al</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
       </div>
-
-      <p class="note"><span class="en">Prospective MSc and PhD students interested in plant systematics and biogeography are welcome to get in touch.</span><span class="tr">Bitki sistematiği ve biyocoğrafya alanında yüksek lisans veya doktora yapmak isteyen öğrenciler bizimle iletişime geçebilir.</span></p>
+      <div class="join">
+        <p><span class="en">Thinking about an MSc or PhD in plant systematics or biogeography? Write to us with a short note about your interests.</span><span class="tr">Bitki sistematiği veya biyocoğrafya alanında yüksek lisans ya da doktora mı düşünüyorsunuz? İlgi alanlarınızı anlatan kısa bir notla bize yazın.</span></p>
+        <a class="btn solid" href="#contact"><span class="en">How to apply</span><span class="tr">Nasıl başvurulur</span></a>
+      </div>
     </div>
   </section>
 
   <!-- CONTACT -->
-  <section class="block" id="contact">
+  <section class="band band-lowland" id="contact" aria-labelledby="contact-h">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="label"><span class="en">Contact</span><span class="tr">İletişim</span></p>
-        <h2><span class="en">Get in touch</span><span class="tr">Bize ulaşın</span></h2>
-      </div>
-      <div class="contact-grid">
-        <div class="prose">
-          <p class="en">For collaborations, student positions, specimen loans or visits to the lab, please write to us by e-mail. Visits should be arranged in advance.</p>
-          <p class="tr">İş birlikleri, öğrenci pozisyonları, örnek ödünç talepleri veya laboratuvar ziyaretleri için bize e-posta ile yazabilirsiniz. Ziyaretler için lütfen önceden randevu alın.</p>
+      <div class="contact">
+        <div class="mail">
+          <h2 class="sec-title" id="contact-h"><span class="en">Write to the lab</span><span class="tr">Laboratuvara yazın</span></h2>
+          <p class="lede"><span class="en">For collaborations, student positions, specimen loans or a visit, send an e-mail. Please arrange visits in advance.</span><span class="tr">İş birlikleri, öğrenci pozisyonları, örnek ödünç talepleri veya ziyaret için e-posta gönderin. Ziyaretler için lütfen önceden randevu alın.</span></p>
+          <p class="addr" id="mail">barisoz@hacettepe.edu.tr</p>
+          <div class="actions">
+            <a class="btn solid" href="mailto:barisoz@hacettepe.edu.tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6 8 7 8-7"/></svg><span class="en">Send an e-mail</span><span class="tr">E-posta gönder</span></a>
+            <button class="btn line" type="button" id="copy-mail"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="1.5"/><path d="M16 8V5.5A1.5 1.5 0 0 0 14.5 4h-9A1.5 1.5 0 0 0 4 5.5v9A1.5 1.5 0 0 0 5.5 16H8"/></svg><span class="en">Copy address</span><span class="tr">Adresi kopyala</span></button>
+          </div>
+          <p class="toast" id="toast" role="status" aria-live="polite"></p>
         </div>
-        <div class="contact-card">
-          <div class="row"><span class="label"><span class="en">E-mail</span><span class="tr">E-posta</span></span>
-            <div class="copy"><code id="mail">barisoz@hacettepe.edu.tr</code><button type="button" id="copy-mail"><span class="en">Copy</span><span class="tr">Kopyala</span></button></div>
-          </div>
-          <div class="row"><span class="label"><span class="en">Address</span><span class="tr">Adres</span></span>
-            <p class="v en">Plant Biogeography Lab<br>Department of Biology, Faculty of Science<br>Hacettepe University, Beytepe Campus<br>06800 Çankaya, Ankara, Türkiye</p>
-            <p class="v tr">Bitki Biyocoğrafyası Laboratuvarı<br>Hacettepe Üniversitesi Fen Fakültesi<br>Biyoloji Bölümü, Beytepe Yerleşkesi<br>06800 Çankaya, Ankara, Türkiye</p>
-            <p class="coords">39.87° N · 32.73° E</p>
-          </div>
+        <div class="visit">
+          <div><p class="k"><span class="en">Address</span><span class="tr">Adres</span></p>
+            <p class="en">Plant Biogeography Lab<br>Department of Biology, Faculty of Science<br>Hacettepe University, Beytepe Campus<br>06800 Çankaya, Ankara, Türkiye</p>
+            <p class="tr">Bitki Biyocoğrafyası Laboratuvarı<br>Fen Fakültesi, Biyoloji Bölümü<br>Hacettepe Üniversitesi, Beytepe Yerleşkesi<br>06800 Çankaya, Ankara, Türkiye</p></div>
+          <div><p class="k"><span class="en">Coordinates</span><span class="tr">Koordinatlar</span></p><p class="data">39.87° N · 32.73° E</p></div>
+          <div><p class="k"><span class="en">Collaborators</span><span class="tr">İş birlikçiler</span></p>
+            <p><span class="en">Hakan Gür (Kırşehir Ahi Evran University) · Klaus Mummenhoff (Osnabrück University)</span><span class="tr">Hakan Gür (Kırşehir Ahi Evran Üniversitesi) · Klaus Mummenhoff (Osnabrück Üniversitesi)</span></p></div>
         </div>
       </div>
     </div>
@@ -500,57 +497,197 @@ footer .wrap{padding-block:2rem;display:flex;justify-content:space-between;gap:1
 
 <footer>
   <div class="wrap">
-    <span>© 2026 Plant Biogeography Lab · Hacettepe University</span>
-    <span>Brassicaceae · <span class="en">Biogeography · Systematics</span><span class="tr">Biyocoğrafya · Sistematik</span></span>
+    <span>© 2026 Plant Biogeography · Hacettepe University</span>
+    <span class="data">Brassicaceae · Anatolia</span>
   </div>
 </footer>
 
 <script>
 (function(){
   var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // language
+  /* ---------- language ---------- */
+  var listeners=[];
   function setLang(l){
-    root.setAttribute('data-lang',l);
-    root.lang=l;
+    root.setAttribute('data-lang',l);root.lang=l;
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
     try{localStorage.setItem('pb-lang',l)}catch(e){}
+    listeners.forEach(function(f){f()});
   }
   var saved=null;try{saved=localStorage.getItem('pb-lang')}catch(e){}
   setLang(saved||((navigator.language||'').toLowerCase().indexOf('tr')===0?'tr':'en'));
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
 
-  // mobile menu
+  /* ---------- menu sheet ---------- */
   var hdr=document.getElementById('hdr'),mb=document.getElementById('menu-btn');
   function setMenu(o){hdr.classList.toggle('open',o);mb.setAttribute('aria-expanded',o?'true':'false')}
   mb.addEventListener('click',function(){setMenu(!hdr.classList.contains('open'))});
   document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape')setMenu(false)});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){setMenu(false);mb.focus()}});
+  matchMedia('(min-width: 861px)').addEventListener('change',function(m){if(m.matches)setMenu(false)});
 
-  // research filter
+  /* ---------- study filter ---------- */
   var chips=document.querySelectorAll('.chip');
   chips.forEach(function(c){c.addEventListener('click',function(){
     chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
-    var f=c.dataset.f;
-    document.querySelectorAll('#projects .project').forEach(function(p){p.hidden=!(f==='all'||p.dataset.s===f)});
+    document.querySelectorAll('#studies .study').forEach(function(s){s.hidden=!(c.dataset.f==='all'||s.dataset.s===c.dataset.f)});
   })});
 
-  // copy e-mail
-  var btn=document.getElementById('copy-mail');
-  btn.addEventListener('click',function(){
-    var el=document.getElementById('mail');
-    var sel=function(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)};
-    var done=function(){btn.classList.add('ok');var o=btn.innerHTML;btn.innerHTML='✓';setTimeout(function(){btn.innerHTML=o},1500)};
-    try{navigator.clipboard.writeText(el.textContent).then(done,sel)}catch(e){sel()}
+  /* ---------- copy e-mail ---------- */
+  var cb=document.getElementById('copy-mail'),toast=document.getElementById('toast'),tt;
+  cb.addEventListener('click',function(){
+    var el=document.getElementById('mail'),tr=root.dataset.lang==='tr';
+    function say(m){toast.textContent=m;clearTimeout(tt);tt=setTimeout(function(){toast.textContent=''},2400)}
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);say(tr?'Adres seçildi, kopyalayabilirsiniz.':'Address selected, copy it from here.')}
+    try{navigator.clipboard.writeText(el.textContent.trim()).then(function(){say(tr?'Adres kopyalandı.':'Address copied.')},sel)}catch(e){sel()}
   });
 
-  // highlight current section
-  var links=[].slice.call(document.querySelectorAll('#nav a'));
+  /* ---------- active section in legend ---------- */
+  var links=[].slice.call(document.querySelectorAll('#nav ul a'));
   if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){
-      if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}
-    })},{rootMargin:'-45% 0px -50% 0px'});
-    document.querySelectorAll('section.block').forEach(function(s){io.observe(s)});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)links.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})})},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section.band').forEach(function(s){io.observe(s)});
   }
+
+  /* ---------- noise ---------- */
+  function makeNoise(seed){
+    var p=new Uint8Array(512),s=seed>>>0||1,i;
+    for(i=0;i<256;i++)p[i]=i;
+    for(i=255;i>0;i--){s=(s*1664525+1013904223)>>>0;var j=s%(i+1),t=p[i];p[i]=p[j];p[j]=t}
+    for(i=0;i<256;i++)p[i+256]=p[i];
+    var g=[[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]],F=.5*(Math.sqrt(3)-1),G=(3-Math.sqrt(3))/6;
+    return function(x,y){
+      var s2=(x+y)*F,i=Math.floor(x+s2),j=Math.floor(y+s2),t=(i+j)*G,x0=x-(i-t),y0=y-(j-t),i1=x0>y0?1:0,j1=1-i1,
+      x1=x0-i1+G,y1=y0-j1+G,x2=x0-1+2*G,y2=y0-1+2*G,ii=i&255,jj=j&255,n=0,tt,q;
+      tt=.5-x0*x0-y0*y0;if(tt>0){q=g[p[ii+p[jj]]&7];tt*=tt;n+=tt*tt*(q[0]*x0+q[1]*y0)}
+      tt=.5-x1*x1-y1*y1;if(tt>0){q=g[p[ii+i1+p[jj+j1]]&7];tt*=tt;n+=tt*tt*(q[0]*x1+q[1]*y1)}
+      tt=.5-x2*x2-y2*y2;if(tt>0){q=g[p[ii+1+p[jj+1]]&7];tt*=tt;n+=tt*tt*(q[0]*x2+q[1]*y2)}
+      return 70*n;
+    };
+  }
+  function hash(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+
+  /* ---------- palette from tokens ---------- */
+  var pal={};
+  function readPal(){
+    var cs=getComputedStyle(root);
+    pal.bands=[0,1,2,3,4,5,6].map(function(i){return hex(cs.getPropertyValue('--b'+i).trim())});
+    pal.contour=cs.getPropertyValue('--contour').trim();
+    pal.diag=cs.getPropertyValue('--diag').trim();
+    pal.ink=cs.getPropertyValue('--ink').trim();
+  }
+  function hex(h){h=h.replace('#','');if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
+  var LEVELS=[.2,.32,.44,.56,.68,.8];
+
+  /* marching squares over a value grid */
+  function isolines(ctx,f,cols,rows,cw,ch,level){
+    ctx.beginPath();
+    for(var j=0;j<rows-1;j++){for(var i=0;i<cols-1;i++){
+      var a=f[j*cols+i],b=f[j*cols+i+1],c=f[(j+1)*cols+i+1],d=f[(j+1)*cols+i];
+      var k=(a>level?8:0)|(b>level?4:0)|(c>level?2:0)|(d>level?1:0);
+      if(k===0||k===15)continue;
+      var T=[(i+(level-a)/(b-a))*cw,j*ch],R=[(i+1)*cw,(j+(level-b)/(c-b))*ch],B=[(i+(level-d)/(c-d))*cw,(j+1)*ch],L=[i*cw,(j+(level-a)/(d-a))*ch];
+      var s;
+      switch(k){case 1:case 14:s=[L,B];break;case 2:case 13:s=[B,R];break;case 3:case 12:s=[L,R];break;case 4:case 11:s=[T,R];break;case 6:case 9:s=[T,B];break;case 7:case 8:s=[L,T];break;
+        case 5:ctx.moveTo(T[0],T[1]);ctx.lineTo(R[0],R[1]);s=[L,B];break;case 10:ctx.moveTo(L[0],L[1]);ctx.lineTo(T[0],T[1]);s=[B,R];break}
+      ctx.moveTo(s[0][0],s[0][1]);ctx.lineTo(s[1][0],s[1][1]);
+    }}
+    ctx.stroke();
+  }
+  function bandIndex(v){for(var i=0;i<LEVELS.length;i++)if(v<LEVELS[i])return i;return LEVELS.length}
+  /* bands are filled from the bilinear surface the isolines are traced on, at ~2px, so band edges and contours coincide */
+  function paintBands(ctx,f,cols,rows,cell,off){
+    var k=Math.max(1,Math.round(cell/2)),FW=(cols-1)*k+1,FH=(rows-1)*k+1;
+    off.width=FW;off.height=FH;var oc=off.getContext('2d'),img=oc.createImageData(FW,FH),d=img.data,p=0;
+    for(var y=0;y<FH;y++){var j=Math.min(rows-2,(y/k)|0),fy=y/k-j;
+      for(var x=0;x<FW;x++){var i=Math.min(cols-2,(x/k)|0),fx=x/k-i,o=j*cols+i;
+        var v=(f[o]*(1-fx)+f[o+1]*fx)*(1-fy)+(f[o+cols]*(1-fx)+f[o+cols+1]*fx)*fy;
+        var c=pal.bands[bandIndex(v)];d[p]=c[0];d[p+1]=c[1];d[p+2]=c[2];d[p+3]=255;p+=4}}
+    oc.putImageData(img,0,0);
+    ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,FW,FH,0,0,(cols-1)*cell,(rows-1)*cell);
+  }
+
+  /* ---------- hero relief ---------- */
+  var cv=document.getElementById('relief'),ctx=cv.getContext('2d'),off=document.createElement('canvas');
+  var noise=makeNoise(1907),W=0,H=0,dpr=1,cell=14,cols=0,rows=0,field=null,t0=performance.now(),running=false,visible=true,last=0;
+  var ptr={x:-9999,y:-9999,a:0,ta:0};
+  function size(){
+    var r=cv.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+    cell=W<700?12:15;cols=Math.ceil(W/cell)+2;rows=Math.ceil(H/cell)+2;field=new Float32Array(cols*rows);
+  }
+  function diagDist(x,y){ /* distance to the line from top-right to bottom-left */
+    var x1=W*.98,y1=-H*.02,x2=W*.18,y2=H*1.02,dx=x2-x1,dy=y2-y1;
+    return Math.abs(dy*x-dx*y+x2*y1-y2*x1)/Math.hypot(dx,dy);
+  }
+  function compute(time,amp){
+    var s=W<700?.0026:.0019,drift=time*.000010,ridgeW=Math.max(W,H)*.13;
+    for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+      var x=i*cell,y=j*cell,nx=x*s+drift,ny=y*s-drift*.6;
+      var v=noise(nx,ny)*.7+noise(nx*2.1+11,ny*2.1)*.22+noise(nx*4.3+31,ny*4.3)*.08;
+      var dd=diagDist(x,y);v=v*.42+.5;v+=.34*Math.exp(-(dd*dd)/(2*ridgeW*ridgeW))-.12;
+      if(ptr.a>0.001){var px=x-ptr.x,py=y-ptr.y;v+=.2*ptr.a*Math.exp(-(px*px+py*py)/(2*95*95))}
+      field[j*cols+i]=.5+(v-.5)*amp;
+    }}
+  }
+  function drawDiag(c){
+    var x1=W*.98,y1=-H*.02,x2=W*.18,y2=H*1.02;
+    c.save();c.setLineDash([12,9]);c.lineWidth=3.5;c.strokeStyle=pal.diag;c.beginPath();c.moveTo(x1,y1);c.lineTo(x2,y2);c.stroke();c.restore();
+    var ang=Math.atan2(y2-y1,x2-x1),t=W<700?.2:.24,lx=x1+(x2-x1)*t,ly=y1+(y2-y1)*t;
+    c.save();c.translate(lx,ly);c.rotate(ang+Math.PI);
+    var label=root.dataset.lang==='tr'?'ANADOLU DİYAGONALİ':'ANATOLIAN DIAGONAL';
+    c.font='700 '+(W<700?11:13)+'px Archivo, Arial, sans-serif';c.textAlign='center';
+    try{c.letterSpacing='3px'}catch(e){}
+    c.lineWidth=4;c.strokeStyle='rgba(247,248,243,.85)';c.strokeText(label,0,-10);c.fillStyle=pal.ink;c.fillText(label,0,-10);
+    c.restore();
+  }
+  function render(time){
+    var e=Math.min(1,(time-t0)/1600),amp=reduce?1:1-Math.pow(2,-10*e);
+    ptr.a+=(ptr.ta-ptr.a)*.08;
+    compute(reduce?0:time-t0,amp);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    paintBands(ctx,field,cols,rows,cell,off);
+    ctx.lineWidth=1;ctx.strokeStyle=pal.contour;
+    for(var l=0;l<LEVELS.length;l++){ctx.lineWidth=l===2||l===4?1.6:.9;isolines(ctx,field,cols,rows,cell,cell,LEVELS[l])}
+    drawDiag(ctx);
+  }
+  function loop(time){
+    if(!running)return;
+    if(time-last>33){last=time;render(time)}
+    requestAnimationFrame(loop);
+  }
+  function start(){if(reduce||running||!visible||document.hidden)return;running=true;requestAnimationFrame(loop)}
+  function stop(){running=false}
+  readPal();size();render(performance.now());start();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;visible?start():stop()}).observe(cv);
+  document.addEventListener('visibilitychange',function(){document.hidden?stop():start()});
+  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){size();render(performance.now());drawTiles()},120)});
+  if(!reduce){
+    var hero=cv.parentNode;
+    hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.ta=1},{passive:true});
+    hero.addEventListener('pointerleave',function(){ptr.ta=0},{passive:true});
+    hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse')ptr.ta=0},{passive:true});
+  }
+  listeners.push(function(){if(!running)render(performance.now())});
+
+  /* ---------- team tiles: each person gets their own small relief ---------- */
+  function drawTiles(){
+    document.querySelectorAll('.tile canvas').forEach(function(c){
+      var r=c.getBoundingClientRect();if(!r.width)return;
+      var d=Math.min(window.devicePixelRatio||1,2),w=r.width,h=r.height;c.width=Math.round(w*d);c.height=Math.round(h*d);
+      var g=c.getContext('2d'),nz=makeNoise(hash(c.dataset.seed)),ce=6,co=Math.ceil(w/ce)+2,ro=Math.ceil(h/ce)+2,f=new Float32Array(co*ro);
+      for(var j=0;j<ro;j++)for(var i=0;i<co;i++){var x=i*ce*.0075,y=j*ce*.0075;f[j*co+i]=(nz(x,y)*.7+nz(x*2.3+5,y*2.3)*.3)*.5+.5}
+      g.setTransform(d,0,0,d,0,0);paintBands(g,f,co,ro,ce,document.createElement('canvas'));
+      g.strokeStyle=pal.contour;g.lineWidth=.9;for(var l=0;l<LEVELS.length;l++)isolines(g,f,co,ro,ce,ce,LEVELS[l]);
+    });
+  }
+  drawTiles();
+
+  /* ---------- theme changes ---------- */
+  function retheme(){readPal();render(performance.now());drawTiles()}
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',retheme);
+  new MutationObserver(retheme).observe(root,{attributes:true,attributeFilter:['data-theme']});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(!running)render(performance.now())});
 })();
 </script>
