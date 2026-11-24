@@ -266,7 +266,7 @@ The page now uses pale versions of traditional Japanese colours and no dark or s
 
 ### Field photographs
 
-Five lab field photographs, always shown whole (square, no cropping) so the plant or the habitat reads in full. Plant photos carry a small frosted genus label (Phyllolepidium in About, Heldreichia beside the featured project, Noccaea beside the theses). Two habitat plates sit between sections on the paper ground, photo and text side by side and alternating sides: the Heldreichia habitat (limestone scree at the edge of cedar forest) before Research, and the Noccaea and Phyllolepidium habitat (high limestone cirque) before Team publications.
+Five lab field photographs, always shown whole (square, no cropping) so the plant or the habitat reads in full. Plant photos carry a small frosted genus label (Phyllolepidium in About, Heldreichia beside the featured project, Noccaea beside the theses). Two field-photograph plates ("Field photographs" heading, one-line caption naming the genus whose habitat it is) sit between sections on the paper ground, photo and text side by side and alternating sides: the Heldreichia habitat (limestone scree at the edge of cedar forest) before Research, and the Noccaea and Phyllolepidium habitat (high limestone cirque) before Team publications.
 
 ### Research up front
 
