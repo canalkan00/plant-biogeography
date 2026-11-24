@@ -87,7 +87,7 @@ button{-webkit-user-select:none;user-select:none;font:inherit}
 .hero{position:relative;min-height:clamp(36rem,88svh,54rem);display:grid;align-items:center;overflow:hidden;background:var(--b3);isolation:isolate}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;touch-action:pan-y}
 .hero>.wrap{width:100%;padding-block:3rem 5.5rem}
-.cartouche{max-width:38rem;background:var(--paper);border:1px solid var(--ink);border-radius:4px;padding:clamp(1.4rem,3.5vw,2.4rem);display:grid;container-type:inline-size;gap:1.1rem;animation:settle 1.1s var(--ease-out) both .15s}
+.cartouche{max-width:38rem;background:var(--paper);border:1px solid var(--ink);border-radius:4px;padding:clamp(1.4rem,3.5vw,2.4rem);display:grid;container-type:inline-size;width:min(100%,38rem);gap:1.1rem;animation:settle 1.1s var(--ease-out) both .15s}
 @keyframes settle{from{transform:translateY(14px)}to{transform:none}}
 .cartouche h1 .tr{font-size:.82em}
 .cartouche h1{font-size:clamp(1.6rem,7.4vw,3.3rem);font-size:min(9.2cqi,3.6rem);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.02em;line-height:.95}
@@ -129,6 +129,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .photo{margin:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--b2)}
 .photo img{display:block;width:100%;height:100%;object-fit:cover}
 .specimen-tag{position:absolute;left:.75rem;bottom:.75rem;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1rem;padding:.25rem .65rem;border:1px solid var(--ink);border-radius:2px}
+.methods-head{margin-top:.5rem}
 .methods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(1rem,3vw,2rem)}
 
 .methods li{display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
@@ -168,6 +169,23 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 
 
 
+
+/* hero actions: two map-label pills set on the relief, outside the title card */
+.hero>.wrap{display:grid;gap:1rem;justify-items:start}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;animation:settle 1.1s var(--ease-out) both .3s}
+.ha{display:inline-flex;align-items:center;gap:.8rem;min-height:3.25rem;border-radius:999px;text-decoration:none;font-family:var(--f-map);font-weight:600;font-size:1.02rem;-webkit-user-select:none;user-select:none;touch-action:manipulation;transition:transform .16s var(--ease-out),box-shadow .2s var(--ease-out),background-color .2s}
+.ha-ico{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;flex:none;transition:transform .22s var(--ease-out)}
+.ha-ico svg{width:18px;height:18px}
+.ha-main{background:var(--ink);color:var(--paper);padding:.4rem .42rem .4rem 1.3rem;box-shadow:0 10px 24px -14px rgba(16,26,20,.7)}
+.ha-main .ha-ico{background:var(--diag);color:#1b1500}
+.ha-alt{background:color-mix(in srgb,var(--paper) 82%,transparent);-webkit-backdrop-filter:blur(8px) saturate(1.2);backdrop-filter:blur(8px) saturate(1.2);color:var(--ink);padding:.4rem 1.3rem .4rem .42rem;box-shadow:0 8px 20px -14px rgba(16,26,20,.55),inset 0 0 0 1px color-mix(in srgb,var(--ink) 12%,transparent)}
+.ha-alt .ha-ico{background:var(--ink);color:var(--paper)}
+.ha:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .ha-main:hover .ha-ico{transform:translateY(3px)}
+  .ha-alt:hover .ha-ico{transform:rotate(-8deg) scale(1.06)}
+  .ha:hover{box-shadow:0 14px 28px -14px rgba(16,26,20,.75)}
+}
 /* ---------- motion: small, compositor-only ---------- */
 .sec-title,.sub-head{position:relative;padding-bottom:.55rem}
 .sec-title::after,.sub-head::after{content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
@@ -347,10 +365,15 @@ footer .data{opacity:.8}
 }
 @media (max-width:760px){
   .hero{align-items:end;min-height:clamp(38rem,92svh,46rem)}
-  .hero>.wrap{padding-block:10rem 7.25rem}
+  .hero>.wrap{padding-block:9rem 8.25rem}
   .cartouche{max-width:none}
   .cartouche .thesis{font-size:1.15rem}
   .actions .btn{flex:1 1 9rem}
+  .hero>.wrap{justify-items:stretch}
+  .hero-actions{display:grid;grid-template-columns:1.2fr 1fr;gap:.6rem}
+  .ha{white-space:nowrap}
+  .ha{justify-content:space-between;font-size:.98rem}
+  .ha-alt{justify-content:flex-start}
   .legend .note{margin-left:0}
   .studies{grid-template-columns:minmax(0,1fr)}
   .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-snap-type:x proximity}
@@ -375,6 +398,7 @@ footer .data{opacity:.8}
   .mail .actions .btn{flex:1 1 100%}
 }
 @media (max-width:420px){
+  .hero-actions{grid-template-columns:minmax(0,1fr)}
   .brand b{font-size:.72rem;letter-spacing:.06em}
   .brand svg{width:26px;height:26px}
   .lang button{min-width:2.4rem}
@@ -434,11 +458,11 @@ footer .data{opacity:.8}
         <h1 id="h1"><span class="en">Plant<br>Biogeography</span><span class="tr">Bitki<br>Biyocoğrafyası</span></h1>
         <p class="place"><span class="en">Laboratory · Hacettepe University, Ankara</span><span class="tr">Laboratuvarı · Hacettepe Üniversitesi, Ankara</span></p>
         <p class="thesis"><span class="en">We study how the mustard family, <i>Brassicaceae</i>, came to live where it lives across the mountains and steppes of Anatolia.</span><span class="tr">Turpgiller familyasının, <i>Brassicaceae</i>'nin, Anadolu'nun dağlarına ve bozkırlarına nasıl yayıldığını araştırıyoruz.</span></p>
-        <div class="actions">
-          <a class="btn solid" href="#research"><span class="en">See our research</span><span class="tr">Araştırmalarımız</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg></a>
-          <a class="btn line" href="#contact"><span class="en">Contact</span><span class="tr">İletişim</span></a>
-        </div>
       </div>
+      <nav class="hero-actions" aria-label="Start">
+        <a class="ha ha-main" href="#research"><span class="ha-txt"><span class="en">See our research</span><span class="tr">Araştırmalarımız</span></span><span class="ha-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0 6-6m-6 6-6-6"/></svg></span></a>
+        <a class="ha ha-alt" href="#contact"><span class="ha-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span><span class="ha-txt"><span class="en">Contact</span><span class="tr">İletişim</span></span></a>
+      </nav>
     </div>
     <div class="legend" aria-hidden="true">
       <div class="wrap data">
@@ -458,8 +482,8 @@ footer .data{opacity:.8}
           <p class="lede" style="color:var(--ink)"><span class="en">The Plant Biogeography Laboratory at Hacettepe University investigates the origin, diversification and present-day distribution of the Anatolian flora, using the mustard family, Brassicaceae, as its model group.</span><span class="tr">Hacettepe Üniversitesi Bitki Biyocoğrafyası Laboratuvarı, turpgiller (Brassicaceae) familyasını model grup olarak kullanarak Anadolu florasının kökenini, çeşitlenmesini ve bugünkü yayılışını araştırır.</span></p>
           <p class="en">Anatolia lies at the junction of the Mediterranean, Irano-Anatolian and Caucasus biodiversity hotspots. Its topographic and climatic heterogeneity, exemplified by the Anatolian Diagonal and the Taurus Mountains, has produced exceptional species richness and endemism. We ask how geological history, Pleistocene climatic oscillations and ecological specialisation shaped lineage diversification, range dynamics and genetic structure in this setting.</p>
           <p class="tr">Anadolu; Akdeniz, İran-Anadolu ve Kafkasya biyoçeşitlilik sıcak noktalarının kesişiminde yer alır. Anadolu Diyagonali ve Toros Dağları ile örneklenen topoğrafik ve iklimsel heterojenliği, olağanüstü bir tür zenginliği ve endemizm ortaya çıkarmıştır. Bu ortamda jeolojik geçmişin, Pleistosen iklim salınımlarının ve ekolojik özelleşmenin soy hattı çeşitlenmesini, yayılış dinamiklerini ve genetik yapıyı nasıl biçimlendirdiğini araştırıyoruz.</p>
-          <p class="en">Our work integrates field collections and herbarium records with molecular phylogenetics, RADseq-based population genomics, ecological niche modelling and morphometrics, and feeds into the taxonomic revision and conservation assessment of the Turkish flora. The laboratory is funded by TÜBİTAK and the Hacettepe University Scientific Research Projects Unit (BAP), and collaborates with research groups in Türkiye, Germany, the Czech Republic, Russia and the United States.</p>
-          <p class="tr">Çalışmalarımız arazi toplamalarını ve herbaryum kayıtlarını moleküler filogenetik, RADseq tabanlı popülasyon genomiği, ekolojik niş modellemesi ve morfometri ile bütünleştirir; Türkiye florasının taksonomik revizyonuna ve koruma değerlendirmesine katkı sağlar. Laboratuvar TÜBİTAK ve Hacettepe Üniversitesi Bilimsel Araştırma Projeleri Koordinasyon Birimi (BAP) tarafından desteklenmekte; Türkiye, Almanya, Çekya, Rusya ve ABD'deki araştırma gruplarıyla iş birliği yapmaktadır.</p>
+          <p class="en">Our work combines field collections and herbarium records with molecular phylogenetics, RADseq-based phylogenomics and population genomics, ecological niche modelling, and morphological and numerical taxonomy, and feeds into the taxonomic revision and conservation assessment of the Turkish flora. Recent work includes genomic subspecies delimitation in the alpine <i>Heldreichia bupleurifolia</i>, the richness and endemism patterns of Turkish crucifers, element accumulation across the hyperaccumulator <i>Noccaea aucheri</i> complex, and contributions to the global Brassicaceae phylogeny. The laboratory is funded by TÜBİTAK and the Hacettepe University Scientific Research Projects Unit (BAP), and collaborates with research groups in Türkiye, Germany, the Czech Republic, Russia and the United States.</p>
+          <p class="tr">Çalışmalarımız arazi toplamalarını ve herbaryum kayıtlarını moleküler filogenetik, RADseq tabanlı filogenomik ve popülasyon genomiği, ekolojik niş modellemesi ile morfolojik ve numerik taksonomiyle birleştirir; Türkiye florasının taksonomik revizyonuna ve koruma değerlendirmesine katkı sağlar. Son çalışmalarımız arasında alpin <i>Heldreichia bupleurifolia</i>'da genomik alttür sınırlandırması, Türkiye turpgillerinin zenginlik ve endemizm örüntüleri, hiperakümülatör <i>Noccaea aucheri</i> kompleksinde element birikimi ve küresel Brassicaceae filogenisine katkılar yer alıyor. Laboratuvar TÜBİTAK ve Hacettepe Üniversitesi Bilimsel Araştırma Projeleri Koordinasyon Birimi (BAP) tarafından desteklenmekte; Türkiye, Almanya, Çekya, Rusya ve ABD'deki araştırma gruplarıyla iş birliği yapmaktadır.</p>
           <div class="hotspots" aria-label="Hotspots">
             <span class="en">Mediterranean</span><span class="tr">Akdeniz</span>
             <span class="en">Irano-Anatolian</span><span class="tr">İran-Anadolu</span>
@@ -471,22 +495,23 @@ footer .data{opacity:.8}
           <figcaption class="specimen-tag"><i>Ricotia carnosula</i></figcaption>
         </figure>
       </div>
+      <h3 class="sub-head methods-head"><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></h3>
       <ul class="methods">
           <li>
             <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 36V20M20 20 9 7M20 20l11-13M20 27l-7-6M20 29l7-6"/><circle cx="9" cy="7" r="2" fill="var(--diag)"/><circle cx="31" cy="7" r="2" fill="var(--diag)"/></svg>
-            <div><h3><span class="en">Phylogeny and dating</span><span class="tr">Filogeni ve tarihlendirme</span></h3><p><span class="en">Nuclear and chloroplast markers, time-calibrated trees.</span><span class="tr">Çekirdek ve kloroplast belirteçleri, zaman kalibrasyonlu ağaçlar.</span></p></div>
+            <div><h3><span class="en">Molecular phylogenetics</span><span class="tr">Moleküler filogenetik</span></h3><p><span class="en">Nuclear ITS and plastid markers, and RADseq phylogenomics, to resolve genera and species complexes such as <i>Noccaea</i>, <i>Heldreichia</i> and <i>Iberis simplex</i>.</span><span class="tr">Çekirdek ITS ve plastid belirteçleri ile RADseq filogenomiğiyle <i>Noccaea</i>, <i>Heldreichia</i> ve <i>Iberis simplex</i> gibi cins ve tür komplekslerini çözümlemek.</span></p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="13" r="3"/><circle cx="18" cy="9" r="3"/><circle cx="15" cy="19" r="3"/><circle cx="27" cy="25" r="3" fill="var(--diag)"/><circle cx="32" cy="31" r="3" fill="var(--diag)"/><circle cx="24" cy="32" r="3" fill="var(--diag)"/><path d="M6 36h30"/></svg>
+            <div><h3><span class="en">Population genomics and species delimitation</span><span class="tr">Popülasyon genomiği ve tür sınırlandırması</span></h3><p><span class="en">Genome-wide SNP data combined with quantitative morphology to delimit species and subspecies, as in <i>Heldreichia bupleurifolia</i> and the <i>Noccaea aucheri</i> complex.</span><span class="tr">Genom çapında SNP verisini kantitatif morfolojiyle birleştirerek tür ve alttürleri sınırlandırmak; <i>Heldreichia bupleurifolia</i> ve <i>Noccaea aucheri</i> kompleksinde olduğu gibi.</span></p></div>
           </li>
           <li>
             <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 30c5-10 11-18 17-17s10 8 8 13-11 7-17 6c-4 0-8-1-8-2z"/><path d="M12 28c2-6 6-10 10-9s5 4 4 7-6 4-9 3"/><path d="M34 4 8 36" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 3"/></svg>
-            <div><h3><span class="en">Historical biogeography</span><span class="tr">Tarihsel biyocoğrafya</span></h3><p><span class="en">Ancestral ranges between Anatolia, the Balkans and the Eastern Mediterranean.</span><span class="tr">Anadolu, Balkanlar ve Doğu Akdeniz arasında atasal yayılış alanları.</span></p></div>
-          </li>
-          <li>
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="7" width="30" height="26" rx="1"/><path d="M5 25c6-3 9 2 15-2s9-1 15-4"/><circle cx="15" cy="16" r="2.2" fill="var(--diag)"/><circle cx="26" cy="14" r="2.2" fill="var(--diag)"/></svg>
-            <div><h3><span class="en">Niche modelling</span><span class="tr">Niş modelleme</span></h3><p><span class="en">Quaternary range shifts from climate layers and occurrences.</span><span class="tr">İklim katmanları ve kayıtlarla Kuvaterner yayılış değişimleri.</span></p></div>
+            <div><h3><span class="en">Niche modelling and distribution</span><span class="tr">Niş modelleme ve yayılış</span></h3><p><span class="en">Species distribution models, Quaternary range dynamics and richness patterns built from more than 15,000 georeferenced herbarium records for Türkiye.</span><span class="tr">Türkiye için 15.000'den fazla koordinatlı herbaryum kaydından tür dağılım modelleri, Kuvaterner yayılış dinamikleri ve zenginlik örüntüleri.</span></p></div>
           </li>
           <li>
             <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="4" width="24" height="32" rx="1"/><path d="M20 30V14m0 6-5-4m5 1 5-4"/><path d="M13 33h14"/></svg>
-            <div><h3><span class="en">Herbarium records</span><span class="tr">Herbaryum kayıtları</span></h3><p><span class="en">Over 15,000 georeferenced records analysed for Türkiye.</span><span class="tr">Türkiye için 15.000'den fazla koordinatlı kayıt analiz edildi.</span></p></div>
+            <div><h3><span class="en">Morphology, taxonomy and field botany</span><span class="tr">Morfoloji, taksonomi ve arazi botaniği</span></h3><p><span class="en">Seed and leaf morphology, anatomy and numerical taxonomy, field collections across Anatolia, and the description of taxa new to science.</span><span class="tr">Tohum ve yaprak morfolojisi, anatomi ve numerik taksonomi; Anadolu genelinde arazi toplamaları ve bilim için yeni taksonların tanımlanması.</span></p></div>
           </li>
         </ul>
 
@@ -536,7 +561,7 @@ footer .data{opacity:.8}
         </article>
         <article class="topic">
           <h4><span class="en">Historical biogeography and phylogeography</span><span class="tr">Tarihsel biyocoğrafya ve filocoğrafya</span></h4>
-          <p class="desc"><span class="en">Dating lineages and reconstructing ancestral ranges to test how the Anatolian Diagonal, the Taurus Mountains and the land bridges to the Balkans and the Aegean shaped diversification in Eastern Mediterranean plants.</span><span class="tr">Soy hatlarını tarihlendirerek ve atasal yayılış alanlarını yeniden kurarak Anadolu Diyagonali'nin, Toroslar'ın ve Balkanlar ile Ege'ye uzanan kara köprülerinin Doğu Akdeniz bitkilerinde çeşitlenmeyi nasıl biçimlendirdiğini test etmek.</span></p>
+          <p class="desc"><span class="en">Using phylogenies, genetic structure and distribution data to test how the Anatolian Diagonal, the Taurus Mountains and the connections to the Balkans and the Aegean shaped the diversification and present-day ranges of Eastern Mediterranean plants.</span><span class="tr">Filogeniler, genetik yapı ve yayılış verileriyle Anadolu Diyagonali'nin, Toroslar'ın ve Balkanlar ile Ege'ye uzanan bağlantıların Doğu Akdeniz bitkilerinin çeşitlenmesini ve bugünkü yayılışını nasıl biçimlendirdiğini test etmek.</span></p>
           <p class="refs data"><a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener"><i>Ricotia</i> · J. Syst. Evol. 2022</a> · <i>Bornmuellera</i> · Turk. J. Bot. 2020 · <i>Iberis simplex</i> · Turk. J. Bot. 2022 · <i>Pinguicula</i> · Plant Syst. Evol. 2026</p>
         </article>
         <article class="topic">
