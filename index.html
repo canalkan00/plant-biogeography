@@ -7,34 +7,34 @@
 <title>Plant Biogeography</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
-<meta name="theme-color" content="#e1f0c9">
+<meta name="theme-color" content="#f7f3e8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Martian+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
 :root{
-  --ink:#1b2620;
-  --ink-soft:#3f4f45;
-  --paper:#e1f0c9;
-  --stone:#dcedc3;
-  --steppe:#f6dcae;
-  --butter:#f1ecb3;
-  --sand2:#f9e6c3;
-  --butter2:#f6f2c8;
-  --steppe-ink:#6b4a12;
-  --foothill:#c7e09a;
-  --lowland:#f2c9a6;
+  --ink:#2b2b2b;
+  --ink-soft:#55504a;
+  --paper:#f7f3e8;
+  --stone:#e8f1d8;
+  --steppe:#f8dcc8;
+  --butter:#f8ecc0;
+  --sand2:#dde9f3;
+  --butter2:#d9eeee;
+  --steppe-ink:#7a4526;
+  --foothill:#f7e1e4;
+  --lowland:#f6d5c8;
   --on-lowland:#1b2620;
   --on-lowland-soft:#3d5345;
-  --rule:#a9c98a;
-  --diag:#efb100;
-  --diag-on-low:#5f4800;
-  --leaf:#2d5638;
+  --rule:#d6cfc0;
+  --diag:#f8b500;
+  --diag-on-low:#6a3f22;
+  --leaf:#3b5f87;
   --diag-ink:#6a5000;
   /* hypsometric bands, lowland to alpine */
-  --b0:#6cb276; --b1:#a2cd84; --b2:#c7e09a; --b3:#e3e3a0; --b4:#eec27c; --b5:#d9955f; --b6:#e1f0c9;
-  --contour:rgba(28,42,34,.2);
+  --b0:#b5d9a8; --b1:#cfe5b0; --b2:#e4eebb; --b3:#f4ecbc; --b4:#f6d3a6; --b5:#eeb79a; --b6:#f7f3e8;
+  --contour:rgba(43,43,43,.16);
   --f-map:"Archivo","Arial Narrow",Arial,sans-serif;
   --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
   --f-data:"Martian Mono",ui-monospace,Menlo,Consolas,monospace;
@@ -192,11 +192,24 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
   .ha-alt:hover .ha-ico{transform:rotate(-8deg) scale(1.06)}
   .ha:hover{box-shadow:0 14px 28px -14px rgba(16,26,20,.75)}
 }
+
+/* field photographs */
+.photo-band{margin:0;position:relative;height:clamp(16rem,42vw,30rem);overflow:hidden;background:var(--b2)}
+.photo-band picture,.photo-band img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-band img{transition:transform 1.4s var(--ease-out)}
+.photo-band.seen img,.no-anim .photo-band img{transform:none}
+.feature-wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.theses-wrap{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.side-photo{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--b2);position:sticky;top:5rem}
+.side-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.side-photo:hover img{transform:scale(1.03)}}
+@media (max-width:980px){.feature-wrap,.theses-wrap{grid-template-columns:minmax(0,1fr)}.side-photo{position:static;aspect-ratio:1/1;max-width:30rem}}
 /* ---------- motion: small, compositor-only ---------- */
 .sec-title,.sub-head{position:relative;padding-bottom:.55rem}
 .sec-title::after,.sub-head::after{content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
 .anim .band:not(.seen) .sec-title::after,.anim .band:not(.seen) .sub-head::after{transform:scaleX(0)}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.anim .photo-band:not(.seen) img{transform:scale(1.04)}
 .pubs li.rise{animation:rise .32s var(--ease-out) both}
 @media (hover:hover) and (pointer:fine){
   .member:hover .tile,.pi-link:hover .tile{transform:translateY(-4px) rotate(-.6deg)}
@@ -321,7 +334,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .visit .data{color:var(--diag-on-low)}
 .toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag-on-low);min-height:1.4em}
 
-footer{background:#93c572;color:var(--ink);border-top:1px solid var(--rule)}
+footer{background:#ead9cd;color:var(--ink);border-top:1px solid var(--rule)}
 footer .wrap{padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
 footer .data{opacity:.8}
 
@@ -499,8 +512,7 @@ footer .data{opacity:.8}
           </div>
         </div>
         <figure class="photo">
-          <img src="img/ricotia-carnosula-1200.jpg" srcset="img/ricotia-carnosula-700.jpg 700w, img/ricotia-carnosula-1200.jpg 1200w" sizes="(max-width: 980px) 92vw, 36vw" width="1200" height="1256" loading="lazy" decoding="async" alt="White four-petalled cruciform flowers of Ricotia carnosula on dry stems, photographed in Türkiye">
-          <figcaption class="specimen-tag"><i>Ricotia carnosula</i></figcaption>
+          <img src="img/limestone-crucifer-1200.jpg" srcset="img/limestone-crucifer-700.jpg 700w, img/limestone-crucifer-1200.jpg 1200w" sizes="(max-width: 980px) 92vw, 36vw" width="1200" height="1200" loading="lazy" decoding="async" alt="A white-flowered crucifer with a grey-green leaf rosette growing from a crack in limestone rock">
         </figure>
       </div>
       <h3 class="sub-head methods-head"><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></h3>
@@ -555,6 +567,10 @@ footer .data{opacity:.8}
     </div>
   </section>
 
+  <figure class="photo-band" id="band-valley" aria-label="Limestone scree and cedar forest above a deep mountain valley in Anatolia">
+    <picture><source media="(max-width: 700px)" srcset="img/cedar-valley-800.jpg"><img src="img/cedar-valley-1600.jpg" width="1600" height="768" loading="lazy" decoding="async" alt="Limestone scree and cedar forest above a deep mountain valley in Anatolia"></picture>
+  </figure>
+
   <!-- RESEARCH -->
   <section class="band band-steppe" id="research" aria-labelledby="research-h">
     <div class="wrap">
@@ -602,6 +618,7 @@ footer .data{opacity:.8}
     <div class="wrap">
       <h3 class="sub-head" id="projects-h"><span class="en">Projects</span><span class="tr">Projeler</span></h3>
       <div class="projects">
+        <div class="feature-wrap">
         <article class="project feature">
           <h4><span class="en">How Anatolian high-mountain plants responded to Quaternary climate change</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişimlerine tepkisi</span></h4>
           <p class="desc"><span class="en">Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, <i>Heldreichia bupleurifolia</i> (all six infraspecific taxa), <i>Noccaea oppositifolia</i> and <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses <i>Arabidopsis thaliana</i> as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.</span><span class="tr">Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, <i>Heldreichia bupleurifolia</i> (altı alttürün tamamı), <i>Noccaea oppositifolia</i> ve <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve <i>Arabidopsis thaliana</i>'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.</span></p>
@@ -613,6 +630,8 @@ footer .data{opacity:.8}
             <div><dt><span class="en">Methods</span><span class="tr">Yöntem</span></dt><dd>RADseq · ENM</dd></div>
           </dl>
         </article>
+          <figure class="side-photo"><img src="img/rock-crucifer-1000.jpg" srcset="img/rock-crucifer-600.jpg 600w, img/rock-crucifer-1000.jpg 1000w" sizes="(max-width: 980px) 92vw, 30vw" width="1000" height="1000" loading="lazy" decoding="async" alt="A white-flowered crucifer with lobed leaves growing among rust-coloured boulders"></figure>
+        </div>
         <div class="project-list">
           <ol class="plist">
           <li><span class="yr">2023–2024</span><div><p class="t"><span class="en">Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye</span><span class="tr">Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
@@ -638,6 +657,10 @@ footer .data{opacity:.8}
       </div>
     </div>
   </section>
+
+  <figure class="photo-band" id="band-cirque" aria-label="A high limestone cirque with late snow patches in the Anatolian mountains">
+    <picture><source media="(max-width: 700px)" srcset="img/alpine-cirque-800.jpg"><img src="img/alpine-cirque-1600.jpg" width="1600" height="768" loading="lazy" decoding="async" alt="A high limestone cirque with late snow patches in the Anatolian mountains"></picture>
+  </figure>
 
   <!-- TEAM PUBLICATIONS -->
   <section class="band band-butter" id="publications" aria-labelledby="pubs-h">
@@ -757,12 +780,15 @@ footer .data{opacity:.8}
     <div class="wrap">
       <h3 class="sub-head" id="theses-h"><span class="en">Theses</span><span class="tr">Tezler</span></h3>
       <p class="lede"><span class="en">Graduate theses supervised by Prof. Dr. Barış Özüdoğru at Hacettepe University.</span><span class="tr">Prof. Dr. Barış Özüdoğru danışmanlığında Hacettepe Üniversitesi'nde tamamlanan lisansüstü tezler.</span></p>
-      <ol class="pubs theses">
-          <li><span class="yr">2024</span><div><p class="t"><span class="en">Bioregions and geographical species richness patterns for Brassicaceae family of Türkiye</span><span class="tr">Türkiye Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="a"><b>İlayda Dumlupınar</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p><p class="m data"><span class="en">Co-supervisor: Prof. Dr. Hakan Gür</span><span class="tr">Eş danışman: Prof. Dr. Hakan Gür</span></p></div></li>
-          <li><span class="yr">2024</span><div><p class="t"><span class="en">Biogeography, population genomics and numerical taxonomy of alpine <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i></span><span class="tr">Alpinik <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>'un (Brassicaceae) biyocoğrafyası, popülasyon genomiği ve numerik taksonomisi</span></p><p class="a"><b>Emrullah Yılmaz</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
-          <li><span class="yr">2024</span><div><p class="t"><span class="en">Conservation biology and distribution mapping of rare endemic <i>Noccaea rubescens</i> and its phylogenetic relationships with <i>N. sintenisii</i></span><span class="tr">Nadir endemik <i>Noccaea rubescens</i>'in koruma biyolojisi, yayılış haritalanması ve <i>N. sintenisii</i> ile filogenetik ilişkisi</span></p><p class="a"><b>Fevzi Renan Kocayiğit</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
-          <li><span class="yr">2020</span><div><p class="t"><span class="en">Species delimitation of the <i>Noccaea aucheri</i> (Brassicaceae) species complex using high-throughput genomic data and numerical taxonomy</span><span class="tr">Yüksek çözünürlüklü genomik veri ve numerik taksonomik yöntemlerle <i>Noccaea aucheri</i> (Brassicaceae) tür kompleksi için tür sınırlandırması</span></p><p class="a"><b>Ilgın Deniz Can</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
-      </ol>
+      <div class="theses-wrap">
+        <ol class="pubs theses">
+            <li><span class="yr">2024</span><div><p class="t"><span class="en">Bioregions and geographical species richness patterns for Brassicaceae family of Türkiye</span><span class="tr">Türkiye Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="a"><b>İlayda Dumlupınar</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p><p class="m data"><span class="en">Co-supervisor: Prof. Dr. Hakan Gür</span><span class="tr">Eş danışman: Prof. Dr. Hakan Gür</span></p></div></li>
+            <li><span class="yr">2024</span><div><p class="t"><span class="en">Biogeography, population genomics and numerical taxonomy of alpine <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i></span><span class="tr">Alpinik <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>'un (Brassicaceae) biyocoğrafyası, popülasyon genomiği ve numerik taksonomisi</span></p><p class="a"><b>Emrullah Yılmaz</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
+            <li><span class="yr">2024</span><div><p class="t"><span class="en">Conservation biology and distribution mapping of rare endemic <i>Noccaea rubescens</i> and its phylogenetic relationships with <i>N. sintenisii</i></span><span class="tr">Nadir endemik <i>Noccaea rubescens</i>'in koruma biyolojisi, yayılış haritalanması ve <i>N. sintenisii</i> ile filogenetik ilişkisi</span></p><p class="a"><b>Fevzi Renan Kocayiğit</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
+            <li><span class="yr">2020</span><div><p class="t"><span class="en">Species delimitation of the <i>Noccaea aucheri</i> (Brassicaceae) species complex using high-throughput genomic data and numerical taxonomy</span><span class="tr">Yüksek çözünürlüklü genomik veri ve numerik taksonomik yöntemlerle <i>Noccaea aucheri</i> (Brassicaceae) tür kompleksi için tür sınırlandırması</span></p><p class="a"><b>Ilgın Deniz Can</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
+        </ol>
+        <figure class="side-photo"><img src="img/pink-crucifer-1000.jpg" srcset="img/pink-crucifer-600.jpg 600w, img/pink-crucifer-1000.jpg 1000w" sizes="(max-width: 980px) 92vw, 30vw" width="1000" height="1000" loading="lazy" decoding="async" alt="A low crucifer with pale pink four-petalled flowers and rounded blue-green leaves on stony ground"></figure>
+      </div>
     </div>
   </section>
 
@@ -777,16 +803,16 @@ footer .data{opacity:.8}
           <div><h3>İlayda Dumlupınar</h3><p class="role"><span class="en">PhD student</span><span class="tr">Doktora öğrencisi</span></p><p class="note"><span class="en">MSc 2024 in the lab</span><span class="tr">Laboratuvarda yüksek lisans, 2024</span></p></div>
         </article>
         <article class="member">
+          <div class="tile"><canvas data-seed="Gizem İşeri" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">Gİ</span></div>
+          <div><h3>Gizem İşeri</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
+        </article>
+        <article class="member">
           <div class="tile"><canvas data-seed="Can Göksu Alkan" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">CA</span></div>
           <div><h3>Can Göksu Alkan</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
         <article class="member">
-          <div class="tile"><canvas data-seed="Eylül Aydoğan" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">EA</span></div>
-          <div><h3>Eylül Aydoğan</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
-        </article>
-        <article class="member">
-          <div class="tile"><canvas data-seed="Gizem İşeri" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">Gİ</span></div>
-          <div><h3>Gizem İşeri</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
+          <div class="tile"><canvas data-seed="Eylül Aydoğanoğlu" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">EA</span></div>
+          <div><h3>Eylül Aydoğanoğlu</h3><p class="role"><span class="en">MSc student</span><span class="tr">Yüksek lisans öğrencisi</span></p></div>
         </article>
         <article class="member">
           <div class="tile"><canvas data-seed="Zeynep Al" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">ZA</span></div>
@@ -858,7 +884,7 @@ footer .data{opacity:.8}
 <footer>
   <div class="wrap">
     <span><span class="en">© 2026 Plant Biogeography Laboratory · Hacettepe University</span><span class="tr">© 2026 Bitki Biyocoğrafyası Laboratuvarı · Hacettepe Üniversitesi</span></span>
-    <span class="credit"><span class="en">Photo</span><span class="tr">Fotoğraf</span>: <i>Ricotia carnosula</i> © Bob Walker, <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>, <a href="https://www.inaturalist.org/observations/112064474" target="_blank" rel="noopener">iNaturalist</a></span>
+    <span class="credit"><span class="en">Photographs: Plant Biogeography Lab</span><span class="tr">Fotoğraflar: Bitki Biyocoğrafyası Laboratuvarı</span></span>
   </div>
 </footer>
 
@@ -910,7 +936,7 @@ footer .data{opacity:.8}
   if(!reduce&&'IntersectionObserver' in window){
     root.classList.add('anim');
     var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');seen.unobserve(e.target)}})},{rootMargin:'0px 0px -20% 0px'});
-    document.querySelectorAll('section.band').forEach(function(b){seen.observe(b)});
+    document.querySelectorAll('section.band,.photo-band').forEach(function(b){seen.observe(b)});
     var cnt=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cnt.unobserve(e.target);
       var el=e.target,n=+el.dataset.n,t0=performance.now(),D=900;
       (function step(t){var k=Math.min(1,(t-t0)/D),v=Math.round(n*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(step)})(t0);
@@ -1020,7 +1046,7 @@ footer .data{opacity:.8}
       for(var x=0;x<FW;x++){var i=Math.min(cols-2,(x/k)|0),fx=x/k-i,o=j*cols+i;
         var v=(f[o]*(1-fx)+f[o+1]*fx)*(1-fy)+(f[o+cols]*(1-fx)+f[o+cols+1]*fx)*fy;
         var s=(sh[o]*(1-fx)+sh[o+1]*fx)*(1-fy)+(sh[o+cols]*(1-fx)+sh[o+cols+1]*fx)*fy;
-        var m=1+(s-base)*.95;m=m<.62?.62:m>1?1:m;
+        var m=1+(s-base)*.7;m=m<.8?.8:m>1?1:m;
         tint(v,c);var r=c[0]*m,g=c[1]*m,b=c[2]*m;
         d[p]=r>255?255:r;d[p+1]=g>255?255:g;d[p+2]=b>255?255:b;d[p+3]=255;p+=4}}
     oc.putImageData(img,0,0);

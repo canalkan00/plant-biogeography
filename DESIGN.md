@@ -260,6 +260,14 @@ The two opening actions sit outside the title card, on the relief, as map-label 
 
 Few framed boxes: figures (stats, project facts) stand open, divided by hairlines; navigation keys are small dots and the active link gets a drawn ink underline; profile links are underlined text links; portraits and the photo use soft 10–12px corners without frames. Motion is small and compositor-only: a mustard rule draws under each section heading the first time it enters view, stat figures count up once, newly revealed publications rise in with a short stagger, and portraits, the photo and arrows respond on hover only for precise pointers. Reduced motion turns all of it off.
 
+### Palette (Japanese traditional colours, pastel)
+
+The page now uses pale versions of traditional Japanese colours and no dark or saturated greens: kinari/shironeri paper #f7f3e8, wakaba (young leaf) #e8f1d8 for About, kaki (persimmon) #f8dcc8 for research topics, wasurenagusa (forget-me-not) #dde9f3 for projects, yamabuki #f8ecc0 for team publications, mizu (water) #d9eeee for theses, sakura #f7e1e4 for people, sango (coral) #f6d5c8 for contact, footer #ead9cd. Text is sumi #2b2b2b with warm grey #55504a; role labels use ai (indigo) #3b5f87; the accent is yamabuki-iro #f8b500. The relief uses pastel hypsometric tints (#b5d9a8 → #f7f3e8) with softened hillshade.
+
+### Field photographs
+
+Five lab field photographs: one in About, two full-bleed bands (cedar valley before Research, alpine cirque before Team publications) that settle from 1.04 scale on first view, and two side photos beside the featured project and the theses list. No captions.
+
 ## Components
 
 ### Buttons
