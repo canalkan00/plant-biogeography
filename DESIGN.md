@@ -266,7 +266,7 @@ The page now uses pale versions of traditional Japanese colours and no dark or s
 
 ### Field photographs
 
-Five lab field photographs: one in About, two full-bleed bands (cedar valley before Research, alpine cirque before Team publications) that settle from 1.04 scale on first view, and two side photos beside the featured project and the theses list. No captions.
+Five lab field photographs, always shown whole (square, no cropping) so the plant or the habitat reads in full. Plant photos carry a small frosted genus label (Phyllolepidium in About, Noccaea beside the featured project, Heldreichia beside the theses). Two habitat plates sit between sections on the paper ground, photo and text side by side and alternating sides: the Heldreichia habitat (limestone scree at the edge of cedar forest) before Research, and the Noccaea and Phyllolepidium habitat (high limestone cirque) before Team publications.
 
 ## Components
 
