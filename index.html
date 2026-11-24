@@ -73,8 +73,12 @@ button{-webkit-user-select:none;user-select:none;font:inherit}
 .brand b{font-family:var(--f-map);font-weight:700;font-stretch:125%;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;line-height:1.15;white-space:nowrap}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.15rem}
 .nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map);font-size:.9rem;font-weight:500;color:var(--ink-soft);white-space:nowrap;transition:background-color .16s var(--ease-out),color .16s}
-.nav a .key{width:.8rem;height:.8rem;border-radius:2px;border:1px solid color-mix(in srgb,var(--ink) 45%,transparent);flex:none}
-.nav a.on{color:var(--ink);background:var(--on-bg,var(--stone));box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 25%,transparent)}
+.nav a .key{width:.6rem;height:.6rem;border-radius:50%;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 40%,transparent);flex:none;transition:transform .2s var(--ease-out)}
+.nav a{position:relative}
+.nav a::after{content:"";position:absolute;left:.7rem;right:.7rem;bottom:.2rem;height:2px;border-radius:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .26s var(--ease-out)}
+.nav a.on::after{transform:scaleX(1)}
+.nav a.on .key{transform:scale(1.35)}
+.nav a.on{color:var(--ink);background:transparent}
 .nav .sheet-mail{display:none}
 .lang{display:inline-flex;border:1px solid var(--rule);border-radius:7px;overflow:hidden;flex:none}
 .lang button{border:0;background:transparent;color:var(--ink-soft);font-family:var(--f-data);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;transition:background-color .14s,color .14s}
@@ -128,7 +132,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 /* about */
 .about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
 .methods{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
-.photo{margin:0;position:relative;border:1px solid var(--ink);border-radius:4px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--b2)}
+.photo{margin:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--b2)}
 .photo img{display:block;width:100%;height:100%;object-fit:cover}
 .specimen-tag{position:absolute;left:.75rem;bottom:.75rem;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1rem;padding:.25rem .65rem;border:1px solid var(--ink);border-radius:2px}
 .methods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(1rem,3vw,2rem)}
@@ -137,8 +141,9 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .methods svg{width:2.4rem;height:2.4rem;color:var(--ink)}
 .methods h3{font-size:1.05rem;font-stretch:100%;margin-bottom:.2rem}
 .methods p{font-size:.95rem;color:var(--ink-soft);line-height:1.5}
-.hotspots{display:flex;flex-wrap:wrap;gap:.5rem}
-.hotspots span{font-family:var(--f-map);font-size:.88rem;padding:.3rem .65rem;border:1px solid var(--ink);border-radius:999px}
+.hotspots{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem}
+.hotspots span{font-family:var(--f-map);font-size:.92rem;font-weight:500;display:inline-flex;align-items:center;gap:.45rem}
+.hotspots span::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--diag)}
 
 /* research: annotations on the map */
 .filters{display:flex;gap:.45rem;flex-wrap:wrap}
@@ -163,9 +168,27 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .pubs .a{color:var(--ink-soft);font-size:.95rem;margin-top:.3rem}
 .pubs .j{color:var(--ink-soft);font-size:.95rem}
 .pubs a{overflow-wrap:anywhere}
-.profiles{display:flex;flex-wrap:wrap;gap:.6rem}
+.profiles{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.tlink{display:inline-flex;align-items:center;gap:.35rem;min-height:2.4rem;font-family:var(--f-map);font-weight:600;text-decoration:underline;text-decoration-color:var(--diag);text-decoration-thickness:2px;text-underline-offset:5px}
+.tlink svg{width:16px;height:16px;transition:transform .2s var(--ease-out)}
 
 
+
+/* ---------- motion: small, compositor-only ---------- */
+.sec-title,.sub-head{position:relative;padding-bottom:.55rem}
+.sec-title::after,.sub-head::after{content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
+.anim .band:not(.seen) .sec-title::after,.anim .band:not(.seen) .sub-head::after{transform:scaleX(0)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.pubs li.rise{animation:rise .32s var(--ease-out) both}
+@media (hover:hover) and (pointer:fine){
+  .member:hover .tile,.pi-link:hover .tile{transform:translateY(-4px) rotate(-.6deg)}
+  .photo img{transition:transform .6s var(--ease-out)}
+  .photo:hover img{transform:scale(1.03)}
+  .tlink:hover svg{transform:translate(2px,-2px)}
+  .btn:hover svg{transform:translateY(2px)}
+  .nav a:hover .key{transform:scale(1.3)}
+}
+.btn svg{transition:transform .2s var(--ease-out)}
 /* ---------- research subsections ---------- */
 .vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .sub-head{font-size:clamp(1.5rem,3.6vw,2.2rem);font-stretch:125%;letter-spacing:.012em;max-width:24ch}
@@ -199,13 +222,14 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .pi-body{display:grid;gap:.9rem;max-width:68ch}
 .pi-body h3{font-size:var(--step2);margin:0}
 .pi-body>p:not(.role):not(.src){color:var(--ink-soft)}
-.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1px;margin:.3rem 0 0;border:1px solid var(--ink);border-radius:4px;overflow:hidden;background:var(--ink)}
-.stats div{background:var(--paper);padding:.6rem .75rem;display:grid;gap:.15rem}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem 0;margin:.4rem 0 0}
+.stats div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.stats div:first-child{border-left:0;padding-left:0}
 .stats dt{font-size:.76rem;color:var(--ink-soft)}
-.stats dd{margin:0;font-size:1.15rem;font-weight:500}
+.stats dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.5rem,3vw,2rem);line-height:1;font-variant-numeric:tabular-nums}
 .pi-body .src{font-size:.78rem;color:var(--ink-soft)}
 /* PI link in People */
-.pi-link{display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.25rem;align-items:center;text-decoration:none;color:inherit;max-width:32rem;border:1px solid var(--ink);border-radius:4px;padding:.75rem;background:var(--paper);transition:transform .14s var(--ease-out)}
+.pi-link{display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.25rem;align-items:center;text-decoration:none;color:inherit;max-width:32rem;transition:transform .14s var(--ease-out)}
 .pi-link:active{transform:scale(.98)}
 .pi-link h3{font-size:1.2rem;margin:0 0 .15rem}
 .pi-link .more-link{font-family:var(--f-map);font-size:.9rem;font-weight:600;margin-top:.35rem;text-decoration:underline;text-decoration-color:var(--diag);text-underline-offset:4px}
@@ -231,19 +255,20 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .project h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:112%;line-height:1.15}
 .project:first-child h3{font-size:clamp(1.4rem,3vw,2rem)}
 .project .desc{color:var(--ink-soft);max-width:62ch}
-.project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;margin:.4rem 0 0;border:1px solid var(--steppe-ink);border-radius:4px;overflow:hidden;background:var(--steppe-ink)}
-.project .facts div{background:var(--steppe);padding:.6rem .75rem;display:grid;gap:.15rem}
+.project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
+.project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
+.project .facts div:first-child{border-left:0;padding-left:0}
 .project .facts dt{color:var(--steppe-ink);font-size:.76rem}
-.project .facts dd{margin:0;font-size:1rem;color:var(--ink);font-weight:500}
+.project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
 .sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}
 .media{color:var(--ink-soft)}
 .more-btn{justify-self:start}
 .pubs b{font-weight:600;color:var(--ink)}
 /* people */
 .pi{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(1.25rem,5vw,3.5rem);align-items:end}
-.tile{position:relative;aspect-ratio:4/5;max-width:100%;border:1px solid var(--ink);border-radius:3px;overflow:hidden;background:var(--b2)}
+.tile{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:10px;overflow:hidden;background:var(--b2);transition:transform .3s var(--ease-out)}
 .tile canvas{position:absolute;inset:0;width:100%;height:100%}
-.tile .mono{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper);color:var(--ink);font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border:1px solid var(--ink);border-radius:2px}
+.tile .mono{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper);color:var(--ink);font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border-radius:999px;font-size:.95rem;padding:.2rem .6rem}
 .role{font-family:var(--f-map);font-size:.88rem;font-weight:600;color:var(--leaf)}
 .pi h3{font-size:var(--step2);margin-bottom:.3rem}
 .pi .role{margin-bottom:.75rem}
@@ -260,7 +285,8 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .roster b{font-family:var(--f-map);font-weight:600;font-size:1rem}
 .roster .note{font-size:.9rem;color:var(--ink-soft);line-height:1.4}
 .roster.collab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
-.join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding:1.25rem 1.4rem;border:1px solid var(--ink);border-radius:4px;background:var(--paper)}
+.join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-top:1.4rem;border-top:1px solid var(--ink)}
+.join p{font-size:1.1rem}
 .join p{max-width:52ch}
 
 /* contact: the lowland */
@@ -298,6 +324,8 @@ footer .data{opacity:.8}
   .team{grid-template-columns:repeat(3,minmax(0,1fr))}
   .projects,.groups,.topics{grid-template-columns:minmax(0,1fr)}
   .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stats div:nth-child(3n+1){border-left:0;padding-left:0}
+  .stats div:nth-child(3n+2),.stats div:nth-child(3n+3){border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent);padding-left:1rem}
   .plist{column-count:1}
   .methods{grid-template-columns:repeat(2,minmax(0,1fr))}
   .about .photo{max-width:28rem;aspect-ratio:1/1}
@@ -341,7 +369,11 @@ footer .data{opacity:.8}
   .pi-profile{grid-template-columns:minmax(0,1fr)}
   .pi-profile .tile{max-width:9rem}
   .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div:nth-child(n){border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent);padding-left:1rem}
+  .stats div:nth-child(2n+1){border-left:0;padding-left:0}
   .project .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project .facts div:nth-child(n){border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent);padding-left:1rem}
+  .project .facts div:nth-child(2n+1){border-left:0;padding-left:0}
   .roster.collab{grid-template-columns:minmax(0,1fr)}
   .methods{grid-template-columns:minmax(0,1fr)}
   .more-btn{width:100%}
@@ -476,11 +508,11 @@ footer .data{opacity:.8}
           <p class="en">He has led TÜBİTAK and BAP projects on the genomics and niche dynamics of Anatolian alpine plants, has described a new crucifer genus and numerous new plant species from Türkiye, and contributes to the global Brassicaceae phylogeny and the BrassiTEN taxonomic expert network. He teaches Systematic Botany, Plant Ecology and Geography, and Computational Biology, and has served on the Faculty Board since 2021.</p>
           <p class="tr">Anadolu alpin bitkilerinin genomiği ve niş dinamikleri üzerine TÜBİTAK ve BAP projeleri yürütmüş; Türkiye'den yeni bir turpgil cinsi ve çok sayıda yeni bitki türü tanımlamış; küresel Brassicaceae filogenisine ve BrassiTEN taksonomi uzmanları ağına katkı vermektedir. Sistematik Botanik, Bitki Ekolojisi ve Coğrafyası ile Hesaplamalı Biyoloji derslerini vermekte, 2021'den bu yana Fakülte Kurulu üyesidir.</p>
           <dl class="stats data">
-            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd>66</dd></div>
-            <div><dt><span class="en">Conference papers</span><span class="tr">Bildiri</span></dt><dd>31</dd></div>
-            <div><dt><span class="en">Citations · Scholar</span><span class="tr">Atıf · Scholar</span></dt><dd>974</dd></div>
-            <div><dt><span class="en">h-index · Scholar</span><span class="tr">h-indeksi · Scholar</span></dt><dd>15</dd></div>
-            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd>18</dd></div>
+            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd data-n="66">66</dd></div>
+            <div><dt><span class="en">Conference papers</span><span class="tr">Bildiri</span></dt><dd data-n="31">31</dd></div>
+            <div><dt><span class="en">Citations · Scholar</span><span class="tr">Atıf · Scholar</span></dt><dd data-n="974">974</dd></div>
+            <div><dt><span class="en">h-index · Scholar</span><span class="tr">h-indeksi · Scholar</span></dt><dd data-n="15">15</dd></div>
+            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd data-n="18">18</dd></div>
           </dl>
           <p class="src data"><span class="en">Figures from AVESİS and Google Scholar, November 2026.</span><span class="tr">Rakamlar AVESİS ve Google Scholar, Kasım 2026.</span></p>
           <ul class="edu data">
@@ -489,9 +521,9 @@ footer .data{opacity:.8}
             <li><span class="en">BSc</span><span class="tr">Lisans</span> 2006 · <span class="en">Hacettepe University, Biology Education</span><span class="tr">Hacettepe Üniversitesi, Biyoloji Öğretmenliği</span></li>
           </ul>
           <div class="profiles">
-            <a class="btn line" href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-            <a class="btn line" href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
-            <a class="btn line" href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <a class="tlink" href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <a class="tlink" href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+            <a class="tlink" href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
           </div>
         </div>
       </article>
@@ -550,7 +582,7 @@ footer .data{opacity:.8}
           <p class="desc"><span class="en">Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, <i>Heldreichia bupleurifolia</i> (all six infraspecific taxa), <i>Noccaea oppositifolia</i> and <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses <i>Arabidopsis thaliana</i> as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.</span><span class="tr">Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, <i>Heldreichia bupleurifolia</i> (altı alttürün tamamı), <i>Noccaea oppositifolia</i> ve <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve <i>Arabidopsis thaliana</i>'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.</span></p>
           <p class="m data"><span class="en">TÜBİTAK 1001 · 2021–2024 · Principal investigator: Prof. Dr. Barış Özüdoğru</span><span class="tr">TÜBİTAK 1001 · 2021–2024 · Yürütücü: Prof. Dr. Barış Özüdoğru</span></p>
           <dl class="facts data">
-            <div><dt><span class="en">Taxa</span><span class="tr">Takson</span></dt><dd>8</dd></div>
+            <div><dt><span class="en">Taxa</span><span class="tr">Takson</span></dt><dd data-n="8">8</dd></div>
             <div><dt><span class="en">Populations</span><span class="tr">Popülasyon</span></dt><dd>60–70</dd></div>
             <div><dt><span class="en">Individuals</span><span class="tr">Birey</span></dt><dd>~700</dd></div>
             <div><dt><span class="en">Methods</span><span class="tr">Yöntem</span></dt><dd>RADseq · ENM</dd></div>
@@ -842,12 +874,24 @@ footer .data{opacity:.8}
   var mp=document.getElementById('more-pubs');
   mp.addEventListener('click',function(){
     var open=mp.getAttribute('aria-expanded')!=='true';
-    document.querySelectorAll('#pubs li.more').forEach(function(li){li.hidden=!open});
+    document.querySelectorAll('#pubs li.more').forEach(function(li,i){li.hidden=!open;li.classList.remove('rise');if(open&&!reduce&&i<14){li.style.animationDelay=(i*28)+'ms';li.classList.add('rise')}});
     mp.setAttribute('aria-expanded',open?'true':'false');
     mp.querySelector('.en').textContent=open?'Show fewer':'Show all 66 articles';
     mp.querySelector('.tr').textContent=open?'Daha az göster':'66 makalenin tamamını göster';
     if(!open)document.getElementById('publications').scrollIntoView({behavior:reduce?'auto':'smooth'});
   });
+
+  /* ---------- small motion ---------- */
+  if(!reduce&&'IntersectionObserver' in window){
+    root.classList.add('anim');
+    var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');seen.unobserve(e.target)}})},{rootMargin:'0px 0px -20% 0px'});
+    document.querySelectorAll('section.band').forEach(function(b){seen.observe(b)});
+    var cnt=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cnt.unobserve(e.target);
+      var el=e.target,n=+el.dataset.n,t0=performance.now(),D=900;
+      (function step(t){var k=Math.min(1,(t-t0)/D),v=Math.round(n*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(step)})(t0);
+    })},{threshold:.6});
+    document.querySelectorAll('dd[data-n]').forEach(function(d){cnt.observe(d)});
+  }
 
   /* ---------- copy e-mail ---------- */
   var cb=document.getElementById('copy-mail'),toast=document.getElementById('toast'),tt;
