@@ -262,11 +262,15 @@ Few framed boxes: figures (stats, project facts) stand open, divided by hairline
 
 ### Palette (Japanese traditional colours, pastel)
 
-The page now uses pale versions of traditional Japanese colours and no dark or saturated greens: kinari/shironeri paper #f7f3e8, wakaba (young leaf) #e8f1d8 for About, kaki (persimmon) #f8dcc8 for research topics, wasurenagusa (forget-me-not) #dde9f3 for projects, yamabuki #f8ecc0 for team publications, mizu (water) #d9eeee for theses, sakura #f7e1e4 for people, sango (coral) #f6d5c8 for contact, footer #ead9cd. Text is sumi #2b2b2b with warm grey #55504a; role labels use ai (indigo) #3b5f87; the accent is yamabuki-iro #f8b500. The relief uses pastel hypsometric tints (#b5d9a8 → #f7f3e8) with softened hillshade.
+The page now uses pale versions of traditional Japanese colours and no dark or saturated greens: cool off-white paper #f3f6f1 (not cream), wakaba (young leaf) #e8f1d8 for About, kaki (persimmon) #f8dcc8 for research topics, wasurenagusa (forget-me-not) #dde9f3 for projects, yamabuki #f8ecc0 for team publications, mizu (water) #d9eeee for theses, sakura #f7e1e4 for people, sango (coral) #f6d5c8 for contact, footer #ead9cd. Text is sumi #2b2b2b with warm grey #55504a; role labels use ai (indigo) #3b5f87; the accent is yamabuki-iro #f8b500. The relief uses pastel hypsometric tints (#b5d9a8 → #f7f3e8) with softened hillshade.
 
 ### Field photographs
 
 Five lab field photographs, always shown whole (square, no cropping) so the plant or the habitat reads in full. Plant photos carry a small frosted genus label (Phyllolepidium in About, Heldreichia beside the featured project, Noccaea beside the theses). Two habitat plates sit between sections on the paper ground, photo and text side by side and alternating sides: the Heldreichia habitat (limestone scree at the edge of cedar forest) before Research, and the Noccaea and Phyllolepidium habitat (high limestone cirque) before Team publications.
+
+### Research up front
+
+A "Recent work" band follows the hero: three recent papers set as an editorial row (lead paper larger), each linking to its DOI. Projects are shown as a timeline (2009–2027): one bar per project, coloured by funder (TÜBİTAK #2a6fb8, Hacettepe BAP #d2602f, other #6f7f8f; validated for colour-blind separation on the projects band), a dark dot marking projects led by Barış Özüdoğru, years labelled beside each bar. Team publications have a search field, topic chips (Brassicaceae, new taxa, ecology and flora) and a clickable articles-per-year bar strip that filters the list. Every top navigation item opens a submenu of its subsections. Monospace was retired; data and labels use Archivo. Decorative heading rules, icon rows and count-up numbers were removed.
 
 ## Components
 

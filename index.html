@@ -7,16 +7,16 @@
 <title>Plant Biogeography</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
-<meta name="theme-color" content="#f7f3e8">
+<meta name="theme-color" content="#f3f6f1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&family=Martian+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
 <style>
 /* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
 :root{
   --ink:#2b2b2b;
   --ink-soft:#55504a;
-  --paper:#f7f3e8;
+  --paper:#f3f6f1;
   --stone:#e8f1d8;
   --steppe:#f8dcc8;
   --butter:#f8ecc0;
@@ -33,11 +33,11 @@
   --leaf:#3b5f87;
   --diag-ink:#6a5000;
   /* hypsometric bands, lowland to alpine */
-  --b0:#b5d9a8; --b1:#cfe5b0; --b2:#e4eebb; --b3:#f4ecbc; --b4:#f6d3a6; --b5:#eeb79a; --b6:#f7f3e8;
+  --b0:#b5d9a8; --b1:#cfe5b0; --b2:#e4eebb; --b3:#f4ecbc; --b4:#f6d3a6; --b5:#eeb79a; --b6:#f3f6f1;
   --contour:rgba(43,43,43,.16);
   --f-map:"Archivo","Arial Narrow",Arial,sans-serif;
   --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
-  --f-data:"Martian Mono",ui-monospace,Menlo,Consolas,monospace;
+  --f-data:"Archivo","Arial Narrow",Arial,sans-serif;
   --step--1:.84rem; --step0:1.0625rem; --step1:1.3rem; --step2:clamp(1.55rem,3.6vw,2.1rem); --step3:clamp(2rem,5.4vw,3.2rem); --step4:clamp(2.1rem,7.4vw,4.6rem);
   --ease-out:cubic-bezier(.16,1,.3,1);
 }
@@ -61,7 +61,7 @@ h1,h2,h3{margin:0;font-family:var(--f-map);font-weight:700;line-height:1.05;text
 p{margin:0}
 i,em{font-style:italic}
 .wrap{max-width:72rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
-.data{font-family:var(--f-data);font-size:.78rem;letter-spacing:.02em;font-variant-numeric:tabular-nums}
+.data{font-family:var(--f-data);font-size:.86rem;letter-spacing:0;font-variant-numeric:tabular-nums}
 button,a.btn,[role="button"]{touch-action:manipulation}
 button{-webkit-user-select:none;user-select:none;font:inherit}
 
@@ -138,7 +138,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .methods-head{margin-top:.5rem}
 .methods{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));column-gap:clamp(1rem,3vw,2rem)}
 
-.methods li{display:grid;grid-template-columns:2.4rem minmax(0,1fr);gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.methods li{display:grid;grid-template-columns:minmax(0,1fr);gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
 .methods svg{width:2.4rem;height:2.4rem;color:var(--ink)}
 .methods h3{font-size:1.05rem;font-stretch:100%;margin-bottom:.2rem}
 .methods p{font-size:.95rem;color:var(--ink-soft);line-height:1.5}
@@ -221,9 +221,76 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .side-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
 @media (hover:hover) and (pointer:fine){.side-photo:hover img{transform:scale(1.03)}}
 @media (max-width:980px){.feature-wrap,.theses-wrap{grid-template-columns:minmax(0,1fr)}.side-photo{position:relative;top:auto;max-width:30rem}}
+
+/* ---------- highlights ---------- */
+.highlights{background:var(--paper);border-bottom:1px solid var(--rule)}
+.highlights>.wrap{padding-block:clamp(2.75rem,6vw,4.5rem);display:grid;gap:1.75rem}
+.hl-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem}
+.hl-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);gap:0;border-top:2px solid var(--ink)}
+.hl{display:grid;gap:.7rem;align-content:start;padding:1.4rem clamp(1rem,2.4vw,1.8rem) 1.4rem 0}
+.hl+.hl{padding-left:clamp(1rem,2.4vw,1.8rem);border-left:1px solid var(--rule)}
+.hl-j{font-family:var(--f-map);font-size:.92rem;color:var(--steppe-ink)}
+.hl-t{font-family:var(--f-text);font-weight:600;font-stretch:normal;font-size:1.25rem;line-height:1.3}
+.hl-lead .hl-t{font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.22}
+.hl-t a{text-decoration:none;background-image:linear-gradient(var(--diag),var(--diag));background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .35s var(--ease-out)}
+.hl-s{color:var(--ink-soft);max-width:56ch}
+.hl-a{font-size:.88rem;color:var(--ink-soft)}
+@media (hover:hover) and (pointer:fine){.hl-t a:hover{background-size:100% 2px}}
+/* ---------- project timeline ---------- */
+.timeline{display:grid;gap:.6rem;margin-top:1rem}
+.tl-key{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-family:var(--f-map);font-size:.9rem;color:var(--ink-soft)}
+.tl-key .k{display:inline-flex;align-items:center;gap:.45rem}
+.tl-key .k::before{content:"";width:1.4rem;height:.55rem;border-radius:3px;background:var(--c)}
+.tl-key .tub{--c:#2a6fb8}.tl-key .bap{--c:#d2602f}.tl-key .oth{--c:#6f7f8f}
+.tl-key .pi-k::before{width:.6rem;height:.6rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2),0 0 0 3px var(--ink)}
+.tl-axis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1.5rem;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);border-bottom:1px solid var(--ink);padding-bottom:.3rem}
+.tl-axis-in{grid-column:2;position:relative;height:1.1rem}
+.tl-axis-in span{position:absolute;transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.tl-axis-in span:first-child{transform:none}.tl-axis-in span:last-child{transform:translateX(-100%)}
+.tl-list{list-style:none;margin:0;padding:0}
+.tl-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1.5rem;align-items:center;padding:.55rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.tl-row .t{font-weight:600;line-height:1.3;font-size:.98rem}
+.tl-row .m{font-size:.82rem;color:var(--ink-soft);margin-top:.15rem}
+.tl-track{position:relative;height:1.6rem;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),color-mix(in srgb,var(--ink) 10%,transparent) calc(100%/6 - 1px) calc(100%/6))}
+.tl-bar{position:absolute;top:.3rem;bottom:.3rem;border-radius:4px;background:var(--c);min-width:.9rem;display:flex;align-items:center;transform-origin:left;transition:transform .7s var(--ease-out)}
+.tub .tl-bar{--c:#2a6fb8}.bap .tl-bar{--c:#d2602f}.oth .tl-bar{--c:#6f7f8f}
+.lead .tl-bar::before{content:"";position:absolute;left:-.35rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2)}
+.tl-bar.end .tl-yr{left:auto;right:calc(100% + .9rem)}
+.tl-yr{position:absolute;left:calc(100% + .45rem);white-space:nowrap;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.anim #projects:not(.seen) .tl-bar{transform:scaleX(0)}
+@media (hover:hover) and (pointer:fine){.tl-row:hover{background:color-mix(in srgb,var(--paper) 55%,transparent)}}
+/* ---------- publication tools ---------- */
+.pub-tools{display:grid;gap:1rem}
+.pub-tools>*{min-width:0}
+.pub-tools .chip[aria-pressed="true"]{color:var(--paper)}
+.search{display:flex;align-items:center;gap:.6rem;background:var(--paper);border-radius:999px;padding:0 1rem;min-height:3rem;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 18%,transparent)}
+.search:focus-within{box-shadow:inset 0 0 0 2px var(--ink)}
+.search svg{width:18px;height:18px;flex:none;color:var(--ink-soft)}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:400 16px var(--f-text);color:var(--ink);outline:none;min-height:2.8rem}
+.search input::placeholder{color:var(--ink-soft)}
+.pub-tools .chip{border-color:color-mix(in srgb,var(--ink) 35%,transparent);color:var(--ink)}
+.years{display:grid;grid-template-columns:repeat(21,minmax(0,1fr));gap:3px;align-items:end;height:6.5rem;padding-top:1rem}
+.yb{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;border:0;background:transparent;padding:0;cursor:pointer;font:inherit;color:var(--ink-soft)}
+.yb-bar{width:100%;max-width:1.6rem;height:calc(var(--h) * .72);min-height:4px;border-radius:4px 4px 0 0;background:#2a6fb8;opacity:.78;transition:opacity .15s,transform .15s var(--ease-out)}
+.yb-n{position:absolute;bottom:calc(var(--h) * .72 + 1.25rem);font-family:var(--f-map);font-size:.72rem;opacity:0;transition:opacity .15s}
+.yb-y{font-family:var(--f-map);font-size:.7rem;margin-top:.25rem;font-variant-numeric:tabular-nums}
+.yb.empty{cursor:default}
+.yb[aria-pressed="true"] .yb-bar{opacity:1;background:var(--ink)}
+.yb[aria-pressed="true"] .yb-n,.yb:focus-visible .yb-n{opacity:1}
+@media (hover:hover) and (pointer:fine){.yb[data-y]:hover .yb-bar{opacity:1}.yb[data-y]:hover .yb-n{opacity:1}}
+.pub-count{font-family:var(--f-map);font-size:.92rem;color:var(--ink-soft);min-height:1.2em}
+@media (max-width:860px){
+  .hl-grid{grid-template-columns:minmax(0,1fr)}
+  .hl+.hl{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .tl-axis{display:none}
+  .tl-row{grid-template-columns:minmax(0,1fr);gap:.35rem}
+  .tl-track{background:none;height:1.3rem}
+  .years{grid-template-columns:repeat(21,minmax(0,1fr));gap:2px}
+  .yb-y{font-size:.7rem;letter-spacing:-.02em}
+}
 /* ---------- motion: small, compositor-only ---------- */
 .sec-title,.sub-head{position:relative;padding-bottom:.55rem}
-.sec-title::after,.sub-head::after{content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
+.sec-title::after,.sub-head::after{display:none;content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
 .anim .band:not(.seen) .sec-title::after,.anim .band:not(.seen) .sub-head::after{transform:scaleX(0)}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .anim .photo-band:not(.seen) img{transform:scale(1.04)}
@@ -351,7 +418,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .visit .data{color:var(--diag-on-low)}
 .toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag-on-low);min-height:1.4em}
 
-footer{background:#ead9cd;color:var(--ink);border-top:1px solid var(--rule)}
+footer{background:#e4ebe6;color:var(--ink);border-top:1px solid var(--rule)}
 footer .wrap{padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
 footer .data{opacity:.8}
 
@@ -459,19 +526,44 @@ footer .data{opacity:.8}
       </a>
       <nav class="nav" id="nav" aria-label="Sections">
         <ul>
-          <li><a href="#about"><span class="key" style="background:var(--stone)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a></li>
+          <li class="has-sub" id="nav-about">
+            <a href="#about"><span class="key" style="background:var(--stone)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-about"><span class="en vh">About: sections</span><span class="tr vh">Hakkımızda: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-about">
+              <li><a href="#about" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">The laboratory</span><span class="tr">Laboratuvar</span></a></li>
+              <li><a href="#methods" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></a></li>
+              <li><a href="#pi" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">Prof. Dr. Barış Özüdoğru</span><span class="tr">Prof. Dr. Barış Özüdoğru</span></a></li>
+              <li><a href="#habitat-heldreichia" data-parent="about"><span class="key" style="background:var(--paper)"></span><span class="en">Habitats</span><span class="tr">Habitatlar</span></a></li>
+            </ul>
+          </li>
           <li class="has-sub" id="nav-research">
             <a href="#research"><span class="key" style="background:var(--steppe)"></span><span class="en">Research</span><span class="tr">Araştırma</span></a>
-            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-research"><span class="en vh">Research sections</span><span class="tr vh">Araştırma alt başlıkları</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-research"><span class="en vh">Research: sections</span><span class="tr vh">Araştırma: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
             <ul class="sub" id="sub-research">
+              <li><a href="#highlights" data-parent="research"><span class="key" style="background:var(--paper)"></span><span class="en">Highlights</span><span class="tr">Öne çıkanlar</span></a></li>
               <li><a href="#topics" data-parent="research"><span class="key" style="background:var(--steppe)"></span><span class="en">Main research topics</span><span class="tr">Ana çalışma konuları</span></a></li>
               <li><a href="#projects" data-parent="research"><span class="key" style="background:var(--sand2)"></span><span class="en">Projects</span><span class="tr">Projeler</span></a></li>
               <li><a href="#publications" data-parent="research"><span class="key" style="background:var(--butter)"></span><span class="en">Team publications</span><span class="tr">Ekip yayınları</span></a></li>
               <li><a href="#theses" data-parent="research"><span class="key" style="background:var(--butter2)"></span><span class="en">Theses</span><span class="tr">Tezler</span></a></li>
             </ul>
           </li>
-          <li><a href="#people"><span class="key" style="background:var(--foothill)"></span><span class="en">People</span><span class="tr">Ekip</span></a></li>
-          <li><a href="#contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a></li>
+          <li class="has-sub" id="nav-people">
+            <a href="#people"><span class="key" style="background:var(--foothill)"></span><span class="en">People</span><span class="tr">Ekip</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-people"><span class="en vh">People: sections</span><span class="tr vh">Ekip: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-people">
+              <li><a href="#team" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Current team</span><span class="tr">Güncel ekip</span></a></li>
+              <li><a href="#alumni" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Alumni</span><span class="tr">Mezunlar</span></a></li>
+              <li><a href="#collaborations" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Collaborations</span><span class="tr">İş birlikleri</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub" id="nav-contact">
+            <a href="#contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-contact"><span class="en vh">Contact: sections</span><span class="tr vh">İletişim: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-contact">
+              <li><a href="#contact" data-parent="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Write to the lab</span><span class="tr">Laboratuvara yazın</span></a></li>
+              <li><a href="#visit" data-parent="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Address and phone</span><span class="tr">Adres ve telefon</span></a></li>
+            </ul>
+          </li>
         </ul>
         <div class="sheet-mail"><a class="btn solid" href="mailto:barisoz@hacettepe.edu.tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6 8 7 8-7"/></svg><span class="en">E-mail the lab</span><span class="tr">Laboratuvara e-posta gönder</span></a></div>
       </nav>
@@ -511,6 +603,36 @@ footer .data{opacity:.8}
     </div>
   </section>
 
+  <!-- HIGHLIGHTS -->
+  <section class="highlights" id="highlights" aria-labelledby="hl-h">
+    <div class="wrap">
+      <div class="hl-head">
+        <h2 class="sec-title" id="hl-h"><span class="en">Recent work</span><span class="tr">Son çalışmalar</span></h2>
+        <a class="tlink" href="#publications"><span class="en">All 66 articles</span><span class="tr">66 makalenin tamamı</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+      </div>
+      <div class="hl-grid">
+        <article class="hl hl-lead">
+          <p class="hl-j"><i>Molecular Phylogenetics and Evolution</i> · 2026</p>
+          <h3 class="hl-t"><a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener">Disentangling subspecies delimitation in <i>Heldreichia bupleurifolia</i> through genomic and quantitative morphological approaches</a></h3>
+          <p class="hl-s"><span class="en">Genome-wide data and measured leaf form are combined to test where the subspecies of an alpine Anatolian crucifer begin and end.</span><span class="tr">Genom çapında veri ve ölçülmüş yaprak biçimi birleştirilerek alpin bir Anadolu turpgilinde alttür sınırları test ediliyor.</span></p>
+          <p class="hl-a">Can I.D., Yılmaz E., Özgişi K., Gür H., Sağlam İ.K., <b>Özüdoğru B.</b></p>
+        </article>
+        <article class="hl">
+          <p class="hl-j"><i>Ecology and Evolution</i> · 2026</p>
+          <h3 class="hl-t"><a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener">A plant-diversity dark spot at the intersection of three biodiversity hotspots: environmental drivers of Brassicaceae richness in Türkiye</a></h3>
+          <p class="hl-s"><span class="en">From more than 15,000 herbarium records: the topographically complex, climatically stable mountains of southern Anatolia and the Anatolian Diagonal hold the most species and endemics.</span><span class="tr">15.000'den fazla herbaryum kaydına göre en çok tür ve endemik, güney Anadolu'nun ve Anadolu Diyagonali'nin topoğrafik olarak karmaşık, iklimsel olarak kararlı dağlarında.</span></p>
+          <p class="hl-a">Dumlupınar İ., <b>Özüdoğru B.</b>, Gür H.</p>
+        </article>
+        <article class="hl">
+          <p class="hl-j"><i>Current Biology</i> · 2023</p>
+          <h3 class="hl-t"><a href="https://doi.org/10.1016/j.cub.2023.08.026" target="_blank" rel="noopener">Global Brassicaceae phylogeny based on filtering of 1,000-gene dataset</a></h3>
+          <p class="hl-s"><span class="en">A family-wide tree of the mustard family built from a filtered 1,000-gene dataset, with Anatolian lineages sampled by the lab.</span><span class="tr">Laboratuvarın örneklediği Anadolu soy hatlarını da içeren, filtrelenmiş 1.000 genlik veriyle kurulan familya çapında turpgil ağacı.</span></p>
+          <p class="hl-a">Hendriks K.P., … <b>Özüdoğru B.</b>, … Lens F.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- ABOUT -->
   <section class="band band-stone" id="about" aria-labelledby="about-h">
     <div class="wrap">
@@ -533,22 +655,18 @@ footer .data{opacity:.8}
           <figcaption class="ptag"><i>Phyllolepidium</i></figcaption>
         </figure>
       </div>
-      <h3 class="sub-head methods-head"><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></h3>
+      <h3 class="sub-head methods-head" id="methods"><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></h3>
       <ul class="methods">
           <li>
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 36V20M20 20 9 7M20 20l11-13M20 27l-7-6M20 29l7-6"/><circle cx="9" cy="7" r="2" fill="var(--diag)"/><circle cx="31" cy="7" r="2" fill="var(--diag)"/></svg>
             <div><h3><span class="en">Molecular phylogenetics</span><span class="tr">Moleküler filogenetik</span></h3><p><span class="en">Nuclear ITS and plastid markers, and RADseq phylogenomics, to resolve genera and species complexes such as <i>Noccaea</i>, <i>Heldreichia</i> and <i>Iberis simplex</i>.</span><span class="tr">Çekirdek ITS ve plastid belirteçleri ile RADseq filogenomiğiyle <i>Noccaea</i>, <i>Heldreichia</i> ve <i>Iberis simplex</i> gibi cins ve tür komplekslerini çözümlemek.</span></p></div>
           </li>
           <li>
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="11" cy="13" r="3"/><circle cx="18" cy="9" r="3"/><circle cx="15" cy="19" r="3"/><circle cx="27" cy="25" r="3" fill="var(--diag)"/><circle cx="32" cy="31" r="3" fill="var(--diag)"/><circle cx="24" cy="32" r="3" fill="var(--diag)"/><path d="M6 36h30"/></svg>
             <div><h3><span class="en">Population genomics and species delimitation</span><span class="tr">Popülasyon genomiği ve tür sınırlandırması</span></h3><p><span class="en">Genome-wide SNP data combined with quantitative morphology to delimit species and subspecies, as in <i>Heldreichia bupleurifolia</i> and the <i>Noccaea aucheri</i> complex.</span><span class="tr">Genom çapında SNP verisini kantitatif morfolojiyle birleştirerek tür ve alttürleri sınırlandırmak; <i>Heldreichia bupleurifolia</i> ve <i>Noccaea aucheri</i> kompleksinde olduğu gibi.</span></p></div>
           </li>
           <li>
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 30c5-10 11-18 17-17s10 8 8 13-11 7-17 6c-4 0-8-1-8-2z"/><path d="M12 28c2-6 6-10 10-9s5 4 4 7-6 4-9 3"/><path d="M34 4 8 36" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 3"/></svg>
             <div><h3><span class="en">Niche modelling and distribution</span><span class="tr">Niş modelleme ve yayılış</span></h3><p><span class="en">Species distribution models, Quaternary range dynamics and richness patterns built from more than 15,000 georeferenced herbarium records for Türkiye.</span><span class="tr">Türkiye için 15.000'den fazla koordinatlı herbaryum kaydından tür dağılım modelleri, Kuvaterner yayılış dinamikleri ve zenginlik örüntüleri.</span></p></div>
           </li>
           <li>
-            <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="8" y="4" width="24" height="32" rx="1"/><path d="M20 30V14m0 6-5-4m5 1 5-4"/><path d="M13 33h14"/></svg>
             <div><h3><span class="en">Morphology, taxonomy and field botany</span><span class="tr">Morfoloji, taksonomi ve arazi botaniği</span></h3><p><span class="en">Seed and leaf morphology, anatomy and numerical taxonomy, field collections across Anatolia, and the description of taxa new to science.</span><span class="tr">Tohum ve yaprak morfolojisi, anatomi ve numerik taksonomi; Anadolu genelinde arazi toplamaları ve bilim için yeni taksonların tanımlanması.</span></p></div>
           </li>
         </ul>
@@ -563,13 +681,13 @@ footer .data{opacity:.8}
           <p class="en">He has led TÜBİTAK and BAP projects on the genomics and niche dynamics of Anatolian alpine plants, has described a new crucifer genus and numerous new plant species from Türkiye, and contributes to the global Brassicaceae phylogeny and the BrassiTEN taxonomic expert network. He teaches Systematic Botany, Plant Ecology and Geography, and Computational Biology, and has served on the Faculty Board since 2021.</p>
           <p class="tr">Anadolu alpin bitkilerinin genomiği ve niş dinamikleri üzerine TÜBİTAK ve BAP projeleri yürütmüş; Türkiye'den yeni bir turpgil cinsi ve çok sayıda yeni bitki türü tanımlamış; küresel Brassicaceae filogenisine ve BrassiTEN taksonomi uzmanları ağına katkı vermektedir. Sistematik Botanik, Bitki Ekolojisi ve Coğrafyası ile Hesaplamalı Biyoloji derslerini vermekte, 2021'den bu yana Fakülte Kurulu üyesidir.</p>
           <dl class="stats data">
-            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd data-n="66">66</dd></div>
-            <div><dt><span class="en">Conference papers</span><span class="tr">Bildiri</span></dt><dd data-n="31">31</dd></div>
-            <div><dt><span class="en">Citations · Scholar</span><span class="tr">Atıf · Scholar</span></dt><dd data-n="974">974</dd></div>
-            <div><dt><span class="en">h-index · Scholar</span><span class="tr">h-indeksi · Scholar</span></dt><dd data-n="15">15</dd></div>
-            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd data-n="18">18</dd></div>
+            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd>66</dd></div>
+            <div><dt><span class="en">Citations</span><span class="tr">Atıf</span></dt><dd>1,048</dd></div>
+            <div><dt><span class="en">h-index</span><span class="tr">h-indeksi</span></dt><dd>17</dd></div>
+            <div><dt><span class="en">i10-index</span><span class="tr">i10-indeksi</span></dt><dd>27</dd></div>
+            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd>18</dd></div>
           </dl>
-          <p class="src data"><span class="en">Figures from AVESİS and Google Scholar, November 2026.</span><span class="tr">Rakamlar AVESİS ve Google Scholar, Kasım 2026.</span></p>
+          <p class="src data"><span class="en">Citation figures from Google Scholar, 24 November 2026 (Web of Science: 576 citations, h-index 13).</span><span class="tr">Atıf rakamları Google Scholar, 24 Kasım 2026 (Web of Science: 576 atıf, h-indeksi 13).</span></p>
           <ul class="edu data">
             <li><span class="en">PhD</span><span class="tr">Doktora</span> 2015 · <span class="en">Hacettepe University, Biology (Botany)</span><span class="tr">Hacettepe Üniversitesi, Biyoloji (Botanik)</span> · <i>Ricotia</i> L. (Brassicaceae)</li>
             <li><span class="en">MSc</span><span class="tr">Yüksek lisans</span> 2009 · <span class="en">Hacettepe University, Biology</span><span class="tr">Hacettepe Üniversitesi, Biyoloji</span></li>
@@ -648,7 +766,7 @@ footer .data{opacity:.8}
           <p class="desc"><span class="en">Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, <i>Heldreichia bupleurifolia</i> (all six infraspecific taxa), <i>Noccaea oppositifolia</i> and <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses <i>Arabidopsis thaliana</i> as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.</span><span class="tr">Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, <i>Heldreichia bupleurifolia</i> (altı alttürün tamamı), <i>Noccaea oppositifolia</i> ve <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve <i>Arabidopsis thaliana</i>'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.</span></p>
           <p class="m data"><span class="en">TÜBİTAK 1001 · 2021–2024 · Principal investigator: Prof. Dr. Barış Özüdoğru</span><span class="tr">TÜBİTAK 1001 · 2021–2024 · Yürütücü: Prof. Dr. Barış Özüdoğru</span></p>
           <dl class="facts data">
-            <div><dt><span class="en">Taxa</span><span class="tr">Takson</span></dt><dd data-n="8">8</dd></div>
+            <div><dt><span class="en">Taxa</span><span class="tr">Takson</span></dt><dd>8</dd></div>
             <div><dt><span class="en">Populations</span><span class="tr">Popülasyon</span></dt><dd>60–70</dd></div>
             <div><dt><span class="en">Individuals</span><span class="tr">Birey</span></dt><dd>~700</dd></div>
             <div><dt><span class="en">Methods</span><span class="tr">Yöntem</span></dt><dd>RADseq · ENM</dd></div>
@@ -656,26 +774,84 @@ footer .data{opacity:.8}
         </article>
           <figure class="side-photo"><img src="img/heldreichia-flower-1000.jpg" srcset="img/heldreichia-flower-600.jpg 600w, img/heldreichia-flower-1000.jpg 1000w" sizes="(max-width: 980px) 92vw, 30vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Heldreichia in flower among rust-coloured boulders"><figcaption class="ptag"><i>Heldreichia</i></figcaption></figure>
         </div>
-        <div class="project-list">
-          <ol class="plist">
-          <li><span class="yr">2023–2024</span><div><p class="t"><span class="en">Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye</span><span class="tr">Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2021–2024</span><div><p class="t"><span class="en">Responses of Anatolian high-mountain plants to Quaternary climate change, studied with genomic methods and niche modelling</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişikliklerine verdiği cevapların genomik yöntemler ve niş modellemesi yaklaşımıyla araştırılması</span></p><p class="m data"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2021–2024</span><div><p class="t"><span class="en">Revision of the genus <i>Asyneuma</i> (Campanulaceae) in Türkiye</span><span class="tr">Türkiye <i>Asyneuma</i> (Campanulaceae) cinsinin revizyonu</span></p><p class="m data"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2021–2022</span><div><p class="t"><span class="en">Molecular phylogeny and biogeography of <i>Asphodeline</i></span><span class="tr"><i>Asphodeline</i> cinsinin moleküler filogenisi ve biyocoğrafyası</span></p><p class="m data"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2020–2022</span><div><p class="t"><span class="en">Contributions to the flora of Türkiye</span><span class="tr">Türkiye florasına katkılar</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2020–2021</span><div><p class="t"><span class="en">Functional traits and their relationships in a Central Anatolian steppe plant community</span><span class="tr">İç Anadolu bozkırında bir bitki komünitesinde fonksiyonel karakterler ve aralarındaki ilişkiler</span></p><p class="m data"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2019–2020</span><div><p class="t"><span class="en">Population structure, morphometric species delimitation and a DNA bank for <i>Pseudosempervivum</i></span><span class="tr">Kaşıkotu (<i>Pseudosempervivum</i>) türlerinin popülasyon yapıları, morfometrik tür sınırlandırması ve DNA bankası</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2018–2021</span><div><p class="t"><span class="en">Phylogeography of <i>Iberis simplex</i></span><span class="tr">Civanotunun (<i>Iberis simplex</i>) filocoğrafyası</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2018–2019</span><div><p class="t"><span class="en">Molecular phylogenetics of the tribes Conringieae and Coluteocarpeae</span><span class="tr">Conringieae ve Coluteocarpeae tribusları üzerine moleküler filogenetik çalışmalar</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2017–2019</span><div><p class="t"><span class="en">Phylogenetic relationships in <i>Noccaea</i> from high-throughput genetic data</span><span class="tr">Yüksek çözünürlüklü genetik veriyle <i>Noccaea</i> cinsindeki filogenetik ilişkiler</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2017–2018</span><div><p class="t"><span class="en">Phylogeny of <i>Scilla</i>, <i>Prospero</i> and <i>Puschkinia</i> (Asparagaceae) in Türkiye</span><span class="tr">Türkiye'deki <i>Scilla</i>, <i>Prospero</i> ve <i>Puschkinia</i> (Asparagaceae) taksonlarının filogenisi</span></p><p class="m data"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2016–2017</span><div><p class="t"><span class="en">Phylogeography of <i>Noccaea iberidea</i></span><span class="tr">Ak kayagülünün (<i>Noccaea iberidea</i>) filocoğrafyası</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2016</span><div><p class="t"><span class="en">Establishing phylogenetic and phylogeographic methods in botany</span><span class="tr">Filogenetik ve filocoğrafik yöntemlerin botanikte kullanımı</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2015</span><div><p class="t"><span class="en">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i></span><span class="tr"><i>Thlaspi aghricum</i>'un filogenetik pozisyonu ve taksonomik ataması</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div></li>
-          <li><span class="yr">2015</span><div><p class="t"><span class="en">Molecular biogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin moleküler biyocoğrafyası</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2014–2015</span><div><p class="t"><span class="en">Software for molecular systematics (PAUP, Geneious, CodonCode Aligner)</span><span class="tr">Moleküler sistematik için yazılım altyapısı (PAUP, Geneious, CodonCode Aligner)</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2013–2016</span><div><p class="t"><span class="en">Phylogeny and phylogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin filogeni ve filocoğrafyası</span></p><p class="m data"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
-          <li><span class="yr">2009–</span><div><p class="t"><span class="en">Nature conservation and biodiversity</span><span class="tr">Doğa koruma ve biyoçeşitlilik</span></p><p class="m data"><span class="en">Presidency of Strategy and Budget</span><span class="tr">Strateji ve Bütçe Başkanlığı</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div></li>
+        <div class="timeline">
+          <div class="tl-key">
+            <span class="k tub">TÜBİTAK</span><span class="k bap"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span></span><span class="k oth"><span class="en">Other</span><span class="tr">Diğer</span></span><span class="k pi-k"><span class="en">Led by Barış Özüdoğru</span><span class="tr">Yürütücü: Barış Özüdoğru</span></span>
+          </div>
+          <div class="tl-axis" aria-hidden="true"><div class="tl-axis-in"><span style="left:0.00%">2009</span><span style="left:16.67%">2012</span><span style="left:33.33%">2015</span><span style="left:50.00%">2018</span><span style="left:66.67%">2021</span><span style="left:83.33%">2024</span><span style="left:100.00%">2027</span></div></div>
+          <ol class="tl-list">
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye</span><span class="tr">Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2023–2024"><span class="tl-bar end" style="left:77.78%;width:11.11%"><span class="tl-yr">2023–2024</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Responses of Anatolian high-mountain plants to Quaternary climate change, studied with genomic methods and niche modelling</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişikliklerine verdiği cevapların genomik yöntemler ve niş modellemesi yaklaşımıyla araştırılması</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+            </li>
+            <li class="tl-row tub">
+              <div class="tl-label"><p class="t"><span class="en">Revision of the genus <i>Asyneuma</i> (Campanulaceae) in Türkiye</span><span class="tr">Türkiye <i>Asyneuma</i> (Campanulaceae) cinsinin revizyonu</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Molecular phylogeny and biogeography of <i>Asphodeline</i></span><span class="tr"><i>Asphodeline</i> cinsinin moleküler filogenisi ve biyocoğrafyası</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2021–2022"><span class="tl-bar" style="left:66.67%;width:11.11%"><span class="tl-yr">2021–2022</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Contributions to the flora of Türkiye</span><span class="tr">Türkiye florasına katkılar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2020–2022"><span class="tl-bar" style="left:61.11%;width:16.67%"><span class="tl-yr">2020–2022</span></span></div>
+            </li>
+            <li class="tl-row tub">
+              <div class="tl-label"><p class="t"><span class="en">Functional traits and their relationships in a Central Anatolian steppe plant community</span><span class="tr">İç Anadolu bozkırında bir bitki komünitesinde fonksiyonel karakterler ve aralarındaki ilişkiler</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2020–2021"><span class="tl-bar" style="left:61.11%;width:11.11%"><span class="tl-yr">2020–2021</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Population structure, morphometric species delimitation and a DNA bank for <i>Pseudosempervivum</i></span><span class="tr">Kaşıkotu (<i>Pseudosempervivum</i>) türlerinin popülasyon yapıları, morfometrik tür sınırlandırması ve DNA bankası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2019–2020"><span class="tl-bar" style="left:55.56%;width:11.11%"><span class="tl-yr">2019–2020</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Iberis simplex</i></span><span class="tr">Civanotunun (<i>Iberis simplex</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2018–2021"><span class="tl-bar" style="left:50.00%;width:22.22%"><span class="tl-yr">2018–2021</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Molecular phylogenetics of the tribes Conringieae and Coluteocarpeae</span><span class="tr">Conringieae ve Coluteocarpeae tribusları üzerine moleküler filogenetik çalışmalar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2018–2019"><span class="tl-bar" style="left:50.00%;width:11.11%"><span class="tl-yr">2018–2019</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogenetic relationships in <i>Noccaea</i> from high-throughput genetic data</span><span class="tr">Yüksek çözünürlüklü genetik veriyle <i>Noccaea</i> cinsindeki filogenetik ilişkiler</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2017–2019"><span class="tl-bar" style="left:44.44%;width:16.67%"><span class="tl-yr">2017–2019</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeny of <i>Scilla</i>, <i>Prospero</i> and <i>Puschkinia</i> (Asparagaceae) in Türkiye</span><span class="tr">Türkiye'deki <i>Scilla</i>, <i>Prospero</i> ve <i>Puschkinia</i> (Asparagaceae) taksonlarının filogenisi</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2017–2018"><span class="tl-bar" style="left:44.44%;width:11.11%"><span class="tl-yr">2017–2018</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Noccaea iberidea</i></span><span class="tr">Ak kayagülünün (<i>Noccaea iberidea</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2016–2017"><span class="tl-bar" style="left:38.89%;width:11.11%"><span class="tl-yr">2016–2017</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Establishing phylogenetic and phylogeographic methods in botany</span><span class="tr">Filogenetik ve filocoğrafik yöntemlerin botanikte kullanımı</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2016"><span class="tl-bar" style="left:38.89%;width:5.56%"><span class="tl-yr">2016</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i></span><span class="tr"><i>Thlaspi aghricum</i>'un filogenetik pozisyonu ve taksonomik ataması</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Molecular biogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin moleküler biyocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Software for molecular systematics (PAUP, Geneious, CodonCode Aligner)</span><span class="tr">Moleküler sistematik için yazılım altyapısı (PAUP, Geneious, CodonCode Aligner)</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2014–2015"><span class="tl-bar" style="left:27.78%;width:11.11%"><span class="tl-yr">2014–2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeny and phylogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin filogeni ve filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2013–2016"><span class="tl-bar" style="left:22.22%;width:22.22%"><span class="tl-yr">2013–2016</span></span></div>
+            </li>
+            <li class="tl-row oth">
+              <div class="tl-label"><p class="t"><span class="en">Nature conservation and biodiversity</span><span class="tr">Doğa koruma ve biyoçeşitlilik</span></p><p class="m"><span class="en">Presidency of Strategy and Budget</span><span class="tr">Strateji ve Bütçe Başkanlığı</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2009–"><span class="tl-bar end" style="left:0.00%;width:100.00%"><span class="tl-yr">2009–</span></span></div>
+            </li>
           </ol>
         </div>
       </div>
@@ -697,73 +873,84 @@ footer .data{opacity:.8}
     <div class="wrap">
       <h3 class="sub-head" id="pubs-h"><span class="en">Team publications</span><span class="tr">Ekip yayınları</span></h3>
       <p class="lede"><span class="en">66 journal articles by Barış Özüdoğru and the team, newest first. Barış Özüdoğru's name is set in bold.</span><span class="tr">Barış Özüdoğru ve ekibinin 66 dergi makalesi, en yeniden eskiye.</span></p>
+      <div class="pub-tools">
+        <label class="search" for="pub-q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><span class="vh"><span class="en">Search publications</span><span class="tr">Yayınlarda ara</span></span><input id="pub-q" type="search" autocomplete="off" enterkeyhint="search" placeholder="Search title, author, journal" data-ph-en="Search title, author, journal" data-ph-tr="Başlık, yazar veya dergi ara"></label>
+        <div class="filters" role="group" aria-label="Filter">
+          <button class="chip" type="button" id="pf-all" data-f="" aria-pressed="true"><span class="en">All</span><span class="tr">Tümü</span></button>
+          <button class="chip" type="button" id="pf-bras" data-f="bras" aria-pressed="false">Brassicaceae</button>
+          <button class="chip" type="button" id="pf-new" data-f="new" aria-pressed="false"><span class="en">New taxa</span><span class="tr">Yeni taksonlar</span></button>
+          <button class="chip" type="button" id="pf-eco" data-f="eco" aria-pressed="false"><span class="en">Ecology and flora</span><span class="tr">Ekoloji ve flora</span></button>
+        </div>
+        <div class="years" role="group" aria-label="Articles per year · Yıllara göre makale"><button type="button" class="yb" data-y="2006" style="--h:11%" aria-pressed="false" title="2006: 1"><span class="yb-bar"></span><span class="yb-n">1</span><span class="yb-y">06</span></button><span class="yb empty" aria-hidden="true"><span class="yb-y">07</span></span><span class="yb empty" aria-hidden="true"><span class="yb-y">08</span></span><button type="button" class="yb" data-y="2009" style="--h:22%" aria-pressed="false" title="2009: 2"><span class="yb-bar"></span><span class="yb-n">2</span><span class="yb-y">09</span></button><button type="button" class="yb" data-y="2010" style="--h:22%" aria-pressed="false" title="2010: 2"><span class="yb-bar"></span><span class="yb-n">2</span><span class="yb-y">10</span></button><button type="button" class="yb" data-y="2011" style="--h:33%" aria-pressed="false" title="2011: 3"><span class="yb-bar"></span><span class="yb-n">3</span><span class="yb-y">11</span></button><span class="yb empty" aria-hidden="true"><span class="yb-y">12</span></span><span class="yb empty" aria-hidden="true"><span class="yb-y">13</span></span><button type="button" class="yb" data-y="2014" style="--h:22%" aria-pressed="false" title="2014: 2"><span class="yb-bar"></span><span class="yb-n">2</span><span class="yb-y">14</span></button><button type="button" class="yb" data-y="2015" style="--h:22%" aria-pressed="false" title="2015: 2"><span class="yb-bar"></span><span class="yb-n">2</span><span class="yb-y">15</span></button><button type="button" class="yb" data-y="2016" style="--h:22%" aria-pressed="false" title="2016: 2"><span class="yb-bar"></span><span class="yb-n">2</span><span class="yb-y">16</span></button><button type="button" class="yb" data-y="2017" style="--h:33%" aria-pressed="false" title="2017: 3"><span class="yb-bar"></span><span class="yb-n">3</span><span class="yb-y">17</span></button><button type="button" class="yb" data-y="2018" style="--h:100%" aria-pressed="false" title="2018: 9"><span class="yb-bar"></span><span class="yb-n">9</span><span class="yb-y">18</span></button><button type="button" class="yb" data-y="2019" style="--h:44%" aria-pressed="false" title="2019: 4"><span class="yb-bar"></span><span class="yb-n">4</span><span class="yb-y">19</span></button><button type="button" class="yb" data-y="2020" style="--h:33%" aria-pressed="false" title="2020: 3"><span class="yb-bar"></span><span class="yb-n">3</span><span class="yb-y">20</span></button><button type="button" class="yb" data-y="2021" style="--h:44%" aria-pressed="false" title="2021: 4"><span class="yb-bar"></span><span class="yb-n">4</span><span class="yb-y">21</span></button><button type="button" class="yb" data-y="2022" style="--h:78%" aria-pressed="false" title="2022: 7"><span class="yb-bar"></span><span class="yb-n">7</span><span class="yb-y">22</span></button><button type="button" class="yb" data-y="2023" style="--h:44%" aria-pressed="false" title="2023: 4"><span class="yb-bar"></span><span class="yb-n">4</span><span class="yb-y">23</span></button><button type="button" class="yb" data-y="2024" style="--h:33%" aria-pressed="false" title="2024: 3"><span class="yb-bar"></span><span class="yb-n">3</span><span class="yb-y">24</span></button><button type="button" class="yb" data-y="2025" style="--h:89%" aria-pressed="false" title="2025: 8"><span class="yb-bar"></span><span class="yb-n">8</span><span class="yb-y">25</span></button><button type="button" class="yb" data-y="2026" style="--h:78%" aria-pressed="false" title="2026: 7"><span class="yb-bar"></span><span class="yb-n">7</span><span class="yb-y">26</span></button></div>
+        <p class="pub-count" id="pub-count" role="status" aria-live="polite"></p>
+      </div>
       <ol class="pubs" id="pubs">
-        <li><span class="yr">2026</span><div><p class="t">XRF-based element accumulation analysis of the populations of the hyperaccumulator <i>Noccaea aucheri</i> (Brassicaceae) species complex throughout its distribution range in Türkiye</p><p class="a">Can I. D., İmrak G., Kılıçarslan B., Karaaslan İ. Ç., <b>Özüdoğru B.</b></p><p class="j"><i>Acta Physiologiae Plantarum</i> 48(11) · <a href="https://doi.org/10.1007/s11738-026-03960-3" target="_blank" rel="noopener">doi:10.1007/s11738-026-03960-3</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">A new species of <i>Veronica</i> (Plantaginaceae) from Eastern Türkiye: The first gypsophyte species in the genus</p><p class="a">Gökmen F. Ş., Gökmen M., <b>Özüdoğru B.</b>, Albach D. C.</p><p class="j"><i>Phytotaxa</i> 773(2): 149-161 · <a href="https://doi.org/10.11646/phytotaxa.773.2.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.773.2.4</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">Phylogeny and biogeography of the genus <i>Pinguicula</i> L. (Lentibulariaceae), with special emphasis on the Turkish taxa</p><p class="a">Aygören Uluer D., <b>Özüdoğru B.</b>, Çimen A. Ö., Can I. D., Trigas P., Gücel S.</p><p class="j"><i>Plant Systematics and Evolution</i> 312(4) · <a href="https://doi.org/10.1007/s00606-026-02013-z" target="_blank" rel="noopener">doi:10.1007/s00606-026-02013-z</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">Disentangling subspecies delimitation in <i>Heldreichia bupleurifolia</i> Boiss. (Brassicaceae) through genomic and quantitative morphological approaches</p><p class="a">Can I. D., Yılmaz E., Özgişi K., Gür H., Sağlam İ. K., <b>Özüdoğru B.</b></p><p class="j"><i>Molecular Phylogenetics and Evolution</i> 216 · <a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener">doi:10.1016/j.ympev.2025.108518</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">A Plant-Diversity Dark Spot at the Intersection of Three Biodiversity Hotspots: Environmental Drivers of Brassicaceae Richness in Türkiye</p><p class="a">Dumlupınar İ., <b>Özüdoğru B.</b>, Gür H.</p><p class="j"><i>Ecology and Evolution</i> 16(3) · <a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener">doi:10.1002/ece3.73246</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">Functional trait structure in a plant community in Central Anatolian steppe</p><p class="a">Ülgen C., Coşgun Z. L., <b>Özüdoğru B.</b>, Tavşanoğlu Ç.</p><p class="j"><i>Turkish Journal of Botany</i> 50(2): 177-186 · <a href="https://doi.org/10.55730/1300-008x.2894" target="_blank" rel="noopener">doi:10.55730/1300-008x.2894</a></p></div></li>
-        <li><span class="yr">2026</span><div><p class="t">Türkiye Florası için yeni bir kayıt: Doğu şebboyu (<i>Matthiola spathulata</i> Conti / Brassicaceae)</p><p class="a">Konuralp L.Y., Gülben M., <b>Özüdoğru B.</b></p><p class="j"><i>Bağbahçe Bilim Dergisi</i> 13(2): 76-82</p></div></li>
-        <li><span class="yr">2025</span><div><p class="t">Polygenic discrimination of leaf morphotypes in alpine <i>Heldreichia bupleurifolia</i> (Brassicaceae) across its natural range</p><p class="a">Yılmaz E., Can I. D., Özgişi K., Gür H., Sağlam İ. K., <b>Özüdoğru B.</b></p><p class="j"><i>Annals of Botany</i> · <a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener">doi:10.1093/aob/mcaf223</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t">A comparative study of the anatomy of <i>Noccaea aucheri</i> (Brassicaceae) species complex</p><p class="a">Deniz Can I., Zare G., <b>Özüdoğru B.</b></p><p class="j"><i>Nordic Journal of Botany</i> 2025 · <a href="https://doi.org/10.22541/au.172114450.07519017/v1" target="_blank" rel="noopener">doi:10.22541/au.172114450.07519017/v1</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t">Seed morphology and its systematic implication in <i>Noccaea</i> s. l. (Brassicaceae)</p><p class="a">Özgişi K., <b>Özüdoğru B.</b></p><p class="j"><i>Flora</i> 328 · <a href="https://doi.org/10.1016/j.flora.2025.152746" target="_blank" rel="noopener">doi:10.1016/j.flora.2025.152746</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t"><i>Erodium hakangurii</i> (Geraniaceae), a new species from inner Anatolia (Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K.</p><p class="j"><i>Phytotaxa</i> 684(2): 265-274 · <a href="https://doi.org/10.11646/phytotaxa.684.2.9" target="_blank" rel="noopener">doi:10.11646/phytotaxa.684.2.9</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t"><i>Noccaea bulutii</i> (Brassicaceae): a new species from northeast Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Duman H.</p><p class="j"><i>Turkish Journal of Botany</i> 49(2): 111-119 · <a href="https://doi.org/10.55730/1300-008x.2846" target="_blank" rel="noopener">doi:10.55730/1300-008x.2846</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t">An extraordinary new species from western Anatolia (Türkiye): <i>Umbilicus choripetalus</i> (Crassulaceae)</p><p class="a">Yıldırım H., <b>Özüdoğru B.</b>, Özdöl T., Can I.D., Pirhan A.F., Balos M.M., Arasan Ş.</p><p class="j"><i>Phytotaxa</i> 734(2): 160-172 · <a href="https://doi.org/10.11646/phytotaxa.734.2.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.734.2.2</a></p></div></li>
-        <li><span class="yr">2025</span><div><p class="t">Capacity building in crucifer research—from BrassiBase to a taxonomic expert network (BrassiTEN)</p><p class="a">Kiefer M., German D.A., Kiefer C., …, <b>Özüdoğru B.</b>, …, Koch M.A.</p><p class="j"><i>Plant Systematics and Evolution</i> 311(5) · <a href="https://doi.org/10.1007/s00606-025-01964-z" target="_blank" rel="noopener">doi:10.1007/s00606-025-01964-z</a></p></div></li>
-        <li class="more" hidden><span class="yr">2025</span><div><p class="t"><i>Allium sadikerikii</i> (Amaryllidaceae), a new species of sect. <i>Codonoprasum</i> from Central Anatolia, Turkey</p><p class="a"><b>Özüdoğru B.</b>, Eker İ.</p><p class="j"><i>Annales Botanici Fennici</i> 62(1): 109-113 · <a href="https://doi.org/10.5735/085.062.0117" target="_blank" rel="noopener">doi:10.5735/085.062.0117</a></p></div></li>
-        <li class="more" hidden><span class="yr">2024</span><div><p class="t">A combined phylogenetic and numerical taxonomic study of <i>Matthiola montana</i> and <i>M. anchoniifolia</i> (Brassicaceae)</p><p class="a">Uluer D. A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 653(1): 37-53 · <a href="https://doi.org/10.11646/phytotaxa.653.1.3" target="_blank" rel="noopener">doi:10.11646/phytotaxa.653.1.3</a></p></div></li>
-        <li class="more" hidden><span class="yr">2024</span><div><p class="t"><i>Hesperis sivasica</i> (Brassicaceae), A new crucifer species from inner Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Altinozlu H., Özgişi K.</p><p class="j"><i>Phytotaxa</i> 649(3): 261-269 · <a href="https://doi.org/10.11646/phytotaxa.649.3.3" target="_blank" rel="noopener">doi:10.11646/phytotaxa.649.3.3</a></p></div></li>
-        <li class="more" hidden><span class="yr">2024</span><div><p class="t"><i>Genista etnensis</i> (Leguminosae, tribe Genisteae): a new record for Turkey</p><p class="a">Şentürk O., Kenicer G.J., <b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>The Journal of Japanese Botany</i> 99(1): 1-15</p></div></li>
-        <li class="more" hidden><span class="yr">2023</span><div><p class="t">A new species of <i>Brassica</i> (Brassicaceae) from Bolkar Mountains (Turkiye) with morphological and molecular evidence</p><p class="a">Başköse İ., <b>Özüdoğru B.</b>, Savran A., Keskin A.</p><p class="j"><i>Phytotaxa</i> 632(2): 101-117 · <a href="https://doi.org/10.11646/phytotaxa.632.2.1" target="_blank" rel="noopener">doi:10.11646/phytotaxa.632.2.1</a></p></div></li>
-        <li class="more" hidden><span class="yr">2023</span><div><p class="t">Global Brassicaceae phylogeny based on filtering of 1,000-gene dataset</p><p class="a">Hendriks K. P., Kiefer C., Al-Shehbaz I. A., Bailey C. D., Hooft van Huysduynen A., Nikolov L. A.</p><p class="j"><i>Current Biology</i> 33(19): 4052 · <a href="https://doi.org/10.1016/j.cub.2023.08.026" target="_blank" rel="noopener">doi:10.1016/j.cub.2023.08.026</a></p></div></li>
-        <li class="more" hidden><span class="yr">2023</span><div><p class="t">Distributional ecology of <i>Noccaea vesicaria</i> in relation to the Anatolian Diagonal</p><p class="a">Dumlupınar İ., Gür H., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 47(4): 267-277 · <a href="https://doi.org/10.55730/1300-008x.2765" target="_blank" rel="noopener">doi:10.55730/1300-008x.2765</a></p></div></li>
-        <li class="more" hidden><span class="yr">2023</span><div><p class="t">A new <i>Scrophularia</i> (Scrophulariaceae) species without staminodes in the enigmatic “Canina clade” from the Western Taurus (Türkiye)</p><p class="a">Aykurt C., Gülben M., <b>Özüdoğru B.</b>, Sari D., Deniz İ. G., Çingay B.</p><p class="j"><i>Turkish Journal of Botany</i> 47(5): 388-398 · <a href="https://doi.org/10.55730/1300-008x.2776" target="_blank" rel="noopener">doi:10.55730/1300-008x.2776</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t">Phylogeny, biogeography, and character evolution in the genus <i>Scilla</i> s.l. and its close relatives <i>Chionodoxa</i>, <i>Gemicia</i>, <i>Puschkinia</i>, and <i>Prospero</i> (Asparagaceae)</p><p class="a"><b>Özüdoğru B.</b>, Uluer D. A., Tarıkahya Hacıoğlu B., Yıldırım H.</p><p class="j"><i>Plant Systematics and Evolution</i> 308(6) · <a href="https://doi.org/10.1007/s00606-022-01835-x" target="_blank" rel="noopener">doi:10.1007/s00606-022-01835-x</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t">A new bellflower, <i>Campanula dersimensis</i> (Campanulaceae), from E Anatolia, Turkey</p><p class="a">Fırat M., <b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>Willdenowia</i> 52(2): 167-177 · <a href="https://doi.org/10.3372/wi.52.52202" target="_blank" rel="noopener">doi:10.3372/wi.52.52202</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Acantholimon akaydinii</i> (Plumbaginaceae), a new species of <i>A.</i> section <i>Staticopsis</i> from Eastern Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K.</p><p class="j"><i>Phytotaxa</i> 539(3): 265-272 · <a href="https://doi.org/10.11646/phytotaxa.539.3.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.539.3.5</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t">Ecological specialization promotes diversity and diversification in the Eastern Mediterranean genus <i>Ricotia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Karacaoğlu Ç., Akaydın G., Erik S., Mummenhoff K., Sağlam İ. K.</p><p class="j"><i>Journal of Systematics and Evolution</i> 60(2): 331-343 · <a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener">doi:10.1111/jse.12749</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Marrubium zeydanlii</i> (Lamiaceae), a new species from Turkey</p><p class="a">Aytaç Z., Kaptaner İğci B., Ertuğrul T., Pınar N. M., Aygören Uluer D., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 46(6): 636-644 · <a href="https://doi.org/10.55730/1300-008x.2738" target="_blank" rel="noopener">doi:10.55730/1300-008x.2738</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Knautia goecmenii</i> (Caprifoliaceae): an unexpected caespitose suffrutescent new species from the Western Anatolia, Turkey</p><p class="a">Yıldırım H., Özdöl T., Can I. D., Erdem S., Ogur E., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 531(2): 97-110 · <a href="https://doi.org/10.11646/phytotaxa.531.2.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.531.2.2</a></p></div></li>
-        <li class="more" hidden><span class="yr">2022</span><div><p class="t">Molecular phylogeny and phylogeography reveal recent divergence in the <i>Iberis simplex</i> DC. (Brassicaceae) species complex</p><p class="a">Çilden E., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 46(6): 567-582 · <a href="https://doi.org/10.55730/1300-008x.2732" target="_blank" rel="noopener">doi:10.55730/1300-008x.2732</a></p></div></li>
-        <li class="more" hidden><span class="yr">2021</span><div><p class="t">Recovery of a plant community in the central Anatolian steppe after small-scale disturbances</p><p class="a">Ozudogru O., <b>Özüdoğru B.</b>, Tavşanoğlu Ç.</p><p class="j"><i>Folia Geobotanica</i> 56: 241-254 · <a href="https://doi.org/10.1007/s12224-021-09404-9" target="_blank" rel="noopener">doi:10.1007/s12224-021-09404-9</a></p></div></li>
-        <li class="more" hidden><span class="yr">2021</span><div><p class="t"><i>Iljinskaea</i> (Brassicaceae), a new genus based on <i>Conringia planisiliqua</i></p><p class="a">Al-Shehbaz I. A., <b>Özüdoğru B.</b>, German D. A.</p><p class="j"><i>Phytotaxa</i> 500(2): 142-146 · <a href="https://doi.org/10.11646/phytotaxa.500.2.7" target="_blank" rel="noopener">doi:10.11646/phytotaxa.500.2.7</a></p></div></li>
-        <li class="more" hidden><span class="yr">2021</span><div><p class="t">Linked by Ancestral Bonds: Multiple Whole-Genome Duplications and Reticulate Evolution in a Brassicaceae Tribe</p><p class="a">Guo X., Mandakova T., Trachtova K., <b>Özüdoğru B.</b>, Liu J., Lysak M. A.</p><p class="j"><i>Molecular Biology and Evolution</i> 38(5): 1695-1714 · <a href="https://doi.org/10.1093/molbev/msaa327" target="_blank" rel="noopener">doi:10.1093/molbev/msaa327</a></p></div></li>
-        <li class="more" hidden><span class="yr">2021</span><div><p class="t">Phylogeny and biogeography of the genus <i>Hesperis</i> (Brassicaceae, tribe Hesperideae) inferred from nuclear ribosomal DNA sequence data</p><p class="a">Eslami-Farouji A., Khodayari H., Assadi M., Cetin O., Mummenhoff K., <b>Özüdoğru B.</b></p><p class="j"><i>Plant Systematics and Evolution</i> 307(2) · <a href="https://doi.org/10.1007/s00606-020-01727-y" target="_blank" rel="noopener">doi:10.1007/s00606-020-01727-y</a></p></div></li>
-        <li class="more" hidden><span class="yr">2020</span><div><p class="t">The Quaternary range dynamics of <i>Noccaea iberidea</i> (Brassicaceae), a typical representative of subalpine/alpine steppe communities of Anatolian mountains</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K., Perktaş U., Gür H.</p><p class="j"><i>Biological Journal of the Linnean Society</i> 131(4): 986-1001 · <a href="https://doi.org/10.1093/biolinnean/blaa147" target="_blank" rel="noopener">doi:10.1093/biolinnean/blaa147</a></p></div></li>
-        <li class="more" hidden><span class="yr">2020</span><div><p class="t">On the identity of some endemic SW Asian Cruciferae. II</p><p class="a">German D. A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 470(2): 165-175 · <a href="https://doi.org/10.11646/phytotaxa.470.2.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.470.2.5</a></p></div></li>
-        <li class="more" hidden><span class="yr">2020</span><div><p class="t">Phylogenetic and biogeographical history confirm the Anatolian origin of <i>Bornmuellera</i> (Brassicaceae) and clade divergence between Anatolia and the Balkans in the Plio-Pleistocene transition</p><p class="a"><b>Özüdoğru B.</b>, Mummenhoff K.</p><p class="j"><i>Turkish Journal of Botany</i> 44(6): 593-603 · <a href="https://doi.org/10.3906/bot-2007-42" target="_blank" rel="noopener">doi:10.3906/bot-2007-42</a></p></div></li>
-        <li class="more" hidden><span class="yr">2019</span><div><p class="t">Doğu Anadolu’dan Yeni Bir Topaçhardalı Alttürü:<i>Heldreichia bupleurifolia</i> subsp.<i> malatyana</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>Bağbahçe Bilim Dergisi</i> 6(3): 1-8</p></div></li>
-        <li class="more" hidden><span class="yr">2019</span><div><p class="t">Naturally-primed life strategy plasticity of dimorphic <i>Aethionema arabicum</i> facilitates optimal habitat colonization</p><p class="a">Bhattacharya S., Sperber K., <b>Özüdoğru B.</b>, Leubner-Metzger G., Mummenhoff K.</p><p class="j"><i>Scientific Reports</i> 9 · <a href="https://doi.org/10.1038/s41598-019-52520-y" target="_blank" rel="noopener">doi:10.1038/s41598-019-52520-y</a></p></div></li>
-        <li class="more" hidden><span class="yr">2019</span><div><p class="t">Phylogeny of the genus <i>Noccaea</i> (Brassicaceae) and a critical review of its generic circumscription</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K., Tarikahya-Hacioglu B., Ocak A., Mummenhoff K., Al-Shehbaz I. A.</p><p class="j"><i>Annals of the Missouri Botanical Garden</i> 104(3): 339-354 · <a href="https://doi.org/10.3417/2019347" target="_blank" rel="noopener">doi:10.3417/2019347</a></p></div></li>
-        <li class="more" hidden><span class="yr">2019</span><div><p class="t"><i>Ricotia candiriana</i> (Brassicaceae), a new species from southern Anatolia, Turkey</p><p class="a">Ozcandir A., Aykurt C., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 388(4): 287-294 · <a href="https://doi.org/10.11646/phytotaxa.388.4.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.388.4.4</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Taxonomic remarks on <i>Pseudosempervivum</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, German D. A.</p><p class="j"><i>Phytotaxa</i> 383(1): 103-110 · <a href="https://doi.org/10.11646/phytotaxa.383.1.6" target="_blank" rel="noopener">doi:10.11646/phytotaxa.383.1.6</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Hybridization-facilitated genome merger and repeated chromosome fusion after 8 million years</p><p class="a">Mandáková T., Guo X., <b>Özüdoğru B.</b>, Mummenhoff K., Lysak M. A.</p><p class="j"><i>Plant Journal</i> 96: 748-760 · <a href="https://doi.org/10.1111/tpj.14065" target="_blank" rel="noopener">doi:10.1111/tpj.14065</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Taxonomic notes on the genus <i>Chaenorhinum</i> (Plantaginaceae) in Turkey</p><p class="a">Zare G., <b>Özüdoğru B.</b>, Ergan G., Taysanoglu Ç.</p><p class="j"><i>Acta Botanica Croatica</i> 77(2): 209-213 · <a href="https://doi.org/10.2478/botcro-2018-0011" target="_blank" rel="noopener">doi:10.2478/botcro-2018-0011</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Numerical taxonomy contributes to delimitation of Iranian and Turkish <i>Hesperis</i> L. (Brassicaceae) species</p><p class="a">Farouji A. E., Khodayari H., Assadi M., <b>Özüdoğru B.</b>, Cetini O., Mummenhoff K.</p><p class="j"><i>Phytotaxa</i> 367(2): 101-119 · <a href="https://doi.org/10.11646/phytotaxa.367.2.1" target="_blank" rel="noopener">doi:10.11646/phytotaxa.367.2.1</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Contributions to Turkish Flora: Taxonomic and distributional notes on the poorly known <i>Noccaea</i> (Brassicaceae) species</p><p class="a">Özgişi K., <b>Özüdoğru B.</b>, Ocak A.</p><p class="j"><i>Phytotaxa</i> 346(3): 247-257 · <a href="https://doi.org/10.11646/phytotaxa.346.3.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.346.3.4</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Thlaspiceras sensu</i> Meyer Tür Kompleksinin Plastidik trnQ-5’rps16 Bölgesine Dayalı Filogenisi</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Süleyman Demirel Üniversitesi Fen Bilimleri Enstitüsü Dergisi</i> 22: 186-190 · <a href="https://doi.org/10.19113/sdufbed.86695" target="_blank" rel="noopener">doi:10.19113/sdufbed.86695</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Noccaea birolmutlui</i>, a New Crucifer Species from South West Anatolia, Turkey</p><p class="a">Özgişi K., Ocak A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 345(1): 59-67 · <a href="https://doi.org/10.11646/phytotaxa.345.1.7" target="_blank" rel="noopener">doi:10.11646/phytotaxa.345.1.7</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t">Phylogenetic position, taxonomy, distribution, and conservation status of the rare and poorly-known <i>Noccaea rosularis</i>, the generic type of <i>Masmenia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 344(2): 169-176 · <a href="https://doi.org/10.11646/phytotaxa.344.2.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.344.2.5</a></p></div></li>
-        <li class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Noccaea ali-atahanii</i> (Brassicaceae): a new species from southern Anatolia</p><p class="a">Guzel Y., <b>Özüdoğru B.</b>, Kayikci S., Özgişi K.</p><p class="j"><i>Turkish Journal of Botany</i> 42(6): 780-790 · <a href="https://doi.org/10.3906/bot-1805-40" target="_blank" rel="noopener">doi:10.3906/bot-1805-40</a></p></div></li>
-        <li class="more" hidden><span class="yr">2017</span><div><p class="t">Geç Osmanlı ve Erken Cumhuriyet Dönemleri Anadolu Florası Çalışmalarının Öncülerinden Kurt Krause’nin Nadir Bir Bibliyografyası</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Kebikeç</i>: 421</p></div></li>
-        <li class="more" hidden><span class="yr">2017</span><div><p class="t">Multiple fire-related cues stimulate germination in <i>Chaenorhinum rubrifolium</i> (Plantaginaceae), a rare annual in the Mediterranean Basin</p><p class="a">Tavşanoğlu Ç., Ergan G., Catav S. S., Zare G., Kucukakyuz K., <b>Özüdoğru B.</b></p><p class="j"><i>Seed Science Research</i> 27(1): 26-38 · <a href="https://doi.org/10.1017/s0960258516000283" target="_blank" rel="noopener">doi:10.1017/s0960258516000283</a></p></div></li>
-        <li class="more" hidden><span class="yr">2017</span><div><p class="t">Tribal assignment of <i>Heldreichia</i> Boiss. (Brassicaceae): evidence from nuclear ITS and plastidic ndhF markers</p><p class="a"><b>Özüdoğru B.</b>, Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Plant Systematics and Evolution</i> 303(3): 329-335 · <a href="https://doi.org/10.1007/s00606-016-1374-7" target="_blank" rel="noopener">doi:10.1007/s00606-016-1374-7</a></p></div></li>
-        <li class="more" hidden><span class="yr">2016</span><div><p class="t">Seed morphology of <i>Ricotia</i> (Brassicaceae) and its phylogenetic and systematic implication</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Mummenhoff K.</p><p class="j"><i>Flora</i> 222: 60-67 · <a href="https://doi.org/10.1016/j.flora.2016.03.013" target="_blank" rel="noopener">doi:10.1016/j.flora.2016.03.013</a></p></div></li>
-        <li class="more" hidden><span class="yr">2016</span><div><p class="t"><i>Arabis watsonii</i> (P.H.Davis) F.K.Mey.: An overlooked cruciferous species from eastern Anatolia and its phylogenetic position</p><p class="a"><b>Özüdoğru B.</b>, Fırat M.</p><p class="j"><i>PhytoKeys</i> 75(1): 57-68 · <a href="https://doi.org/10.3897/phytokeys.75.10568" target="_blank" rel="noopener">doi:10.3897/phytokeys.75.10568</a></p></div></li>
-        <li class="more" hidden><span class="yr">2015</span><div><p class="t">Fire-related germination and early seedling growth in 21 herbaceous species in Central Anatolian steppe</p><p class="a">Tavşanoğlu Ç., Catav S. S., <b>Özüdoğru B.</b></p><p class="j"><i>Journal of Arid Environments</i> 122: 109-116 · <a href="https://doi.org/10.1016/j.jaridenv.2015.06.017" target="_blank" rel="noopener">doi:10.1016/j.jaridenv.2015.06.017</a></p></div></li>
-        <li class="more" hidden><span class="yr">2015</span><div><p class="t">Phylogeny, diversification and biogeographic implications of the eastern Mediterranean endemic genus <i>Ricotia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Taxon</i> 64(4): 727-740 · <a href="https://doi.org/10.12705/644.5" target="_blank" rel="noopener">doi:10.12705/644.5</a></p></div></li>
-        <li class="more" hidden><span class="yr">2014</span><div><p class="t">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i> PHDavis &amp; K.Tan (Brassicaceae)</p><p class="a">Fırat M., <b>Özüdoğru B.</b>, Tarıkahya-hacıoglu B., Bulbul A. S., Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Phytotaxa</i> 178(4): 287-297 · <a href="https://doi.org/10.11646/phytotaxa.178.4.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.178.4.2</a></p></div></li>
-        <li class="more" hidden><span class="yr">2014</span><div><p class="t">The speciation history and systematics of <i>Carthamus</i> (Asteraceae) with special emphasis on Turkish species by integrating phylogenetic and Ecological Niche Modelling data</p><p class="a">Tarikahya-Hacioglu B., Karacaoğlu Ç., <b>Özüdoğru B.</b></p><p class="j"><i>Plant Systematics and Evolution</i> 300(6): 1349-1359 · <a href="https://doi.org/10.1007/s00606-013-0966-8" target="_blank" rel="noopener">doi:10.1007/s00606-013-0966-8</a></p></div></li>
-        <li class="more" hidden><span class="yr">2011</span><div><p class="t">Inferences from an ethnobotanical field expedition in the selected locations of Sivas and Yozgat provinces (Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Yesilada E.</p><p class="j"><i>Journal of Ethnopharmacology</i> 137(1): 85-98 · <a href="https://doi.org/10.1016/j.jep.2011.04.050" target="_blank" rel="noopener">doi:10.1016/j.jep.2011.04.050</a></p></div></li>
-        <li class="more" hidden><span class="yr">2011</span><div><p class="t"><i>Astragalus pseudopinetorum</i> (Fabaceae), a new species from Turkey</p><p class="a">Oezuedogru B., Erik S., Taeb F.</p><p class="j"><i>Annales Botanici Fennici</i> 48(1): 84-86 · <a href="https://doi.org/10.5735/085.048.0113" target="_blank" rel="noopener">doi:10.5735/085.048.0113</a></p></div></li>
-        <li class="more" hidden><span class="yr">2011</span><div><p class="t">The flora of Kayışdağı (İstanbul/Turkey) and floristic comparison with neighbouring floras</p><p class="a">Akaydın G., <b>Özüdoğru B.</b>, Kırmızıbekmez H., Yeşilada E.</p><p class="j"><i>Biological Diversity and Conservation</i> 4(1): 67-78</p></div></li>
-        <li class="more" hidden><span class="yr">2010</span><div><p class="t">Morphological, Palynological and Ecological Features of <i>Dianthus engleri</i> Hausskn. amp Bornm.</p><p class="a"><b>Özüdoğru B.</b>, Özmen E., Doğan C., Erik S.</p><p class="j"><i>Hacettepe Journal of Bi̇ology and Chemi̇stry</i> 38(2): 139-147</p></div></li>
-        <li class="more" hidden><span class="yr">2010</span><div><p class="t">The flora of the Karababa Mountain (Sivas-Şarkışla/Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Erik S., Akaydın G.</p><p class="j"><i>Biological Diversity and Conservation</i> 3(3): 176-192</p></div></li>
-        <li class="more" hidden><span class="yr">2009</span><div><p class="t">Pollen Morphology of Some <i>Thymus</i> L. (Lamiaceae) Taxa Used as Spice in Anatolia</p><p class="a">Kızılpınar Temizer İ., <b>Özüdoğru B.</b>, Tarıkahya Hacıoğlu B., Doğan C., Erik S.</p><p class="j"><i>Mellifera</i> 9: 13-22</p></div></li>
-        <li class="more" hidden><span class="yr">2009</span><div><p class="t">Pollen morphology of some taxa of aromatic <i>Tanacetum</i> L. (Asteraceae)</p><p class="a">Özmen E., Kızılpınar İ., <b>Özüdoğru B.</b>, Doğan C., Erik S.</p><p class="j"><i>FABAD Journal of Pharmaceutical Sciences</i> 34: 1-11</p></div></li>
-        <li class="more" hidden><span class="yr">2006</span><div><p class="t">Ballıkayalar Vadisi (Gebze-Kocaeli)’nin Florası</p><p class="a">Akaydın G., Özmen E., <b>Özüdoğru B.</b></p><p class="j"><i>Fırat Üniversitesi Fen Bilimleri Dergisi</i> 18: 279-289</p></div></li>
+        <li data-y="2026" data-tags="bras"><span class="yr">2026</span><div><p class="t">XRF-based element accumulation analysis of the populations of the hyperaccumulator <i>Noccaea aucheri</i> (Brassicaceae) species complex throughout its distribution range in Türkiye</p><p class="a">Can I. D., İmrak G., Kılıçarslan B., Karaaslan İ. Ç., <b>Özüdoğru B.</b></p><p class="j"><i>Acta Physiologiae Plantarum</i> 48(11) · <a href="https://doi.org/10.1007/s11738-026-03960-3" target="_blank" rel="noopener">doi:10.1007/s11738-026-03960-3</a></p></div></li>
+        <li data-y="2026" data-tags="new"><span class="yr">2026</span><div><p class="t">A new species of <i>Veronica</i> (Plantaginaceae) from Eastern Türkiye: The first gypsophyte species in the genus</p><p class="a">Gökmen F. Ş., Gökmen M., <b>Özüdoğru B.</b>, Albach D. C.</p><p class="j"><i>Phytotaxa</i> 773(2): 149-161 · <a href="https://doi.org/10.11646/phytotaxa.773.2.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.773.2.4</a></p></div></li>
+        <li data-y="2026" data-tags=""><span class="yr">2026</span><div><p class="t">Phylogeny and biogeography of the genus <i>Pinguicula</i> L. (Lentibulariaceae), with special emphasis on the Turkish taxa</p><p class="a">Aygören Uluer D., <b>Özüdoğru B.</b>, Çimen A. Ö., Can I. D., Trigas P., Gücel S.</p><p class="j"><i>Plant Systematics and Evolution</i> 312(4) · <a href="https://doi.org/10.1007/s00606-026-02013-z" target="_blank" rel="noopener">doi:10.1007/s00606-026-02013-z</a></p></div></li>
+        <li data-y="2026" data-tags="bras"><span class="yr">2026</span><div><p class="t">Disentangling subspecies delimitation in <i>Heldreichia bupleurifolia</i> Boiss. (Brassicaceae) through genomic and quantitative morphological approaches</p><p class="a">Can I. D., Yılmaz E., Özgişi K., Gür H., Sağlam İ. K., <b>Özüdoğru B.</b></p><p class="j"><i>Molecular Phylogenetics and Evolution</i> 216 · <a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener">doi:10.1016/j.ympev.2025.108518</a></p></div></li>
+        <li data-y="2026" data-tags="bras"><span class="yr">2026</span><div><p class="t">A Plant-Diversity Dark Spot at the Intersection of Three Biodiversity Hotspots: Environmental Drivers of Brassicaceae Richness in Türkiye</p><p class="a">Dumlupınar İ., <b>Özüdoğru B.</b>, Gür H.</p><p class="j"><i>Ecology and Evolution</i> 16(3) · <a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener">doi:10.1002/ece3.73246</a></p></div></li>
+        <li data-y="2026" data-tags="eco"><span class="yr">2026</span><div><p class="t">Functional trait structure in a plant community in Central Anatolian steppe</p><p class="a">Ülgen C., Coşgun Z. L., <b>Özüdoğru B.</b>, Tavşanoğlu Ç.</p><p class="j"><i>Turkish Journal of Botany</i> 50(2): 177-186 · <a href="https://doi.org/10.55730/1300-008x.2894" target="_blank" rel="noopener">doi:10.55730/1300-008x.2894</a></p></div></li>
+        <li data-y="2026" data-tags="bras new eco"><span class="yr">2026</span><div><p class="t">Türkiye Florası için yeni bir kayıt: Doğu şebboyu (<i>Matthiola spathulata</i> Conti / Brassicaceae)</p><p class="a">Konuralp L.Y., Gülben M., <b>Özüdoğru B.</b></p><p class="j"><i>Bağbahçe Bilim Dergisi</i> 13(2): 76-82</p></div></li>
+        <li data-y="2025" data-tags="bras"><span class="yr">2025</span><div><p class="t">Polygenic discrimination of leaf morphotypes in alpine <i>Heldreichia bupleurifolia</i> (Brassicaceae) across its natural range</p><p class="a">Yılmaz E., Can I. D., Özgişi K., Gür H., Sağlam İ. K., <b>Özüdoğru B.</b></p><p class="j"><i>Annals of Botany</i> · <a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener">doi:10.1093/aob/mcaf223</a></p></div></li>
+        <li data-y="2025" data-tags="bras"><span class="yr">2025</span><div><p class="t">A comparative study of the anatomy of <i>Noccaea aucheri</i> (Brassicaceae) species complex</p><p class="a">Deniz Can I., Zare G., <b>Özüdoğru B.</b></p><p class="j"><i>Nordic Journal of Botany</i> 2025 · <a href="https://doi.org/10.22541/au.172114450.07519017/v1" target="_blank" rel="noopener">doi:10.22541/au.172114450.07519017/v1</a></p></div></li>
+        <li data-y="2025" data-tags="bras"><span class="yr">2025</span><div><p class="t">Seed morphology and its systematic implication in <i>Noccaea</i> s. l. (Brassicaceae)</p><p class="a">Özgişi K., <b>Özüdoğru B.</b></p><p class="j"><i>Flora</i> 328 · <a href="https://doi.org/10.1016/j.flora.2025.152746" target="_blank" rel="noopener">doi:10.1016/j.flora.2025.152746</a></p></div></li>
+        <li data-y="2025" data-tags="new"><span class="yr">2025</span><div><p class="t"><i>Erodium hakangurii</i> (Geraniaceae), a new species from inner Anatolia (Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K.</p><p class="j"><i>Phytotaxa</i> 684(2): 265-274 · <a href="https://doi.org/10.11646/phytotaxa.684.2.9" target="_blank" rel="noopener">doi:10.11646/phytotaxa.684.2.9</a></p></div></li>
+        <li data-y="2025" data-tags="bras new"><span class="yr">2025</span><div><p class="t"><i>Noccaea bulutii</i> (Brassicaceae): a new species from northeast Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Duman H.</p><p class="j"><i>Turkish Journal of Botany</i> 49(2): 111-119 · <a href="https://doi.org/10.55730/1300-008x.2846" target="_blank" rel="noopener">doi:10.55730/1300-008x.2846</a></p></div></li>
+        <li data-y="2025" data-tags="new"><span class="yr">2025</span><div><p class="t">An extraordinary new species from western Anatolia (Türkiye): <i>Umbilicus choripetalus</i> (Crassulaceae)</p><p class="a">Yıldırım H., <b>Özüdoğru B.</b>, Özdöl T., Can I.D., Pirhan A.F., Balos M.M., Arasan Ş.</p><p class="j"><i>Phytotaxa</i> 734(2): 160-172 · <a href="https://doi.org/10.11646/phytotaxa.734.2.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.734.2.2</a></p></div></li>
+        <li data-y="2025" data-tags="bras"><span class="yr">2025</span><div><p class="t">Capacity building in crucifer research—from BrassiBase to a taxonomic expert network (BrassiTEN)</p><p class="a">Kiefer M., German D.A., Kiefer C., …, <b>Özüdoğru B.</b>, …, Koch M.A.</p><p class="j"><i>Plant Systematics and Evolution</i> 311(5) · <a href="https://doi.org/10.1007/s00606-025-01964-z" target="_blank" rel="noopener">doi:10.1007/s00606-025-01964-z</a></p></div></li>
+        <li data-y="2025" data-tags="new" class="more" hidden><span class="yr">2025</span><div><p class="t"><i>Allium sadikerikii</i> (Amaryllidaceae), a new species of sect. <i>Codonoprasum</i> from Central Anatolia, Turkey</p><p class="a"><b>Özüdoğru B.</b>, Eker İ.</p><p class="j"><i>Annales Botanici Fennici</i> 62(1): 109-113 · <a href="https://doi.org/10.5735/085.062.0117" target="_blank" rel="noopener">doi:10.5735/085.062.0117</a></p></div></li>
+        <li data-y="2024" data-tags="bras" class="more" hidden><span class="yr">2024</span><div><p class="t">A combined phylogenetic and numerical taxonomic study of <i>Matthiola montana</i> and <i>M. anchoniifolia</i> (Brassicaceae)</p><p class="a">Uluer D. A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 653(1): 37-53 · <a href="https://doi.org/10.11646/phytotaxa.653.1.3" target="_blank" rel="noopener">doi:10.11646/phytotaxa.653.1.3</a></p></div></li>
+        <li data-y="2024" data-tags="bras new" class="more" hidden><span class="yr">2024</span><div><p class="t"><i>Hesperis sivasica</i> (Brassicaceae), A new crucifer species from inner Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Altinozlu H., Özgişi K.</p><p class="j"><i>Phytotaxa</i> 649(3): 261-269 · <a href="https://doi.org/10.11646/phytotaxa.649.3.3" target="_blank" rel="noopener">doi:10.11646/phytotaxa.649.3.3</a></p></div></li>
+        <li data-y="2024" data-tags="new" class="more" hidden><span class="yr">2024</span><div><p class="t"><i>Genista etnensis</i> (Leguminosae, tribe Genisteae): a new record for Turkey</p><p class="a">Şentürk O., Kenicer G.J., <b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>The Journal of Japanese Botany</i> 99(1): 1-15</p></div></li>
+        <li data-y="2023" data-tags="bras new" class="more" hidden><span class="yr">2023</span><div><p class="t">A new species of <i>Brassica</i> (Brassicaceae) from Bolkar Mountains (Turkiye) with morphological and molecular evidence</p><p class="a">Başköse İ., <b>Özüdoğru B.</b>, Savran A., Keskin A.</p><p class="j"><i>Phytotaxa</i> 632(2): 101-117 · <a href="https://doi.org/10.11646/phytotaxa.632.2.1" target="_blank" rel="noopener">doi:10.11646/phytotaxa.632.2.1</a></p></div></li>
+        <li data-y="2023" data-tags="bras" class="more" hidden><span class="yr">2023</span><div><p class="t">Global Brassicaceae phylogeny based on filtering of 1,000-gene dataset</p><p class="a">Hendriks K. P., Kiefer C., Al-Shehbaz I. A., Bailey C. D., Hooft van Huysduynen A., Nikolov L. A.</p><p class="j"><i>Current Biology</i> 33(19): 4052 · <a href="https://doi.org/10.1016/j.cub.2023.08.026" target="_blank" rel="noopener">doi:10.1016/j.cub.2023.08.026</a></p></div></li>
+        <li data-y="2023" data-tags="bras" class="more" hidden><span class="yr">2023</span><div><p class="t">Distributional ecology of <i>Noccaea vesicaria</i> in relation to the Anatolian Diagonal</p><p class="a">Dumlupınar İ., Gür H., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 47(4): 267-277 · <a href="https://doi.org/10.55730/1300-008x.2765" target="_blank" rel="noopener">doi:10.55730/1300-008x.2765</a></p></div></li>
+        <li data-y="2023" data-tags="new" class="more" hidden><span class="yr">2023</span><div><p class="t">A new <i>Scrophularia</i> (Scrophulariaceae) species without staminodes in the enigmatic “Canina clade” from the Western Taurus (Türkiye)</p><p class="a">Aykurt C., Gülben M., <b>Özüdoğru B.</b>, Sari D., Deniz İ. G., Çingay B.</p><p class="j"><i>Turkish Journal of Botany</i> 47(5): 388-398 · <a href="https://doi.org/10.55730/1300-008x.2776" target="_blank" rel="noopener">doi:10.55730/1300-008x.2776</a></p></div></li>
+        <li data-y="2022" data-tags="" class="more" hidden><span class="yr">2022</span><div><p class="t">Phylogeny, biogeography, and character evolution in the genus <i>Scilla</i> s.l. and its close relatives <i>Chionodoxa</i>, <i>Gemicia</i>, <i>Puschkinia</i>, and <i>Prospero</i> (Asparagaceae)</p><p class="a"><b>Özüdoğru B.</b>, Uluer D. A., Tarıkahya Hacıoğlu B., Yıldırım H.</p><p class="j"><i>Plant Systematics and Evolution</i> 308(6) · <a href="https://doi.org/10.1007/s00606-022-01835-x" target="_blank" rel="noopener">doi:10.1007/s00606-022-01835-x</a></p></div></li>
+        <li data-y="2022" data-tags="new" class="more" hidden><span class="yr">2022</span><div><p class="t">A new bellflower, <i>Campanula dersimensis</i> (Campanulaceae), from E Anatolia, Turkey</p><p class="a">Fırat M., <b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>Willdenowia</i> 52(2): 167-177 · <a href="https://doi.org/10.3372/wi.52.52202" target="_blank" rel="noopener">doi:10.3372/wi.52.52202</a></p></div></li>
+        <li data-y="2022" data-tags="new" class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Acantholimon akaydinii</i> (Plumbaginaceae), a new species of <i>A.</i> section <i>Staticopsis</i> from Eastern Anatolia</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K.</p><p class="j"><i>Phytotaxa</i> 539(3): 265-272 · <a href="https://doi.org/10.11646/phytotaxa.539.3.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.539.3.5</a></p></div></li>
+        <li data-y="2022" data-tags="bras" class="more" hidden><span class="yr">2022</span><div><p class="t">Ecological specialization promotes diversity and diversification in the Eastern Mediterranean genus <i>Ricotia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Karacaoğlu Ç., Akaydın G., Erik S., Mummenhoff K., Sağlam İ. K.</p><p class="j"><i>Journal of Systematics and Evolution</i> 60(2): 331-343 · <a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener">doi:10.1111/jse.12749</a></p></div></li>
+        <li data-y="2022" data-tags="new" class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Marrubium zeydanlii</i> (Lamiaceae), a new species from Turkey</p><p class="a">Aytaç Z., Kaptaner İğci B., Ertuğrul T., Pınar N. M., Aygören Uluer D., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 46(6): 636-644 · <a href="https://doi.org/10.55730/1300-008x.2738" target="_blank" rel="noopener">doi:10.55730/1300-008x.2738</a></p></div></li>
+        <li data-y="2022" data-tags="new" class="more" hidden><span class="yr">2022</span><div><p class="t"><i>Knautia goecmenii</i> (Caprifoliaceae): an unexpected caespitose suffrutescent new species from the Western Anatolia, Turkey</p><p class="a">Yıldırım H., Özdöl T., Can I. D., Erdem S., Ogur E., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 531(2): 97-110 · <a href="https://doi.org/10.11646/phytotaxa.531.2.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.531.2.2</a></p></div></li>
+        <li data-y="2022" data-tags="bras" class="more" hidden><span class="yr">2022</span><div><p class="t">Molecular phylogeny and phylogeography reveal recent divergence in the <i>Iberis simplex</i> DC. (Brassicaceae) species complex</p><p class="a">Çilden E., <b>Özüdoğru B.</b></p><p class="j"><i>Turkish Journal of Botany</i> 46(6): 567-582 · <a href="https://doi.org/10.55730/1300-008x.2732" target="_blank" rel="noopener">doi:10.55730/1300-008x.2732</a></p></div></li>
+        <li data-y="2021" data-tags="eco" class="more" hidden><span class="yr">2021</span><div><p class="t">Recovery of a plant community in the central Anatolian steppe after small-scale disturbances</p><p class="a">Ozudogru O., <b>Özüdoğru B.</b>, Tavşanoğlu Ç.</p><p class="j"><i>Folia Geobotanica</i> 56: 241-254 · <a href="https://doi.org/10.1007/s12224-021-09404-9" target="_blank" rel="noopener">doi:10.1007/s12224-021-09404-9</a></p></div></li>
+        <li data-y="2021" data-tags="bras new" class="more" hidden><span class="yr">2021</span><div><p class="t"><i>Iljinskaea</i> (Brassicaceae), a new genus based on <i>Conringia planisiliqua</i></p><p class="a">Al-Shehbaz I. A., <b>Özüdoğru B.</b>, German D. A.</p><p class="j"><i>Phytotaxa</i> 500(2): 142-146 · <a href="https://doi.org/10.11646/phytotaxa.500.2.7" target="_blank" rel="noopener">doi:10.11646/phytotaxa.500.2.7</a></p></div></li>
+        <li data-y="2021" data-tags="bras" class="more" hidden><span class="yr">2021</span><div><p class="t">Linked by Ancestral Bonds: Multiple Whole-Genome Duplications and Reticulate Evolution in a Brassicaceae Tribe</p><p class="a">Guo X., Mandakova T., Trachtova K., <b>Özüdoğru B.</b>, Liu J., Lysak M. A.</p><p class="j"><i>Molecular Biology and Evolution</i> 38(5): 1695-1714 · <a href="https://doi.org/10.1093/molbev/msaa327" target="_blank" rel="noopener">doi:10.1093/molbev/msaa327</a></p></div></li>
+        <li data-y="2021" data-tags="bras" class="more" hidden><span class="yr">2021</span><div><p class="t">Phylogeny and biogeography of the genus <i>Hesperis</i> (Brassicaceae, tribe Hesperideae) inferred from nuclear ribosomal DNA sequence data</p><p class="a">Eslami-Farouji A., Khodayari H., Assadi M., Cetin O., Mummenhoff K., <b>Özüdoğru B.</b></p><p class="j"><i>Plant Systematics and Evolution</i> 307(2) · <a href="https://doi.org/10.1007/s00606-020-01727-y" target="_blank" rel="noopener">doi:10.1007/s00606-020-01727-y</a></p></div></li>
+        <li data-y="2020" data-tags="bras eco" class="more" hidden><span class="yr">2020</span><div><p class="t">The Quaternary range dynamics of <i>Noccaea iberidea</i> (Brassicaceae), a typical representative of subalpine/alpine steppe communities of Anatolian mountains</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K., Perktaş U., Gür H.</p><p class="j"><i>Biological Journal of the Linnean Society</i> 131(4): 986-1001 · <a href="https://doi.org/10.1093/biolinnean/blaa147" target="_blank" rel="noopener">doi:10.1093/biolinnean/blaa147</a></p></div></li>
+        <li data-y="2020" data-tags="bras" class="more" hidden><span class="yr">2020</span><div><p class="t">On the identity of some endemic SW Asian Cruciferae. II</p><p class="a">German D. A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 470(2): 165-175 · <a href="https://doi.org/10.11646/phytotaxa.470.2.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.470.2.5</a></p></div></li>
+        <li data-y="2020" data-tags="bras" class="more" hidden><span class="yr">2020</span><div><p class="t">Phylogenetic and biogeographical history confirm the Anatolian origin of <i>Bornmuellera</i> (Brassicaceae) and clade divergence between Anatolia and the Balkans in the Plio-Pleistocene transition</p><p class="a"><b>Özüdoğru B.</b>, Mummenhoff K.</p><p class="j"><i>Turkish Journal of Botany</i> 44(6): 593-603 · <a href="https://doi.org/10.3906/bot-2007-42" target="_blank" rel="noopener">doi:10.3906/bot-2007-42</a></p></div></li>
+        <li data-y="2019" data-tags="bras new" class="more" hidden><span class="yr">2019</span><div><p class="t">Doğu Anadolu’dan Yeni Bir Topaçhardalı Alttürü:<i>Heldreichia bupleurifolia</i> subsp.<i> malatyana</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Yıldırım H.</p><p class="j"><i>Bağbahçe Bilim Dergisi</i> 6(3): 1-8</p></div></li>
+        <li data-y="2019" data-tags="bras" class="more" hidden><span class="yr">2019</span><div><p class="t">Naturally-primed life strategy plasticity of dimorphic <i>Aethionema arabicum</i> facilitates optimal habitat colonization</p><p class="a">Bhattacharya S., Sperber K., <b>Özüdoğru B.</b>, Leubner-Metzger G., Mummenhoff K.</p><p class="j"><i>Scientific Reports</i> 9 · <a href="https://doi.org/10.1038/s41598-019-52520-y" target="_blank" rel="noopener">doi:10.1038/s41598-019-52520-y</a></p></div></li>
+        <li data-y="2019" data-tags="bras" class="more" hidden><span class="yr">2019</span><div><p class="t">Phylogeny of the genus <i>Noccaea</i> (Brassicaceae) and a critical review of its generic circumscription</p><p class="a"><b>Özüdoğru B.</b>, Özgişi K., Tarikahya-Hacioglu B., Ocak A., Mummenhoff K., Al-Shehbaz I. A.</p><p class="j"><i>Annals of the Missouri Botanical Garden</i> 104(3): 339-354 · <a href="https://doi.org/10.3417/2019347" target="_blank" rel="noopener">doi:10.3417/2019347</a></p></div></li>
+        <li data-y="2019" data-tags="bras new" class="more" hidden><span class="yr">2019</span><div><p class="t"><i>Ricotia candiriana</i> (Brassicaceae), a new species from southern Anatolia, Turkey</p><p class="a">Ozcandir A., Aykurt C., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 388(4): 287-294 · <a href="https://doi.org/10.11646/phytotaxa.388.4.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.388.4.4</a></p></div></li>
+        <li data-y="2018" data-tags="bras" class="more" hidden><span class="yr">2018</span><div><p class="t">Taxonomic remarks on <i>Pseudosempervivum</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, German D. A.</p><p class="j"><i>Phytotaxa</i> 383(1): 103-110 · <a href="https://doi.org/10.11646/phytotaxa.383.1.6" target="_blank" rel="noopener">doi:10.11646/phytotaxa.383.1.6</a></p></div></li>
+        <li data-y="2018" data-tags="" class="more" hidden><span class="yr">2018</span><div><p class="t">Hybridization-facilitated genome merger and repeated chromosome fusion after 8 million years</p><p class="a">Mandáková T., Guo X., <b>Özüdoğru B.</b>, Mummenhoff K., Lysak M. A.</p><p class="j"><i>Plant Journal</i> 96: 748-760 · <a href="https://doi.org/10.1111/tpj.14065" target="_blank" rel="noopener">doi:10.1111/tpj.14065</a></p></div></li>
+        <li data-y="2018" data-tags="" class="more" hidden><span class="yr">2018</span><div><p class="t">Taxonomic notes on the genus <i>Chaenorhinum</i> (Plantaginaceae) in Turkey</p><p class="a">Zare G., <b>Özüdoğru B.</b>, Ergan G., Taysanoglu Ç.</p><p class="j"><i>Acta Botanica Croatica</i> 77(2): 209-213 · <a href="https://doi.org/10.2478/botcro-2018-0011" target="_blank" rel="noopener">doi:10.2478/botcro-2018-0011</a></p></div></li>
+        <li data-y="2018" data-tags="bras" class="more" hidden><span class="yr">2018</span><div><p class="t">Numerical taxonomy contributes to delimitation of Iranian and Turkish <i>Hesperis</i> L. (Brassicaceae) species</p><p class="a">Farouji A. E., Khodayari H., Assadi M., <b>Özüdoğru B.</b>, Cetini O., Mummenhoff K.</p><p class="j"><i>Phytotaxa</i> 367(2): 101-119 · <a href="https://doi.org/10.11646/phytotaxa.367.2.1" target="_blank" rel="noopener">doi:10.11646/phytotaxa.367.2.1</a></p></div></li>
+        <li data-y="2018" data-tags="bras" class="more" hidden><span class="yr">2018</span><div><p class="t">Contributions to Turkish Flora: Taxonomic and distributional notes on the poorly known <i>Noccaea</i> (Brassicaceae) species</p><p class="a">Özgişi K., <b>Özüdoğru B.</b>, Ocak A.</p><p class="j"><i>Phytotaxa</i> 346(3): 247-257 · <a href="https://doi.org/10.11646/phytotaxa.346.3.4" target="_blank" rel="noopener">doi:10.11646/phytotaxa.346.3.4</a></p></div></li>
+        <li data-y="2018" data-tags="bras" class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Thlaspiceras sensu</i> Meyer Tür Kompleksinin Plastidik trnQ-5’rps16 Bölgesine Dayalı Filogenisi</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Süleyman Demirel Üniversitesi Fen Bilimleri Enstitüsü Dergisi</i> 22: 186-190 · <a href="https://doi.org/10.19113/sdufbed.86695" target="_blank" rel="noopener">doi:10.19113/sdufbed.86695</a></p></div></li>
+        <li data-y="2018" data-tags="bras new" class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Noccaea birolmutlui</i>, a New Crucifer Species from South West Anatolia, Turkey</p><p class="a">Özgişi K., Ocak A., <b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 345(1): 59-67 · <a href="https://doi.org/10.11646/phytotaxa.345.1.7" target="_blank" rel="noopener">doi:10.11646/phytotaxa.345.1.7</a></p></div></li>
+        <li data-y="2018" data-tags="bras" class="more" hidden><span class="yr">2018</span><div><p class="t">Phylogenetic position, taxonomy, distribution, and conservation status of the rare and poorly-known <i>Noccaea rosularis</i>, the generic type of <i>Masmenia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Phytotaxa</i> 344(2): 169-176 · <a href="https://doi.org/10.11646/phytotaxa.344.2.5" target="_blank" rel="noopener">doi:10.11646/phytotaxa.344.2.5</a></p></div></li>
+        <li data-y="2018" data-tags="bras new" class="more" hidden><span class="yr">2018</span><div><p class="t"><i>Noccaea ali-atahanii</i> (Brassicaceae): a new species from southern Anatolia</p><p class="a">Guzel Y., <b>Özüdoğru B.</b>, Kayikci S., Özgişi K.</p><p class="j"><i>Turkish Journal of Botany</i> 42(6): 780-790 · <a href="https://doi.org/10.3906/bot-1805-40" target="_blank" rel="noopener">doi:10.3906/bot-1805-40</a></p></div></li>
+        <li data-y="2017" data-tags="eco" class="more" hidden><span class="yr">2017</span><div><p class="t">Geç Osmanlı ve Erken Cumhuriyet Dönemleri Anadolu Florası Çalışmalarının Öncülerinden Kurt Krause’nin Nadir Bir Bibliyografyası</p><p class="a"><b>Özüdoğru B.</b></p><p class="j"><i>Kebikeç</i>: 421</p></div></li>
+        <li data-y="2017" data-tags="eco" class="more" hidden><span class="yr">2017</span><div><p class="t">Multiple fire-related cues stimulate germination in <i>Chaenorhinum rubrifolium</i> (Plantaginaceae), a rare annual in the Mediterranean Basin</p><p class="a">Tavşanoğlu Ç., Ergan G., Catav S. S., Zare G., Kucukakyuz K., <b>Özüdoğru B.</b></p><p class="j"><i>Seed Science Research</i> 27(1): 26-38 · <a href="https://doi.org/10.1017/s0960258516000283" target="_blank" rel="noopener">doi:10.1017/s0960258516000283</a></p></div></li>
+        <li data-y="2017" data-tags="bras" class="more" hidden><span class="yr">2017</span><div><p class="t">Tribal assignment of <i>Heldreichia</i> Boiss. (Brassicaceae): evidence from nuclear ITS and plastidic ndhF markers</p><p class="a"><b>Özüdoğru B.</b>, Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Plant Systematics and Evolution</i> 303(3): 329-335 · <a href="https://doi.org/10.1007/s00606-016-1374-7" target="_blank" rel="noopener">doi:10.1007/s00606-016-1374-7</a></p></div></li>
+        <li data-y="2016" data-tags="bras" class="more" hidden><span class="yr">2016</span><div><p class="t">Seed morphology of <i>Ricotia</i> (Brassicaceae) and its phylogenetic and systematic implication</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Mummenhoff K.</p><p class="j"><i>Flora</i> 222: 60-67 · <a href="https://doi.org/10.1016/j.flora.2016.03.013" target="_blank" rel="noopener">doi:10.1016/j.flora.2016.03.013</a></p></div></li>
+        <li data-y="2016" data-tags="bras" class="more" hidden><span class="yr">2016</span><div><p class="t"><i>Arabis watsonii</i> (P.H.Davis) F.K.Mey.: An overlooked cruciferous species from eastern Anatolia and its phylogenetic position</p><p class="a"><b>Özüdoğru B.</b>, Fırat M.</p><p class="j"><i>PhytoKeys</i> 75(1): 57-68 · <a href="https://doi.org/10.3897/phytokeys.75.10568" target="_blank" rel="noopener">doi:10.3897/phytokeys.75.10568</a></p></div></li>
+        <li data-y="2015" data-tags="eco" class="more" hidden><span class="yr">2015</span><div><p class="t">Fire-related germination and early seedling growth in 21 herbaceous species in Central Anatolian steppe</p><p class="a">Tavşanoğlu Ç., Catav S. S., <b>Özüdoğru B.</b></p><p class="j"><i>Journal of Arid Environments</i> 122: 109-116 · <a href="https://doi.org/10.1016/j.jaridenv.2015.06.017" target="_blank" rel="noopener">doi:10.1016/j.jaridenv.2015.06.017</a></p></div></li>
+        <li data-y="2015" data-tags="bras" class="more" hidden><span class="yr">2015</span><div><p class="t">Phylogeny, diversification and biogeographic implications of the eastern Mediterranean endemic genus <i>Ricotia</i> (Brassicaceae)</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Taxon</i> 64(4): 727-740 · <a href="https://doi.org/10.12705/644.5" target="_blank" rel="noopener">doi:10.12705/644.5</a></p></div></li>
+        <li data-y="2014" data-tags="bras" class="more" hidden><span class="yr">2014</span><div><p class="t">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i> PHDavis &amp; K.Tan (Brassicaceae)</p><p class="a">Fırat M., <b>Özüdoğru B.</b>, Tarıkahya-hacıoglu B., Bulbul A. S., Al-shehbaz I. A., Mummenhoff K.</p><p class="j"><i>Phytotaxa</i> 178(4): 287-297 · <a href="https://doi.org/10.11646/phytotaxa.178.4.2" target="_blank" rel="noopener">doi:10.11646/phytotaxa.178.4.2</a></p></div></li>
+        <li data-y="2014" data-tags="" class="more" hidden><span class="yr">2014</span><div><p class="t">The speciation history and systematics of <i>Carthamus</i> (Asteraceae) with special emphasis on Turkish species by integrating phylogenetic and Ecological Niche Modelling data</p><p class="a">Tarikahya-Hacioglu B., Karacaoğlu Ç., <b>Özüdoğru B.</b></p><p class="j"><i>Plant Systematics and Evolution</i> 300(6): 1349-1359 · <a href="https://doi.org/10.1007/s00606-013-0966-8" target="_blank" rel="noopener">doi:10.1007/s00606-013-0966-8</a></p></div></li>
+        <li data-y="2011" data-tags="eco" class="more" hidden><span class="yr">2011</span><div><p class="t">Inferences from an ethnobotanical field expedition in the selected locations of Sivas and Yozgat provinces (Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Akaydın G., Erik S., Yesilada E.</p><p class="j"><i>Journal of Ethnopharmacology</i> 137(1): 85-98 · <a href="https://doi.org/10.1016/j.jep.2011.04.050" target="_blank" rel="noopener">doi:10.1016/j.jep.2011.04.050</a></p></div></li>
+        <li data-y="2011" data-tags="new" class="more" hidden><span class="yr">2011</span><div><p class="t"><i>Astragalus pseudopinetorum</i> (Fabaceae), a new species from Turkey</p><p class="a">Oezuedogru B., Erik S., Taeb F.</p><p class="j"><i>Annales Botanici Fennici</i> 48(1): 84-86 · <a href="https://doi.org/10.5735/085.048.0113" target="_blank" rel="noopener">doi:10.5735/085.048.0113</a></p></div></li>
+        <li data-y="2011" data-tags="eco" class="more" hidden><span class="yr">2011</span><div><p class="t">The flora of Kayışdağı (İstanbul/Turkey) and floristic comparison with neighbouring floras</p><p class="a">Akaydın G., <b>Özüdoğru B.</b>, Kırmızıbekmez H., Yeşilada E.</p><p class="j"><i>Biological Diversity and Conservation</i> 4(1): 67-78</p></div></li>
+        <li data-y="2010" data-tags="" class="more" hidden><span class="yr">2010</span><div><p class="t">Morphological, Palynological and Ecological Features of <i>Dianthus engleri</i> Hausskn. amp Bornm.</p><p class="a"><b>Özüdoğru B.</b>, Özmen E., Doğan C., Erik S.</p><p class="j"><i>Hacettepe Journal of Bi̇ology and Chemi̇stry</i> 38(2): 139-147</p></div></li>
+        <li data-y="2010" data-tags="eco" class="more" hidden><span class="yr">2010</span><div><p class="t">The flora of the Karababa Mountain (Sivas-Şarkışla/Turkey)</p><p class="a"><b>Özüdoğru B.</b>, Erik S., Akaydın G.</p><p class="j"><i>Biological Diversity and Conservation</i> 3(3): 176-192</p></div></li>
+        <li data-y="2009" data-tags="eco" class="more" hidden><span class="yr">2009</span><div><p class="t">Pollen Morphology of Some <i>Thymus</i> L. (Lamiaceae) Taxa Used as Spice in Anatolia</p><p class="a">Kızılpınar Temizer İ., <b>Özüdoğru B.</b>, Tarıkahya Hacıoğlu B., Doğan C., Erik S.</p><p class="j"><i>Mellifera</i> 9: 13-22</p></div></li>
+        <li data-y="2009" data-tags="eco" class="more" hidden><span class="yr">2009</span><div><p class="t">Pollen morphology of some taxa of aromatic <i>Tanacetum</i> L. (Asteraceae)</p><p class="a">Özmen E., Kızılpınar İ., <b>Özüdoğru B.</b>, Doğan C., Erik S.</p><p class="j"><i>FABAD Journal of Pharmaceutical Sciences</i> 34: 1-11</p></div></li>
+        <li data-y="2006" data-tags="eco" class="more" hidden><span class="yr">2006</span><div><p class="t">Ballıkayalar Vadisi (Gebze-Kocaeli)’nin Florası</p><p class="a">Akaydın G., Özmen E., <b>Özüdoğru B.</b></p><p class="j"><i>Fırat Üniversitesi Fen Bilimleri Dergisi</i> 18: 279-289</p></div></li>
       </ol>
       <button class="btn line more-btn" type="button" id="more-pubs" aria-expanded="false" aria-controls="pubs"><span class="en">Show all 66 articles</span><span class="tr">66 makalenin tamamını göster</span></button>
       <details class="conf">
@@ -809,9 +996,10 @@ footer .data{opacity:.8}
   <section class="band band-butter2" id="theses" aria-labelledby="theses-h">
     <div class="wrap">
       <h3 class="sub-head" id="theses-h"><span class="en">Theses</span><span class="tr">Tezler</span></h3>
-      <p class="lede"><span class="en">Graduate theses supervised by Prof. Dr. Barış Özüdoğru at Hacettepe University.</span><span class="tr">Prof. Dr. Barış Özüdoğru danışmanlığında Hacettepe Üniversitesi'nde tamamlanan lisansüstü tezler.</span></p>
+      <p class="lede"><span class="en">Doctoral and master's theses supervised by Prof. Dr. Barış Özüdoğru at Hacettepe University.</span><span class="tr">Prof. Dr. Barış Özüdoğru danışmanlığında Hacettepe Üniversitesi'nde tamamlanan doktora ve yüksek lisans tezleri.</span></p>
       <div class="theses-wrap">
         <ol class="pubs theses">
+            <li><span class="yr"><span class="en">PhD</span><span class="tr">Dr.</span></span><div><p class="t"><span class="en">Doctoral thesis</span><span class="tr">Doktora tezi</span></p><p class="a"><b>Ilgın Deniz Can</b> · <span class="en">PhD thesis</span><span class="tr">Doktora tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
             <li><span class="yr">2024</span><div><p class="t"><span class="en">Bioregions and geographical species richness patterns for Brassicaceae family of Türkiye</span><span class="tr">Türkiye Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="a"><b>İlayda Dumlupınar</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p><p class="m data"><span class="en">Co-supervisor: Prof. Dr. Hakan Gür</span><span class="tr">Eş danışman: Prof. Dr. Hakan Gür</span></p></div></li>
             <li><span class="yr">2024</span><div><p class="t"><span class="en">Biogeography, population genomics and numerical taxonomy of alpine <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i></span><span class="tr">Alpinik <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>'un (Brassicaceae) biyocoğrafyası, popülasyon genomiği ve numerik taksonomisi</span></p><p class="a"><b>Emrullah Yılmaz</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
             <li><span class="yr">2024</span><div><p class="t"><span class="en">Conservation biology and distribution mapping of rare endemic <i>Noccaea rubescens</i> and its phylogenetic relationships with <i>N. sintenisii</i></span><span class="tr">Nadir endemik <i>Noccaea rubescens</i>'in koruma biyolojisi, yayılış haritalanması ve <i>N. sintenisii</i> ile filogenetik ilişkisi</span></p><p class="a"><b>Fevzi Renan Kocayiğit</b> · <span class="en">MSc thesis</span><span class="tr">Yüksek lisans tezi</span> · <span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></p></div></li>
@@ -827,7 +1015,7 @@ footer .data{opacity:.8}
     <div class="wrap">
       <h2 class="sec-title" id="people-h"><span class="en">The team</span><span class="tr">Ekibimiz</span></h2>
       <a class="pi-link" href="#pi"><div class="tile"><canvas data-seed="Barış Özüdoğru" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">BÖ</span></div><div><h3>Prof. Dr. Barış Özüdoğru</h3><p class="role"><span class="en">Head of the laboratory</span><span class="tr">Laboratuvar yürütücüsü</span></p><p class="more-link"><span class="en">Profile →</span><span class="tr">Profil →</span></p></div></a>
-      <div class="team">
+      <div class="team" id="team">
         <article class="member">
           <div class="tile"><canvas data-seed="İlayda Dumlupınar" aria-hidden="true"></canvas><span class="mono" aria-hidden="true">İD</span></div>
           <div><h3>İlayda Dumlupınar</h3><p class="role"><span class="en">PhD student</span><span class="tr">Doktora öğrencisi</span></p><p class="note"><span class="en">MSc 2024 in the lab</span><span class="tr">Laboratuvarda yüksek lisans, 2024</span></p></div>
@@ -850,15 +1038,15 @@ footer .data{opacity:.8}
         </article>
       </div>
       <div class="groups">
-        <div>
+        <div id="alumni">
           <h3 class="sub-title"><span class="en">Alumni</span><span class="tr">Mezunlar</span></h3>
           <ul class="roster">
             <li><b>Emrullah Yılmaz</b><span class="role"><span class="en">MSc 2024</span><span class="tr">Yüksek lisans 2024</span></span><span class="note"><span class="en">Population genomics of alpine <i>Phyllolepidium cyclocarpum</i></span><span class="tr">Alpin <i>Phyllolepidium cyclocarpum</i>'un popülasyon genomiği</span></span></li>
             <li><b>Fevzi Renan Kocayiğit</b><span class="role"><span class="en">MSc 2024</span><span class="tr">Yüksek lisans 2024</span></span><span class="note"><span class="en">Conservation biology of rare endemic <i>Noccaea rubescens</i></span><span class="tr">Nadir endemik <i>Noccaea rubescens</i>'in koruma biyolojisi</span></span></li>
-            <li><b>Ilgın Deniz Can</b><span class="role"><span class="en">MSc 2020</span><span class="tr">Yüksek lisans 2020</span></span><span class="note"><span class="en">Species delimitation in the <i>Noccaea aucheri</i> complex</span><span class="tr"><i>Noccaea aucheri</i> kompleksinde tür sınırlandırması</span></span></li>
+            <li><b>Ilgın Deniz Can</b><span class="role"><span class="en">PhD · MSc 2020</span><span class="tr">Doktora · Yüksek lisans 2020</span></span><span class="note"><span class="en">Species delimitation in the <i>Noccaea aucheri</i> complex</span><span class="tr"><i>Noccaea aucheri</i> kompleksinde tür sınırlandırması</span></span></li>
           </ul>
         </div>
-        <div>
+        <div id="collaborations">
           <h3 class="sub-title"><span class="en">Collaborations</span><span class="tr">İş birlikleri</span></h3>
           <ul class="roster collab">
             <li><b>Dr. Barış Uzilday</b><span class="note">Ege University, İzmir</span></li>
@@ -899,7 +1087,7 @@ footer .data{opacity:.8}
           </div>
           <p class="toast" id="toast" role="status" aria-live="polite"></p>
         </div>
-        <div class="visit">
+        <div class="visit" id="visit">
           <div><p class="k"><span class="en">Address</span><span class="tr">Adres</span></p>
             <p class="en">Plant Biogeography Lab<br>Department of Biology (Botany Section)<br>Faculty of Science, Hacettepe University<br>Beytepe Campus, 06800 Çankaya, Ankara, Türkiye</p>
             <p class="tr">Bitki Biyocoğrafyası Laboratuvarı<br>Biyoloji Bölümü (Botanik Anabilim Dalı)<br>Fen Fakültesi, Hacettepe Üniversitesi<br>Beytepe Yerleşkesi<br>06800 Çankaya, Ankara, Türkiye</p></div>
@@ -967,12 +1155,27 @@ footer .data{opacity:.8}
     root.classList.add('anim');
     var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');seen.unobserve(e.target)}})},{rootMargin:'0px 0px -20% 0px'});
     document.querySelectorAll('section.band,.photo-band,.plate').forEach(function(b){seen.observe(b)});
-    var cnt=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cnt.unobserve(e.target);
-      var el=e.target,n=+el.dataset.n,t0=performance.now(),D=900;
-      (function step(t){var k=Math.min(1,(t-t0)/D),v=Math.round(n*(1-Math.pow(1-k,3)));el.textContent=v;if(k<1)requestAnimationFrame(step)})(t0);
-    })},{threshold:.6});
-    document.querySelectorAll('dd[data-n]').forEach(function(d){cnt.observe(d)});
   }
+
+  /* ---------- publication search & filters ---------- */
+  var pq=document.getElementById('pub-q'),plist=[].slice.call(document.querySelectorAll('#pubs > li')),pf='',py='',pc=document.getElementById('pub-count');
+  plist.forEach(function(li){li._t=li.textContent.toLocaleLowerCase('tr')});
+  function applyPubs(){
+    var q=pq.value.trim().toLocaleLowerCase('tr'),active=q||pf||py,shown=0,tr=root.dataset.lang==='tr';
+    plist.forEach(function(li){
+      var ok=(!q||li._t.indexOf(q)>-1)&&(!pf||(' '+li.dataset.tags+' ').indexOf(' '+pf+' ')>-1)&&(!py||li.dataset.y===py);
+      li.hidden=active?!ok:li.classList.contains('more')&&mp.getAttribute('aria-expanded')!=='true';
+      if(!li.hidden)shown++;
+    });
+    mp.hidden=!!active;
+    pc.textContent=active?(tr?shown+' makale gösteriliyor':'Showing '+shown+' of '+plist.length+' articles'):'';
+  }
+  pq.addEventListener('input',applyPubs);
+  document.querySelectorAll('.pub-tools .chip').forEach(function(c,i,all){c.addEventListener('click',function(){all.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});pf=c.dataset.f;applyPubs()})});
+  document.querySelectorAll('.yb[data-y]').forEach(function(b,i,all){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';all.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',on?'true':'false');py=on?b.dataset.y:'';applyPubs()})});
+  listeners.push(applyPubs);
+  listeners.push(function(){pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')]});
+  pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')];
 
   /* ---------- copy e-mail ---------- */
   var cb=document.getElementById('copy-mail'),toast=document.getElementById('toast'),tt;
@@ -983,23 +1186,26 @@ footer .data{opacity:.8}
     try{navigator.clipboard.writeText(el.textContent.trim()).then(function(){say(tr?'Adres kopyalandı.':'Address copied.')},sel)}catch(e){sel()}
   });
 
-  /* ---------- research submenu ---------- */
-  var hs=document.getElementById('nav-research'),st=hs.querySelector('.sub-toggle');
-  function setSub(o){hs.classList.toggle('open',o);st.setAttribute('aria-expanded',o?'true':'false')}
-  st.addEventListener('click',function(e){e.stopPropagation();setSub(!hs.classList.contains('open'))});
-  hs.querySelectorAll('.sub a').forEach(function(a){a.addEventListener('click',function(){setSub(false)})});
-  document.addEventListener('click',function(e){if(!hs.contains(e.target))setSub(false)});
-  hs.addEventListener('keydown',function(e){if(e.key==='Escape'&&hs.classList.contains('open')){setSub(false);st.focus()}});
-  hs.addEventListener('focusout',function(e){if(!hs.contains(e.relatedTarget))setSub(false)});
+  /* ---------- submenus ---------- */
+  var subs=[].slice.call(document.querySelectorAll('.has-sub'));
+  function setSub(h,o){h.classList.toggle('open',o);h.querySelector('.sub-toggle').setAttribute('aria-expanded',o?'true':'false')}
+  subs.forEach(function(h){
+    var t=h.querySelector('.sub-toggle');
+    t.addEventListener('click',function(e){e.stopPropagation();var o=!h.classList.contains('open');subs.forEach(function(x){setSub(x,false)});setSub(h,o)});
+    h.querySelectorAll('.sub a').forEach(function(a){a.addEventListener('click',function(){setSub(h,false)})});
+    h.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){setSub(h,false);t.focus()}});
+    h.addEventListener('focusout',function(e){if(!h.contains(e.relatedTarget))setSub(h,false)});
+  });
+  document.addEventListener('click',function(e){subs.forEach(function(h){if(!h.contains(e.target))setSub(h,false)})});
 
   /* ---------- active section in legend ---------- */
   var links=[].slice.call(document.querySelectorAll('#nav ul a'));
   links.forEach(function(a){var k=a.querySelector('.key');if(k)a.style.setProperty('--on-bg',k.style.background)});
   if('IntersectionObserver' in window){
-    var RESEARCH={research:1,projects:1,publications:1,theses:1};
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var id=e.target.id,sub=id==='research'?'topics':id;
-      links.forEach(function(a){var h=a.getAttribute('href').slice(1);a.classList.toggle('on',h===id||h===sub||(h==='research'&&RESEARCH[id]))})})},{rootMargin:'-45% 0px -50% 0px'});
-    document.querySelectorAll('section.band').forEach(function(s){io.observe(s)});
+    var PARENT={highlights:'research',research:'research',projects:'research',publications:'research',theses:'research','habitat-heldreichia':'about','habitat-alpine':'research'};
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var id=e.target.id,top=PARENT[id]||id,sub=id==='research'?'topics':id;
+      links.forEach(function(a){var h=a.getAttribute('href').slice(1),isTop=!a.dataset.parent;a.classList.toggle('on',isTop?h===top:h===sub)})})},{rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('section.band,section.plate').forEach(function(s){io.observe(s)});
   }
 
   /* ---------- noise ---------- */
