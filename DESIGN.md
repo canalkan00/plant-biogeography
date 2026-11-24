@@ -248,6 +248,10 @@ The system is flat. There are no shadows anywhere; depth is the map's own: tint 
 
 Corners are nearly square, as on printed map furniture: 2px on legend keys and monogram labels, 3px on tiles, 4px on the cartouche and panels, 6px on buttons and nav entries, 7px on the language toggle and menu button. Pills (999px) are reserved for the two kinds of tag: research filter chips and hotspot labels. Lines carry the form language: hairline borders, a 3px dashed mustard Diagonal (12/9 dash on canvas), and 1.6px stroke line icons with small mustard fills. Icons are drawn as inline SVG in the same contour-and-pin vocabulary (phylogeny tree, relief rings, herbarium sheet, location pin).
 
+### Navigation and section structure
+
+Top navigation: About, Research (with a submenu: Main research topics, Projects, Team publications, Theses), People, Contact. On desktop the submenu opens under its trigger from the top-left (opacity + 0.97 scale, 150–180 ms, strong ease-out), on hover for precise pointers and on click/focus for everyone; Escape and outside clicks close it. In the phone sheet the sub-items are always listed, indented under Research. Each subsection has its own band colour, shown as its key in the menu: topics sand #f6dcae, projects light sand #f9e6c3, team publications butter #f1ecb3, theses pale butter #f6f2c8. In Turkish the lab name renders as "Bitki Biyocoğrafyası" in the brand, hero, footer and document title.
+
 ## Components
 
 ### Buttons
