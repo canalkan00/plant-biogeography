@@ -8,6 +8,9 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
 <meta name="theme-color" content="#f3f6f1">
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="brand/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
@@ -67,9 +70,9 @@ button{-webkit-user-select:none;user-select:none;font:inherit}
 
 /* ---------- header: the map legend ---------- */
 .top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}
-.top .bar{display:flex;align-items:center;gap:1rem;min-height:3.75rem}
+.top .bar{display:flex;align-items:center;gap:1rem;min-height:4rem}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto;min-width:0}
-.brand svg{width:30px;height:30px;flex:none}
+.brand-mark{width:38px;height:44px;flex:none;display:block}
 .brand b{font-family:var(--f-map);font-weight:700;font-stretch:125%;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;line-height:1.15;white-space:nowrap}
 .nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.15rem}
 .nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map);font-size:.9rem;font-weight:500;color:var(--ink-soft);white-space:nowrap;transition:background-color .16s var(--ease-out),color .16s}
@@ -209,6 +212,8 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .plate-d{color:var(--ink-soft);font-size:1.1rem;line-height:1.55}
 .ptag{position:absolute;left:.75rem;bottom:.75rem;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);font-family:var(--f-text);font-size:1rem;padding:.25rem .75rem;border-radius:999px}
 @media (max-width:860px){.plate>.wrap,.plate.flip>.wrap{grid-template-columns:minmax(0,1fr)}.plate.flip .plate-txt{order:2}}
+.foot-id{display:inline-flex;align-items:center;gap:.75rem}
+.foot-mark{width:34px;height:40px;flex:none}
 /* field photographs */
 .photo-band{margin:0;position:relative;height:clamp(16rem,42vw,30rem);overflow:hidden;background:var(--b2)}
 .photo-band picture,.photo-band img{display:block;width:100%;height:100%;object-fit:cover}
@@ -443,7 +448,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag-on-low);min-height:1.4em}
 
 footer{background:#e4ebe6;color:var(--ink);border-top:1px solid var(--rule)}
-footer .wrap{padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
+footer .wrap{align-items:center;padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
 footer .data{opacity:.8}
 
 /* hover only where a precise pointer exists */
@@ -527,7 +532,7 @@ footer .data{opacity:.8}
 @media (max-width:420px){
   .hero-actions{grid-template-columns:minmax(0,1fr)}
   .brand b{font-size:.72rem;letter-spacing:.06em}
-  .brand svg{width:26px;height:26px}
+  .brand-mark{width:33px;height:38px}
   .lang button{min-width:2.4rem}
   .pi{grid-template-columns:minmax(0,1fr)}
   .pi .tile{max-width:10rem}
@@ -540,12 +545,7 @@ footer .data{opacity:.8}
   <div class="wrap">
     <div class="bar">
       <a class="brand" href="#top" aria-label="Plant Biogeography · Bitki Biyocoğrafyası">
-        <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <path d="M3 22c3-9 9-17 16-16 7 1 10 8 8 14-2 7-12 9-18 7-3-1-6-2-6-5z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M9 21c2-6 6-11 11-10 4 1 5 5 4 8-1 4-7 6-11 5-2 0-4-1-4-3z" stroke="currentColor" stroke-width="1.6"/>
-          <path d="M14 19c1-3 3-5 5-4 2 0 2 2 2 3-1 2-3 3-5 3-1 0-2-1-2-2z" fill="var(--diag)" stroke="currentColor" stroke-width="1.4"/>
-          <path d="M28 3 4 29" stroke="var(--diag)" stroke-width="2" stroke-dasharray="3 2.5"/>
-        </svg>
+        <img class="brand-mark" src="brand/logo.svg" width="38" height="44" alt="">
         <b class="en">Plant<br>Biogeography</b><b class="tr">Bitki<br>Biyocoğrafyası</b>
       </a>
       <nav class="nav" id="nav" aria-label="Sections">
@@ -1150,7 +1150,7 @@ footer .data{opacity:.8}
 
 <footer>
   <div class="wrap">
-    <span><span class="en">© 2026 Plant Biogeography Laboratory · Hacettepe University</span><span class="tr">© 2026 Bitki Biyocoğrafyası Laboratuvarı · Hacettepe Üniversitesi</span></span>
+    <span class="foot-id"><img class="foot-mark" src="brand/logo.svg" width="34" height="40" alt=""><span><span class="en">© 2026 Plant Biogeography Laboratory · Hacettepe University</span><span class="tr">© 2026 Bitki Biyocoğrafyası Laboratuvarı · Hacettepe Üniversitesi</span></span></span>
     <span class="credit"><span class="en">Photographs: Plant Biogeography Lab</span><span class="tr">Fotoğraflar: Bitki Biyocoğrafyası Laboratuvarı</span></span>
   </div>
 </footer>
