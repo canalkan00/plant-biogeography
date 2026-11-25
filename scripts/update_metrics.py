@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Weekly site upkeep, run by .github/workflows/update-metrics.yml.
 
-1. Reads citation, h-index and i10-index from Google Scholar and writes them
+1. Reads citation, h-index and i10-index from Google Scholar (through SerpApi
+   when the SERPAPI_KEY secret is set, otherwise directly) and writes them
    into site.html (elements marked data-metric="..."). If Scholar blocks the
    request or returns implausible numbers, the page is left as it is.
 2. Lists works on the ORCID record whose DOI is not on the site yet and
@@ -31,7 +32,19 @@ def get(url, accept="text/html"):
         return r.read().decode("utf-8", "replace")
 
 
+def serpapi_metrics(key):
+    # Google Scholar profile via SerpApi (free plan: 100 searches a month)
+    url = ("https://serpapi.com/search.json?engine=google_scholar_author"
+           "&author_id=N8nlB4wAAAAJ&hl=en&api_key=" + key)
+    table = json.loads(get(url, "application/json"))["cited_by"]["table"]
+    t = {k: v["all"] for row in table for k, v in row.items()}
+    return {"citations": int(t["citations"]), "h": int(t["h_index"]), "i10": int(t["i10_index"])}
+
+
 def scholar_metrics():
+    key = os.environ.get("SERPAPI_KEY", "").strip()
+    if key:
+        return serpapi_metrics(key)
     html = get(SCHOLAR)
     rows = re.findall(r'<td class="gsc_rsb_sc1"><a[^>]*>([^<]*)</a></td>'
                       r'<td class="gsc_rsb_std">(\d+)</td>', html)
