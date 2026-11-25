@@ -1,0 +1,4 @@
+# DOIs on the ORCID record that should not be reported as new publications
+# (preprints of published papers, datasets, etc.). One DOI per line.
+10.1101/2020.08.30.274670
+10.22541/au.172114450.07519017/v1
