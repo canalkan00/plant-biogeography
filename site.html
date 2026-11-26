@@ -226,12 +226,20 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .highlights{background:var(--paper);border-bottom:1px solid var(--rule)}
 .highlights>.wrap{padding-block:clamp(2.75rem,6vw,4.5rem);display:grid;gap:1.75rem}
 .hl-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem}
-.hl-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr) minmax(0,1fr);gap:0;border-top:2px solid var(--ink)}
+.hl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
 .hl{display:grid;gap:.7rem;align-content:start;padding:1.4rem clamp(1rem,2.4vw,1.8rem) 1.4rem 0}
 .hl+.hl{padding-left:clamp(1rem,2.4vw,1.8rem);border-left:1px solid var(--rule)}
 .hl-j{font-family:var(--f-map);font-size:.92rem;color:var(--steppe-ink)}
 .hl-t{font-family:var(--f-text);font-weight:600;font-stretch:normal;font-size:1.25rem;line-height:1.3}
-.hl-lead .hl-t{font-size:clamp(1.45rem,2.4vw,1.9rem);line-height:1.22}
+.hl-lead .hl-t{font-size:1.25rem;line-height:1.3}
+@supports (grid-template-rows:subgrid){@media (min-width:861px){.hl{grid-row:span 5;grid-template-rows:subgrid;row-gap:.7rem}}}
+.hl-fig{margin:.4rem 0 0;display:grid;gap:.45rem}
+.hl-fig a{display:block;border-radius:10px;overflow:hidden;background:#fff;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px var(--rule)}
+.hl-fig img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .5s var(--ease-out)}
+.photo-fig a{background:var(--stone)}
+.photo-fig img{object-fit:cover}
+.hl-fig figcaption{font-size:.82rem;line-height:1.4;color:var(--ink-soft)}
+@media (hover:hover) and (pointer:fine){.hl-fig a:hover img{transform:scale(1.02)}}
 .hl-t a{text-decoration:none;background-image:linear-gradient(var(--diag),var(--diag));background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .35s var(--ease-out)}
 .hl-s{color:var(--ink-soft);max-width:56ch}
 .hl-a{font-size:.88rem;color:var(--ink-soft)}
@@ -633,18 +641,21 @@ footer .data{opacity:.8}
           <h3 class="hl-t"><a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener">Disentangling subspecies delimitation in <i>Heldreichia bupleurifolia</i> through genomic and quantitative morphological approaches</a></h3>
           <p class="hl-s"><span class="en">Genome-wide data and measured leaf form are combined to test where the subspecies of an alpine Anatolian crucifer begin and end.</span><span class="tr">Genom çapında veri ve ölçülmüş yaprak biçimi birleştirilerek alpin bir Anadolu turpgilinde alttür sınırları test ediliyor.</span></p>
           <p class="hl-a">Can I.D., Yılmaz E., Özgişi K., Gür H., Sağlam İ.K., <b>Özüdoğru B.</b></p>
+          <figure class="hl-fig photo-fig"><a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener"><img src="img/heldreichia-flower-1000.jpg" width="1000" height="1000" loading="lazy" decoding="async" alt="Heldreichia in flower among rust-coloured boulders"></a><figcaption><span class="en"><i>Heldreichia</i> in the field · lab photograph</span><span class="tr">Arazide <i>Heldreichia</i> · laboratuvar fotoğrafı</span></figcaption></figure>
         </article>
         <article class="hl">
           <p class="hl-j"><i>Ecology and Evolution</i> · 2026</p>
           <h3 class="hl-t"><a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener">A plant-diversity dark spot at the intersection of three biodiversity hotspots: environmental drivers of Brassicaceae richness in Türkiye</a></h3>
           <p class="hl-s"><span class="en">From more than 15,000 herbarium records: the topographically complex, climatically stable mountains of southern Anatolia and the Anatolian Diagonal hold the most species and endemics.</span><span class="tr">15.000'den fazla herbaryum kaydına göre en çok tür ve endemik, güney Anadolu'nun ve Anadolu Diyagonali'nin topoğrafik olarak karmaşık, iklimsel olarak kararlı dağlarında.</span></p>
           <p class="hl-a">Dumlupınar İ., <b>Özüdoğru B.</b>, Gür H.</p>
+          <figure class="hl-fig"><a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener"><img src="img/fig-ece3-73246-richness.jpg" width="709" height="684" loading="lazy" decoding="async" alt="Two grid maps of Türkiye showing Brassicaceae species richness (A) and endemic richness (B) per 0.5 degree cell, highest in the southern mountains and along the Anatolian Diagonal"></a><figcaption><span class="en">Species (A) and endemic (B) richness per 0.5° cell. Fig. 3 from the article, CC BY 4.0.</span><span class="tr">Hücre (0,5°) başına tür (A) ve endemik (B) zenginliği. Makaleden Şekil 3, CC BY 4.0.</span></figcaption></figure>
         </article>
         <article class="hl">
-          <p class="hl-j"><i>Current Biology</i> · 2023</p>
-          <h3 class="hl-t"><a href="https://doi.org/10.1016/j.cub.2023.08.026" target="_blank" rel="noopener">Global Brassicaceae phylogeny based on filtering of 1,000-gene dataset</a></h3>
-          <p class="hl-s"><span class="en">A family-wide tree of the mustard family built from a filtered 1,000-gene dataset, with Anatolian lineages sampled by the lab.</span><span class="tr">Laboratuvarın örneklediği Anadolu soy hatlarını da içeren, filtrelenmiş 1.000 genlik veriyle kurulan familya çapında turpgil ağacı.</span></p>
-          <p class="hl-a">Hendriks K.P., … <b>Özüdoğru B.</b>, … Lens F.</p>
+          <p class="hl-j"><i>Annals of Botany</i> · 2025</p>
+          <h3 class="hl-t"><a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener">Polygenic discrimination of leaf morphotypes in alpine <i>Heldreichia bupleurifolia</i> (Brassicaceae) across its natural range</a></h3>
+          <p class="hl-s"><span class="en">61,286 genome-wide SNPs from 131 plants in 20 populations across the Taurus Mountains and the Anatolian Diagonal are used to tell apart entire, mixed and lobed leaf morphotypes.</span><span class="tr">Toroslar ve Anadolu Diyagonali boyunca 20 popülasyondan 131 bireyde 61.286 genom çapında SNP ile tam, karışık ve loblu yaprak morfotipleri ayırt ediliyor.</span></p>
+          <p class="hl-a">Yılmaz E., Can I.D., Özgişi K., Gür H., Sağlam İ.K., <b>Özüdoğru B.</b></p>
+          <figure class="hl-fig"><a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener"><img src="img/fig-aob-mcaf223-morphotypes.jpg" width="727" height="522" loading="lazy" decoding="async" alt="Elevation map of Türkiye with 20 Heldreichia bupleurifolia populations, marked by leaf morphotype, and pressed leaf silhouettes for each group"></a><figcaption><span class="en">Populations and leaf morphotypes of <i>H. bupleurifolia</i>. Fig. 1 from the article, CC BY 4.0.</span><span class="tr"><i>H. bupleurifolia</i> popülasyonları ve yaprak morfotipleri. Makaleden Şekil 1, CC BY 4.0.</span></figcaption></figure>
         </article>
       </div>
     </div>
