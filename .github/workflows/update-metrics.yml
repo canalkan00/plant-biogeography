@@ -60,4 +60,4 @@ jobs:
           git push -f origin "$branch"
           num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
           if [ -n "$num" ]; then gh pr edit "$num" --body-file pr_body.md
-          else gh pr create --base main --head "$branch" --title "Yeni yayınlar / New publications" --body-file pr_body.md; fi
+          else gh pr create --base main --head "$branch" --title "Yeni yayınlar / New publications" --body-file pr_body.md --assignee "${{ github.repository_owner }}"; fi

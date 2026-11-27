@@ -43,7 +43,7 @@ jobs:
           git push -f origin "$branch"
           num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
           if [ -n "$num" ]; then gh pr edit "$num" --body-file pr_body.md
-          else gh pr create --base main --head "$branch" --title "Yeni tezler / New theses" --body-file pr_body.md; fi
+          else gh pr create --base main --head "$branch" --title "Yeni tezler / New theses" --body-file pr_body.md --assignee "${{ github.repository_owner }}"; fi
 
   links:
     runs-on: ubuntu-latest
@@ -63,7 +63,7 @@ jobs:
           num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
           if [ -f broken_links.md ]; then
             if [ -n "$num" ]; then gh issue edit "$num" --body-file broken_links.md
-            else gh issue create --title "$title" --body-file broken_links.md; fi
+            else gh issue create --title "$title" --body-file broken_links.md --assignee "${{ github.repository_owner }}"; fi
           elif [ -n "$num" ]; then
             gh issue close "$num" --comment "All links worked in this month's check."
           fi
