@@ -765,8 +765,9 @@ footer .data{opacity:.8}
     var open=mp.getAttribute('aria-expanded')!=='true';
     document.querySelectorAll('#pubs li.more').forEach(function(li,i){li.hidden=!open;li.classList.remove('rise');if(open&&!reduce&&i<14){li.style.animationDelay=(i*28)+'ms';li.classList.add('rise')}});
     mp.setAttribute('aria-expanded',open?'true':'false');
-    mp.querySelector('.en').textContent=open?'Show fewer':'Show all 66 articles';
-    mp.querySelector('.tr').textContent=open?'Daha az göster':'66 makalenin tamamını göster';
+    var np=document.querySelectorAll('#pubs > li').length;
+    mp.querySelector('.en').textContent=open?'Show fewer':'Show all '+np+' articles';
+    mp.querySelector('.tr').textContent=open?'Daha az göster':np+' makalenin tamamını göster';
     if(!open)document.getElementById('publications').scrollIntoView({behavior:reduce?'auto':'smooth'});
   });
 

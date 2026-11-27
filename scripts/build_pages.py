@@ -10,7 +10,60 @@ Run it through build.sh after any edit to site.html.
 import os, re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-src = open(os.path.join(ROOT, "site.html"), encoding="utf-8").read()
+SITE = os.path.join(ROOT, "site.html")
+src = open(SITE, encoding="utf-8").read()
+
+# ---------------------------------------------------------------------------
+# Normalise site.html so hand edits and automatic additions stay consistent:
+# publication tags and years, the "show more" split, the per-year bar strip
+# and every count shown on the page are recomputed from the lists themselves.
+# ---------------------------------------------------------------------------
+SHOW = 14
+BRAS = re.compile(r"Brassicaceae|Cruciferae|crucifer|Noccaea|Ricotia|Heldreichia|Bornmuellera|Iberis|Hesperis|"
+                  r"Matthiola|Brassica|Aethionema|Pseudosempervivum|Thlaspi|Arabis|Iljinskaea|Phyllolepidium", re.I)
+NEWT = re.compile(r"new species|new genus|new subspecies|new record|new crucifer|new bellflower|yeni bir|a new |"
+                  r"an extraordinary new", re.I)
+ECO = re.compile(r"fire|steppe|germination|community|trait|ethnobot|flora of|florası|pollen|seed science", re.I)
+
+
+def normalise(s):
+    m = re.search(r'(<ol class="pubs" id="pubs">\n)(.*?)(\n\s*</ol>)', s, re.S)
+    items = re.findall(r"<li\b[^>]*>.*?</li>", m.group(2), re.S)
+    out, years = [], {}
+    for i, li in enumerate(items):
+        inner = li[li.index(">") + 1:]
+        y = (re.search(r'<span class="yr">(\d{4})</span>', inner) or [None, ""])[1]
+        title = re.sub(r"<[^>]+>", "", (re.search(r'<p class="t">(.*?)</p>', inner, re.S) or [None, ""])[1])
+        tags = [t for t, rx in (("bras", BRAS), ("new", NEWT), ("eco", ECO)) if rx.search(title)]
+        extra = ' class="more" hidden' if i >= SHOW else ""
+        out.append(f'        <li data-y="{y}" data-tags="{" ".join(tags)}"{extra}>{inner}')
+        if y:
+            years[int(y)] = years.get(int(y), 0) + 1
+    s = s[:m.start(2)] + "\n".join(out) + s[m.end(2):]
+    # per-year bar strip
+    lo, hi, mx = min(years), max(years), max(years.values())
+    bars = ""
+    for y in range(lo, hi + 1):
+        n = years.get(y, 0)
+        if n:
+            bars += (f'<button type="button" class="yb" data-y="{y}" style="--h:{n / mx * 100:.0f}%" '
+                     f'aria-pressed="false" title="{y}: {n}"><span class="yb-bar"></span><span class="yb-n">{n}</span>'
+                     f'<span class="yb-y">{str(y)[2:]}</span></button>')
+        else:
+            bars += f'<span class="yb empty" aria-hidden="true"><span class="yb-y">{str(y)[2:]}</span></span>'
+    s = re.sub(r'(<div class="years"[^>]*>).*?(</div>)', lambda mm: mm.group(1) + bars + mm.group(2), s, count=1, flags=re.S)
+    s = re.sub(r"(\.years\{display:grid;grid-template-columns:repeat\()\d+", lambda mm: mm.group(1) + str(hi - lo + 1), s)
+    # counts
+    counts = {"pubs": len(items), "projects": len(re.findall(r'class="tl-row ', s))}
+    for k, v in counts.items():
+        s = re.sub(rf'(<span data-count="{k}">)\d+(</span>)', rf"\g<1>{v}\g<2>", s)
+    return s
+
+
+normalised = normalise(src)
+if normalised != src:
+    open(SITE, "w", encoding="utf-8").write(normalised)
+    src = normalised
 
 head = src[:src.index('<header class="top"')]
 header = src[src.index('<header class="top"'):src.index("</header>") + len("</header>")]

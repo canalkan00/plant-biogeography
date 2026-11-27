@@ -675,7 +675,7 @@ footer .data{opacity:.8}
     <div class="wrap">
       <div class="hl-head">
         <h2 class="sec-title" id="hl-h"><span class="en">Recent work</span><span class="tr">Son çalışmalar</span></h2>
-        <a class="tlink" href="publications.html"><span class="en">All 66 articles</span><span class="tr">66 makalenin tamamı</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+        <a class="tlink" href="publications.html"><span class="en">All <span data-count="pubs">66</span> articles</span><span class="tr"><span data-count="pubs">66</span> makalenin tamamı</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
       </div>
       <div class="hl-grid">
         <article class="hl hl-lead">
@@ -760,8 +760,9 @@ footer .data{opacity:.8}
     var open=mp.getAttribute('aria-expanded')!=='true';
     document.querySelectorAll('#pubs li.more').forEach(function(li,i){li.hidden=!open;li.classList.remove('rise');if(open&&!reduce&&i<14){li.style.animationDelay=(i*28)+'ms';li.classList.add('rise')}});
     mp.setAttribute('aria-expanded',open?'true':'false');
-    mp.querySelector('.en').textContent=open?'Show fewer':'Show all 66 articles';
-    mp.querySelector('.tr').textContent=open?'Daha az göster':'66 makalenin tamamını göster';
+    var np=document.querySelectorAll('#pubs > li').length;
+    mp.querySelector('.en').textContent=open?'Show fewer':'Show all '+np+' articles';
+    mp.querySelector('.tr').textContent=open?'Daha az göster':np+' makalenin tamamını göster';
     if(!open)document.getElementById('publications').scrollIntoView({behavior:reduce?'auto':'smooth'});
   });
 

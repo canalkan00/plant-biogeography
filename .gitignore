@@ -1,2 +1,7 @@
-new_publications.md
 .preview/
+broken_links.md
+data/yok_theses.json
+new_publications.md
+node_modules/
+package-lock.json
+pr_body.md

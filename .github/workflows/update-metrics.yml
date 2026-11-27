@@ -1,4 +1,4 @@
-name: Weekly citation update
+name: Weekly citation and publication update
 
 on:
   schedule:
@@ -7,21 +7,22 @@ on:
 
 permissions:
   contents: write
-  issues: write
+  pull-requests: write
 
 jobs:
-  update:
+  citations:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
 
-      - name: Update citation figures and check ORCID
-        id: run
+      - name: Update citation figures from Google Scholar
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: python3 scripts/update_metrics.py
 
-      - name: Rebuild index.html and commit
+      - name: Rebuild pages and commit
         if: always()
         run: |
           sh build.sh
@@ -33,12 +34,30 @@ jobs:
             git push
           fi
 
-      - name: Open or update an issue for new ORCID works
-        if: always() && hashFiles('new_publications.md') != ''
+  new-publications:
+    needs: citations
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Look for new journal articles on ORCID
+        run: python3 scripts/new_publications.py
+
+      - name: Propose them as a pull request
+        if: hashFiles('pr_body.md') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          title="Yeni yayın kontrolü / New publications to review"
-          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
-          if [ -n "$num" ]; then gh issue edit "$num" --body-file new_publications.md
-          else gh issue create --title "$title" --body-file new_publications.md; fi
+          branch=auto/new-publications
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$branch"
+          git add site.html
+          git commit -m "Add new publications from ORCID"
+          git push -f origin "$branch"
+          num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
+          if [ -n "$num" ]; then gh pr edit "$num" --body-file pr_body.md
+          else gh pr create --base main --head "$branch" --title "Yeni yayınlar / New publications" --body-file pr_body.md; fi

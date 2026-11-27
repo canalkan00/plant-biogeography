@@ -1,0 +1,33 @@
+name: Remember declined suggestions
+
+# When an automatic publication or thesis pull request is closed without
+# merging, remember its DOIs / thesis numbers so they are not suggested again.
+on:
+  pull_request:
+    types: [closed]
+
+permissions:
+  contents: write
+
+jobs:
+  remember:
+    if: github.event.pull_request.merged == false && startsWith(github.event.pull_request.head.ref, 'auto/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Add the declined items to the ignore lists
+        env:
+          BODY: ${{ github.event.pull_request.body }}
+        run: |
+          printf '%s\n' "$BODY" | grep -o 'doi:[^ ]*' | sed 's/^doi://' >> data/orcid_ignore.txt || true
+          printf '%s\n' "$BODY" | grep -o 'tez:[0-9]*' | sed 's/^tez://' >> data/thesis_ignore.txt || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/orcid_ignore.txt data/thesis_ignore.txt
+          if git diff --cached --quiet; then echo "Nothing to remember"; else
+            git commit -m "Remember declined suggestions"
+            git push
+          fi

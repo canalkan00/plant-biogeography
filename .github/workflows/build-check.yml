@@ -1,0 +1,47 @@
+name: Build and check the site
+
+# Runs whenever site.html (or a script, image or logo) changes on main:
+# rebuilds the six pages, opens them in a browser to check nothing is broken,
+# and only then commits the new pages so GitHub Pages publishes them.
+# If the check fails, the live site stays as it was and GitHub e-mails you.
+on:
+  push:
+    branches: [main]
+    paths: ["site.html", "scripts/**", "brand/**", "img/**"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-check
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Build the pages from site.html
+        run: sh build.sh
+
+      - name: Install a headless browser
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+
+      - name: Check every page on desktop and phone
+        run: node scripts/smoke_test.js
+
+      - name: Publish the checked pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add site.html index.html about.html research.html publications.html people.html contact.html
+          if git diff --cached --quiet; then echo "Pages already up to date"; else
+            git commit -m "Rebuild pages from site.html"
+            git push
+          fi

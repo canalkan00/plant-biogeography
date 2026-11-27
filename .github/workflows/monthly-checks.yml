@@ -1,0 +1,69 @@
+name: Monthly thesis and link check
+
+on:
+  schedule:
+    - cron: "41 6 3 * *"   # the 3rd of every month, 06:41 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  theses:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Install a headless browser
+        run: |
+          npm install --no-save playwright@1.48.2
+          npx playwright install --with-deps chromium
+
+      - name: Search YÖK for theses supervised by Barış Özüdoğru
+        run: node scripts/yok_theses.js
+
+      - name: Add the ones missing from the site
+        run: python3 scripts/new_theses.py
+
+      - name: Propose them as a pull request
+        if: hashFiles('pr_body.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          branch=auto/new-theses
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C "$branch"
+          git add site.html
+          git commit -m "Add new theses from YÖK"
+          git push -f origin "$branch"
+          num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')
+          if [ -n "$num" ]; then gh pr edit "$num" --body-file pr_body.md
+          else gh pr create --base main --head "$branch" --title "Yeni tezler / New theses" --body-file pr_body.md; fi
+
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Check every outside link
+        run: python3 scripts/link_check.py
+
+      - name: Open, update or close the broken-links issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          title="Kırık bağlantılar / Broken links"
+          num=$(gh issue list --state open --search "in:title \"$title\"" --json number --jq '.[0].number')
+          if [ -f broken_links.md ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file broken_links.md
+            else gh issue create --title "$title" --body-file broken_links.md; fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "All links worked in this month's check."
+          fi

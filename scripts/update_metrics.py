@@ -5,8 +5,7 @@
    when the SERPAPI_KEY secret is set, otherwise directly) and writes them
    into site.html (elements marked data-metric="..."). If Scholar blocks the
    request or returns implausible numbers, the page is left as it is.
-2. Lists works on the ORCID record whose DOI is not on the site yet and
-   writes them to new_publications.md for the workflow to open as an issue.
+2. New publications are handled by scripts/new_publications.py.
 
 Standard library only. Exits with code 1 when Scholar has not been read for
 28 days, so GitHub e-mails the repository owner.
@@ -106,16 +105,6 @@ def main():
         state["last_status"] = f"skipped: {e}"
         print("Scholar not updated:", e)
 
-    try:
-        works = new_orcid_works()
-        if works:
-            open(os.path.join(ROOT, "new_publications.md"), "w", encoding="utf-8").write(
-                "Works on ORCID whose DOI is not on the site yet. Check them and add "
-                "the real ones to the publication list. To stop a DOI being reported, add it to "
-                "data/orcid_ignore.txt.\n\n" + "\n".join(works) + "\n")
-        print("ORCID works not on the site:", len(works))
-    except Exception as e:
-        print("ORCID check failed:", e)
 
     json.dump(state, open(STATE, "w"), indent=2, ensure_ascii=False)
     open(STATE, "a").write("\n")

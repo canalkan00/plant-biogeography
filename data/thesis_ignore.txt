@@ -1,0 +1,1 @@
+# YÖK thesis numbers that should not be suggested again. One number per line.
