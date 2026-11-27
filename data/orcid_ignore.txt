@@ -2,3 +2,7 @@
 # (preprints of published papers, datasets, etc.). One DOI per line.
 10.1101/2020.08.30.274670
 10.22541/au.172114450.07519017/v1
+10.30796/angv.2026.6
+10.30796/angv.2025.25
+10.30796/angv.2025.22
+10.30796/angv.2025.21
