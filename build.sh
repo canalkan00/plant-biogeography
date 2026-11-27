@@ -1,8 +1,5 @@
 #!/bin/sh
-# Wraps site.html (the artifact body) into the standalone index.html served by GitHub Pages.
+# Builds the pages served by GitHub Pages (index.html, about.html, research.html,
+# publications.html, people.html, contact.html) from site.html.
 cd "$(dirname "$0")"
-{
-  printf '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">\n<meta name="color-scheme" content="light">\n'
-  awk '/^<header class="top"/{print "</head>\n<body>"} {print}' site.html
-  printf '</body>\n</html>\n'
-} > index.html
+python3 scripts/build_pages.py

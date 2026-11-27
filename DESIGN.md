@@ -272,6 +272,10 @@ Five lab field photographs, always shown whole (square, no cropping) so the plan
 
 A "Recent work" band follows the hero: three recent papers set as an editorial row (lead paper larger), each linking to its DOI. Projects are shown as a timeline (2009–2027): one bar per project, coloured by funder (TÜBİTAK #2a6fb8, Hacettepe BAP #d2602f, other #6f7f8f; validated for colour-blind separation on the projects band), a dark dot marking projects led by Barış Özüdoğru, years labelled beside each bar. Team publications have a search field, topic chips (Brassicaceae, new taxa, ecology and flora) and a clickable articles-per-year bar strip that filters the list. Every top navigation item opens a submenu of its subsections. Monospace was retired; data and labels use Archivo. Decorative heading rules, icon rows and count-up numbers were removed.
 
+### Pages
+
+The site is split into pages built from site.html by scripts/build_pages.py (run build.sh): index.html (hero and Recent work), about.html, research.html (topics, projects), publications.html (publications, theses), people.html and contact.html. The menu marks the current page; submenu items link to anchors on those pages, and old one-page links such as /#publications are forwarded. Reading sections share one flat paper ground with hairlines between them; each section's colour survives as a small key dot before its heading, matching the menu. Headlines keep one voice: the hero motto and Recent work titles use Archivo, emphasis by weight; genus and species names stay italic as nomenclature requires.
+
 ## Components
 
 ### Buttons

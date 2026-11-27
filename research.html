@@ -1,0 +1,1104 @@
+<!doctype html>
+<html lang="en" data-page="research" data-title-en="Research" data-title-tr="Araştırma">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="color-scheme" content="light">
+<title>Research · Plant Biogeography</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
+<meta name="theme-color" content="#f3f6f1">
+<link rel="icon" href="brand/favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="brand/favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+<style>
+/* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
+:root{
+  --ink:#2b2b2b;
+  --ink-soft:#55504a;
+  --paper:#f3f6f1;
+  --stone:#e8f1d8;
+  --steppe:#f8dcc8;
+  --butter:#f8ecc0;
+  --sand2:#dde9f3;
+  --butter2:#d9eeee;
+  --steppe-ink:#7a4526;
+  --foothill:#f7e1e4;
+  --lowland:#f6d5c8;
+  --on-lowland:#1b2620;
+  --on-lowland-soft:#3d5345;
+  --rule:#d6cfc0;
+  --diag:#f8b500;
+  --diag-on-low:#6a3f22;
+  --leaf:#3b5f87;
+  --diag-ink:#6a5000;
+  /* hypsometric bands, lowland to alpine */
+  --b0:#b5d9a8; --b1:#cfe5b0; --b2:#e4eebb; --b3:#f4ecbc; --b4:#f6d3a6; --b5:#eeb79a; --b6:#f3f6f1;
+  --contour:rgba(43,43,43,.16);
+  --f-map:"Archivo","Arial Narrow",Arial,sans-serif;
+  --f-text:"Source Serif 4",Georgia,"Times New Roman",serif;
+  --f-data:"Archivo","Arial Narrow",Arial,sans-serif;
+  --step--1:.84rem; --step0:1.0625rem; --step1:1.3rem; --step2:clamp(1.55rem,3.6vw,2.1rem); --step3:clamp(2rem,5.4vw,3.2rem); --step4:clamp(2.1rem,7.4vw,4.6rem);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+/* bilingual: every string exists as .en and .tr */
+:root:not([data-lang="tr"]) .tr{display:none!important}
+:root[data-lang="tr"] .en{display:none!important}
+
+html{color-scheme:light}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:4.75rem}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:var(--step0);line-height:1.6;font-optical-sizing:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:20;background:var(--paper)}
+::selection{background:var(--diag);color:#1b1500}
+:focus-visible{outline:2px solid var(--diag);outline-offset:3px}
+html{scrollbar-color:var(--rule) transparent}
+a{color:inherit;text-decoration-color:var(--diag);text-decoration-thickness:2px;text-underline-offset:4px}
+h1,h2,h3{margin:0;font-family:var(--f-map);font-weight:700;line-height:1.05;text-wrap:balance;font-stretch:112%}
+p{margin:0}
+i,em{font-style:italic}
+.wrap{max-width:72rem;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.data{font-family:var(--f-data);font-size:.86rem;letter-spacing:0;font-variant-numeric:tabular-nums}
+button,a.btn,[role="button"]{touch-action:manipulation}
+button{-webkit-user-select:none;user-select:none;font:inherit}
+
+/* ---------- header: the map legend ---------- */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:15;background:color-mix(in srgb,var(--paper) 94%,transparent);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);border-bottom:1px solid var(--rule)}
+.top .bar{display:flex;align-items:center;gap:1rem;min-height:4rem}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;margin-right:auto;min-width:0}
+.brand-mark{width:38px;height:44px;flex:none;display:block}
+.brand b{font-family:var(--f-map);font-weight:700;font-stretch:125%;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;line-height:1.15;white-space:nowrap}
+.nav ul{list-style:none;margin:0;padding:0;display:flex;gap:.15rem}
+.nav a{display:flex;align-items:center;gap:.5rem;padding:.45rem .7rem;border-radius:6px;text-decoration:none;font-family:var(--f-map);font-size:.9rem;font-weight:500;color:var(--ink-soft);white-space:nowrap;transition:background-color .16s var(--ease-out),color .16s}
+.nav a .key{width:.6rem;height:.6rem;border-radius:50%;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 40%,transparent);flex:none;transition:transform .2s var(--ease-out)}
+.nav a{position:relative}
+.nav a::after{content:"";position:absolute;left:.7rem;right:.7rem;bottom:.2rem;height:2px;border-radius:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .26s var(--ease-out)}
+.nav a.on::after{transform:scaleX(1)}
+.nav a.on .key{transform:scale(1.35)}
+.nav a.on{color:var(--ink);background:transparent}
+.nav .sheet-mail{display:none}
+.lang{display:inline-flex;border:1px solid var(--rule);border-radius:7px;overflow:hidden;flex:none}
+.lang button{border:0;background:transparent;color:var(--ink-soft);font-family:var(--f-data);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;transition:background-color .14s,color .14s}
+.lang button+button{border-left:1px solid var(--rule)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.menu-btn{display:none;width:2.75rem;height:2.75rem;border:1px solid var(--rule);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer;place-items:center;flex:none}
+.menu-btn svg{width:20px;height:20px}
+.menu-btn .x,.top.open .menu-btn .burger{display:none}
+.top.open .menu-btn .x{display:block}
+
+/* ---------- hero: the relief field ---------- */
+.hero{position:relative;min-height:clamp(36rem,88svh,54rem);display:grid;align-items:center;overflow:hidden;background:var(--b3);isolation:isolate}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%;z-index:-1;touch-action:pan-y}
+.hero>.wrap{width:100%;padding-block:3rem 5.5rem}
+.cartouche{max-width:38rem;background:var(--paper);border:1px solid var(--ink);border-radius:4px;padding:clamp(1.4rem,3.5vw,2.4rem);display:grid;container-type:inline-size;width:min(100%,38rem);gap:1.1rem;animation:settle 1.1s var(--ease-out) both .15s}
+@keyframes settle{from{transform:translateY(14px)}to{transform:none}}
+.cartouche h1 .tr{font-size:.82em}
+.cartouche h1{font-size:clamp(1.6rem,7.4vw,3.3rem);font-size:min(9.2cqi,3.6rem);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.02em;line-height:.95}
+.cartouche .place{font-family:var(--f-map);font-size:.95rem;color:var(--ink-soft);display:flex;flex-wrap:wrap;gap:.2rem .75rem}
+.cartouche .motto{font-family:var(--f-text);font-style:italic;font-weight:600;font-size:clamp(1.35rem,2.6vw,1.7rem);line-height:1.2;color:var(--ink);margin-top:.2rem}
+.cartouche .thesis{font-size:1.12rem;line-height:1.5;max-width:36ch;color:var(--ink-soft)}
+.actions{display:flex;flex-wrap:wrap;gap:.6rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;white-space:nowrap;min-height:2.9rem;padding:.7rem 1.15rem;border-radius:6px;font-family:var(--f-map);font-weight:600;font-size:.98rem;text-decoration:none;border:1px solid var(--ink);cursor:pointer;transition:transform .12s var(--ease-out),background-color .16s,color .16s;-webkit-user-select:none;user-select:none}
+.btn svg{width:18px;height:18px;flex:none}
+.btn.solid{background:var(--ink);color:var(--paper)}
+.btn.line{background:transparent;color:var(--ink)}
+.btn:active{transform:scale(.97)}
+.legend{position:absolute;left:0;right:0;bottom:0;background:color-mix(in srgb,var(--paper) 90%,transparent);border-top:1px solid var(--ink)}
+.legend .wrap{padding-block:.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.4rem;color:var(--ink-soft)}
+.legend .ramp{display:flex;align-items:center;gap:.5rem}
+.legend .ramp span.sw{display:flex;height:.7rem;width:7.5rem;border:1px solid var(--ink);border-radius:1px;overflow:hidden}
+.legend .ramp span.sw i{flex:1}
+.legend .dline{display:flex;align-items:center;gap:.5rem}
+.legend .dline::before{content:"";width:1.8rem;border-top:3px dashed var(--diag)}
+.legend .note{margin-left:auto}
+
+/* ---------- sections on tint bands ---------- */
+section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp(1.75rem,4vw,2.75rem)}
+.band-stone{background:var(--stone)}
+.band-paper{background:var(--paper)}
+.band-butter{background:var(--butter)}
+.band-sand2{background:var(--sand2)}
+.band-butter2{background:var(--butter2)}
+.band-steppe{background:var(--steppe)}
+.band-foothill{background:var(--foothill)}
+.band-lowland{background:var(--lowland);color:var(--on-lowland)}
+.sec-title{font-size:clamp(1.8rem,4.8vw,2.9rem);max-width:22ch;font-stretch:125%;letter-spacing:.012em}
+.lede{font-size:var(--step1);line-height:1.45;max-width:40ch}
+.prose{display:grid;gap:1rem;max-width:66ch;color:var(--ink-soft)}
+.prose strong{color:var(--ink);font-weight:600}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.methods{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.photo{margin:0;position:relative;border-radius:12px;overflow:hidden;aspect-ratio:1/1;max-width:100%;background:var(--b2)}
+.photo img{display:block;width:100%;height:100%;object-fit:cover}
+.specimen-tag{position:absolute;left:.75rem;bottom:.75rem;background:var(--paper);color:var(--ink);font-family:var(--f-text);font-size:1rem;padding:.25rem .65rem;border:1px solid var(--ink);border-radius:2px}
+.methods-head{margin-top:.5rem}
+.methods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(1rem,3vw,2rem)}
+
+.methods li{display:grid;grid-template-columns:minmax(0,1fr);gap:.9rem;padding:1rem 0;border-bottom:1px solid var(--rule)}
+.methods svg{width:2.4rem;height:2.4rem;color:var(--ink)}
+.methods h3{font-size:1.05rem;font-stretch:100%;margin-bottom:.2rem}
+.methods p{font-size:.95rem;color:var(--ink-soft);line-height:1.5}
+.hotspots{display:flex;flex-wrap:wrap;gap:.4rem 1.3rem}
+.hotspots span{font-family:var(--f-map);font-size:.92rem;font-weight:500;display:inline-flex;align-items:center;gap:.45rem}
+.hotspots span::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--diag)}
+
+/* research: annotations on the map */
+.filters{display:flex;gap:.45rem;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:.45rem;min-height:2.5rem;padding:.4rem .9rem;border-radius:999px;border:1px solid var(--steppe-ink);background:transparent;color:var(--steppe-ink);font-family:var(--f-map);font-size:.9rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:background-color .16s,color .16s,transform .12s var(--ease-out)}
+.chip:active{transform:scale(.97)}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.studies{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,5vw,4rem);border-top:1px solid var(--ink)}
+.study{display:grid;gap:.6rem;padding:1.6rem 0;border-bottom:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent);align-content:start}
+.study .taxon{font-family:var(--f-text);font-style:italic;font-weight:600;font-size:var(--step2);line-height:1.1;font-stretch:normal}
+.study .taxon .plain{font-style:normal}
+.study .meta{display:flex;flex-wrap:wrap;align-items:center;gap:.3rem .5rem;color:var(--steppe-ink)}
+.study .meta svg{width:14px;height:14px;flex:none;margin-right:-.15rem}
+.study .meta .sep{display:none}
+.study .meta .src{flex-basis:100%;opacity:.85}
+.study p.desc{color:var(--ink-soft);max-width:52ch}
+
+/* publications */
+.pubs{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pubs li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1.25rem;padding:1.25rem 0;border-bottom:1px solid var(--rule)}
+.pubs .yr{font-family:var(--f-data);font-size:.95rem;color:var(--ink);padding-top:.15rem}
+.pubs .t{font-size:1.08rem;font-weight:600;line-height:1.35;max-width:70ch}
+.pubs .a{color:var(--ink-soft);font-size:.95rem;margin-top:.3rem}
+.pubs .j{color:var(--ink-soft);font-size:.95rem}
+.pubs a{overflow-wrap:anywhere}
+.profiles{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem}
+.tlink{display:inline-flex;align-items:center;gap:.35rem;min-height:2.4rem;font-family:var(--f-map);font-weight:600;text-decoration:underline;text-decoration-color:var(--diag);text-decoration-thickness:2px;text-underline-offset:5px}
+.tlink svg{width:16px;height:16px;transition:transform .2s var(--ease-out)}
+
+
+
+
+/* hero actions: two map-label pills set on the relief, outside the title card */
+.hero>.wrap{display:grid;gap:1rem;justify-items:start}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;animation:settle 1.1s var(--ease-out) both .3s}
+.ha{display:inline-flex;align-items:center;gap:.8rem;min-height:3.25rem;border-radius:999px;text-decoration:none;font-family:var(--f-map);font-weight:600;font-size:1.02rem;-webkit-user-select:none;user-select:none;touch-action:manipulation;transition:transform .16s var(--ease-out),box-shadow .2s var(--ease-out),background-color .2s}
+.ha-ico{display:grid;place-items:center;width:2.4rem;height:2.4rem;border-radius:50%;flex:none;transition:transform .22s var(--ease-out)}
+.ha-ico svg{width:18px;height:18px}
+.ha-main{background:var(--ink);color:var(--paper);padding:.4rem .42rem .4rem 1.3rem;box-shadow:0 10px 24px -14px rgba(16,26,20,.7)}
+.ha-main .ha-ico{background:var(--diag);color:#1b1500}
+.ha-alt{background:color-mix(in srgb,var(--paper) 82%,transparent);-webkit-backdrop-filter:blur(8px) saturate(1.2);backdrop-filter:blur(8px) saturate(1.2);color:var(--ink);padding:.4rem 1.3rem .4rem .42rem;box-shadow:0 8px 20px -14px rgba(16,26,20,.55),inset 0 0 0 1px color-mix(in srgb,var(--ink) 12%,transparent)}
+.ha-alt .ha-ico{background:var(--ink);color:var(--paper)}
+.ha:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){
+  .ha-main:hover .ha-ico{transform:translateY(3px)}
+  .ha-alt:hover .ha-ico{transform:rotate(-8deg) scale(1.06)}
+  .ha:hover{box-shadow:0 14px 28px -14px rgba(16,26,20,.75)}
+}
+
+
+/* habitat plates: full photograph + label, alternating sides */
+.plate{background:var(--paper)}
+.plate>.wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,4rem);align-items:center;padding-block:clamp(2.5rem,6vw,4.5rem)}
+.plate.flip>.wrap{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr)}
+.plate-img{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:1/1;max-width:100%;background:var(--b2)}
+.plate-img img{display:block;width:100%;height:100%;object-fit:contain;transition:transform 1.2s var(--ease-out)}
+.anim .plate:not(.seen) .plate-img img{transform:scale(1.03)}
+.plate-txt{display:grid;gap:.8rem;max-width:30rem}
+.plate-k{color:var(--steppe-ink);letter-spacing:.08em;text-transform:uppercase}
+.plate-h{font-family:var(--f-map);font-size:clamp(1.6rem,3.4vw,2.4rem);font-stretch:112%;line-height:1.1}
+.plate-h i{font-family:var(--f-text);font-weight:600}
+.plate-d{color:var(--ink-soft);font-size:1.1rem;line-height:1.55}
+.ptag{position:absolute;left:.75rem;bottom:.75rem;background:color-mix(in srgb,var(--paper) 88%,transparent);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);color:var(--ink);font-family:var(--f-text);font-size:1rem;padding:.25rem .75rem;border-radius:999px}
+@media (max-width:860px){.plate>.wrap,.plate.flip>.wrap{grid-template-columns:minmax(0,1fr)}.plate.flip .plate-txt{order:2}}
+.foot-id{display:inline-flex;align-items:center;gap:.75rem}
+.foot-mark{width:34px;height:40px;flex:none}
+/* field photographs */
+.photo-band{margin:0;position:relative;height:clamp(16rem,42vw,30rem);overflow:hidden;background:var(--b2)}
+.photo-band picture,.photo-band img{display:block;width:100%;height:100%;object-fit:cover}
+.photo-band img{transition:transform 1.4s var(--ease-out)}
+.photo-band.seen img,.no-anim .photo-band img{transform:none}
+.feature-wrap{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.theses-wrap{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+.side-photo{margin:0;border-radius:12px;overflow:hidden;aspect-ratio:1/1;max-width:100%;background:var(--b2);position:sticky;top:5rem}
+.side-photo{position:relative}
+@media (min-width:981px){.side-photo{position:sticky}}
+.side-photo img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.side-photo:hover img{transform:scale(1.03)}}
+@media (max-width:980px){.feature-wrap,.theses-wrap{grid-template-columns:minmax(0,1fr)}.side-photo{position:relative;top:auto;max-width:30rem}}
+
+/* ---------- highlights ---------- */
+.highlights{background:var(--paper);border-bottom:1px solid var(--rule)}
+.highlights>.wrap{padding-block:clamp(2.75rem,6vw,4.5rem);display:grid;gap:1.75rem}
+.hl-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem}
+.hl-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.hl{display:grid;gap:.7rem;align-content:start;padding:1.4rem clamp(1rem,2.4vw,1.8rem) 1.4rem 0}
+.hl+.hl{padding-left:clamp(1rem,2.4vw,1.8rem);border-left:1px solid var(--rule)}
+.hl-j{font-family:var(--f-map);font-size:.92rem;color:var(--steppe-ink)}
+.hl-t{font-family:var(--f-text);font-weight:600;font-stretch:normal;font-size:1.25rem;line-height:1.3}
+.hl-lead .hl-t{font-size:1.25rem;line-height:1.3}
+@supports (grid-template-rows:subgrid){@media (min-width:861px){.hl{grid-row:span 5;grid-template-rows:subgrid;row-gap:.7rem}}}
+.hl-fig{margin:.4rem 0 0;display:grid;gap:.45rem}
+.hl-fig a{display:block;border-radius:10px;overflow:hidden;background:#fff;aspect-ratio:4/3;box-shadow:inset 0 0 0 1px var(--rule)}
+.hl-fig img{display:block;width:100%;height:100%;object-fit:contain;transition:transform .5s var(--ease-out)}
+.photo-fig a{background:var(--stone)}
+.photo-fig img{object-fit:cover}
+.hl-fig figcaption{font-size:.82rem;line-height:1.4;color:var(--ink-soft)}
+@media (hover:hover) and (pointer:fine){.hl-fig a:hover img{transform:scale(1.02)}}
+.hl-t a{text-decoration:none;background-image:linear-gradient(var(--diag),var(--diag));background-size:0 2px;background-repeat:no-repeat;background-position:0 100%;transition:background-size .35s var(--ease-out)}
+.hl-s{color:var(--ink-soft);max-width:56ch}
+.hl-a{font-size:.88rem;color:var(--ink-soft)}
+@media (hover:hover) and (pointer:fine){.hl-t a:hover{background-size:100% 2px}}
+/* ---------- project timeline ---------- */
+.timeline{display:grid;gap:.6rem;margin-top:1rem}
+.tl-key{display:flex;flex-wrap:wrap;gap:.4rem 1.4rem;font-family:var(--f-map);font-size:.9rem;color:var(--ink-soft)}
+.tl-key .k{display:inline-flex;align-items:center;gap:.45rem}
+.tl-key .k::before{content:"";width:1.4rem;height:.55rem;border-radius:3px;background:var(--c)}
+.tl-key .tub{--c:#2a6fb8}.tl-key .bap{--c:#d2602f}.tl-key .oth{--c:#6f7f8f}
+.tl-key .pi-k::before{width:.6rem;height:.6rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2),0 0 0 3px var(--ink)}
+.tl-axis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1.5rem;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);border-bottom:1px solid var(--ink);padding-bottom:.3rem}
+.tl-axis-in{grid-column:2;position:relative;height:1.1rem}
+.tl-axis-in span{position:absolute;transform:translateX(-50%);font-variant-numeric:tabular-nums}
+.tl-axis-in span:first-child{transform:none}.tl-axis-in span:last-child{transform:translateX(-100%)}
+.tl-list{list-style:none;margin:0;padding:0}
+.tl-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1.5rem;align-items:center;padding:.55rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 12%,transparent)}
+.tl-row .t{font-weight:600;line-height:1.3;font-size:.98rem}
+.tl-row .m{font-size:.82rem;color:var(--ink-soft);margin-top:.15rem}
+.tl-track{position:relative;height:1.6rem;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),color-mix(in srgb,var(--ink) 10%,transparent) calc(100%/6 - 1px) calc(100%/6))}
+.tl-bar{position:absolute;top:.3rem;bottom:.3rem;border-radius:4px;background:var(--c);min-width:.9rem;display:flex;align-items:center;transform-origin:left;transition:transform .7s var(--ease-out)}
+.tub .tl-bar{--c:#2a6fb8}.bap .tl-bar{--c:#d2602f}.oth .tl-bar{--c:#6f7f8f}
+.lead .tl-bar::before{content:"";position:absolute;left:-.35rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2)}
+.tl-bar.end .tl-yr{left:auto;right:calc(100% + .9rem)}
+.tl-yr{position:absolute;left:calc(100% + .45rem);white-space:nowrap;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
+.anim #projects:not(.seen) .tl-bar{transform:scaleX(0)}
+@media (hover:hover) and (pointer:fine){.tl-row:hover{background:color-mix(in srgb,var(--paper) 55%,transparent)}}
+/* ---------- publication tools ---------- */
+.pub-tools{display:grid;gap:1rem}
+.pub-tools>*{min-width:0}
+.pub-tools .chip[aria-pressed="true"]{color:var(--paper)}
+.search{display:flex;align-items:center;gap:.6rem;background:var(--paper);border-radius:999px;padding:0 1rem;min-height:3rem;box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ink) 18%,transparent)}
+.search:focus-within{box-shadow:inset 0 0 0 2px var(--ink)}
+.search svg{width:18px;height:18px;flex:none;color:var(--ink-soft)}
+.search input{flex:1;min-width:0;border:0;background:transparent;font:400 16px var(--f-text);color:var(--ink);outline:none;min-height:2.8rem}
+.search input::placeholder{color:var(--ink-soft)}
+.pub-tools .chip{border-color:color-mix(in srgb,var(--ink) 35%,transparent);color:var(--ink)}
+.years{display:grid;grid-template-columns:repeat(21,minmax(0,1fr));gap:3px;align-items:end;height:6.5rem;padding-top:1rem}
+.yb{position:relative;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;border:0;background:transparent;padding:0;cursor:pointer;font:inherit;color:var(--ink-soft)}
+.yb-bar{width:100%;max-width:1.6rem;height:calc(var(--h) * .72);min-height:4px;border-radius:4px 4px 0 0;background:#2a6fb8;opacity:.78;transition:opacity .15s,transform .15s var(--ease-out)}
+.yb-n{position:absolute;bottom:calc(var(--h) * .72 + 1.25rem);font-family:var(--f-map);font-size:.72rem;opacity:0;transition:opacity .15s}
+.yb-y{font-family:var(--f-map);font-size:.7rem;margin-top:.25rem;font-variant-numeric:tabular-nums}
+.yb.empty{cursor:default}
+.yb[aria-pressed="true"] .yb-bar{opacity:1;background:var(--ink)}
+.yb[aria-pressed="true"] .yb-n,.yb:focus-visible .yb-n{opacity:1}
+@media (hover:hover) and (pointer:fine){.yb[data-y]:hover .yb-bar{opacity:1}.yb[data-y]:hover .yb-n{opacity:1}}
+.pub-count{font-family:var(--f-map);font-size:.92rem;color:var(--ink-soft);min-height:1.2em}
+@media (max-width:860px){
+  .hl-grid{grid-template-columns:minmax(0,1fr)}
+  .hl+.hl{padding-left:0;border-left:0;border-top:1px solid var(--rule)}
+  .tl-axis{display:none}
+  .tl-row{grid-template-columns:minmax(0,1fr);gap:.35rem}
+  .tl-track{background:none;height:1.3rem}
+  .years{grid-template-columns:repeat(21,minmax(0,1fr));gap:2px}
+  .yb-y{font-size:.7rem;letter-spacing:-.02em}
+}
+
+/* PI details from the CV */
+.pi-sub{font-family:var(--f-map);font-size:1.05rem;font-stretch:112%;margin:0}
+.pi-details{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.6rem 2.5rem;margin-top:.6rem;padding-top:1.2rem;border-top:1px solid color-mix(in srgb,var(--ink) 22%,transparent)}
+.pd{display:grid;gap:.55rem;align-content:start;min-width:0}
+.pd-wide{grid-column:1/-1}
+.pd h4{margin:0;font-family:var(--f-map);font-size:1rem;font-stretch:112%}
+.pd ul{margin:0;padding:0;list-style:none}
+.pd .dl li{padding:.3rem 0 .3rem 1rem;position:relative;color:var(--ink-soft)}
+.pd .dl li::before{content:"";position:absolute;left:0;top:.85rem;width:.35rem;height:.35rem;border-radius:50%;background:var(--diag)}
+.tags{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
+.tags li{padding:.3rem 0 .3rem 1rem;position:relative;color:var(--ink-soft)}
+.tags li::before{content:"";position:absolute;left:0;top:.85rem;width:.35rem;height:.35rem;border-radius:50%;background:var(--diag)}
+@media (max-width:600px){.tags{grid-template-columns:minmax(0,1fr)}}
+.edu-t{border-collapse:collapse;width:100%;font-size:.95rem}
+.edu-t th{text-align:left;font-family:var(--f-map);font-weight:600;font-size:.82rem;color:var(--ink-soft);padding:.3rem .6rem .3rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 22%,transparent)}
+.edu-t td{padding:.45rem .6rem .45rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 10%,transparent);color:var(--ink-soft)}
+.edu-t td:last-child,.edu-t th:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.topics-intro{max-width:62ch;color:var(--ink-soft)}
+.topic-wide{grid-column:1/-1}
+.topic .refs b{font-weight:600;color:var(--ink)}
+@media (max-width:860px){.pi-details{grid-template-columns:minmax(0,1fr)}.methods{grid-template-columns:minmax(0,1fr)!important}}
+@media (min-width:861px) and (max-width:1100px){.methods{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* ---------- calm pages: one flat ground for reading sections; the section's colour lives in a key dot ---------- */
+section.band{background:var(--paper)!important}
+section.band+section,section.plate+section,section.band+section.plate{border-top:1px solid var(--rule)}
+footer{background:var(--paper)!important;border-top:1px solid var(--rule)}
+.band-stone{--key:var(--stone)}.band-steppe{--key:var(--steppe)}.band-sand2{--key:var(--sand2)}.band-butter{--key:var(--butter)}.band-butter2{--key:var(--butter2)}.band-foothill{--key:var(--foothill)}.band-lowland{--key:var(--lowland)}
+section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--key,var(--stone));box-shadow:0 0 0 1.5px color-mix(in srgb,var(--ink) 45%,transparent);vertical-align:.18em;margin-right:.42em}
+.nav a.on{box-shadow:none}
+/* one voice per headline */
+.cartouche .motto{font-family:var(--f-map);font-style:normal;font-weight:700;font-stretch:112%;font-size:clamp(1.2rem,2.2vw,1.45rem)}
+.hl-j{font-style:normal}.hl-j i{font-style:normal;font-weight:600}
+.hl-t{font-family:var(--f-map);font-stretch:100%;font-weight:600}
+.plate-h i{font-family:inherit;font-weight:inherit}
+/* ---------- motion: small, compositor-only ---------- */
+.sec-title,.sub-head{position:relative;padding-bottom:.55rem}
+.sec-title::after,.sub-head::after{display:none;content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
+.anim .band:not(.seen) .sec-title::after,.anim .band:not(.seen) .sub-head::after{transform:scaleX(0)}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.anim .photo-band:not(.seen) img{transform:scale(1.04)}
+.pubs li.rise{animation:rise .32s var(--ease-out) both}
+@media (hover:hover) and (pointer:fine){
+  .member:hover .tile,.pi-link:hover .tile{transform:translateY(-4px) rotate(-.6deg)}
+  .photo img{transition:transform .6s var(--ease-out)}
+  .photo:hover img{transform:scale(1.03)}
+  .tlink:hover svg{transform:translate(2px,-2px)}
+  .btn:hover svg{transform:translateY(2px)}
+  .nav a:hover .key{transform:scale(1.3)}
+}
+.btn svg{transition:transform .2s var(--ease-out)}
+/* ---------- research subsections ---------- */
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sub-head{font-size:clamp(1.5rem,3.6vw,2.2rem);font-stretch:125%;letter-spacing:.012em;max-width:24ch}
+.band-sand2>.wrap,.band-butter>.wrap,.band-butter2>.wrap{padding-block:clamp(2.75rem,6vw,4.5rem)}
+.subsec{display:grid;gap:1.5rem}
+.topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(1.5rem,5vw,4rem);border-top:1px solid var(--ink)}
+.topic{display:grid;gap:.55rem;align-content:start;padding:1.4rem 0;border-bottom:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
+.topic h4{margin:0;font-family:var(--f-map);font-size:1.22rem;font-stretch:112%;line-height:1.2}
+.topic .desc{color:var(--ink-soft);max-width:60ch}
+.topic .refs{color:var(--steppe-ink);line-height:1.6}
+.project.feature h4{margin:0;font-family:var(--f-map);font-size:clamp(1.3rem,2.6vw,1.7rem);font-stretch:112%;line-height:1.15}
+.project .m,.plist .m{color:var(--steppe-ink)}
+.project-list{min-width:0}
+.plist{list-style:none;margin:0;padding:0}
+.plist li{display:grid;grid-template-columns:5.5rem minmax(0,1fr);gap:1rem;padding:.8rem 0;border-bottom:1px solid color-mix(in srgb,var(--steppe-ink) 30%,transparent)}
+.plist .yr{font-family:var(--f-data);font-size:.85rem;color:var(--steppe-ink);padding-top:.15rem;font-variant-numeric:tabular-nums}
+.plist .t{font-weight:600;line-height:1.35}
+.plist .m{font-size:.76rem;margin-top:.2rem}
+.conf{border-top:1px solid var(--ink);padding-top:1rem}
+.conf summary{cursor:pointer;font-family:var(--f-map);font-weight:600;font-size:1.05rem;padding:.5rem 0;min-height:2.75rem;display:flex;align-items:center;gap:.5rem;list-style:none}
+.conf summary::-webkit-details-marker{display:none}
+.conf summary::before{content:"";width:.55rem;height:.55rem;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);transition:transform .18s var(--ease-out)}
+.conf[open] summary::before{transform:rotate(45deg)}
+.theses .t{font-weight:600}
+#projects .projects{grid-template-columns:minmax(0,1fr);border-top:1px solid var(--ink)}
+#projects .project:first-child{grid-row:auto}
+.plist{column-count:2;column-gap:clamp(1.5rem,5vw,4rem)}
+.plist li{break-inside:avoid}
+/* PI profile in About */
+.pi-profile{display:grid;grid-template-columns:minmax(0,13rem) minmax(0,1fr);gap:clamp(1.25rem,5vw,3.5rem);align-items:start;border-top:1px solid var(--ink);padding-top:clamp(1.5rem,4vw,2.5rem)}
+.pi-body{display:grid;gap:.9rem;max-width:78ch}
+.pi-body h3{font-size:var(--step2);margin:0}
+.pi-body>p:not(.role):not(.src){color:var(--ink-soft)}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:1rem 0;margin:.4rem 0 0}
+.stats div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent)}
+.stats div:first-child{border-left:0;padding-left:0}
+.stats dt{font-size:.76rem;color:var(--ink-soft)}
+.stats dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.5rem,3vw,2rem);line-height:1;font-variant-numeric:tabular-nums}
+.pi-body .src{font-size:.78rem;color:var(--ink-soft)}
+/* PI link in People */
+.pi-link{display:grid;grid-template-columns:minmax(0,7rem) minmax(0,1fr);gap:1.25rem;align-items:center;text-decoration:none;color:inherit;max-width:32rem;transition:transform .14s var(--ease-out)}
+.pi-link:active{transform:scale(.98)}
+.pi-link h3{font-size:1.2rem;margin:0 0 .15rem}
+.pi-link .more-link{font-family:var(--f-map);font-size:.9rem;font-weight:600;margin-top:.35rem;text-decoration:underline;text-decoration-color:var(--diag);text-underline-offset:4px}
+.member .note{margin-top:.1rem}
+/* nav submenu */
+.has-sub{position:relative;display:flex;align-items:center}
+.sub-toggle{display:grid;place-items:center;width:1.9rem;height:2.1rem;margin-left:-.35rem;border:0;border-radius:6px;background:transparent;color:var(--ink-soft);cursor:pointer;transition:background-color .14s,color .14s}
+.sub-toggle svg{width:14px;height:14px;transition:transform .18s var(--ease-out)}
+.has-sub.open .sub-toggle svg{transform:rotate(180deg)}
+.nav .sub{display:grid;flex-direction:column}
+.sub{list-style:none;margin:0;padding:.35rem;position:absolute;top:calc(100% + .4rem);left:0;min-width:15.5rem;display:grid;gap:2px;background:var(--paper);border:1px solid var(--ink);border-radius:8px;box-shadow:0 12px 28px -16px rgba(20,30,24,.45);transform-origin:top left;opacity:0;visibility:hidden;transform:translateY(-4px) scale(.97);transition:opacity .15s var(--ease-out),transform .18s var(--ease-out),visibility 0s linear .18s;z-index:20}
+.sub::before{content:"";position:absolute;left:0;right:0;top:-.5rem;height:.5rem}
+.has-sub.open .sub{opacity:1;visibility:visible;transform:none;transition:opacity .15s var(--ease-out),transform .18s var(--ease-out),visibility 0s}
+.sub a{padding:.55rem .7rem;border-radius:6px}
+@media (hover:hover) and (pointer:fine) and (min-width:861px){
+  .has-sub:hover .sub{opacity:1;visibility:visible;transform:none;transition:opacity .15s var(--ease-out),transform .18s var(--ease-out),visibility 0s}
+  .sub-toggle:hover{background:var(--stone);color:var(--ink)}
+}
+/* projects */
+.projects{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-rows:auto auto;gap:0 clamp(1.5rem,5vw,4rem);border-top:1px solid var(--ink)}
+.project{display:grid;gap:.7rem;align-content:start;padding:1.6rem 0;border-bottom:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
+.project:first-child{grid-row:span 2}
+.project h3{font-size:clamp(1.25rem,2.4vw,1.6rem);font-stretch:112%;line-height:1.15}
+.project:first-child h3{font-size:clamp(1.4rem,3vw,2rem)}
+.project .desc{color:var(--ink-soft);max-width:62ch}
+.project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
+.project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
+.project .facts div:first-child{border-left:0;padding-left:0}
+.project .facts dt{color:var(--steppe-ink);font-size:.76rem}
+.project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
+.sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}
+.media{color:var(--ink-soft)}
+.more-btn{justify-self:start}
+.pubs b{font-weight:600;color:var(--ink)}
+/* people */
+.pi{display:grid;grid-template-columns:minmax(0,15rem) minmax(0,1fr);gap:clamp(1.25rem,5vw,3.5rem);align-items:end}
+.tile{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:10px;overflow:hidden;background:var(--b2);transition:transform .3s var(--ease-out)}
+.tile canvas{position:absolute;inset:0;width:100%;height:100%}
+.tile .mono{position:absolute;left:.6rem;bottom:.55rem;background:var(--paper);color:var(--ink);font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:1.05rem;letter-spacing:.06em;padding:.15rem .5rem;border-radius:999px;font-size:.95rem;padding:.2rem .6rem}
+.role{font-family:var(--f-map);font-size:.88rem;font-weight:600;color:var(--leaf)}
+.pi h3{font-size:var(--step2);margin-bottom:.3rem}
+.pi .role{margin-bottom:.75rem}
+.member .role{margin-top:.2rem}
+.pi .aff{color:var(--ink-soft);max-width:52ch}
+.team{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(.9rem,2.4vw,1.5rem)}
+.member{display:grid;gap:.65rem;align-content:start}
+.member h3{font-size:1.05rem;font-stretch:100%;line-height:1.2}
+.member .note{font-size:.88rem;color:var(--ink-soft);line-height:1.4}
+.edu{list-style:none;margin:.9rem 0 0;padding:.75rem 0 0;border-top:1px solid color-mix(in srgb,var(--ink) 25%,transparent);display:grid;gap:.3rem;color:var(--ink-soft)}
+.groups{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(1.5rem,5vw,4rem);align-items:start}
+.roster{list-style:none;margin:.75rem 0 0;padding:0;border-top:1px solid var(--ink)}
+.roster li{display:grid;gap:.1rem;padding:.75rem 0;border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent)}
+.roster b{font-family:var(--f-map);font-weight:600;font-size:1rem}
+.roster .note{font-size:.9rem;color:var(--ink-soft);line-height:1.4}
+.roster.collab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:2rem}
+.join{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem;padding-top:1.4rem;border-top:1px solid var(--ink)}
+.join p{font-size:1.1rem}
+.join p{max-width:52ch}
+
+/* contact: the lowland */
+.contact{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(2rem,6vw,5rem);align-items:start}
+.band-lowland .sec-title{color:var(--on-lowland)}
+.band-lowland .lede{color:var(--on-lowland-soft)}
+.mail{display:grid;gap:.9rem}
+.mail .addr{font-family:var(--f-data);font-size:clamp(1rem,3.6vw,1.35rem);color:var(--on-lowland);overflow-wrap:anywhere;-webkit-user-select:all;user-select:all}
+.band-lowland .btn.solid{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.band-lowland .btn.line{border-color:var(--on-lowland-soft);color:var(--on-lowland)}
+.visit{display:grid;gap:1.1rem;border-top:1px solid var(--on-lowland-soft);padding-top:1.1rem}
+.visit .k{font-family:var(--f-map);font-size:.85rem;font-weight:600;color:var(--on-lowland-soft);margin-bottom:.15rem}
+.visit p{color:var(--on-lowland)}
+.visit .data{color:var(--diag-on-low)}
+.toast{font-family:var(--f-map);font-size:.9rem;color:var(--diag-on-low);min-height:1.4em}
+
+footer{background:#e4ebe6;color:var(--ink);border-top:1px solid var(--rule)}
+footer .wrap{align-items:center;padding-block:1.6rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.75rem 1.5rem;font-family:var(--f-map);font-size:.88rem;padding-bottom:calc(1.6rem + env(safe-area-inset-bottom,0px))}
+footer .data{opacity:.8}
+
+/* hover only where a precise pointer exists */
+@media (hover:hover) and (pointer:fine){
+  .nav a:hover{background:var(--stone);color:var(--ink)}
+  .lang button:hover:not([aria-pressed="true"]){background:var(--stone);color:var(--ink)}
+  .btn.solid:hover{background:color-mix(in srgb,var(--ink) 86%,var(--b0))}
+  .btn.line:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
+  .chip:hover:not([aria-pressed="true"]){background:color-mix(in srgb,var(--steppe-ink) 12%,transparent)}
+  .band-lowland .btn.solid:hover{background:color-mix(in srgb,var(--ink) 86%,var(--b0))}
+  .band-lowland .btn.line:hover{background:rgba(27,38,32,.06)}
+  .pubs a:hover,.member a:hover{text-decoration-thickness:3px}
+}
+
+/* ---------- tablet ---------- */
+@media (max-width:980px){
+  .team{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .projects,.groups,.topics{grid-template-columns:minmax(0,1fr)}
+  .stats{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .stats div:nth-child(3n+1){border-left:0;padding-left:0}
+  .stats div:nth-child(3n+2),.stats div:nth-child(3n+3){border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent);padding-left:1rem}
+  .plist{column-count:1}
+  .methods{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about .photo{max-width:30rem}
+  .project:first-child{grid-row:auto}
+  .about,.contact{grid-template-columns:minmax(0,1fr)}
+}
+/* ---------- phone: legend becomes a sheet ---------- */
+@media (max-width:860px){
+  .menu-btn{display:grid}
+  .top .bar{flex-wrap:wrap;gap:.5rem}
+  .nav{display:none;order:3;width:100%;padding:.25rem 0 1rem;max-height:calc(100dvh - 4.5rem - env(safe-area-inset-top,0px));overflow-y:auto;overscroll-behavior:contain}
+  .top.open .nav{display:block;animation:sheet .26s var(--ease-out)}
+  @keyframes sheet{from{transform:translateY(-6px);opacity:.4}to{transform:none;opacity:1}}
+  .nav ul{flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+  .nav a{font-size:1.1rem;padding:.95rem .5rem;border-radius:0;border-bottom:1px solid var(--rule)}
+  .nav a .key{width:1rem;height:1rem}
+  .nav .sheet-mail{display:flex;margin-top:1rem}
+  .has-sub{display:block}
+  .has-sub>a{border-bottom:1px solid var(--rule)}
+  .sub-toggle{display:none}
+  .sub{position:static;opacity:1;visibility:visible;transform:none;border:0;box-shadow:none;background:transparent;padding:0 0 0 1.4rem;min-width:0;transition:none}
+  .sub::before{display:none}
+  .sub a{font-size:1rem;padding:.75rem .5rem;border-radius:0}
+  .nav .sheet-mail .btn{width:100%}
+}
+@media (max-width:760px){
+  .hero{align-items:end;min-height:clamp(38rem,92svh,46rem)}
+  .hero>.wrap{padding-block:9rem 8.25rem}
+  .cartouche{max-width:none}
+  .cartouche .thesis{font-size:1.15rem}
+  .actions .btn{flex:1 1 9rem}
+  .hero>.wrap{justify-items:stretch}
+  .hero-actions{display:grid;grid-template-columns:1.2fr 1fr;gap:.6rem}
+  .ha{white-space:nowrap}
+  .ha{justify-content:space-between;font-size:.98rem}
+  .ha-alt{justify-content:flex-start}
+  .legend .note{margin-left:0}
+  .studies{grid-template-columns:minmax(0,1fr)}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-padding-inline:max(16px,env(safe-area-inset-left,0px));scroll-snap-type:x proximity}
+  .filters::-webkit-scrollbar{display:none}
+  .chip{scroll-snap-align:start}
+  .pi{grid-template-columns:minmax(0,9rem) minmax(0,1fr);align-items:center}
+  .pi h3{font-size:1.4rem}
+  .team{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .pubs li,.plist li{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .pi-profile{grid-template-columns:minmax(0,1fr)}
+  .pi-profile .tile{max-width:9rem}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div:nth-child(n){border-left:1px solid color-mix(in srgb,var(--ink) 25%,transparent);padding-left:1rem}
+  .stats div:nth-child(2n+1){border-left:0;padding-left:0}
+  .project .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .project .facts div:nth-child(n){border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent);padding-left:1rem}
+  .project .facts div:nth-child(2n+1){border-left:0;padding-left:0}
+  .roster.collab{grid-template-columns:minmax(0,1fr)}
+  .methods{grid-template-columns:minmax(0,1fr)}
+  .more-btn{width:100%}
+  .join .btn{width:100%}
+  .mail .actions .btn{flex:1 1 100%}
+}
+@media (max-width:420px){
+  .hero-actions{grid-template-columns:minmax(0,1fr)}
+  .brand b{font-size:.72rem;letter-spacing:.06em}
+  .brand-mark{width:33px;height:38px}
+  .lang button{min-width:2.4rem}
+  .pi{grid-template-columns:minmax(0,1fr)}
+  .pi .tile{max-width:10rem}
+}
+</style>
+
+</head>
+<body>
+<header class="top" id="hdr">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Plant Biogeography · Bitki Biyocoğrafyası">
+        <img class="brand-mark" src="brand/logo.svg?v=3" width="38" height="44" alt="">
+        <b class="en">Plant<br>Biogeography</b><b class="tr">Bitki<br>Biyocoğrafyası</b>
+      </a>
+      <nav class="nav" id="nav" aria-label="Sections">
+        <ul>
+          <li class="has-sub" id="nav-about">
+            <a href="about.html" data-top="about"><span class="key" style="background:var(--stone)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-about"><span class="en vh">About: sections</span><span class="tr vh">Hakkımızda: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-about">
+              <li><a href="about.html" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">The laboratory</span><span class="tr">Laboratuvar</span></a></li>
+              <li><a href="about.html#methods" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">How we work</span><span class="tr">Nasıl çalışıyoruz</span></a></li>
+              <li><a href="about.html#pi" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">Prof. Dr. Barış Özüdoğru</span><span class="tr">Prof. Dr. Barış Özüdoğru</span></a></li>
+              <li><a href="about.html#habitat-heldreichia" data-parent="about"><span class="key" style="background:var(--paper)"></span><span class="en">Field photographs</span><span class="tr">Arazi fotoğrafları</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub" id="nav-research">
+            <a href="research.html" data-top="research"><span class="key" style="background:var(--steppe)"></span><span class="en">Research</span><span class="tr">Araştırma</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-research"><span class="en vh">Research: sections</span><span class="tr vh">Araştırma: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-research">
+              <li><a href="index.html#highlights" data-parent="research"><span class="key" style="background:var(--paper)"></span><span class="en">Highlights</span><span class="tr">Öne çıkanlar</span></a></li>
+              <li><a href="#topics" data-parent="research"><span class="key" style="background:var(--steppe)"></span><span class="en">Main research topics</span><span class="tr">Ana çalışma konuları</span></a></li>
+              <li><a href="#projects" data-parent="research"><span class="key" style="background:var(--sand2)"></span><span class="en">Projects</span><span class="tr">Projeler</span></a></li>
+              <li><a href="publications.html" data-parent="research"><span class="key" style="background:var(--butter)"></span><span class="en">Publications</span><span class="tr">Yayınlar</span></a></li>
+              <li><a href="publications.html#theses" data-parent="research"><span class="key" style="background:var(--butter2)"></span><span class="en">Theses</span><span class="tr">Tezler</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub" id="nav-people">
+            <a href="people.html" data-top="people"><span class="key" style="background:var(--foothill)"></span><span class="en">People</span><span class="tr">Ekip</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-people"><span class="en vh">People: sections</span><span class="tr vh">Ekip: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-people">
+              <li><a href="people.html#team" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Current team</span><span class="tr">Güncel ekip</span></a></li>
+              <li><a href="people.html#alumni" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Alumni</span><span class="tr">Mezunlar</span></a></li>
+              <li><a href="people.html#collaborations" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Collaborations</span><span class="tr">İş birlikleri</span></a></li>
+            </ul>
+          </li>
+          <li class="has-sub" id="nav-contact">
+            <a href="contact.html" data-top="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a>
+            <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-contact"><span class="en vh">Contact: sections</span><span class="tr vh">İletişim: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
+            <ul class="sub" id="sub-contact">
+              <li><a href="contact.html" data-parent="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Write to the lab</span><span class="tr">Laboratuvara yazın</span></a></li>
+              <li><a href="contact.html#visit" data-parent="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Address and phone</span><span class="tr">Adres ve telefon</span></a></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="sheet-mail"><a class="btn solid" href="mailto:barisoz@hacettepe.edu.tr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5"/><path d="m4 6 8 7 8-7"/></svg><span class="en">E-mail the lab</span><span class="tr">Laboratuvara e-posta gönder</span></a></div>
+      </nav>
+      <div class="lang" role="group" aria-label="Language / Dil">
+        <button type="button" id="lang-tr" data-lang="tr" aria-pressed="false" lang="tr">TR</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="true" lang="en">EN</button>
+      </div>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">
+        <span class="en" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menu</span><span class="tr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menü</span>
+        <svg class="burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <svg class="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- RESEARCH -->
+  <section class="band band-steppe" id="research" aria-labelledby="research-h">
+    <div class="wrap">
+      <h1 class="sec-title" id="research-h"><span class="en">Research</span><span class="tr">Araştırma</span></h1>
+      <div class="subsec" id="topics" aria-labelledby="topics-h">
+        <h3 class="sub-head" id="topics-h"><span class="en">Main research topics</span><span class="tr">Ana çalışma konuları</span></h3>
+        <p class="lede topics-intro"><span class="en">Our research explores the evolutionary, ecological and historical processes that shape plant diversity and its geographical distribution. With Anatolia as our primary geographical focus and Brassicaceae as our main model system, we investigate plant diversity across multiple spatial and temporal scales, from genomic variation within populations to the evolutionary history and geographical assembly of regional floras.</span><span class="tr">Araştırmalarımız bitki çeşitliliğini ve coğrafi dağılımını biçimlendiren evrimsel, ekolojik ve tarihsel süreçleri inceler. Anadolu'yu temel coğrafi odak, Brassicaceae'yi ana model sistem olarak alarak bitki çeşitliliğini popülasyon içi genomik varyasyondan bölgesel floraların evrimsel geçmişine ve coğrafi oluşumuna kadar farklı mekânsal ve zamansal ölçeklerde araştırırız.</span></p>
+        <div class="topics">
+        <article class="topic">
+          <h4><span class="en">Phylogenomics, systematics and evolution of Brassicaceae</span><span class="tr">Brassicaceae filogenomiği, sistematiği ve evrimi</span></h4>
+          <p class="desc"><span class="en">We investigate the evolutionary relationships, diversification and taxonomic boundaries of Brassicaceae using nuclear, plastid and genome-scale data. Our research encompasses phylogenetic reconstruction at different taxonomic levels, from closely related species and complex genera to tribes and the family as a whole. Through international collaborations, we also contribute to understanding genome evolution, whole-genome duplication, polyploidy, reticulate evolution and the global evolutionary history of Brassicaceae.</span><span class="tr">Brassicaceae'nin evrimsel akrabalıklarını, çeşitlenmesini ve taksonomik sınırlarını çekirdek, plastid ve genom ölçekli verilerle araştırırız. Çalışmalarımız yakın akraba türlerden ve karmaşık cinslerden tribuslara ve familyanın bütününe kadar farklı taksonomik düzeylerde filogenetik rekonstrüksiyonu kapsar. Uluslararası iş birlikleriyle genom evrimi, tüm genom duplikasyonu, poliploidi, retikülat evrim ve Brassicaceae'nin küresel evrimsel geçmişinin anlaşılmasına da katkı sağlarız.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> <a href="https://doi.org/10.1016/j.cub.2023.08.026" target="_blank" rel="noopener">Current Biology (2023)</a> · <a href="https://doi.org/10.1093/molbev/msaa327" target="_blank" rel="noopener">Molecular Biology and Evolution (2021)</a> · <a href="https://doi.org/10.3417/2019347" target="_blank" rel="noopener">Annals of the Missouri Botanical Garden (2019)</a></p>
+        </article>
+        <article class="topic">
+          <h4><span class="en">Historical biogeography and floristic assembly</span><span class="tr">Tarihsel biyocoğrafya ve floristik oluşum</span></h4>
+          <p class="desc"><span class="en">We investigate the geographical origins, dispersal histories and diversification of plant lineages, with particular emphasis on Anatolia and the eastern Mediterranean. Our research explores how geological history, climatic changes, ecological specialisation, and geographical barriers and corridors have shaped the evolutionary history and present-day distribution of plants. We are particularly interested in the historical connections between the Anatolian, Mediterranean, Balkan, Irano-Turanian and Caucasian floras and their contributions to the assembly of Anatolian plant diversity.</span><span class="tr">Anadolu ve Doğu Akdeniz'e özel önem vererek bitki soy hatlarının coğrafi kökenlerini, yayılım geçmişlerini ve çeşitlenmesini araştırırız. Jeolojik geçmişin, iklim değişimlerinin, ekolojik özelleşmenin ve coğrafi engel ile koridorların bitkilerin evrimsel geçmişini ve bugünkü dağılımını nasıl biçimlendirdiğini inceleriz. Özellikle Anadolu, Akdeniz, Balkan, İran-Turan ve Kafkas floraları arasındaki tarihsel bağlantılar ve bunların Anadolu bitki çeşitliliğinin oluşumuna katkıları ilgi alanımızdadır.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> <a href="https://doi.org/10.1111/jse.12749" target="_blank" rel="noopener"><i>Ricotia</i> · Journal of Systematics and Evolution (2022)</a> · <i>Bornmuellera</i> · Turkish Journal of Botany (2020) · <a href="https://doi.org/10.55730/1300-008X.2732" target="_blank" rel="noopener"><i>Iberis simplex</i> · Turkish Journal of Botany (2022)</a> · <a href="https://doi.org/10.1007/s00606-026-02013-z" target="_blank" rel="noopener"><i>Pinguicula</i> · Plant Systematics and Evolution (2026)</a></p>
+        </article>
+        <article class="topic">
+          <h4><span class="en">Population genomics, speciation and species delimitation</span><span class="tr">Popülasyon genomiği, türleşme ve tür sınırlandırması</span></h4>
+          <p class="desc"><span class="en">We use genome-wide genetic data to investigate population structure, genetic differentiation, gene flow, hybridisation and the evolutionary processes underlying species formation. By integrating genomic, morphological, ecological and geographical evidence, we aim to resolve species and subspecies boundaries in taxonomically complex plant groups. Our research also examines the genomic basis of phenotypic variation and the potential role of environmental heterogeneity in population differentiation.</span><span class="tr">Popülasyon yapısını, genetik farklılaşmayı, gen akışını, hibritleşmeyi ve tür oluşumunun altında yatan evrimsel süreçleri genom çapındaki genetik verilerle araştırırız. Genomik, morfolojik, ekolojik ve coğrafi kanıtları birleştirerek taksonomik olarak karmaşık bitki gruplarında tür ve alttür sınırlarını çözmeyi amaçlarız. Fenotipik varyasyonun genomik temelini ve çevresel heterojenliğin popülasyon farklılaşmasındaki olası rolünü de inceleriz.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> <a href="https://doi.org/10.1016/j.ympev.2025.108518" target="_blank" rel="noopener"><i>Heldreichia bupleurifolia</i> · Molecular Phylogenetics and Evolution (2026)</a> · <a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener"><i>Heldreichia bupleurifolia</i> · Annals of Botany (2026)</a></p>
+        </article>
+        <article class="topic">
+          <h4><span class="en">Alpine plant evolution and Quaternary climate change</span><span class="tr">Alpin bitki evrimi ve Kuvaterner iklim değişimi</span></h4>
+          <p class="desc"><span class="en">We investigate how alpine and subalpine plants have responded to past climatic fluctuations and how these historical processes have shaped their contemporary distributions and genetic diversity. By integrating phylogeography, population genomics and ecological niche modelling, we explore historical range dynamics, glacial refugia, demographic history and ecological differentiation. Our research also seeks to identify genomic signatures of environmental adaptation and to understand the vulnerability of high-mountain plant diversity to ongoing climate change.</span><span class="tr">Alpin ve subalpin bitkilerin geçmiş iklim salınımlarına nasıl tepki verdiğini ve bu tarihsel süreçlerin bugünkü dağılımlarını ve genetik çeşitliliklerini nasıl biçimlendirdiğini araştırırız. Filocoğrafya, popülasyon genomiği ve ekolojik niş modellemesini birleştirerek tarihsel yayılış dinamiklerini, buzul dönemi sığınaklarını, demografik geçmişi ve ekolojik farklılaşmayı inceleriz. Çevresel adaptasyonun genomik izlerini belirlemeyi ve yüksek dağ bitki çeşitliliğinin süregelen iklim değişimi karşısındaki kırılganlığını anlamayı da amaçlarız.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> <a href="https://doi.org/10.1093/biolinnean/blaa147" target="_blank" rel="noopener"><i>Noccaea iberidea</i> · Biological Journal of the Linnean Society (2020)</a> · <a href="https://doi.org/10.1093/aob/mcaf223" target="_blank" rel="noopener"><i>Heldreichia bupleurifolia</i> · Annals of Botany (2026)</a></p>
+        </article>
+        <article class="topic">
+          <h4><span class="en">Biodiversity patterns, bioregionalisation and conservation</span><span class="tr">Biyoçeşitlilik örüntüleri, biyobölgeleme ve koruma</span></h4>
+          <p class="desc"><span class="en">We investigate spatial patterns of plant species richness, endemism, taxonomic and phylogenetic diversity, and floristic turnover. Using georeferenced herbarium records, environmental datasets and phylogenetic information, we explore the ecological, historical and evolutionary processes underlying the geographical organisation of plant diversity. Our research also addresses floristic and phylogenetic bioregionalisation, the identification of biodiversity hotspots, and the implications of these patterns for conservation planning in Türkiye.</span><span class="tr">Bitki tür zenginliğinin, endemizmin, taksonomik ve filogenetik çeşitliliğin ve floristik değişimin mekânsal örüntülerini araştırırız. Koordinatlı herbaryum kayıtları, çevresel veri setleri ve filogenetik bilgiyle bitki çeşitliliğinin coğrafi düzenlenmesinin altında yatan ekolojik, tarihsel ve evrimsel süreçleri inceleriz. Floristik ve filogenetik biyobölgeleme, biyoçeşitlilik sıcak noktalarının belirlenmesi ve bu örüntülerin Türkiye'de koruma planlaması açısından anlamı da çalışma alanlarımız arasındadır.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> <a href="https://doi.org/10.1002/ece3.73246" target="_blank" rel="noopener">Brassicaceae · Ecology and Evolution (2026)</a> · <a href="https://doi.org/10.55730/1300-008X.2765" target="_blank" rel="noopener"><i>Noccaea vesicaria</i> · Turkish Journal of Botany (2023)</a></p>
+        </article>
+        <article class="topic topic-wide">
+          <h4><span class="en">Integrative taxonomy and the flora of Türkiye</span><span class="tr">Bütünleştirici taksonomi ve Türkiye florası</span></h4>
+          <p class="desc"><span class="en">We contribute to the documentation and understanding of the plant diversity of Türkiye through extensive fieldwork, herbarium studies, comparative morphology, anatomy, molecular systematics and integrative taxonomic approaches. Our research includes taxonomic revisions, nomenclatural studies, species delimitation and the description of taxa new to science. Our taxonomic contributions include the description of the crucifer genus <i>Iljinskaea</i> and new plant species such as <i>Noccaea bulutii</i>, <i>Hesperis sivasica</i>, <i>Ricotia candiriana</i>, <i>Allium sadikerikii</i>, <i>Erodium hakangurii</i>, <i>Campanula dersimensis</i> and <i>Umbilicus choripetalus</i>. We also contribute to national and international floristic and taxonomic initiatives.</span><span class="tr">Kapsamlı arazi çalışmaları, herbaryum çalışmaları, karşılaştırmalı morfoloji, anatomi, moleküler sistematik ve bütünleştirici taksonomik yaklaşımlarla Türkiye bitki çeşitliliğinin belgelenmesine ve anlaşılmasına katkı sağlarız. Çalışmalarımız taksonomik revizyonları, nomenklatür çalışmalarını, tür sınırlandırmasını ve bilim için yeni taksonların tanımlanmasını kapsar. Taksonomik katkılarımız arasında turpgil cinsi <i>Iljinskaea</i> ile <i>Noccaea bulutii</i>, <i>Hesperis sivasica</i>, <i>Ricotia candiriana</i>, <i>Allium sadikerikii</i>, <i>Erodium hakangurii</i>, <i>Campanula dersimensis</i> ve <i>Umbilicus choripetalus</i> gibi yeni türlerin tanımlanması yer alır. Ulusal ve uluslararası floristik ve taksonomik girişimlere de katkı veririz.</span></p>
+          <p class="refs data"><b><span class="en">Selected publication outlets</span><span class="tr">Başlıca yayın organları</span>:</b> Phytotaxa · Turkish Journal of Botany · Willdenowia · Annales Botanici Fennici</p>
+        </article>
+        <article class="topic">
+          <h4><span class="en">Steppe ecology, functional traits and disturbance</span><span class="tr">Bozkır ekolojisi, fonksiyonel karakterler ve bozulma</span></h4>
+          <p class="desc"><span class="en">We investigate the ecological processes that shape plant communities in Anatolian steppe ecosystems, with particular emphasis on seed germination, plant regeneration, functional traits and responses to environmental disturbance. Our research explores the role of fire and other disturbance processes in shaping community structure, species composition and ecosystem dynamics in Central Anatolian steppes.</span><span class="tr">Tohum çimlenmesi, bitki rejenerasyonu, fonksiyonel karakterler ve çevresel bozulmaya verilen tepkilere özel önem vererek Anadolu bozkır ekosistemlerinde bitki topluluklarını biçimlendiren ekolojik süreçleri araştırırız. Yangının ve diğer bozulma süreçlerinin İç Anadolu bozkırlarında topluluk yapısını, tür kompozisyonunu ve ekosistem dinamiklerini biçimlendirmedeki rolünü inceleriz.</span></p>
+          <p class="refs data"><b><span class="en">Selected publications</span><span class="tr">Seçilmiş yayınlar</span>:</b> Journal of Arid Environments (2015) · Seed Science Research (2017) · Folia Geobotanica (2021) · <a href="https://doi.org/10.55730/1300-008x.2894" target="_blank" rel="noopener">Turkish Journal of Botany (2026)</a></p>
+        </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- PROJECTS -->
+  <section class="band band-sand2" id="projects" aria-labelledby="projects-h">
+    <div class="wrap">
+      <h3 class="sub-head" id="projects-h"><span class="en">Projects</span><span class="tr">Projeler</span></h3>
+      <div class="projects">
+        <div class="feature-wrap">
+        <article class="project feature">
+          <h4><span class="en">How Anatolian high-mountain plants responded to Quaternary climate change</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişimlerine tepkisi</span></h4>
+          <p class="desc"><span class="en">Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, <i>Heldreichia bupleurifolia</i> (all six infraspecific taxa), <i>Noccaea oppositifolia</i> and <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses <i>Arabidopsis thaliana</i> as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.</span><span class="tr">Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, <i>Heldreichia bupleurifolia</i> (altı alttürün tamamı), <i>Noccaea oppositifolia</i> ve <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve <i>Arabidopsis thaliana</i>'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.</span></p>
+          <p class="m data"><span class="en">TÜBİTAK 1001 · 2021–2024 · Principal investigator: Prof. Dr. Barış Özüdoğru</span><span class="tr">TÜBİTAK 1001 · 2021–2024 · Yürütücü: Prof. Dr. Barış Özüdoğru</span></p>
+          <dl class="facts data">
+            <div><dt><span class="en">Taxa</span><span class="tr">Takson</span></dt><dd>8</dd></div>
+            <div><dt><span class="en">Populations</span><span class="tr">Popülasyon</span></dt><dd>60–70</dd></div>
+            <div><dt><span class="en">Individuals</span><span class="tr">Birey</span></dt><dd>~700</dd></div>
+            <div><dt><span class="en">Methods</span><span class="tr">Yöntem</span></dt><dd>RADseq · ENM</dd></div>
+          </dl>
+        </article>
+          <figure class="side-photo"><img src="img/heldreichia-flower-1000.jpg" srcset="img/heldreichia-flower-600.jpg 600w, img/heldreichia-flower-1000.jpg 1000w" sizes="(max-width: 980px) 92vw, 30vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Heldreichia in flower among rust-coloured boulders"><figcaption class="ptag"><i>Heldreichia</i></figcaption></figure>
+        </div>
+        <div class="timeline">
+          <div class="tl-key">
+            <span class="k tub">TÜBİTAK</span><span class="k bap"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span></span><span class="k oth"><span class="en">Other</span><span class="tr">Diğer</span></span><span class="k pi-k"><span class="en">Led by Barış Özüdoğru</span><span class="tr">Yürütücü: Barış Özüdoğru</span></span>
+          </div>
+          <div class="tl-axis" aria-hidden="true"><div class="tl-axis-in"><span style="left:0.00%">2009</span><span style="left:16.67%">2012</span><span style="left:33.33%">2015</span><span style="left:50.00%">2018</span><span style="left:66.67%">2021</span><span style="left:83.33%">2024</span><span style="left:100.00%">2027</span></div></div>
+          <ol class="tl-list">
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye</span><span class="tr">Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2023–2024"><span class="tl-bar end" style="left:77.78%;width:11.11%"><span class="tl-yr">2023–2024</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Responses of Anatolian high-mountain plants to Quaternary climate change, studied with genomic methods and niche modelling</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişikliklerine verdiği cevapların genomik yöntemler ve niş modellemesi yaklaşımıyla araştırılması</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+            </li>
+            <li class="tl-row tub">
+              <div class="tl-label"><p class="t"><span class="en">Revision of the genus <i>Asyneuma</i> (Campanulaceae) in Türkiye</span><span class="tr">Türkiye <i>Asyneuma</i> (Campanulaceae) cinsinin revizyonu</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Molecular phylogeny and biogeography of <i>Asphodeline</i></span><span class="tr"><i>Asphodeline</i> cinsinin moleküler filogenisi ve biyocoğrafyası</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2021–2022"><span class="tl-bar" style="left:66.67%;width:11.11%"><span class="tl-yr">2021–2022</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Contributions to the flora of Türkiye</span><span class="tr">Türkiye florasına katkılar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2020–2022"><span class="tl-bar" style="left:61.11%;width:16.67%"><span class="tl-yr">2020–2022</span></span></div>
+            </li>
+            <li class="tl-row tub">
+              <div class="tl-label"><p class="t"><span class="en">Functional traits and their relationships in a Central Anatolian steppe plant community</span><span class="tr">İç Anadolu bozkırında bir bitki komünitesinde fonksiyonel karakterler ve aralarındaki ilişkiler</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2020–2021"><span class="tl-bar" style="left:61.11%;width:11.11%"><span class="tl-yr">2020–2021</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Population structure, morphometric species delimitation and a DNA bank for <i>Pseudosempervivum</i></span><span class="tr">Kaşıkotu (<i>Pseudosempervivum</i>) türlerinin popülasyon yapıları, morfometrik tür sınırlandırması ve DNA bankası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2019–2020"><span class="tl-bar" style="left:55.56%;width:11.11%"><span class="tl-yr">2019–2020</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Iberis simplex</i></span><span class="tr">Civanotunun (<i>Iberis simplex</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2018–2021"><span class="tl-bar" style="left:50.00%;width:22.22%"><span class="tl-yr">2018–2021</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Molecular phylogenetics of the tribes Conringieae and Coluteocarpeae</span><span class="tr">Conringieae ve Coluteocarpeae tribusları üzerine moleküler filogenetik çalışmalar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2018–2019"><span class="tl-bar" style="left:50.00%;width:11.11%"><span class="tl-yr">2018–2019</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogenetic relationships in <i>Noccaea</i> from high-throughput genetic data</span><span class="tr">Yüksek çözünürlüklü genetik veriyle <i>Noccaea</i> cinsindeki filogenetik ilişkiler</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2017–2019"><span class="tl-bar" style="left:44.44%;width:16.67%"><span class="tl-yr">2017–2019</span></span></div>
+            </li>
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeny of <i>Scilla</i>, <i>Prospero</i> and <i>Puschkinia</i> (Asparagaceae) in Türkiye</span><span class="tr">Türkiye'deki <i>Scilla</i>, <i>Prospero</i> ve <i>Puschkinia</i> (Asparagaceae) taksonlarının filogenisi</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2017–2018"><span class="tl-bar" style="left:44.44%;width:11.11%"><span class="tl-yr">2017–2018</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Noccaea iberidea</i></span><span class="tr">Ak kayagülünün (<i>Noccaea iberidea</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2016–2017"><span class="tl-bar" style="left:38.89%;width:11.11%"><span class="tl-yr">2016–2017</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Establishing phylogenetic and phylogeographic methods in botany</span><span class="tr">Filogenetik ve filocoğrafik yöntemlerin botanikte kullanımı</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2016"><span class="tl-bar" style="left:38.89%;width:5.56%"><span class="tl-yr">2016</span></span></div>
+            </li>
+            <li class="tl-row bap lead">
+              <div class="tl-label"><p class="t"><span class="en">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i></span><span class="tr"><i>Thlaspi aghricum</i>'un filogenetik pozisyonu ve taksonomik ataması</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Molecular biogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin moleküler biyocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Software for molecular systematics (PAUP, Geneious, CodonCode Aligner)</span><span class="tr">Moleküler sistematik için yazılım altyapısı (PAUP, Geneious, CodonCode Aligner)</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2014–2015"><span class="tl-bar" style="left:27.78%;width:11.11%"><span class="tl-yr">2014–2015</span></span></div>
+            </li>
+            <li class="tl-row bap">
+              <div class="tl-label"><p class="t"><span class="en">Phylogeny and phylogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin filogeni ve filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2013–2016"><span class="tl-bar" style="left:22.22%;width:22.22%"><span class="tl-yr">2013–2016</span></span></div>
+            </li>
+            <li class="tl-row oth">
+              <div class="tl-label"><p class="t"><span class="en">Nature conservation and biodiversity</span><span class="tr">Doğa koruma ve biyoçeşitlilik</span></p><p class="m"><span class="en">Presidency of Strategy and Budget</span><span class="tr">Strateji ve Bütçe Başkanlığı</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2009–"><span class="tl-bar end" style="left:0.00%;width:100.00%"><span class="tl-yr">2009–</span></span></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="plate flip" id="habitat-alpine" aria-label="Habitat of Noccaea and Phyllolepidium: a high limestone cirque with late snow patches and a small lake">
+    <div class="wrap">
+      <div class="plate-txt">
+        <h3 class="plate-h"><span class="en">Field photographs</span><span class="tr">Arazi fotoğrafları</span></h3>
+        <p class="plate-d"><span class="en">Habitat of <i>Noccaea</i> and <i>Phyllolepidium</i>.</span><span class="tr"><i>Noccaea</i> ve <i>Phyllolepidium</i> habitatı.</span></p>
+      </div>
+      <figure class="plate-img"><img src="img/alpine-habitat-1200.jpg" srcset="img/alpine-habitat-700.jpg 700w, img/alpine-habitat-1200.jpg 1200w" sizes="(max-width: 860px) 92vw, 46vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Habitat of Noccaea and Phyllolepidium: a high limestone cirque with late snow patches and a small lake"></figure>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span class="foot-id"><img class="foot-mark" src="brand/logo.svg?v=3" width="34" height="40" alt=""><span><span class="en">© 2026 Plant Biogeography Laboratory · Hacettepe University</span><span class="tr">© 2026 Bitki Biyocoğrafyası Laboratuvarı · Hacettepe Üniversitesi</span></span></span>
+    <span class="credit"><span class="en">Photographs: Plant Biogeography Lab</span><span class="tr">Fotoğraflar: Bitki Biyocoğrafyası Laboratuvarı</span></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement;
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- language ---------- */
+  var listeners=[];
+  function setLang(l){
+    root.setAttribute('data-lang',l);root.lang=l;
+    var pt=root.dataset['title'+(l==='tr'?'Tr':'En')];document.title=(pt?pt+' · ':'')+(l==='tr'?'Bitki Biyocoğrafyası':'Plant Biogeography');
+    document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
+    try{localStorage.setItem('pb-lang',l)}catch(e){}
+    listeners.forEach(function(f){f()});
+  }
+  var saved=null;try{saved=localStorage.getItem('pb-lang')}catch(e){}
+  setLang(saved||((navigator.language||'').toLowerCase().indexOf('tr')===0?'tr':'en'));
+  document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+
+  /* ---------- menu sheet ---------- */
+  var hdr=document.getElementById('hdr'),mb=document.getElementById('menu-btn');
+  function setMenu(o){hdr.classList.toggle('open',o);mb.setAttribute('aria-expanded',o?'true':'false')}
+  mb.addEventListener('click',function(){setMenu(!hdr.classList.contains('open'))});
+  document.querySelectorAll('#nav a').forEach(function(a){a.addEventListener('click',function(){setMenu(false)})});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&hdr.classList.contains('open')){setMenu(false);mb.focus()}});
+  matchMedia('(min-width: 861px)').addEventListener('change',function(m){if(m.matches)setMenu(false)});
+
+  /* ---------- study filter ---------- */
+  var chips=document.querySelectorAll('.chip');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});
+    document.querySelectorAll('#studies .study').forEach(function(s){s.hidden=!(c.dataset.f==='all'||s.dataset.s===c.dataset.f)});
+  })});
+
+  /* ---------- show all publications ---------- */
+  var mp=document.getElementById('more-pubs');
+  if(mp)mp.addEventListener('click',function(){
+    var open=mp.getAttribute('aria-expanded')!=='true';
+    document.querySelectorAll('#pubs li.more').forEach(function(li,i){li.hidden=!open;li.classList.remove('rise');if(open&&!reduce&&i<14){li.style.animationDelay=(i*28)+'ms';li.classList.add('rise')}});
+    mp.setAttribute('aria-expanded',open?'true':'false');
+    mp.querySelector('.en').textContent=open?'Show fewer':'Show all 66 articles';
+    mp.querySelector('.tr').textContent=open?'Daha az göster':'66 makalenin tamamını göster';
+    if(!open)document.getElementById('publications').scrollIntoView({behavior:reduce?'auto':'smooth'});
+  });
+
+  /* ---------- small motion ---------- */
+  if(!reduce&&'IntersectionObserver' in window){
+    root.classList.add('anim');
+    var seen=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('seen');seen.unobserve(e.target)}})},{rootMargin:'0px 0px -20% 0px'});
+    document.querySelectorAll('section.band,.photo-band,.plate').forEach(function(b){seen.observe(b)});
+  }
+
+  /* ---------- publication search & filters ---------- */
+  if(document.getElementById('pub-q')){
+  var pq=document.getElementById('pub-q'),plist=[].slice.call(document.querySelectorAll('#pubs > li')),pf='',py='',pc=document.getElementById('pub-count');
+  plist.forEach(function(li){li._t=li.textContent.toLocaleLowerCase('tr')});
+  function applyPubs(){
+    var q=pq.value.trim().toLocaleLowerCase('tr'),active=q||pf||py,shown=0,tr=root.dataset.lang==='tr';
+    plist.forEach(function(li){
+      var ok=(!q||li._t.indexOf(q)>-1)&&(!pf||(' '+li.dataset.tags+' ').indexOf(' '+pf+' ')>-1)&&(!py||li.dataset.y===py);
+      li.hidden=active?!ok:li.classList.contains('more')&&mp.getAttribute('aria-expanded')!=='true';
+      if(!li.hidden)shown++;
+    });
+    mp.hidden=!!active;
+    pc.textContent=active?(tr?shown+' makale gösteriliyor':'Showing '+shown+' of '+plist.length+' articles'):'';
+  }
+  pq.addEventListener('input',applyPubs);
+  document.querySelectorAll('.pub-tools .chip').forEach(function(c,i,all){c.addEventListener('click',function(){all.forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});pf=c.dataset.f;applyPubs()})});
+  document.querySelectorAll('.yb[data-y]').forEach(function(b,i,all){b.addEventListener('click',function(){var on=b.getAttribute('aria-pressed')!=='true';all.forEach(function(x){x.setAttribute('aria-pressed','false')});b.setAttribute('aria-pressed',on?'true':'false');py=on?b.dataset.y:'';applyPubs()})});
+  listeners.push(applyPubs);
+  listeners.push(function(){pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')]});
+  pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')];
+
+  }
+
+  /* ---------- copy e-mail ---------- */
+  if(document.getElementById('copy-mail')){
+  var cb=document.getElementById('copy-mail'),toast=document.getElementById('toast'),tt;
+  cb.addEventListener('click',function(){
+    var el=document.getElementById('mail'),tr=root.dataset.lang==='tr';
+    function say(m){toast.textContent=m;clearTimeout(tt);tt=setTimeout(function(){toast.textContent=''},2400)}
+    function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);say(tr?'Adres seçildi, kopyalayabilirsiniz.':'Address selected, copy it from here.')}
+    try{navigator.clipboard.writeText(el.textContent.trim()).then(function(){say(tr?'Adres kopyalandı.':'Address copied.')},sel)}catch(e){sel()}
+  });
+  }
+
+  /* ---------- submenus ---------- */
+  var subs=[].slice.call(document.querySelectorAll('.has-sub'));
+  function setSub(h,o){h.classList.toggle('open',o);h.querySelector('.sub-toggle').setAttribute('aria-expanded',o?'true':'false')}
+  subs.forEach(function(h){
+    var t=h.querySelector('.sub-toggle');
+    t.addEventListener('click',function(e){e.stopPropagation();var o=!h.classList.contains('open');subs.forEach(function(x){setSub(x,false)});setSub(h,o)});
+    h.querySelectorAll('.sub a').forEach(function(a){a.addEventListener('click',function(){setSub(h,false)})});
+    h.addEventListener('keydown',function(e){if(e.key==='Escape'&&h.classList.contains('open')){setSub(h,false);t.focus()}});
+    h.addEventListener('focusout',function(e){if(!h.contains(e.relatedTarget))setSub(h,false)});
+  });
+  document.addEventListener('click',function(e){subs.forEach(function(h){if(!h.contains(e.target))setSub(h,false)})});
+
+  /* ---------- active page in the menu ---------- */
+  var page=root.dataset.page||'home';
+  document.querySelectorAll('#nav ul a').forEach(function(a){if(!a.dataset.parent&&a.dataset.top===page)a.classList.add('on')});
+
+
+  /* ---------- noise ---------- */
+  function makeNoise(seed){
+    var p=new Uint8Array(512),s=seed>>>0||1,i;
+    for(i=0;i<256;i++)p[i]=i;
+    for(i=255;i>0;i--){s=(s*1664525+1013904223)>>>0;var j=s%(i+1),t=p[i];p[i]=p[j];p[j]=t}
+    for(i=0;i<256;i++)p[i+256]=p[i];
+    var g=[[1,1],[-1,1],[1,-1],[-1,-1],[1,0],[-1,0],[0,1],[0,-1]],F=.5*(Math.sqrt(3)-1),G=(3-Math.sqrt(3))/6;
+    return function(x,y){
+      var s2=(x+y)*F,i=Math.floor(x+s2),j=Math.floor(y+s2),t=(i+j)*G,x0=x-(i-t),y0=y-(j-t),i1=x0>y0?1:0,j1=1-i1,
+      x1=x0-i1+G,y1=y0-j1+G,x2=x0-1+2*G,y2=y0-1+2*G,ii=i&255,jj=j&255,n=0,tt,q;
+      tt=.5-x0*x0-y0*y0;if(tt>0){q=g[p[ii+p[jj]]&7];tt*=tt;n+=tt*tt*(q[0]*x0+q[1]*y0)}
+      tt=.5-x1*x1-y1*y1;if(tt>0){q=g[p[ii+i1+p[jj+j1]]&7];tt*=tt;n+=tt*tt*(q[0]*x1+q[1]*y1)}
+      tt=.5-x2*x2-y2*y2;if(tt>0){q=g[p[ii+1+p[jj+1]]&7];tt*=tt;n+=tt*tt*(q[0]*x2+q[1]*y2)}
+      return 70*n;
+    };
+  }
+  function hash(str){var h=2166136261;for(var i=0;i<str.length;i++){h^=str.charCodeAt(i);h=Math.imul(h,16777619)}return h>>>0}
+
+  /* ---------- palette from tokens ---------- */
+  var pal={};
+  function readPal(){
+    var cs=getComputedStyle(root);
+    pal.bands=[0,1,2,3,4,5,6].map(function(i){return hex(cs.getPropertyValue('--b'+i).trim())});
+    pal.contour=cs.getPropertyValue('--contour').trim();
+    pal.diag=cs.getPropertyValue('--diag').trim();
+    pal.ink=cs.getPropertyValue('--ink').trim();
+    pal.paper=cs.getPropertyValue('--paper').trim();
+  }
+  function hex(h){h=h.replace('#','');if(h.length===3)h=h.replace(/./g,'$&$&');var n=parseInt(h,16);return[n>>16&255,n>>8&255,n&255]}
+  var LEVELS=[.2,.32,.44,.56,.68,.8];
+
+  /* marching squares over a value grid */
+  function isolines(ctx,f,cols,rows,cw,ch,level){
+    ctx.beginPath();
+    for(var j=0;j<rows-1;j++){for(var i=0;i<cols-1;i++){
+      var a=f[j*cols+i],b=f[j*cols+i+1],c=f[(j+1)*cols+i+1],d=f[(j+1)*cols+i];
+      var k=(a>level?8:0)|(b>level?4:0)|(c>level?2:0)|(d>level?1:0);
+      if(k===0||k===15)continue;
+      var T=[(i+(level-a)/(b-a))*cw,j*ch],R=[(i+1)*cw,(j+(level-b)/(c-b))*ch],B=[(i+(level-d)/(c-d))*cw,(j+1)*ch],L=[i*cw,(j+(level-a)/(d-a))*ch];
+      var s;
+      switch(k){case 1:case 14:s=[L,B];break;case 2:case 13:s=[B,R];break;case 3:case 12:s=[L,R];break;case 4:case 11:s=[T,R];break;case 6:case 9:s=[T,B];break;case 7:case 8:s=[L,T];break;
+        case 5:ctx.moveTo(T[0],T[1]);ctx.lineTo(R[0],R[1]);s=[L,B];break;case 10:ctx.moveTo(L[0],L[1]);ctx.lineTo(T[0],T[1]);s=[B,R];break}
+      ctx.moveTo(s[0][0],s[0][1]);ctx.lineTo(s[1][0],s[1][1]);
+    }}
+    ctx.stroke();
+  }
+  /* continuous hypsometric tint: b0 (lowland) .. b6 (alpine snow) */
+  var STOPS=[.12,.26,.38,.5,.62,.74,.88];
+  function tint(v,out){
+    var b=pal.bands;
+    if(v<=STOPS[0]){out[0]=b[0][0];out[1]=b[0][1];out[2]=b[0][2];return}
+    for(var i=1;i<STOPS.length;i++)if(v<STOPS[i]){var t=(v-STOPS[i-1])/(STOPS[i]-STOPS[i-1]),a=b[i-1],c=b[i];out[0]=a[0]+(c[0]-a[0])*t;out[1]=a[1]+(c[1]-a[1])*t;out[2]=a[2]+(c[2]-a[2])*t;return}
+    var l=b[6];out[0]=l[0];out[1]=l[1];out[2]=l[2];
+  }
+  /* hillshade per grid vertex, light from the north-west like a printed relief map */
+  function hillshade(f,cols,rows,cell,exag){
+    var s=new Float32Array(f.length),lx=-.58,ly=-.58,lz=.57;
+    for(var j=0;j<rows;j++)for(var i=0;i<cols;i++){
+      var o=j*cols+i,il=i>0?o-1:o,ir=i<cols-1?o+1:o,ju=j>0?o-cols:o,jd=j<rows-1?o+cols:o;
+      var dx=(f[ir]-f[il])*exag/((ir-il)||1)/cell,dy=(f[jd]-f[ju])*exag/(((jd-ju)/cols)||1)/cell;
+      var nx=-dx,ny=-dy,nz=1,len=Math.sqrt(nx*nx+ny*ny+1);
+      s[o]=(nx*lx+ny*ly+nz*lz)/len;
+    }
+    return s;
+  }
+  /* fill at ~2px from the same bilinear surface the contours are traced on, then shade */
+  function paintBands(ctx,f,cols,rows,cell,off,exag){
+    var sh=hillshade(f,cols,rows,cell,exag||260),base=.57;
+    var k=Math.max(1,Math.round(cell/2)),FW=(cols-1)*k+1,FH=(rows-1)*k+1,c=[0,0,0];
+    off.width=FW;off.height=FH;var oc=off.getContext('2d'),img=oc.createImageData(FW,FH),d=img.data,p=0;
+    for(var y=0;y<FH;y++){var j=Math.min(rows-2,(y/k)|0),fy=y/k-j;
+      for(var x=0;x<FW;x++){var i=Math.min(cols-2,(x/k)|0),fx=x/k-i,o=j*cols+i;
+        var v=(f[o]*(1-fx)+f[o+1]*fx)*(1-fy)+(f[o+cols]*(1-fx)+f[o+cols+1]*fx)*fy;
+        var s=(sh[o]*(1-fx)+sh[o+1]*fx)*(1-fy)+(sh[o+cols]*(1-fx)+sh[o+cols+1]*fx)*fy;
+        var m=1+(s-base)*.7;m=m<.8?.8:m>1?1:m;
+        tint(v,c);var r=c[0]*m,g=c[1]*m,b=c[2]*m;
+        d[p]=r>255?255:r;d[p+1]=g>255?255:g;d[p+2]=b>255?255:b;d[p+3]=255;p+=4}}
+    oc.putImageData(img,0,0);
+    ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,FW,FH,0,0,(cols-1)*cell,(rows-1)*cell);
+  }
+
+  /* ---------- hero relief (home page only) ---------- */
+  var render=function(){},running=true;
+  if(document.getElementById('relief')){
+  var cv=document.getElementById('relief'),ctx=cv.getContext('2d'),off=document.createElement('canvas');
+  var noise=makeNoise(1907),W=0,H=0,dpr=1,cell=14,cols=0,rows=0,field=null,t0=performance.now(),visible=true,last=0;running=false;
+  var ptr={x:-9999,y:-9999,a:0,ta:0};
+  /* the Anatolian Diagonal, schematic: from the Pontic ranges in the north-east down to the Gulf of İskenderun.
+     Points are hero-relative (0..1). Places are listed in their real order along it. */
+  var DIAG=[[1.02,-.04],[.9,.1],[.83,.2],[.76,.27],[.7,.37],[.62,.44],[.55,.55],[.47,.63],[.4,.74],[.33,.83],[.24,.97],[.2,1.06]];
+  var PLACES=[{t:.13,en:'Gümüşhane',tr:'Gümüşhane'},{t:.3,en:'Erzincan',tr:'Erzincan'},{t:.5,en:'Malatya',tr:'Malatya'},{t:.68,en:'Kahramanmaraş',tr:'Kahramanmaraş'},{t:.9,en:'Gulf of İskenderun',tr:'İskenderun Körfezi',sea:1}];
+  var dpts=[],dlen=[],dtotal=0;
+  function size(){
+    var r=cv.getBoundingClientRect();W=r.width;H=r.height;dpr=Math.min(window.devicePixelRatio||1,2);
+    cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);
+    cell=W<700?10:13;cols=Math.ceil(W/cell)+2;rows=Math.ceil(H/cell)+2;field=new Float32Array(cols*rows);
+    dpts=DIAG.map(function(p){return[p[0]*W,p[1]*H]});dlen=[0];dtotal=0;
+    for(var i=1;i<dpts.length;i++){dtotal+=Math.hypot(dpts[i][0]-dpts[i-1][0],dpts[i][1]-dpts[i-1][1]);dlen.push(dtotal)}
+  }
+  function diagDist(x,y){
+    var best=1e9;
+    for(var i=1;i<dpts.length;i++){
+      var ax=dpts[i-1][0],ay=dpts[i-1][1],bx=dpts[i][0],by=dpts[i][1],vx=bx-ax,vy=by-ay,t=((x-ax)*vx+(y-ay)*vy)/(vx*vx+vy*vy);
+      t=t<0?0:t>1?1:t;var dx=x-(ax+vx*t),dy=y-(ay+vy*t),dd=dx*dx+dy*dy;if(dd<best)best=dd;
+    }
+    return Math.sqrt(best);
+  }
+  function along(t){ /* point at fraction t of the diagonal */
+    var L=t*dtotal;for(var i=1;i<dpts.length;i++)if(dlen[i]>=L){var u=(L-dlen[i-1])/(dlen[i]-dlen[i-1]);return[dpts[i-1][0]+(dpts[i][0]-dpts[i-1][0])*u,dpts[i-1][1]+(dpts[i][1]-dpts[i-1][1])*u,Math.atan2(dpts[i][1]-dpts[i-1][1],dpts[i][0]-dpts[i-1][0])]}
+    var q=dpts[dpts.length-1];return[q[0],q[1],0];
+  }
+  function compute(amp){
+    var s=W<700?.0034:.0024,rw=Math.max(W*.11,90);
+    for(var j=0;j<rows;j++){for(var i=0;i<cols;i++){
+      var x=i*cell,y=j*cell,nx=x*s,ny=y*s;
+      /* rolling steppe plateau */
+      var v=.36+noise(nx,ny)*.14+noise(nx*2.2+11,ny*2.2)*.06+noise(nx*5+3,ny*5)*.025;
+      /* the mountain belt: ridged noise makes sharp crests and valleys along the Diagonal */
+      var dd=diagDist(x,y),belt=Math.exp(-(dd*dd)/(2*rw*rw));
+      var r1=1-Math.abs(noise(nx*2.6+40,ny*2.6)),r2=1-Math.abs(noise(nx*6+70,ny*6+9));
+      v+=belt*(.26+.3*r1*r1+.08*r2*r2);
+      /* lowlands toward the south-west coast */
+      v-=.14*Math.max(0,(y/H)-(x/W)-.2);
+      if(ptr.a>0.001){var px=x-ptr.x,py=y-ptr.y;v+=.16*ptr.a*Math.exp(-(px*px+py*py)/(2*90*90))}
+      field[j*cols+i]=.36+(v-.36)*amp;
+    }}
+  }
+  function drawDiag(c){
+    var small=W<700,tr=root.dataset.lang==='tr';
+    c.save();c.lineCap='round';c.lineJoin='round';
+    function path(){c.beginPath();c.moveTo(dpts[0][0],dpts[0][1]);for(var i=1;i<dpts.length-1;i++){var mx=(dpts[i][0]+dpts[i+1][0])/2,my=(dpts[i][1]+dpts[i+1][1])/2;c.quadraticCurveTo(dpts[i][0],dpts[i][1],mx,my)}c.lineTo(dpts[dpts.length-1][0],dpts[dpts.length-1][1])}
+    c.globalAlpha=.55;c.lineWidth=7;c.strokeStyle=pal.paper;path();c.stroke();c.globalAlpha=1;
+    c.setLineDash([14,9]);c.lineWidth=3.5;c.strokeStyle=pal.diag;path();c.stroke();c.setLineDash([]);
+    /* places along the belt */
+    c.font='600 '+(small?11:12.5)+'px Archivo, Arial, sans-serif';c.textBaseline='middle';
+    PLACES.forEach(function(p,n){
+      if(small&&(n===0||n===3))return;
+      var q=along(p.t),label=tr?p.tr:p.en,side=n%2?-1:1,lx=q[0]+side*14,w=c.measureText(label).width;
+      if(side<0)lx-=w;
+      if(lx<6||lx+w>W-6)return;
+      if(p.sea){c.font='italic 500 '+(small?11:12.5)+'px "Source Serif 4", Georgia, serif'}
+      c.beginPath();c.arc(q[0],q[1],p.sea?0:3.6,0,7);c.fillStyle=pal.ink;c.fill();
+      c.lineWidth=3.5;c.strokeStyle=pal.paper;c.strokeText(label,lx,q[1]);c.fillStyle=pal.ink;c.fillText(label,lx,q[1]);
+    });
+    /* belt name, set along the line like map lettering */
+    var q=along(small?.2:.21),label=tr?'ANADOLU DİYAGONALİ':'ANATOLIAN DIAGONAL';
+    c.translate(q[0],q[1]);c.rotate(q[2]+Math.PI);
+    c.font='700 '+(small?11:13)+'px Archivo, Arial, sans-serif';c.textAlign='center';c.textBaseline='alphabetic';
+    try{c.letterSpacing='3px'}catch(e){}
+    c.lineWidth=4;c.strokeStyle=pal.paper;c.strokeText(label,0,-12);c.fillStyle=pal.ink;c.fillText(label,0,-12);
+    c.restore();
+  }
+  render=function(time){
+    var e=Math.min(1,(time-t0)/1500),amp=reduce?1:1-Math.pow(2,-10*e);
+    ptr.a+=(ptr.ta-ptr.a)*.12;
+    compute(amp);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    paintBands(ctx,field,cols,rows,cell,off,W<700?220:300);
+    ctx.strokeStyle=pal.contour;
+    for(var l=0;l<LEVELS.length;l++){ctx.lineWidth=l===3?1.2:.7;isolines(ctx,field,cols,rows,cell,cell,LEVELS[l])}
+    drawDiag(ctx);
+    return e<1||ptr.ta>0||ptr.a>.01;
+  }
+  /* the land rises once, then holds still; it only moves again under the pointer */
+  function loop(time){
+    if(!running)return;
+    var more=true;if(time-last>33){last=time;more=render(time)}
+    if(more)requestAnimationFrame(loop);else running=false;
+  }
+  function start(){if(reduce||running||!visible||document.hidden)return;running=true;requestAnimationFrame(loop)}
+  function stop(){running=false}
+  readPal();size();render(performance.now());start();
+  if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting;if(!visible)stop()}).observe(cv);
+  document.addEventListener('visibilitychange',function(){if(document.hidden)stop()});
+  var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(function(){size();render(performance.now()+1e6);drawTiles()},120)});
+  if(!reduce){
+    var hero=cv.parentNode;
+    hero.addEventListener('pointermove',function(e){var r=cv.getBoundingClientRect();ptr.x=e.clientX-r.left;ptr.y=e.clientY-r.top;ptr.ta=1;start()},{passive:true});
+    hero.addEventListener('pointerleave',function(){ptr.ta=0;start()},{passive:true});
+    hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse'){ptr.ta=0;start()}},{passive:true});
+  }
+  listeners.push(function(){if(!running)render(performance.now()+1e6)});
+  }
+
+  /* ---------- team tiles: each person gets their own small relief ---------- */
+  function drawTiles(){
+    if(!pal.bands)readPal();
+    document.querySelectorAll('.tile canvas').forEach(function(c){
+      var r=c.getBoundingClientRect();if(!r.width)return;
+      var d=Math.min(window.devicePixelRatio||1,2),w=r.width,h=r.height;c.width=Math.round(w*d);c.height=Math.round(h*d);
+      var g=c.getContext('2d'),nz=makeNoise(hash(c.dataset.seed)),ce=6,co=Math.ceil(w/ce)+2,ro=Math.ceil(h/ce)+2,f=new Float32Array(co*ro);
+      for(var j=0;j<ro;j++)for(var i=0;i<co;i++){var x=i*ce*.0075,y=j*ce*.0075;f[j*co+i]=(nz(x,y)*.7+nz(x*2.3+5,y*2.3)*.3)*.5+.5}
+      g.setTransform(d,0,0,d,0,0);paintBands(g,f,co,ro,ce,document.createElement('canvas'),140);
+      g.strokeStyle=pal.contour;g.lineWidth=.9;for(var l=0;l<LEVELS.length;l++)isolines(g,f,co,ro,ce,ce,LEVELS[l]);
+    });
+  }
+  drawTiles();
+
+  /* ---------- theme changes ---------- */
+  function retheme(){readPal();render(performance.now()+1e6);drawTiles()}
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change',retheme);
+  new MutationObserver(retheme).observe(root,{attributes:true,attributeFilter:['data-theme']});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){if(!running)render(performance.now()+1e6)});
+})();
+</script>
+</body>
+</html>

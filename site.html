@@ -7,7 +7,7 @@
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..800;1,62..125,400..800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400;1,8..60,600&display=swap">
 <style>
 /* Layout: a relief map of Anatolia. The hero is a live hypsometric contour field crossed by the Anatolian Diagonal; every section below sits on one tint band of the map legend. */
 :root{
@@ -319,6 +319,19 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .topic .refs b{font-weight:600;color:var(--ink)}
 @media (max-width:860px){.pi-details{grid-template-columns:minmax(0,1fr)}.methods{grid-template-columns:minmax(0,1fr)!important}}
 @media (min-width:861px) and (max-width:1100px){.methods{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+
+/* ---------- calm pages: one flat ground for reading sections; the section's colour lives in a key dot ---------- */
+section.band{background:var(--paper)!important}
+section.band+section,section.plate+section,section.band+section.plate{border-top:1px solid var(--rule)}
+footer{background:var(--paper)!important;border-top:1px solid var(--rule)}
+.band-stone{--key:var(--stone)}.band-steppe{--key:var(--steppe)}.band-sand2{--key:var(--sand2)}.band-butter{--key:var(--butter)}.band-butter2{--key:var(--butter2)}.band-foothill{--key:var(--foothill)}.band-lowland{--key:var(--lowland)}
+section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--key,var(--stone));box-shadow:0 0 0 1.5px color-mix(in srgb,var(--ink) 45%,transparent);vertical-align:.18em;margin-right:.42em}
+.nav a.on{box-shadow:none}
+/* one voice per headline */
+.cartouche .motto{font-family:var(--f-map);font-style:normal;font-weight:700;font-stretch:112%;font-size:clamp(1.2rem,2.2vw,1.45rem)}
+.hl-j{font-style:normal}.hl-j i{font-style:normal;font-weight:600}
+.hl-t{font-family:var(--f-map);font-stretch:100%;font-weight:600}
+.plate-h i{font-family:inherit;font-weight:inherit}
 /* ---------- motion: small, compositor-only ---------- */
 .sec-title,.sub-head{position:relative;padding-bottom:.55rem}
 .sec-title::after,.sub-head::after{display:none;content:"";position:absolute;left:0;bottom:0;width:3.2rem;height:3px;border-radius:3px;background:var(--diag);transform-origin:left;transition:transform .7s var(--ease-out) .1s}
@@ -551,7 +564,7 @@ footer .data{opacity:.8}
       <nav class="nav" id="nav" aria-label="Sections">
         <ul>
           <li class="has-sub" id="nav-about">
-            <a href="#about"><span class="key" style="background:var(--stone)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a>
+            <a href="#about" data-top="about"><span class="key" style="background:var(--stone)"></span><span class="en">About</span><span class="tr">Hakkımızda</span></a>
             <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-about"><span class="en vh">About: sections</span><span class="tr vh">Hakkımızda: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
             <ul class="sub" id="sub-about">
               <li><a href="#about" data-parent="about"><span class="key" style="background:var(--stone)"></span><span class="en">The laboratory</span><span class="tr">Laboratuvar</span></a></li>
@@ -561,7 +574,7 @@ footer .data{opacity:.8}
             </ul>
           </li>
           <li class="has-sub" id="nav-research">
-            <a href="#research"><span class="key" style="background:var(--steppe)"></span><span class="en">Research</span><span class="tr">Araştırma</span></a>
+            <a href="#research" data-top="research"><span class="key" style="background:var(--steppe)"></span><span class="en">Research</span><span class="tr">Araştırma</span></a>
             <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-research"><span class="en vh">Research: sections</span><span class="tr vh">Araştırma: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
             <ul class="sub" id="sub-research">
               <li><a href="#highlights" data-parent="research"><span class="key" style="background:var(--paper)"></span><span class="en">Highlights</span><span class="tr">Öne çıkanlar</span></a></li>
@@ -572,7 +585,7 @@ footer .data{opacity:.8}
             </ul>
           </li>
           <li class="has-sub" id="nav-people">
-            <a href="#people"><span class="key" style="background:var(--foothill)"></span><span class="en">People</span><span class="tr">Ekip</span></a>
+            <a href="#people" data-top="people"><span class="key" style="background:var(--foothill)"></span><span class="en">People</span><span class="tr">Ekip</span></a>
             <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-people"><span class="en vh">People: sections</span><span class="tr vh">Ekip: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
             <ul class="sub" id="sub-people">
               <li><a href="#team" data-parent="people"><span class="key" style="background:var(--foothill)"></span><span class="en">Current team</span><span class="tr">Güncel ekip</span></a></li>
@@ -581,7 +594,7 @@ footer .data{opacity:.8}
             </ul>
           </li>
           <li class="has-sub" id="nav-contact">
-            <a href="#contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a>
+            <a href="#contact" data-top="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Contact</span><span class="tr">İletişim</span></a>
             <button class="sub-toggle" type="button" aria-expanded="false" aria-controls="sub-contact"><span class="en vh">Contact: sections</span><span class="tr vh">İletişim: alt başlıklar</span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></button>
             <ul class="sub" id="sub-contact">
               <li><a href="#contact" data-parent="contact"><span class="key" style="background:var(--lowland)"></span><span class="en">Write to the lab</span><span class="tr">Laboratuvara yazın</span></a></li>
@@ -1167,7 +1180,7 @@ footer .data{opacity:.8}
   var listeners=[];
   function setLang(l){
     root.setAttribute('data-lang',l);root.lang=l;
-    document.title=l==='tr'?'Bitki Biyocoğrafyası':'Plant Biogeography';
+    var pt=root.dataset['title'+(l==='tr'?'Tr':'En')];document.title=(pt?pt+' · ':'')+(l==='tr'?'Bitki Biyocoğrafyası':'Plant Biogeography');
     document.querySelectorAll('.lang button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lang===l?'true':'false')});
     try{localStorage.setItem('pb-lang',l)}catch(e){}
     listeners.forEach(function(f){f()});
@@ -1193,7 +1206,7 @@ footer .data{opacity:.8}
 
   /* ---------- show all publications ---------- */
   var mp=document.getElementById('more-pubs');
-  mp.addEventListener('click',function(){
+  if(mp)mp.addEventListener('click',function(){
     var open=mp.getAttribute('aria-expanded')!=='true';
     document.querySelectorAll('#pubs li.more').forEach(function(li,i){li.hidden=!open;li.classList.remove('rise');if(open&&!reduce&&i<14){li.style.animationDelay=(i*28)+'ms';li.classList.add('rise')}});
     mp.setAttribute('aria-expanded',open?'true':'false');
@@ -1210,6 +1223,7 @@ footer .data{opacity:.8}
   }
 
   /* ---------- publication search & filters ---------- */
+  if(document.getElementById('pub-q')){
   var pq=document.getElementById('pub-q'),plist=[].slice.call(document.querySelectorAll('#pubs > li')),pf='',py='',pc=document.getElementById('pub-count');
   plist.forEach(function(li){li._t=li.textContent.toLocaleLowerCase('tr')});
   function applyPubs(){
@@ -1229,7 +1243,10 @@ footer .data{opacity:.8}
   listeners.push(function(){pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')]});
   pq.placeholder=pq.dataset['ph'+(root.dataset.lang==='tr'?'Tr':'En')];
 
+  }
+
   /* ---------- copy e-mail ---------- */
+  if(document.getElementById('copy-mail')){
   var cb=document.getElementById('copy-mail'),toast=document.getElementById('toast'),tt;
   cb.addEventListener('click',function(){
     var el=document.getElementById('mail'),tr=root.dataset.lang==='tr';
@@ -1237,6 +1254,7 @@ footer .data{opacity:.8}
     function sel(){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r);say(tr?'Adres seçildi, kopyalayabilirsiniz.':'Address selected, copy it from here.')}
     try{navigator.clipboard.writeText(el.textContent.trim()).then(function(){say(tr?'Adres kopyalandı.':'Address copied.')},sel)}catch(e){sel()}
   });
+  }
 
   /* ---------- submenus ---------- */
   var subs=[].slice.call(document.querySelectorAll('.has-sub'));
@@ -1250,15 +1268,10 @@ footer .data{opacity:.8}
   });
   document.addEventListener('click',function(e){subs.forEach(function(h){if(!h.contains(e.target))setSub(h,false)})});
 
-  /* ---------- active section in legend ---------- */
-  var links=[].slice.call(document.querySelectorAll('#nav ul a'));
-  links.forEach(function(a){var k=a.querySelector('.key');if(k)a.style.setProperty('--on-bg',k.style.background)});
-  if('IntersectionObserver' in window){
-    var PARENT={highlights:'research',research:'research',projects:'research',publications:'research',theses:'research','habitat-heldreichia':'about','habitat-alpine':'research'};
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;var id=e.target.id,top=PARENT[id]||id,sub=id==='research'?'topics':id;
-      links.forEach(function(a){var h=a.getAttribute('href').slice(1),isTop=!a.dataset.parent;a.classList.toggle('on',isTop?h===top:h===sub)})})},{rootMargin:'-45% 0px -50% 0px'});
-    document.querySelectorAll('section.band,section.plate').forEach(function(s){io.observe(s)});
-  }
+  /* ---------- active page in the menu ---------- */
+  var page=root.dataset.page||'home';
+  document.querySelectorAll('#nav ul a').forEach(function(a){if(!a.dataset.parent&&a.dataset.top===page)a.classList.add('on')});
+
 
   /* ---------- noise ---------- */
   function makeNoise(seed){
@@ -1341,9 +1354,11 @@ footer .data{opacity:.8}
     ctx.imageSmoothingEnabled=true;ctx.drawImage(off,0,0,FW,FH,0,0,(cols-1)*cell,(rows-1)*cell);
   }
 
-  /* ---------- hero relief ---------- */
+  /* ---------- hero relief (home page only) ---------- */
+  var render=function(){},running=true;
+  if(document.getElementById('relief')){
   var cv=document.getElementById('relief'),ctx=cv.getContext('2d'),off=document.createElement('canvas');
-  var noise=makeNoise(1907),W=0,H=0,dpr=1,cell=14,cols=0,rows=0,field=null,t0=performance.now(),running=false,visible=true,last=0;
+  var noise=makeNoise(1907),W=0,H=0,dpr=1,cell=14,cols=0,rows=0,field=null,t0=performance.now(),visible=true,last=0;running=false;
   var ptr={x:-9999,y:-9999,a:0,ta:0};
   /* the Anatolian Diagonal, schematic: from the Pontic ranges in the north-east down to the Gulf of İskenderun.
      Points are hero-relative (0..1). Places are listed in their real order along it. */
@@ -1410,7 +1425,7 @@ footer .data{opacity:.8}
     c.lineWidth=4;c.strokeStyle=pal.paper;c.strokeText(label,0,-12);c.fillStyle=pal.ink;c.fillText(label,0,-12);
     c.restore();
   }
-  function render(time){
+  render=function(time){
     var e=Math.min(1,(time-t0)/1500),amp=reduce?1:1-Math.pow(2,-10*e);
     ptr.a+=(ptr.ta-ptr.a)*.12;
     compute(amp);
@@ -1440,9 +1455,11 @@ footer .data{opacity:.8}
     hero.addEventListener('pointerup',function(e){if(e.pointerType!=='mouse'){ptr.ta=0;start()}},{passive:true});
   }
   listeners.push(function(){if(!running)render(performance.now()+1e6)});
+  }
 
   /* ---------- team tiles: each person gets their own small relief ---------- */
   function drawTiles(){
+    if(!pal.bands)readPal();
     document.querySelectorAll('.tile canvas').forEach(function(c){
       var r=c.getBoundingClientRect();if(!r.width)return;
       var d=Math.min(window.devicePixelRatio||1,2),w=r.width,h=r.height;c.width=Math.round(w*d);c.height=Math.round(h*d);
