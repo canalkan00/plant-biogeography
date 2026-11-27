@@ -5,3 +5,4 @@ new_publications.md
 node_modules/
 package-lock.json
 pr_body.md
+__pycache__/
