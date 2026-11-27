@@ -2,9 +2,9 @@
 """Weekly site upkeep, run by .github/workflows/update-metrics.yml.
 
 1. Reads citation, h-index and i10-index from Google Scholar (through SerpApi
-   when the SERPAPI_KEY secret is set, otherwise directly) and writes them
-   into site.html (elements marked data-metric="..."). If Scholar blocks the
-   request or returns implausible numbers, the page is left as it is.
+   when the SERPAPI_KEY secret is set, otherwise directly) and stores them in
+   data/metrics.json; the build puts them on the page. If Scholar blocks the
+   request or returns implausible numbers, the old figures are kept.
 2. New publications are handled by scripts/new_publications.py.
 
 Standard library only. Exits with code 1 when Scholar has not been read for
@@ -13,13 +13,8 @@ Standard library only. Exits with code 1 when Scholar has not been read for
 import datetime as dt, json, os, re, sys, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SITE = os.path.join(ROOT, "site.html")
 STATE = os.path.join(ROOT, "data", "metrics.json")
 SCHOLAR = "https://scholar.google.com/citations?user=N8nlB4wAAAAJ&hl=en"
-ORCID = "https://pub.orcid.org/v3.0/0000-0002-8855-5718/works"
-IGNORE = os.path.join(ROOT, "data", "orcid_ignore.txt")
-MONTHS_TR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
-             "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36")
 
@@ -60,36 +55,6 @@ def plausible(new, old):
             and new["i10"] >= old["i10"] - 2 and new["citations"] < old["citations"] * 3)
 
 
-def write_site(m, today):
-    s = open(SITE, encoding="utf-8").read()
-    vals = {"citations": f'{m["citations"]:,}', "h": str(m["h"]), "i10": str(m["i10"]),
-            "date-en": f"{today.day} {today.strftime('%B')} {today.year}",
-            "date-tr": f"{today.day} {MONTHS_TR[today.month - 1]} {today.year}"}
-    for key, val in vals.items():
-        s, n = re.subn(rf'(data-metric="{key}">)[^<]*(<)', rf"\g<1>{val}\g<2>", s)
-        if n != 1:
-            raise RuntimeError(f"marker data-metric={key} found {n} times in site.html")
-    open(SITE, "w", encoding="utf-8").write(s)
-
-
-def new_orcid_works():
-    data = json.loads(get(ORCID, "application/json"))
-    site = open(SITE, encoding="utf-8").read().lower()
-    ignore = {l.strip().lower() for l in open(IGNORE, encoding="utf-8")
-              if l.strip() and not l.startswith("#")} if os.path.exists(IGNORE) else set()
-    found = []
-    for g in data.get("group", []):
-        summ = g["work-summary"][0]
-        dois = [e["external-id-value"].lower() for e in g.get("external-ids", {}).get("external-id", [])
-                if e.get("external-id-type") == "doi"]
-        if not dois or any(d in site or d in ignore for d in dois):
-            continue
-        title = (summ.get("title") or {}).get("title", {}).get("value", "")
-        year = ((summ.get("publication-date") or {}).get("year") or {}).get("value", "")
-        found.append(f"- {year} · {title} · https://doi.org/{dois[0]}")
-    return found
-
-
 def main():
     state = json.load(open(STATE))
     today = dt.date.today()
@@ -98,7 +63,6 @@ def main():
         m = scholar_metrics()
         if not plausible(m, state):
             raise ValueError(f"implausible values {m}, kept {state}")
-        write_site(m, today)
         state.update(m, last_success=today.isoformat(), last_status="ok")
         print("Scholar:", m)
     except Exception as e:  # keep the old numbers

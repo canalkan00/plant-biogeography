@@ -1,0 +1,100 @@
+team:
+- name: İlayda Dumlupınar
+  role: phd
+  role_custom:
+    en: ''
+    tr: ''
+  note:
+    en: MSc 2024 in the lab
+    tr: Laboratuvarda yüksek lisans, 2024
+  photo: ''
+- name: Gizem İşeri
+  role: msc
+  role_custom:
+    en: ''
+    tr: ''
+  note:
+    en: ''
+    tr: ''
+  photo: ''
+- name: Can Göksu Alkan
+  role: msc
+  role_custom:
+    en: ''
+    tr: ''
+  note:
+    en: ''
+    tr: ''
+  photo: ''
+- name: Eylül Aydoğanoğlu
+  role: msc
+  role_custom:
+    en: ''
+    tr: ''
+  note:
+    en: ''
+    tr: ''
+  photo: ''
+- name: Zeynep Al
+  role: msc
+  role_custom:
+    en: ''
+    tr: ''
+  note:
+    en: ''
+    tr: ''
+  photo: ''
+alumni:
+- name: Emrullah Yılmaz
+  degree:
+    en: MSc 2024
+    tr: Yüksek lisans 2024
+  topic:
+    en: Population genomics of alpine *Phyllolepidium cyclocarpum*
+    tr: Alpin *Phyllolepidium cyclocarpum*'un popülasyon genomiği
+- name: Fevzi Renan Kocayiğit
+  degree:
+    en: MSc 2024
+    tr: Yüksek lisans 2024
+  topic:
+    en: Conservation biology of rare endemic *Noccaea rubescens*
+    tr: Nadir endemik *Noccaea rubescens*'in koruma biyolojisi
+- name: Ilgın Deniz Can
+  degree:
+    en: PhD 2026 · MSc 2020
+    tr: Doktora 2026 · Yüksek lisans 2020
+  topic:
+    en: 'PhD: taxonomy, biogeography and phylogenomics of *Heldreichia*; MSc: species delimitation in the *Noccaea aucheri* complex'
+    tr: 'Doktora: *Heldreichia* cinsinde taksonomi, biyocoğrafya ve filogenomik; yüksek lisans: *Noccaea aucheri* kompleksinde tür sınırlandırması'
+collaborations:
+- name: Dr. Barış Uzilday
+  place: Ege University, İzmir
+- name: Dr. Çağaşan Karacaoğlu
+  place: Hacettepe University, Ankara
+- name: Dr. Çağatay Tavşanoğlu
+  place: Hacettepe University, Ankara
+- name: Dr. Ihsan Al-Shehbaz
+  place: Missouri Botanical Garden, St. Louis
+- name: Dr. Dmitry A. German
+  place: Altai State University, Barnaul
+- name: Dr. Emre Çilden
+  place: Hacettepe University, Ankara
+- name: Dr. Hasan Yıldırım
+  place: Ege University, İzmir
+- name: Dr. Hakan Gür
+  place: Ahi Evran University, Kırşehir
+- name: Dr. İsmail Eker
+  place: Abant İzzet Baysal University, Bolu
+- name: Dr. İsmail Kudret Sağlam
+  place: Koç University, İstanbul
+- name: Dr. Klaus Mummenhoff
+  place: Osnabrück University
+- name: Dr. Kurtuluş Özgişi
+  place: Osmangazi University, Eskişehir
+- name: Dr. Martin Lysák
+  place: Masaryk University, Brno
+- name: Dr. Utku Perktaş
+  place: Hacettepe University, Ankara
+join:
+  en: Thinking about an MSc or PhD in plant systematics or biogeography? Write to us with a short note about your interests.
+  tr: Bitki sistematiği veya biyocoğrafya alanında yüksek lisans ya da doktora mı düşünüyorsunuz? İlgi alanlarınızı anlatan kısa bir notla bize yazın.

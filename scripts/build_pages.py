@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
 """Build the multi-page site from site.html.
 
-site.html holds every section, the shared header, footer, styles and script
-(it is also the body of the Claude preview). This script splits it into
+site.html is written by render_site.py from templates/site.html and the
+content files; it holds every section, the shared header, footer, styles and
+script (it is also the body of the Claude preview). This script splits it into
 index.html (home), about.html, research.html, publications.html,
 people.html and contact.html, rewriting in-page links to the right page.
-Run it through build.sh after any edit to site.html.
+Run both through build.sh.
 """
 import os, re
 

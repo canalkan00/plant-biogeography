@@ -1,0 +1,24 @@
+about_plate:
+  image: img/heldreichia-habitat-1200.jpg
+  alt: 'Habitat of Heldreichia: open limestone scree below cedar forest, above a deep mountain valley'
+  caption:
+    en: Habitat of *Heldreichia*.
+    tr: '*Heldreichia* habitatı.'
+research_plate:
+  image: img/alpine-habitat-1200.jpg
+  alt: 'Habitat of Noccaea and Phyllolepidium: a high limestone cirque with late snow patches and a small lake'
+  caption:
+    en: Habitat of *Noccaea* and *Phyllolepidium*.
+    tr: '*Noccaea* ve *Phyllolepidium* habitatı.'
+about_photo:
+  image: img/phyllolepidium-1200.jpg
+  alt: Phyllolepidium in flower, growing from a crack in limestone rock
+  label: '*Phyllolepidium*'
+projects_photo:
+  image: img/heldreichia-flower-1000.jpg
+  alt: Heldreichia in flower among rust-coloured boulders
+  label: '*Heldreichia*'
+theses_photo:
+  image: img/noccaea-flower-1000.jpg
+  alt: Noccaea with pale pink four-petalled flowers and rounded blue-green leaves on stony ground
+  label: '*Noccaea*'

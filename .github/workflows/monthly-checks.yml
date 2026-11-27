@@ -18,6 +18,10 @@ jobs:
         with:
           ref: main
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Install a headless browser
         run: |
           npm install --no-save playwright@1.48.2
@@ -27,7 +31,10 @@ jobs:
         run: node scripts/yok_theses.js
 
       - name: Add the ones missing from the site
-        run: python3 scripts/new_theses.py
+        run: |
+          pip install -q -r requirements.txt
+          python3 scripts/new_theses.py
+          if [ -f pr_body.md ]; then sh build.sh; fi   # make sure the new entries build
 
       - name: Propose them as a pull request
         if: hashFiles('pr_body.md') != ''
@@ -38,7 +45,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C "$branch"
-          git add site.html
+          git add content/theses.yml
           git commit -m "Add new theses from YÖK"
           git push -f origin "$branch"
           num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')

@@ -1,13 +1,14 @@
 name: Build and check the site
 
-# Runs whenever site.html (or a script, image or logo) changes on main:
-# rebuilds the six pages, opens them in a browser to check nothing is broken,
-# and only then commits the new pages so GitHub Pages publishes them.
-# If the check fails, the live site stays as it was and GitHub e-mails you.
+# Runs whenever the content (content/*.yml, edited in the Pages CMS panel),
+# the template, a script, an image or the logo changes on main: rebuilds the
+# six pages, opens them in a browser to check nothing is broken, and only then
+# commits the new pages so GitHub Pages publishes them. If the check fails,
+# the live site stays as it was and GitHub e-mails you.
 on:
   push:
     branches: [main]
-    paths: ["site.html", "scripts/**", "brand/**", "img/**"]
+    paths: ["content/**", "templates/**", "scripts/**", "brand/**", "img/**", "requirements.txt"]
   workflow_dispatch:
 
 permissions:
@@ -25,8 +26,14 @@ jobs:
         with:
           ref: main
 
-      - name: Build the pages from site.html
-        run: sh build.sh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Build the pages from the content files
+        run: |
+          pip install -q -r requirements.txt
+          sh build.sh
 
       - name: Install a headless browser
         run: |
@@ -41,7 +48,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site.html index.html about.html research.html publications.html people.html contact.html
+          git add -A img/sized
           if git diff --cached --quiet; then echo "Pages already up to date"; else
-            git commit -m "Rebuild pages from site.html"
-            git push
+            git commit -m "Rebuild pages from the content files"
+            # if main moved on meanwhile (another save), that change starts its own run
+            git push || echo "main changed during the build; the newer run publishes the pages"
           fi

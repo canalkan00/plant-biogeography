@@ -17,6 +17,10 @@ jobs:
         with:
           ref: main
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Update citation figures from Google Scholar
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
@@ -25,10 +29,12 @@ jobs:
       - name: Rebuild pages and commit
         if: always()
         run: |
+          pip install -q -r requirements.txt
           sh build.sh
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add site.html *.html data/metrics.json
+          git add -A img/sized
           if git diff --cached --quiet; then echo "No changes"; else
             git commit -m "Weekly citation update"
             git push
@@ -43,8 +49,15 @@ jobs:
         with:
           ref: main
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Look for new journal articles on ORCID
-        run: python3 scripts/new_publications.py
+        run: |
+          pip install -q -r requirements.txt
+          python3 scripts/new_publications.py
+          if [ -f pr_body.md ]; then sh build.sh; fi   # make sure the new entries build
 
       - name: Propose them as a pull request
         if: hashFiles('pr_body.md') != ''
@@ -55,7 +68,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git switch -C "$branch"
-          git add site.html
+          git add content/publications.yml
           git commit -m "Add new publications from ORCID"
           git push -f origin "$branch"
           num=$(gh pr list --head "$branch" --state open --json number --jq '.[0].number')

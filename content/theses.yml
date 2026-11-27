@@ -1,0 +1,79 @@
+list:
+- year: 2026
+  title:
+    en: Taxonomic, biogeographic and phylogenomic studies in the genus *Heldreichia* Boiss.
+    tr: '*Heldreichia* Boiss. cinsinde taksonomik, biyocoğrafik ve filogenomik çalışmalar'
+  author: Ilgın Deniz Can
+  degree: phd
+  university:
+    en: Hacettepe University, Graduate School of Science and Engineering
+    tr: Hacettepe Üniversitesi, Fen Bilimleri Enstitüsü
+  cosupervisor:
+    en: ''
+    tr: ''
+  number: '1003795'
+- year: 2024
+  title:
+    en: Bioregions and geographical species richness patterns for Brassicaceae family of Türkiye
+    tr: Türkiye Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü
+  author: İlayda Dumlupınar
+  degree: msc
+  university:
+    en: Hacettepe University
+    tr: Hacettepe Üniversitesi
+  cosupervisor:
+    en: Prof. Dr. Hakan Gür
+    tr: Prof. Dr. Hakan Gür
+  number: '896472'
+- year: 2024
+  title:
+    en: Biogeography, population genomics and numerical taxonomy of alpine *Phyllolepidium cyclocarpum* subsp. *cyclocarpum*
+    tr: Alpinik *Phyllolepidium cyclocarpum* subsp. *cyclocarpum*'un (Brassicaceae) biyocoğrafyası, popülasyon genomiği ve numerik taksonomisi
+  author: Emrullah Yılmaz
+  degree: msc
+  university:
+    en: Hacettepe University
+    tr: Hacettepe Üniversitesi
+  cosupervisor:
+    en: ''
+    tr: ''
+  number: '896635'
+- year: 2024
+  title:
+    en: Conservation biology and distribution mapping of rare endemic *Noccaea rubescens* and its phylogenetic relationships with *N. sintenisii*
+    tr: Nadir endemik *Noccaea rubescens*'in koruma biyolojisi, yayılış haritalanması ve *N. sintenisii* ile filogenetik ilişkisi
+  author: Fevzi Renan Kocayiğit
+  degree: msc
+  university:
+    en: Hacettepe University
+    tr: Hacettepe Üniversitesi
+  cosupervisor:
+    en: ''
+    tr: ''
+  number: '899160'
+- year: 2020
+  title:
+    en: Species delimitation of the *Noccaea aucheri* (Brassicaceae) species complex using high-throughput genomic data and numerical taxonomy
+    tr: Yüksek çözünürlüklü genomik veri ve numerik taksonomik yöntemlerle *Noccaea aucheri* (Brassicaceae) tür kompleksi için tür sınırlandırması
+  author: Ilgın Deniz Can
+  degree: msc
+  university:
+    en: Hacettepe University
+    tr: Hacettepe Üniversitesi
+  cosupervisor:
+    en: ''
+    tr: ''
+  number: '650989'
+- year: 2020
+  title:
+    en: Revision, phylogeny and phylogeography of the genus *Gonocytisus* Spach (Fabaceae, tribe Genisteae)
+    tr: '*Gonocytisus* Spach cinsinin (Fabaceae, tribus Genisteae) revizyonu, filogenisi ve filocoğrafyası'
+  author: Ozan Şentürk
+  degree: phd
+  university:
+    en: Ege University, Graduate School of Natural and Applied Sciences
+    tr: Ege Üniversitesi, Fen Bilimleri Enstitüsü
+  cosupervisor:
+    en: Assoc. Prof. Dr. Hasan Yıldırım
+    tr: Doç. Dr. Hasan Yıldırım
+  number: '612247'

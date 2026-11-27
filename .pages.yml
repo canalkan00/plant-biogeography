@@ -1,0 +1,390 @@
+# Pages CMS (app.pagescms.org) panel for the site.
+# Each entry below is one item in the panel's left menu and edits one file in
+# content/. Saving commits to main; the "Build and check the site" workflow
+# then rebuilds the pages (1–2 minutes).
+
+media:
+  input: img
+  output: img
+  extensions: [jpg, jpeg, png, webp]
+
+components:
+  bi:
+    type: object
+    fields:
+      - name: en
+        label: İngilizce
+        type: string
+      - name: tr
+        label: Türkçe
+        type: string
+  bitext:
+    type: object
+    fields:
+      - name: en
+        label: İngilizce
+        type: text
+      - name: tr
+        label: Türkçe
+        type: text
+  birich:
+    type: object
+    fields:
+      - name: en
+        label: İngilizce
+        type: rich-text
+      - name: tr
+        label: Türkçe
+        type: rich-text
+
+content:
+  # ------------------------------------------------------------------ home
+  - name: home
+    label: Ana sayfa
+    description: Üstteki karşılama yazısı ve "Son çalışmalar" (Recent work) kartları.
+    type: file
+    path: content/home.yml
+    format: yaml
+    fields:
+      - name: hero
+        label: Karşılama yazısı
+        type: object
+        fields:
+          - { name: place, label: "Alt satır (Laboratuvar · Hacettepe…)", component: bi }
+          - { name: motto, label: Slogan, component: bi }
+          - { name: intro, label: Tanıtım cümlesi, component: bitext }
+      - name: recent
+        label: Son çalışmalar
+        description: Ana sayfada gösterilen makaleler. İlki büyük kart olur. Sürükleyerek sıralayabilirsiniz. İtalik için kelimeyi yıldız içine alın, örneğin *Noccaea*.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {journal}"
+        fields:
+          - { name: title, label: Makale başlığı, type: string }
+          - { name: journal, label: Dergi, type: string }
+          - { name: year, label: Yıl, type: number }
+          - { name: doi, label: DOI, type: string, description: "Örnek: 10.1002/ece3.73246" }
+          - { name: authors, label: Yazarlar, type: string, description: "Özüdoğru B. otomatik olarak kalın yazılır." }
+          - { name: summary, label: Kısa özet, component: bitext }
+          - { name: figure, label: Şekil, type: image }
+          - { name: figure_alt, label: Şeklin metin açıklaması (görme engelliler için), type: text }
+          - { name: caption, label: Şekil altyazısı, component: bitext }
+
+  # ----------------------------------------------------------------- about
+  - name: about
+    label: Hakkımızda
+    description: Laboratuvar tanıtım metni ve "Nasıl çalışıyoruz" maddeleri.
+    type: file
+    path: content/about.yml
+    format: yaml
+    fields:
+      - name: text
+        label: Laboratuvar metni
+        description: Paragraflar arasında boş satır bırakın. İlk paragraf büyük puntoyla gösterilir. İngilizce ve Türkçe kutularındaki paragraf sayısı aynı olmalı.
+        component: birich
+      - name: hotspots
+        label: Biyoçeşitlilik sıcak noktaları (etiketler)
+        component: bi
+        list: true
+      - name: methods
+        label: Nasıl çalışıyoruz
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.tr}"
+        fields:
+          - { name: title, label: Başlık, component: bi }
+          - { name: text, label: Açıklama, component: bitext }
+
+  # --------------------------------------------------------------- profile
+  - name: profile
+    label: Barış Özüdoğru profili
+    description: Hakkımızda sayfasındaki profil. Atıf sayıları her hafta kendiliğinden güncellenir.
+    type: file
+    path: content/profile.yml
+    format: yaml
+    fields:
+      - { name: name, label: Ad, type: string }
+      - { name: role, label: Unvan satırı (profil), component: bi }
+      - { name: card_role, label: Unvan (Ekip sayfasındaki kart), component: bi }
+      - name: bio
+        label: Biyografi
+        description: Paragraflar arasında boş satır bırakın. İngilizce ve Türkçe kutularındaki paragraf sayısı aynı olmalı.
+        component: birich
+      - { name: interests, label: Araştırma ilgi alanları, component: bi, list: true }
+      - name: education
+        label: Eğitim
+        type: object
+        list: true
+        fields:
+          - { name: degree, label: Derece, component: bi }
+          - { name: institution, label: Kurum, component: bi }
+          - { name: year, label: Yıl, type: number }
+      - { name: positions, label: Akademik görevler, component: bi, list: true }
+      - { name: teaching, label: Verdiği dersler, component: bi, list: true }
+      - { name: service, label: Akademik ve mesleki hizmetler, component: bi, list: true }
+      - name: profiles
+        label: Akademik profiller (bağlantılar)
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Bağlantı yazısı, component: bi }
+          - { name: url, label: Adres (https://…), type: string }
+
+  # -------------------------------------------------------------- research
+  - name: research
+    label: Araştırma konuları
+    type: file
+    path: content/research.yml
+    format: yaml
+    fields:
+      - { name: intro, label: Giriş paragrafı, component: bitext }
+      - name: topics
+        label: Ana çalışma konuları
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.tr}"
+        fields:
+          - { name: title, label: Başlık, component: bi }
+          - { name: text, label: Açıklama, component: bitext }
+          - name: refs_kind
+            label: Altta yazan başlık
+            type: select
+            options:
+              values:
+                - { value: publications, label: Seçilmiş yayınlar }
+                - { value: outlets, label: Başlıca yayın organları }
+          - name: refs
+            label: Seçilmiş yayınlar
+            type: string
+            description: "Bağlantı için: [Dergi adı (2024)](https://doi.org/…). Birden fazla yayını · ile ayırın."
+          - { name: wide, label: Geniş kart, type: boolean }
+
+  # -------------------------------------------------------------- projects
+  - name: projects
+    label: Projeler
+    type: file
+    path: content/projects.yml
+    format: yaml
+    fields:
+      - name: featured
+        label: Öne çıkan proje
+        type: object
+        fields:
+          - { name: title, label: Başlık, component: bi }
+          - { name: text, label: Açıklama, component: bitext }
+          - { name: meta, label: "Alt bilgi (destek · yıllar · yürütücü)", component: bi }
+          - name: facts
+            label: Rakamlar
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Etiket, component: bi }
+              - { name: value, label: Değer, type: string }
+      - name: list
+        label: Zaman çizelgesi
+        description: Projeler başlangıç yılına göre kendiliğinden sıralanır. Süren projelerde bitiş yılını boş bırakın.
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{start} · {title.tr}"
+        fields:
+          - { name: title, label: Proje adı, component: bi }
+          - name: funder
+            label: Destekleyen (renk)
+            type: select
+            options:
+              values:
+                - { value: tub, label: TÜBİTAK }
+                - { value: bap, label: Hacettepe Üniversitesi BAP }
+                - { value: oth, label: Diğer }
+          - { name: programme, label: "Program (ör. TÜBİTAK 1001)", component: bi }
+          - name: role
+            label: Barış Özüdoğru'nun görevi
+            type: select
+            options:
+              values:
+                - { value: pi, label: Yürütücü }
+                - { value: researcher, label: Araştırmacı }
+          - { name: start, label: Başlangıç yılı, type: number }
+          - { name: end, label: Bitiş yılı, type: number }
+
+  # ---------------------------------------------------------- publications
+  - name: publications
+    label: Yayınlar
+    description: Yeni makaleler ORCID'den her hafta önerilir. Liste yıla göre kendiliğinden sıralanır; filtre etiketleri ve sayılar da kendiliğinden hesaplanır.
+    type: file
+    path: content/publications.yml
+    format: yaml
+    fields:
+      - name: articles
+        label: Dergi makaleleri
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {title}"
+        fields:
+          - { name: year, label: Yıl, type: number }
+          - { name: title, label: Başlık, type: string, description: "İtalik için yıldız: *Noccaea aucheri*" }
+          - { name: authors, label: Yazarlar, type: string, description: "Özüdoğru B. otomatik olarak kalın yazılır." }
+          - { name: journal, label: "Dergi, cilt, sayfa", type: string, description: "Örnek: *Phytotaxa* 773(2): 149–161" }
+          - { name: doi, label: DOI, type: string, description: "Örnek: 10.11646/phytotaxa.773.2.4 (yoksa boş bırakın)" }
+      - name: conference
+        label: Kongre bildirileri
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {title}"
+        fields:
+          - { name: year, label: Yıl, type: number }
+          - { name: title, label: Başlık, type: string }
+          - { name: authors, label: Yazarlar, type: string }
+          - { name: venue, label: "Kongre, yer, tarih", type: string }
+
+  # ---------------------------------------------------------------- theses
+  - name: theses
+    label: Tezler
+    description: Yeni tezler YÖK'ten her ay önerilir. Liste yıla göre kendiliğinden sıralanır.
+    type: file
+    path: content/theses.yml
+    format: yaml
+    fields:
+      - name: list
+        label: Tezler
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{year} · {author}"
+        fields:
+          - { name: year, label: Yıl, type: number }
+          - { name: author, label: Yazar, type: string }
+          - { name: title, label: Tez başlığı, component: bi }
+          - name: degree
+            label: Derece
+            type: select
+            options:
+              values:
+                - { value: phd, label: Doktora }
+                - { value: msc, label: Yüksek lisans }
+          - { name: university, label: Üniversite ve enstitü, component: bi }
+          - { name: cosupervisor, label: Eş danışman (varsa), component: bi }
+          - { name: number, label: YÖK tez numarası, type: string }
+
+  # ---------------------------------------------------------------- people
+  - name: people
+    label: Ekip
+    description: Ekip üyeleri, mezunlar ve iş birlikleri. Fotoğrafı olmayan üyeler için harita deseni ve baş harfler gösterilir.
+    type: file
+    path: content/people.yml
+    format: yaml
+    fields:
+      - name: team
+        label: Ekip üyeleri
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Ad Soyad, type: string }
+          - name: role
+            label: Görev
+            type: select
+            options:
+              values:
+                - { value: phd, label: Doktora öğrencisi }
+                - { value: msc, label: Yüksek lisans öğrencisi }
+                - { value: bsc, label: Lisans öğrencisi }
+                - { value: postdoc, label: Doktora sonrası araştırmacı }
+                - { value: researcher, label: Araştırmacı }
+          - { name: role_custom, label: "Farklı bir görev yazısı (isteğe bağlı, doluysa yukarıdakinin yerine geçer)", component: bi }
+          - { name: note, label: Not (isteğe bağlı), component: bi }
+          - { name: photo, label: "Fotoğraf (isteğe bağlı; dikey 4:5 en iyisi)", type: image }
+      - name: alumni
+        label: Mezunlar
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Ad Soyad, type: string }
+          - { name: degree, label: "Derece ve yıl (ör. MSc 2024)", component: bi }
+          - { name: topic, label: Tez konusu, component: bi }
+      - name: collaborations
+        label: İş birlikleri
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Ad, type: string }
+          - { name: place, label: Kurum, type: string }
+      - { name: join, label: '"Yüksek lisans / doktora" çağrısı', component: bitext }
+
+  # --------------------------------------------------------------- contact
+  - name: contact
+    label: İletişim
+    type: file
+    path: content/contact.yml
+    format: yaml
+    fields:
+      - { name: intro, label: Giriş cümlesi, component: bitext }
+      - { name: email, label: E-posta, type: string }
+      - { name: address, label: "Adres (her satır ayrı satıra)", component: bitext }
+      - { name: coordinates, label: Koordinatlar, type: string }
+      - { name: phone, label: Telefon, type: string }
+
+  # ---------------------------------------------------------------- photos
+  - name: photos
+    label: Fotoğraflar
+    description: Sayfalardaki fotoğraflar. Telefondan çekilmiş büyük fotoğraflar yüklenebilir; site küçültülmüş kopyalarını kendisi hazırlar. Kare fotoğraflar en iyi sonucu verir.
+    type: file
+    path: content/photos.yml
+    format: yaml
+    fields:
+      - name: about_plate
+        label: Arazi fotoğrafı (Hakkımızda sayfası)
+        type: object
+        fields:
+          - { name: image, label: Fotoğraf, type: image }
+          - { name: alt, label: Fotoğrafın metin açıklaması, type: text }
+          - { name: caption, label: Altyazı, component: bi }
+      - name: research_plate
+        label: Arazi fotoğrafı (Araştırma sayfası)
+        type: object
+        fields:
+          - { name: image, label: Fotoğraf, type: image }
+          - { name: alt, label: Fotoğrafın metin açıklaması, type: text }
+          - { name: caption, label: Altyazı, component: bi }
+      - name: about_photo
+        label: Bitki fotoğrafı (Hakkımızda, metnin yanında)
+        type: object
+        fields:
+          - { name: image, label: Fotoğraf, type: image }
+          - { name: alt, label: Fotoğrafın metin açıklaması, type: text }
+          - { name: label, label: "Etiket (ör. *Phyllolepidium*)", type: string }
+      - name: projects_photo
+        label: Bitki fotoğrafı (Projeler, öne çıkan projenin yanında)
+        type: object
+        fields:
+          - { name: image, label: Fotoğraf, type: image }
+          - { name: alt, label: Fotoğrafın metin açıklaması, type: text }
+          - { name: label, label: Etiket, type: string }
+      - name: theses_photo
+        label: Bitki fotoğrafı (Tezler, listenin yanında)
+        type: object
+        fields:
+          - { name: image, label: Fotoğraf, type: image }
+          - { name: alt, label: Fotoğrafın metin açıklaması, type: text }
+          - { name: label, label: Etiket, type: string }

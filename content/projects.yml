@@ -1,0 +1,208 @@
+featured:
+  title:
+    en: How Anatolian high-mountain plants responded to Quaternary climate change
+    tr: Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişimlerine tepkisi
+  text:
+    en: Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, *Heldreichia bupleurifolia* (all six infraspecific taxa), *Noccaea oppositifolia* and *Phyllolepidium cyclocarpum* subsp. *cyclocarpum*, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses *Arabidopsis thaliana* as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.
+    tr: Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, *Heldreichia bupleurifolia* (altı alttürün tamamı), *Noccaea oppositifolia* ve *Phyllolepidium cyclocarpum* subsp. *cyclocarpum*, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve *Arabidopsis thaliana*'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.
+  meta:
+    en: 'TÜBİTAK 1001 · 2021–2024 · Principal investigator: Prof. Dr. Barış Özüdoğru'
+    tr: 'TÜBİTAK 1001 · 2021–2024 · Yürütücü: Prof. Dr. Barış Özüdoğru'
+  facts:
+  - label:
+      en: Taxa
+      tr: Takson
+    value: '8'
+  - label:
+      en: Populations
+      tr: Popülasyon
+    value: 60–70
+  - label:
+      en: Individuals
+      tr: Birey
+    value: ~700
+  - label:
+      en: Methods
+      tr: Yöntem
+    value: RADseq · ENM
+list:
+- title:
+    en: Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye
+    tr: Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2023
+  end: 2024
+- title:
+    en: Responses of Anatolian high-mountain plants to Quaternary climate change, studied with genomic methods and niche modelling
+    tr: Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişikliklerine verdiği cevapların genomik yöntemler ve niş modellemesi yaklaşımıyla araştırılması
+  funder: tub
+  programme:
+    en: TÜBİTAK 1001
+    tr: TÜBİTAK 1001
+  role: pi
+  start: 2021
+  end: 2024
+- title:
+    en: Revision of the genus *Asyneuma* (Campanulaceae) in Türkiye
+    tr: Türkiye *Asyneuma* (Campanulaceae) cinsinin revizyonu
+  funder: tub
+  programme:
+    en: TÜBİTAK 1001
+    tr: TÜBİTAK 1001
+  role: researcher
+  start: 2021
+  end: 2024
+- title:
+    en: Molecular phylogeny and biogeography of *Asphodeline*
+    tr: '*Asphodeline* cinsinin moleküler filogenisi ve biyocoğrafyası'
+  funder: tub
+  programme:
+    en: TÜBİTAK 1002
+    tr: TÜBİTAK 1002
+  role: pi
+  start: 2021
+  end: 2022
+- title:
+    en: Contributions to the flora of Türkiye
+    tr: Türkiye florasına katkılar
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2020
+  end: 2022
+- title:
+    en: Functional traits and their relationships in a Central Anatolian steppe plant community
+    tr: İç Anadolu bozkırında bir bitki komünitesinde fonksiyonel karakterler ve aralarındaki ilişkiler
+  funder: tub
+  programme:
+    en: TÜBİTAK 1002
+    tr: TÜBİTAK 1002
+  role: researcher
+  start: 2020
+  end: 2021
+- title:
+    en: Population structure, morphometric species delimitation and a DNA bank for *Pseudosempervivum*
+    tr: Kaşıkotu (*Pseudosempervivum*) türlerinin popülasyon yapıları, morfometrik tür sınırlandırması ve DNA bankası
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2019
+  end: 2020
+- title:
+    en: Phylogeography of *Iberis simplex*
+    tr: Civanotunun (*Iberis simplex*) filocoğrafyası
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: researcher
+  start: 2018
+  end: 2021
+- title:
+    en: Molecular phylogenetics of the tribes Conringieae and Coluteocarpeae
+    tr: Conringieae ve Coluteocarpeae tribusları üzerine moleküler filogenetik çalışmalar
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2018
+  end: 2019
+- title:
+    en: Phylogenetic relationships in *Noccaea* from high-throughput genetic data
+    tr: Yüksek çözünürlüklü genetik veriyle *Noccaea* cinsindeki filogenetik ilişkiler
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2017
+  end: 2019
+- title:
+    en: Phylogeny of *Scilla*, *Prospero* and *Puschkinia* (Asparagaceae) in Türkiye
+    tr: Türkiye'deki *Scilla*, *Prospero* ve *Puschkinia* (Asparagaceae) taksonlarının filogenisi
+  funder: tub
+  programme:
+    en: TÜBİTAK 1002
+    tr: TÜBİTAK 1002
+  role: pi
+  start: 2017
+  end: 2018
+- title:
+    en: Phylogeography of *Noccaea iberidea*
+    tr: Ak kayagülünün (*Noccaea iberidea*) filocoğrafyası
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2016
+  end: 2017
+- title:
+    en: Establishing phylogenetic and phylogeographic methods in botany
+    tr: Filogenetik ve filocoğrafik yöntemlerin botanikte kullanımı
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2016
+  end: 2016
+- title:
+    en: Phylogenetic position and taxonomic assignment of *Thlaspi aghricum*
+    tr: '*Thlaspi aghricum*''un filogenetik pozisyonu ve taksonomik ataması'
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: pi
+  start: 2015
+  end: 2015
+- title:
+    en: Molecular biogeography of *Ricotia*
+    tr: '*Ricotia* cinsinin moleküler biyocoğrafyası'
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: researcher
+  start: 2015
+  end: 2015
+- title:
+    en: Software for molecular systematics (PAUP, Geneious, CodonCode Aligner)
+    tr: Moleküler sistematik için yazılım altyapısı (PAUP, Geneious, CodonCode Aligner)
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: researcher
+  start: 2014
+  end: 2015
+- title:
+    en: Phylogeny and phylogeography of *Ricotia*
+    tr: '*Ricotia* cinsinin filogeni ve filocoğrafyası'
+  funder: bap
+  programme:
+    en: Hacettepe University BAP
+    tr: Hacettepe Üniversitesi BAP
+  role: researcher
+  start: 2013
+  end: 2016
+- title:
+    en: Nature conservation and biodiversity
+    tr: Doğa koruma ve biyoçeşitlilik
+  funder: oth
+  programme:
+    en: Presidency of Strategy and Budget
+    tr: Strateji ve Bütçe Başkanlığı
+  role: researcher
+  start: 2009
+  end: null

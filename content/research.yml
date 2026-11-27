@@ -1,0 +1,67 @@
+intro:
+  en: Our research explores the evolutionary, ecological and historical processes that shape plant diversity and its geographical distribution. With Anatolia as our primary geographical focus and Brassicaceae as our main model system, we investigate plant diversity across multiple spatial and temporal scales, from genomic variation within populations to the evolutionary history and geographical assembly of regional floras.
+  tr: Araştırmalarımız bitki çeşitliliğini ve coğrafi dağılımını biçimlendiren evrimsel, ekolojik ve tarihsel süreçleri inceler. Anadolu'yu temel coğrafi odak, Brassicaceae'yi ana model sistem olarak alarak bitki çeşitliliğini popülasyon içi genomik varyasyondan bölgesel floraların evrimsel geçmişine ve coğrafi oluşumuna kadar farklı mekânsal ve zamansal ölçeklerde araştırırız.
+topics:
+- title:
+    en: Phylogenomics, systematics and evolution of Brassicaceae
+    tr: Brassicaceae filogenomiği, sistematiği ve evrimi
+  text:
+    en: We investigate the evolutionary relationships, diversification and taxonomic boundaries of Brassicaceae using nuclear, plastid and genome-scale data. Our research encompasses phylogenetic reconstruction at different taxonomic levels, from closely related species and complex genera to tribes and the family as a whole. Through international collaborations, we also contribute to understanding genome evolution, whole-genome duplication, polyploidy, reticulate evolution and the global evolutionary history of Brassicaceae.
+    tr: Brassicaceae'nin evrimsel akrabalıklarını, çeşitlenmesini ve taksonomik sınırlarını çekirdek, plastid ve genom ölçekli verilerle araştırırız. Çalışmalarımız yakın akraba türlerden ve karmaşık cinslerden tribuslara ve familyanın bütününe kadar farklı taksonomik düzeylerde filogenetik rekonstrüksiyonu kapsar. Uluslararası iş birlikleriyle genom evrimi, tüm genom duplikasyonu, poliploidi, retikülat evrim ve Brassicaceae'nin küresel evrimsel geçmişinin anlaşılmasına da katkı sağlarız.
+  refs_kind: publications
+  refs: '[Current Biology (2023)](https://doi.org/10.1016/j.cub.2023.08.026) · [Molecular Biology and Evolution (2021)](https://doi.org/10.1093/molbev/msaa327) · [Annals of the Missouri Botanical Garden (2019)](https://doi.org/10.3417/2019347)'
+  wide: false
+- title:
+    en: Historical biogeography and floristic assembly
+    tr: Tarihsel biyocoğrafya ve floristik oluşum
+  text:
+    en: We investigate the geographical origins, dispersal histories and diversification of plant lineages, with particular emphasis on Anatolia and the eastern Mediterranean. Our research explores how geological history, climatic changes, ecological specialisation, and geographical barriers and corridors have shaped the evolutionary history and present-day distribution of plants. We are particularly interested in the historical connections between the Anatolian, Mediterranean, Balkan, Irano-Turanian and Caucasian floras and their contributions to the assembly of Anatolian plant diversity.
+    tr: Anadolu ve Doğu Akdeniz'e özel önem vererek bitki soy hatlarının coğrafi kökenlerini, yayılım geçmişlerini ve çeşitlenmesini araştırırız. Jeolojik geçmişin, iklim değişimlerinin, ekolojik özelleşmenin ve coğrafi engel ile koridorların bitkilerin evrimsel geçmişini ve bugünkü dağılımını nasıl biçimlendirdiğini inceleriz. Özellikle Anadolu, Akdeniz, Balkan, İran-Turan ve Kafkas floraları arasındaki tarihsel bağlantılar ve bunların Anadolu bitki çeşitliliğinin oluşumuna katkıları ilgi alanımızdadır.
+  refs_kind: publications
+  refs: '[*Ricotia* · Journal of Systematics and Evolution (2022)](https://doi.org/10.1111/jse.12749) · *Bornmuellera* · Turkish Journal of Botany (2020) · [*Iberis simplex* · Turkish Journal of Botany (2022)](https://doi.org/10.55730/1300-008X.2732) · [*Pinguicula* · Plant Systematics and Evolution (2026)](https://doi.org/10.1007/s00606-026-02013-z)'
+  wide: false
+- title:
+    en: Population genomics, speciation and species delimitation
+    tr: Popülasyon genomiği, türleşme ve tür sınırlandırması
+  text:
+    en: We use genome-wide genetic data to investigate population structure, genetic differentiation, gene flow, hybridisation and the evolutionary processes underlying species formation. By integrating genomic, morphological, ecological and geographical evidence, we aim to resolve species and subspecies boundaries in taxonomically complex plant groups. Our research also examines the genomic basis of phenotypic variation and the potential role of environmental heterogeneity in population differentiation.
+    tr: Popülasyon yapısını, genetik farklılaşmayı, gen akışını, hibritleşmeyi ve tür oluşumunun altında yatan evrimsel süreçleri genom çapındaki genetik verilerle araştırırız. Genomik, morfolojik, ekolojik ve coğrafi kanıtları birleştirerek taksonomik olarak karmaşık bitki gruplarında tür ve alttür sınırlarını çözmeyi amaçlarız. Fenotipik varyasyonun genomik temelini ve çevresel heterojenliğin popülasyon farklılaşmasındaki olası rolünü de inceleriz.
+  refs_kind: publications
+  refs: '[*Heldreichia bupleurifolia* · Molecular Phylogenetics and Evolution (2026)](https://doi.org/10.1016/j.ympev.2025.108518) · [*Heldreichia bupleurifolia* · Annals of Botany (2026)](https://doi.org/10.1093/aob/mcaf223)'
+  wide: false
+- title:
+    en: Alpine plant evolution and Quaternary climate change
+    tr: Alpin bitki evrimi ve Kuvaterner iklim değişimi
+  text:
+    en: We investigate how alpine and subalpine plants have responded to past climatic fluctuations and how these historical processes have shaped their contemporary distributions and genetic diversity. By integrating phylogeography, population genomics and ecological niche modelling, we explore historical range dynamics, glacial refugia, demographic history and ecological differentiation. Our research also seeks to identify genomic signatures of environmental adaptation and to understand the vulnerability of high-mountain plant diversity to ongoing climate change.
+    tr: Alpin ve subalpin bitkilerin geçmiş iklim salınımlarına nasıl tepki verdiğini ve bu tarihsel süreçlerin bugünkü dağılımlarını ve genetik çeşitliliklerini nasıl biçimlendirdiğini araştırırız. Filocoğrafya, popülasyon genomiği ve ekolojik niş modellemesini birleştirerek tarihsel yayılış dinamiklerini, buzul dönemi sığınaklarını, demografik geçmişi ve ekolojik farklılaşmayı inceleriz. Çevresel adaptasyonun genomik izlerini belirlemeyi ve yüksek dağ bitki çeşitliliğinin süregelen iklim değişimi karşısındaki kırılganlığını anlamayı da amaçlarız.
+  refs_kind: publications
+  refs: '[*Noccaea iberidea* · Biological Journal of the Linnean Society (2020)](https://doi.org/10.1093/biolinnean/blaa147) · [*Heldreichia bupleurifolia* · Annals of Botany (2026)](https://doi.org/10.1093/aob/mcaf223)'
+  wide: false
+- title:
+    en: Biodiversity patterns, bioregionalisation and conservation
+    tr: Biyoçeşitlilik örüntüleri, biyobölgeleme ve koruma
+  text:
+    en: We investigate spatial patterns of plant species richness, endemism, taxonomic and phylogenetic diversity, and floristic turnover. Using georeferenced herbarium records, environmental datasets and phylogenetic information, we explore the ecological, historical and evolutionary processes underlying the geographical organisation of plant diversity. Our research also addresses floristic and phylogenetic bioregionalisation, the identification of biodiversity hotspots, and the implications of these patterns for conservation planning in Türkiye.
+    tr: Bitki tür zenginliğinin, endemizmin, taksonomik ve filogenetik çeşitliliğin ve floristik değişimin mekânsal örüntülerini araştırırız. Koordinatlı herbaryum kayıtları, çevresel veri setleri ve filogenetik bilgiyle bitki çeşitliliğinin coğrafi düzenlenmesinin altında yatan ekolojik, tarihsel ve evrimsel süreçleri inceleriz. Floristik ve filogenetik biyobölgeleme, biyoçeşitlilik sıcak noktalarının belirlenmesi ve bu örüntülerin Türkiye'de koruma planlaması açısından anlamı da çalışma alanlarımız arasındadır.
+  refs_kind: publications
+  refs: '[Brassicaceae · Ecology and Evolution (2026)](https://doi.org/10.1002/ece3.73246) · [*Noccaea vesicaria* · Turkish Journal of Botany (2023)](https://doi.org/10.55730/1300-008X.2765)'
+  wide: false
+- title:
+    en: Integrative taxonomy and the flora of Türkiye
+    tr: Bütünleştirici taksonomi ve Türkiye florası
+  text:
+    en: We contribute to the documentation and understanding of the plant diversity of Türkiye through extensive fieldwork, herbarium studies, comparative morphology, anatomy, molecular systematics and integrative taxonomic approaches. Our research includes taxonomic revisions, nomenclatural studies, species delimitation and the description of taxa new to science. Our taxonomic contributions include the description of the crucifer genus *Iljinskaea* and new plant species such as *Noccaea bulutii*, *Hesperis sivasica*, *Ricotia candiriana*, *Allium sadikerikii*, *Erodium hakangurii*, *Campanula dersimensis* and *Umbilicus choripetalus*. We also contribute to national and international floristic and taxonomic initiatives.
+    tr: Kapsamlı arazi çalışmaları, herbaryum çalışmaları, karşılaştırmalı morfoloji, anatomi, moleküler sistematik ve bütünleştirici taksonomik yaklaşımlarla Türkiye bitki çeşitliliğinin belgelenmesine ve anlaşılmasına katkı sağlarız. Çalışmalarımız taksonomik revizyonları, nomenklatür çalışmalarını, tür sınırlandırmasını ve bilim için yeni taksonların tanımlanmasını kapsar. Taksonomik katkılarımız arasında turpgil cinsi *Iljinskaea* ile *Noccaea bulutii*, *Hesperis sivasica*, *Ricotia candiriana*, *Allium sadikerikii*, *Erodium hakangurii*, *Campanula dersimensis* ve *Umbilicus choripetalus* gibi yeni türlerin tanımlanması yer alır. Ulusal ve uluslararası floristik ve taksonomik girişimlere de katkı veririz.
+  refs_kind: outlets
+  refs: Phytotaxa · Turkish Journal of Botany · Willdenowia · Annales Botanici Fennici
+  wide: true
+- title:
+    en: Steppe ecology, functional traits and disturbance
+    tr: Bozkır ekolojisi, fonksiyonel karakterler ve bozulma
+  text:
+    en: We investigate the ecological processes that shape plant communities in Anatolian steppe ecosystems, with particular emphasis on seed germination, plant regeneration, functional traits and responses to environmental disturbance. Our research explores the role of fire and other disturbance processes in shaping community structure, species composition and ecosystem dynamics in Central Anatolian steppes.
+    tr: Tohum çimlenmesi, bitki rejenerasyonu, fonksiyonel karakterler ve çevresel bozulmaya verilen tepkilere özel önem vererek Anadolu bozkır ekosistemlerinde bitki topluluklarını biçimlendiren ekolojik süreçleri araştırırız. Yangının ve diğer bozulma süreçlerinin İç Anadolu bozkırlarında topluluk yapısını, tür kompozisyonunu ve ekosistem dinamiklerini biçimlendirmedeki rolünü inceleriz.
+  refs_kind: publications
+  refs: Journal of Arid Environments (2015) · Seed Science Research (2017) · Folia Geobotanica (2021) · [Turkish Journal of Botany (2026)](https://doi.org/10.55730/1300-008x.2894)
+  wide: false

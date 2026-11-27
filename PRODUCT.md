@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML/CSS/JS in a single `index.html`, served by GitHub Pages from `main` (`canalkan00/plant-biogeography`). `site.html` is the same page without the document skeleton, used for the Claude artifact preview. No build step.
+Static HTML/CSS/JS served by GitHub Pages from `main` (`canalkan00/plant-biogeography`). Text, lists and photos live in `content/*.yml`, edited in the Pages CMS panel (`.pages.yml`) or by hand; layout, styles and script live in `templates/site.html`. `build.sh` renders `site.html` (also the Claude artifact preview body) and splits it into the six pages; the build-check workflow runs it on every change to main.
 
 ## Users
 

@@ -1,0 +1,65 @@
+text:
+  en: |-
+    The Plant Biogeography Laboratory at Hacettepe University investigates the evolutionary and ecological processes that shape plant diversity and its geographical distribution. Our research lies at the intersection of biogeography, evolutionary biology, plant systematics and population genomics, with a particular focus on the flora of Anatolia and its surrounding regions. We primarily use the mustard family (Brassicaceae) as a model system to address fundamental questions in plant evolution and biogeography at both regional and global scales.
+
+    Situated at the crossroads of Europe and Asia, Anatolia encompasses parts of three global biodiversity hotspots: the Mediterranean Basin, Irano-Anatolian and Caucasus hotspots. Its complex geological history, diverse landscapes and pronounced climatic heterogeneity make it a particularly interesting region for investigating the origin, diversification and geographical distribution of plant lineages. We seek to understand how geological and climatic changes, geographical isolation, ecological differentiation and historical connections between floristic regions have shaped contemporary patterns of plant diversity, endemism and genetic variation.
+
+    Our research integrates fieldwork and herbarium studies with molecular phylogenetics, phylogenomics, population genomics, ecological niche modelling, comparative biogeographic analyses, and morphological and numerical taxonomy. By combining these approaches, we investigate evolutionary processes across different spatial and temporal scales, from genetic differentiation within populations and species boundaries to lineage diversification and the assembly of regional floras.
+
+    Beyond understanding the evolutionary history of plants, we aim to contribute to the documentation, taxonomic revision and conservation of plant diversity, particularly in Anatolia. We consider an understanding of the evolutionary and biogeographical processes underlying biodiversity essential for developing effective conservation strategies in the face of accelerating environmental change.
+
+    The laboratory is funded by the Scientific and Technological Research Council of Türkiye (TÜBİTAK) and the Hacettepe University Scientific Research Projects Coordination Unit (BAP), and collaborates with research groups in Türkiye, Germany, the Czech Republic, Russia, Slovakia, the Netherlands and the United States.
+  tr: |-
+    Hacettepe Üniversitesi Bitki Biyocoğrafyası Laboratuvarı, bitki çeşitliliğini ve bu çeşitliliğin coğrafi dağılımını biçimlendiren evrimsel ve ekolojik süreçleri araştırır. Çalışmalarımız biyocoğrafya, evrimsel biyoloji, bitki sistematiği ve popülasyon genomiğinin kesişiminde yer alır ve özellikle Anadolu ile çevresindeki bölgelerin florasına odaklanır. Bitki evrimi ve biyocoğrafyasına ilişkin temel soruları bölgesel ve küresel ölçekte ele almak için model sistem olarak öncelikle turpgiller (Brassicaceae) familyasını kullanırız.
+
+    Avrupa ile Asya'nın kesişiminde yer alan Anadolu, üç küresel biyoçeşitlilik sıcak noktasının, yani Akdeniz Havzası, İran-Anadolu ve Kafkasya sıcak noktalarının bir kısmını kapsar. Karmaşık jeolojik geçmişi, çeşitli yer şekilleri ve belirgin iklimsel heterojenliği, Anadolu'yu bitki soy hatlarının kökenini, çeşitlenmesini ve coğrafi dağılımını araştırmak için özellikle ilgi çekici bir bölge yapar. Jeolojik ve iklimsel değişimlerin, coğrafi izolasyonun, ekolojik farklılaşmanın ve floristik bölgeler arasındaki tarihsel bağlantıların bugünkü bitki çeşitliliği, endemizm ve genetik varyasyon örüntülerini nasıl biçimlendirdiğini anlamaya çalışırız.
+
+    Araştırmalarımız arazi ve herbaryum çalışmalarını moleküler filogenetik, filogenomik, popülasyon genomiği, ekolojik niş modellemesi, karşılaştırmalı biyocoğrafik analizler ile morfolojik ve numerik taksonomiyle bütünleştirir. Bu yaklaşımları birleştirerek, popülasyon içi genetik farklılaşma ve tür sınırlarından soy hattı çeşitlenmesine ve bölgesel floraların oluşumuna kadar farklı mekânsal ve zamansal ölçeklerdeki evrimsel süreçleri inceleriz.
+
+    Bitkilerin evrimsel geçmişini anlamanın ötesinde, özellikle Anadolu'da bitki çeşitliliğinin belgelenmesine, taksonomik revizyonuna ve korunmasına katkı sağlamayı amaçlarız. Biyoçeşitliliğin altında yatan evrimsel ve biyocoğrafik süreçleri anlamanın, hızlanan çevresel değişim karşısında etkili koruma stratejileri geliştirmek için vazgeçilmez olduğunu düşünüyoruz.
+
+    Laboratuvar, Türkiye Bilimsel ve Teknolojik Araştırma Kurumu (TÜBİTAK) ve Hacettepe Üniversitesi Bilimsel Araştırma Projeleri Koordinasyon Birimi (BAP) tarafından desteklenmekte; Türkiye, Almanya, Çekya, Rusya, Slovakya, Hollanda ve ABD'deki araştırma gruplarıyla iş birliği yapmaktadır.
+hotspots:
+- en: Mediterranean Basin
+  tr: Akdeniz Havzası
+- en: Irano-Anatolian
+  tr: İran-Anadolu
+- en: Caucasus
+  tr: Kafkasya
+methods:
+- title:
+    en: Molecular phylogenetics and phylogenomics
+    tr: Moleküler filogenetik ve filogenomik
+  text:
+    en: We use nuclear and plastid DNA sequences, RADseq and genome-scale datasets to reconstruct evolutionary relationships, investigate lineage diversification and resolve complex taxonomic relationships within Brassicaceae and other plant groups.
+    tr: Brassicaceae ve diğer bitki gruplarında evrimsel akrabalıkları yeniden kurmak, soy hattı çeşitlenmesini araştırmak ve karmaşık taksonomik ilişkileri çözümlemek için çekirdek ve plastid DNA dizileri, RADseq ve genom ölçekli veri setleri kullanırız.
+- title:
+    en: Population genomics and species delimitation
+    tr: Popülasyon genomiği ve tür sınırlandırması
+  text:
+    en: We integrate genome-wide genetic variation with morphological, ecological and geographical data to investigate population structure, genetic differentiation, gene flow, hybridisation and species boundaries.
+    tr: Popülasyon yapısını, genetik farklılaşmayı, gen akışını, hibritleşmeyi ve tür sınırlarını araştırmak için genom çapındaki genetik varyasyonu morfolojik, ekolojik ve coğrafi verilerle birleştiririz.
+- title:
+    en: Historical biogeography and diversification
+    tr: Tarihsel biyocoğrafya ve çeşitlenme
+  text:
+    en: We investigate the geographical origins, dispersal histories and diversification of plant lineages using time-calibrated phylogenies, ancestral area reconstruction and comparative phylogenetic approaches, with particular emphasis on Anatolia and its surrounding regions.
+    tr: Anadolu ve çevresine özel önem vererek bitki soy hatlarının coğrafi kökenlerini, yayılım geçmişlerini ve çeşitlenmesini zaman kalibrasyonlu filogeniler, atasal alan rekonstrüksiyonu ve karşılaştırmalı filogenetik yaklaşımlarla araştırırız.
+- title:
+    en: Ecological niche modelling and phylogeography
+    tr: Ekolojik niş modellemesi ve filocoğrafya
+  text:
+    en: We combine species occurrence records, environmental variables and population genetic data to investigate ecological differentiation, potential species distributions, historical range dynamics, and plant responses to Quaternary climatic fluctuations and contemporary environmental change.
+    tr: Ekolojik farklılaşmayı, potansiyel tür dağılımlarını, tarihsel yayılış dinamiklerini ve bitkilerin Kuvaterner iklim salınımlarına ve günümüz çevresel değişimine verdiği tepkileri araştırmak için tür kayıtlarını, çevresel değişkenleri ve popülasyon genetiği verilerini birleştiririz.
+- title:
+    en: Biodiversity patterns and floristic biogeography
+    tr: Biyoçeşitlilik örüntüleri ve floristik biyocoğrafya
+  text:
+    en: We investigate spatial patterns of species richness, endemism, taxonomic and phylogenetic diversity, and floristic turnover using georeferenced occurrence records and evolutionary data. Our research explores the processes underlying the geographical organisation of plant diversity and the delimitation of biogeographical regions.
+    tr: Koordinatlı tür kayıtları ve evrimsel verilerle tür zenginliğinin, endemizmin, taksonomik ve filogenetik çeşitliliğin ve floristik değişimin mekânsal örüntülerini araştırırız. Bitki çeşitliliğinin coğrafi düzenlenmesinin ve biyocoğrafik bölgelerin sınırlandırılmasının altında yatan süreçleri inceleriz.
+- title:
+    en: Plant systematics, taxonomy and field botany
+    tr: Bitki sistematiği, taksonomi ve arazi botaniği
+  text:
+    en: We integrate fieldwork, herbarium studies, comparative morphology, anatomy, numerical taxonomy and molecular evidence to revise taxonomically complex plant groups, describe taxa new to science, and contribute to the documentation and conservation of plant diversity.
+    tr: Taksonomik olarak karmaşık bitki gruplarını revize etmek, bilim için yeni taksonlar tanımlamak ve bitki çeşitliliğinin belgelenmesine ve korunmasına katkı sağlamak için arazi çalışmalarını, herbaryum çalışmalarını, karşılaştırmalı morfoloji, anatomi, numerik taksonomi ve moleküler kanıtları bütünleştiririz.

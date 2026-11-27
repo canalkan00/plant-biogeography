@@ -1,0 +1,50 @@
+hero:
+  place:
+    en: Laboratory · Hacettepe University, Ankara
+    tr: Laboratuvarı · Hacettepe Üniversitesi, Ankara
+  motto:
+    en: From genomes to floras.
+    tr: Genomlardan floralara.
+  intro:
+    en: We explore the origin, evolution, diversification and geographical distribution of plant diversity, with Anatolia at the heart of our research.
+    tr: Anadolu'yu araştırmalarımızın merkezine koyarak bitki çeşitliliğinin kökenini, evrimini, çeşitlenmesini ve coğrafi dağılımını araştırıyoruz.
+recent:
+- title: Disentangling subspecies delimitation in *Heldreichia bupleurifolia* through genomic and quantitative morphological approaches
+  journal: Molecular Phylogenetics and Evolution
+  year: 2026
+  doi: 10.1016/j.ympev.2025.108518
+  summary:
+    en: Genome-wide data and measured leaf form are combined to test where the subspecies of an alpine Anatolian crucifer begin and end.
+    tr: Genom çapında veri ve ölçülmüş yaprak biçimi birleştirilerek alpin bir Anadolu turpgilinde alttür sınırları test ediliyor.
+  authors: Can I.D., Yılmaz E., Özgişi K., Gür H., Sağlam İ.K., Özüdoğru B.
+  figure: img/fig-ympev-108518-subspecies.jpg
+  figure_alt: Map of Türkiye with Heldreichia bupleurifolia populations coloured by subspecies and ellipses for the final three-subspecies treatment, above six species-delimitation scenarios with their trees and a model ranking table
+  caption:
+    en: Final subspecies treatment and the six delimitation scenarios tested (Scenario 5 best supported). Figure from the article.
+    tr: 'Son alttür düzenlemesi ve test edilen altı sınırlandırma senaryosu (en iyi destek: Senaryo 5). Makaleden şekil.'
+- title: 'A plant-diversity dark spot at the intersection of three biodiversity hotspots: environmental drivers of Brassicaceae richness in Türkiye'
+  journal: Ecology and Evolution
+  year: 2026
+  doi: 10.1002/ece3.73246
+  summary:
+    en: 'From more than 15,000 herbarium records: the topographically complex, climatically stable mountains of southern Anatolia and the Anatolian Diagonal hold the most species and endemics.'
+    tr: 15.000'den fazla herbaryum kaydına göre en çok tür ve endemik, güney Anadolu'nun ve Anadolu Diyagonali'nin topoğrafik olarak karmaşık, iklimsel olarak kararlı dağlarında.
+  authors: Dumlupınar İ., Özüdoğru B., Gür H.
+  figure: img/fig-ece3-73246-richness.jpg
+  figure_alt: Two grid maps of Türkiye showing Brassicaceae species richness (A) and endemic richness (B) per 0.5 degree cell, highest in the southern mountains and along the Anatolian Diagonal
+  caption:
+    en: Species (A) and endemic (B) richness per 0.5° cell. Fig. 3 from the article, CC BY 4.0.
+    tr: Hücre (0,5°) başına tür (A) ve endemik (B) zenginliği. Makaleden Şekil 3, CC BY 4.0.
+- title: Polygenic discrimination of leaf morphotypes in alpine *Heldreichia bupleurifolia* (Brassicaceae) across its natural range
+  journal: Annals of Botany
+  year: 2025
+  doi: 10.1093/aob/mcaf223
+  summary:
+    en: 61,286 genome-wide SNPs from 131 plants in 20 populations across the Taurus Mountains and the Anatolian Diagonal are used to tell apart entire, mixed and lobed leaf morphotypes.
+    tr: Toroslar ve Anadolu Diyagonali boyunca 20 popülasyondan 131 bireyde 61.286 genom çapında SNP ile tam, karışık ve loblu yaprak morfotipleri ayırt ediliyor.
+  authors: Yılmaz E., Can I.D., Özgişi K., Gür H., Sağlam İ.K., Özüdoğru B.
+  figure: img/fig-aob-mcaf223-dapc.jpg
+  figure_alt: 'Two plots: density of individuals along the first discriminant function, with entire, mixed and lobed/dissected leaf morphotypes forming three separate peaks, and a loading plot of SNP contributions with a threshold line'
+  caption:
+    en: DAPC separates entire, mixed and lobed/dissected morphotypes (A); SNP loadings (B). Fig. 3 from the article, CC BY 4.0.
+    tr: DAPC tam, karışık ve loblu/parçalı morfotipleri ayırıyor (A); SNP yükleri (B). Makaleden Şekil 3, CC BY 4.0.

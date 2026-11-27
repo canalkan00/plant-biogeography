@@ -274,7 +274,7 @@ A "Recent work" band follows the hero: three recent papers set as an editorial r
 
 ### Pages
 
-The site is split into pages built from site.html by scripts/build_pages.py (run build.sh): index.html (hero and Recent work), about.html, research.html (topics, projects), publications.html (publications, theses), people.html and contact.html. The menu marks the current page; submenu items link to anchors on those pages, and old one-page links such as /#publications are forwarded. Reading sections share one flat paper ground with hairlines between them; each section's colour survives as a small key dot before its heading, matching the menu. Headlines keep one voice: the hero motto and Recent work titles use Archivo, emphasis by weight; genus and species names stay italic as nomenclature requires.
+The site is split into pages built by build.sh: scripts/render_site.py fills templates/site.html with content/*.yml to make site.html, and scripts/build_pages.py splits it into index.html (hero and Recent work), about.html, research.html (topics, projects), publications.html (publications, theses), people.html and contact.html. The menu marks the current page; submenu items link to anchors on those pages, and old one-page links such as /#publications are forwarded. Reading sections share one flat paper ground with hairlines between them; each section's colour survives as a small key dot before its heading, matching the menu. Headlines keep one voice: the hero motto and Recent work titles use Archivo, emphasis by weight; genus and species names stay italic as nomenclature requires.
 
 ### Light and dark
 
