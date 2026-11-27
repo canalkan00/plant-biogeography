@@ -276,6 +276,10 @@ A "Recent work" band follows the hero: three recent papers set as an editorial r
 
 The site is split into pages built from site.html by scripts/build_pages.py (run build.sh): index.html (hero and Recent work), about.html, research.html (topics, projects), publications.html (publications, theses), people.html and contact.html. The menu marks the current page; submenu items link to anchors on those pages, and old one-page links such as /#publications are forwarded. Reading sections share one flat paper ground with hairlines between them; each section's colour survives as a small key dot before its heading, matching the menu. Headlines keep one voice: the hero motto and Recent work titles use Archivo, emphasis by weight; genus and species names stay italic as nomenclature requires.
 
+### Light and dark
+
+Light is the default on every device. A sun/moon button in the header switches to a dark theme by choice only (remembered per visitor, restored before first paint): slate ground #1d1f22, warm off-white ink #ebe7de, hairlines #3b3f44, the section key dots keep their pastel colours, the relief map switches to deep muted hypsometric tints with pale peaks, and journal figures keep their white mats.
+
 ## Components
 
 ### Buttons

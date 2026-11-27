@@ -8,6 +8,7 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta name="description" content="Plant Biogeography Lab, Hacettepe University: evolution, diversity and distribution of Brassicaceae across Anatolia.">
 <meta name="theme-color" content="#f3f6f1">
+<script>try{if(localStorage.getItem("pb-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
 <link rel="icon" href="brand/favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="brand/favicon-32.png?v=3" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png?v=3">
@@ -35,6 +36,7 @@
   --diag-on-low:#6a3f22;
   --leaf:#3b5f87;
   --diag-ink:#6a5000;
+  --hover:#e8f1d8;
   /* hypsometric bands, lowland to alpine */
   --b0:#b5d9a8; --b1:#cfe5b0; --b2:#e4eebb; --b3:#f4ecbc; --b4:#f6d3a6; --b5:#eeb79a; --b6:#f3f6f1;
   --contour:rgba(43,43,43,.16);
@@ -44,6 +46,17 @@
   --step--1:.84rem; --step0:1.0625rem; --step1:1.3rem; --step2:clamp(1.55rem,3.6vw,2.1rem); --step3:clamp(2rem,5.4vw,3.2rem); --step4:clamp(2.1rem,7.4vw,4.6rem);
   --ease-out:cubic-bezier(.16,1,.3,1);
 }
+/* dark theme: chosen with the header button, never automatic */
+:root[data-theme="dark"]{
+  --ink:#ebe7de; --ink-soft:#bdb7ac; --paper:#1d1f22; --rule:#3b3f44; --hover:#2b2f33;
+  --steppe-ink:#eab691; --leaf:#a9c3e3; --diag-ink:#f8c443; --diag-on-low:#f2c27a;
+  --on-lowland:#ebe7de; --on-lowland-soft:#bdb7ac;
+  --b0:#2c4332; --b1:#3d5439; --b2:#536343; --b3:#6a6946; --b4:#795e40; --b5:#6c4c3b; --b6:#d3cec4;
+  --contour:rgba(235,231,222,.16);
+  color-scheme:dark;
+}
+:root[data-theme="dark"] html,html[data-theme="dark"]{color-scheme:dark}
+
 
 /* bilingual: every string exists as .en and .tr */
 :root:not([data-lang="tr"]) .tr{display:none!important}
@@ -87,6 +100,10 @@ button{-webkit-user-select:none;user-select:none;font:inherit}
 .lang button{border:0;background:transparent;color:var(--ink-soft);font-family:var(--f-data);font-size:.74rem;font-weight:500;min-width:2.6rem;min-height:2.3rem;cursor:pointer;transition:background-color .14s,color .14s}
 .lang button+button{border-left:1px solid var(--rule)}
 .lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.theme-btn{display:grid;place-items:center;width:2.4rem;height:2.4rem;flex:none;border:1px solid var(--rule);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer;transition:background-color .14s}
+.theme-btn svg{width:18px;height:18px}
+.theme-btn .moon,:root[data-theme="dark"] .theme-btn .sun{display:none}
+:root[data-theme="dark"] .theme-btn .moon{display:block}
 .menu-btn{display:none;width:2.75rem;height:2.75rem;border:1px solid var(--rule);border-radius:7px;background:transparent;color:var(--ink);cursor:pointer;place-items:center;flex:none}
 .menu-btn svg{width:20px;height:20px}
 .menu-btn .x,.top.open .menu-btn .burger{display:none}
@@ -256,7 +273,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .tl-key .k{display:inline-flex;align-items:center;gap:.45rem}
 .tl-key .k::before{content:"";width:1.4rem;height:.55rem;border-radius:3px;background:var(--c)}
 .tl-key .tub{--c:#2a6fb8}.tl-key .bap{--c:#d2602f}.tl-key .oth{--c:#6f7f8f}
-.tl-key .pi-k::before{width:.6rem;height:.6rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2),0 0 0 3px var(--ink)}
+.tl-key .pi-k::before{width:.6rem;height:.6rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--paper),0 0 0 3px var(--ink)}
 .tl-axis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:1.5rem;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);border-bottom:1px solid var(--ink);padding-bottom:.3rem}
 .tl-axis-in{grid-column:2;position:relative;height:1.1rem}
 .tl-axis-in span{position:absolute;transform:translateX(-50%);font-variant-numeric:tabular-nums}
@@ -268,7 +285,7 @@ section.band>.wrap{padding-block:clamp(3.5rem,8vw,6.5rem);display:grid;gap:clamp
 .tl-track{position:relative;height:1.6rem;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/6 - 1px),color-mix(in srgb,var(--ink) 10%,transparent) calc(100%/6 - 1px) calc(100%/6))}
 .tl-bar{position:absolute;top:.3rem;bottom:.3rem;border-radius:4px;background:var(--c);min-width:.9rem;display:flex;align-items:center;transform-origin:left;transition:transform .7s var(--ease-out)}
 .tub .tl-bar{--c:#2a6fb8}.bap .tl-bar{--c:#d2602f}.oth .tl-bar{--c:#6f7f8f}
-.lead .tl-bar::before{content:"";position:absolute;left:-.35rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--sand2)}
+.lead .tl-bar::before{content:"";position:absolute;left:-.35rem;width:.7rem;height:.7rem;border-radius:50%;background:var(--ink);box-shadow:0 0 0 2px var(--paper)}
 .tl-bar.end .tl-yr{left:auto;right:calc(100% + .9rem)}
 .tl-yr{position:absolute;left:calc(100% + .45rem);white-space:nowrap;font-family:var(--f-map);font-size:.78rem;color:var(--ink-soft);font-variant-numeric:tabular-nums}
 .anim #projects:not(.seen) .tl-bar{transform:scaleX(0)}
@@ -411,7 +428,7 @@ section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";
 .sub a{padding:.55rem .7rem;border-radius:6px}
 @media (hover:hover) and (pointer:fine) and (min-width:861px){
   .has-sub:hover .sub{opacity:1;visibility:visible;transform:none;transition:opacity .15s var(--ease-out),transform .18s var(--ease-out),visibility 0s}
-  .sub-toggle:hover{background:var(--stone);color:var(--ink)}
+  .sub-toggle:hover{background:var(--hover);color:var(--ink)}
 }
 /* projects */
 .projects{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);grid-template-rows:auto auto;gap:0 clamp(1.5rem,5vw,4rem);border-top:1px solid var(--ink)}
@@ -474,8 +491,9 @@ footer .data{opacity:.8}
 
 /* hover only where a precise pointer exists */
 @media (hover:hover) and (pointer:fine){
-  .nav a:hover{background:var(--stone);color:var(--ink)}
-  .lang button:hover:not([aria-pressed="true"]){background:var(--stone);color:var(--ink)}
+  .nav a:hover{background:var(--hover);color:var(--ink)}
+  .lang button:hover:not([aria-pressed="true"]){background:var(--hover);color:var(--ink)}
+  .theme-btn:hover{background:var(--hover)}
   .btn.solid:hover{background:color-mix(in srgb,var(--ink) 86%,var(--b0))}
   .btn.line:hover{background:color-mix(in srgb,var(--ink) 8%,transparent)}
   .chip:hover:not([aria-pressed="true"]){background:color-mix(in srgb,var(--steppe-ink) 12%,transparent)}
@@ -616,6 +634,7 @@ footer .data{opacity:.8}
         <button type="button" id="lang-tr" data-lang="tr" aria-pressed="false" lang="tr">TR</button>
         <button type="button" id="lang-en" data-lang="en" aria-pressed="true" lang="en">EN</button>
       </div>
+      <button type="button" class="theme-btn" id="theme-btn" aria-pressed="false"><span class="en vh">Dark mode</span><span class="tr vh">Koyu tema</span><svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg><svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
       <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">
         <span class="en" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menu</span><span class="tr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Menü</span>
         <svg class="burger" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
@@ -810,6 +829,16 @@ footer .data{opacity:.8}
   var saved=null;try{saved=localStorage.getItem('pb-lang')}catch(e){}
   setLang(saved||((navigator.language||'').toLowerCase().indexOf('tr')===0?'tr':'en'));
   document.querySelectorAll('.lang button').forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.lang)})});
+
+  /* ---------- light / dark ---------- */
+  var tb=document.getElementById('theme-btn'),tmeta=document.querySelector('meta[name="theme-color"]');
+  function setTheme(t,save){
+    root.setAttribute('data-theme',t);tb.setAttribute('aria-pressed',t==='dark'?'true':'false');
+    if(tmeta)tmeta.setAttribute('content',t==='dark'?'#1d1f22':'#f3f6f1');
+    if(save){try{localStorage.setItem('pb-theme',t)}catch(e){}}
+  }
+  setTheme(root.getAttribute('data-theme')==='dark'?'dark':'light',false);
+  tb.addEventListener('click',function(){setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark',true)});
 
   /* ---------- menu sheet ---------- */
   var hdr=document.getElementById('hdr'),mb=document.getElementById('menu-btn');
