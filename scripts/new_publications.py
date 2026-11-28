@@ -3,7 +3,7 @@
 add them to the publication list in content/publications.yml, formatted
 from Crossref.
 
-Run by .github/workflows/update-metrics.yml, which opens a pull request with
+Run by .github/workflows/weekly-publications.yml, which opens a pull request with
 the change so a person approves it. Writes pr_body.md when anything was
 added. DOIs in data/orcid_ignore.txt are skipped (closing the pull request
 without merging adds its DOIs there automatically).

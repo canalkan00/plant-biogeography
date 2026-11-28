@@ -26,28 +26,18 @@ bio:
 interests:
 - en: Plant biogeography and evolutionary biology
   tr: Bitki biyocoğrafyası ve evrimsel biyoloji
-- en: Historical biogeography and floristic assembly
-  tr: Tarihsel biyocoğrafya ve floristik oluşum
 - en: Molecular phylogenetics and phylogenomics
   tr: Moleküler filogenetik ve filogenomik
 - en: Population genomics and phylogeography
   tr: Popülasyon genomiği ve filocoğrafya
-- en: Speciation, hybridisation and integrative species delimitation
-  tr: Türleşme, hibritleşme ve bütünleştirici tür sınırlandırması
-- en: Alpine plant evolution and Quaternary climate change
-  tr: Alpin bitki evrimi ve Kuvaterner iklim değişimi
+- en: Plant systematics, speciation and integrative taxonomy
+  tr: Bitki sistematiği, türleşme ve bütünleştirici taksonomi
+- en: Alpine plant evolution and climate change
+  tr: Alpin bitki evrimi ve iklim değişimi
 - en: Ecological niche modelling and historical range dynamics
   tr: Ekolojik niş modellemesi ve tarihsel yayılış dinamikleri
-- en: Taxonomic and phylogenetic patterns of plant diversity
-  tr: Bitki çeşitliliğinin taksonomik ve filogenetik örüntüleri
-- en: Floristic and phylogenetic bioregionalisation
-  tr: Floristik ve filogenetik biyobölgeleme
-- en: Plant systematics and integrative taxonomy
-  tr: Bitki sistematiği ve bütünleştirici taksonomi
-- en: Evolution and diversification of Brassicaceae
-  tr: Brassicaceae'nin evrimi ve çeşitlenmesi
-- en: Conservation biogeography
-  tr: Koruma biyocoğrafyası
+- en: Plant diversity and conservation biogeography
+  tr: Bitki çeşitliliği ve koruma biyocoğrafyası
 education:
 - degree:
     en: PhD in Biology
@@ -117,10 +107,7 @@ profiles:
     en: Research Portal
     tr: Araştırma Portalı
   url: https://research.hacettepe.edu.tr/en/persons/bar%C4%B1%C5%9F-%C3%B6z%C3%BCdo%C4%9Fru-3/
-- label:
-    en: Curriculum vitae (PDF)
-    tr: Özgeçmiş (PDF)
-  url: https://avesis.hacettepe.edu.tr/barisoz/indir?languageCode=en
+cv: files/Baris_Ozudogru_CV.pdf
 card_role:
   en: Head of the laboratory
   tr: Laboratuvar yürütücüsü

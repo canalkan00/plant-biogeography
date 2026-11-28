@@ -440,6 +440,15 @@ section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";
 .project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
 .project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
 .project .facts div:first-child{border-left:0;padding-left:0}
+.features{display:grid;align-content:start;min-width:0}
+.features .project{grid-row:auto}
+.project .pinfo{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.4rem 1.2rem;margin:.3rem 0 0;font-size:.92rem;line-height:1.45}
+.project .pinfo div{display:contents}
+.project .pinfo dt{color:var(--steppe-ink);font-weight:600}
+.project .pinfo dd{margin:0}
+@media (max-width:600px){.project .pinfo{grid-template-columns:minmax(0,1fr);gap:.1rem}.project .pinfo dd{margin-bottom:.45rem}}
+.past-title{font-family:var(--f-map);font-size:.98rem;margin-top:1.6rem;color:var(--ink-soft)}
+.roster.past{border-top-color:color-mix(in srgb,var(--ink) 40%,transparent)}
 .project .facts dt{color:var(--steppe-ink);font-size:.76rem}
 .project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
 .sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}

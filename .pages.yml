@@ -4,9 +4,16 @@
 # then rebuilds the pages (1–2 minutes).
 
 media:
-  input: img
-  output: img
-  extensions: [jpg, jpeg, png, webp]
+  - name: images
+    label: Fotoğraflar
+    input: img
+    output: img
+    extensions: [jpg, jpeg, png, webp]
+  - name: files
+    label: Dosyalar (PDF)
+    input: files
+    output: files
+    extensions: [pdf]
 
 components:
   bi:
@@ -102,7 +109,7 @@ content:
   # --------------------------------------------------------------- profile
   - name: profile
     label: Barış Özüdoğru profili
-    description: Hakkımızda sayfasındaki profil. Atıf sayıları her hafta kendiliğinden güncellenir.
+    description: Hakkımızda sayfasındaki profil.
     type: file
     path: content/profile.yml
     format: yaml
@@ -133,6 +140,12 @@ content:
         fields:
           - { name: label, label: Bağlantı yazısı, component: bi }
           - { name: url, label: Adres (https://…), type: string }
+      - name: cv
+        label: Özgeçmiş (PDF)
+        description: Yeni bir PDF yükleyip seçin; profildeki "Özgeçmiş (PDF)" bağlantısı onu açar.
+        type: file
+        options:
+          media: files
 
   # -------------------------------------------------------------- research
   - name: research
@@ -173,14 +186,26 @@ content:
     format: yaml
     fields:
       - name: featured
-        label: Öne çıkan proje
+        label: Öne çıkan projeler
+        description: Zaman çizelgesinin üstünde ayrıntılı gösterilen projeler. Açıklamada paragraflar arasında boş satır bırakın.
         type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title.tr}"
         fields:
           - { name: title, label: Başlık, component: bi }
           - { name: text, label: Açıklama, component: bitext }
-          - { name: meta, label: "Alt bilgi (destek · yıllar · yürütücü)", component: bi }
+          - { name: meta, label: "Alt bilgi satırı (isteğe bağlı)", component: bi }
+          - name: details
+            label: "Bilgiler (Program, Süre, Yürütücüler…)"
+            type: object
+            list: true
+            fields:
+              - { name: label, label: Başlık, component: bi }
+              - { name: value, label: Bilgi, component: bi }
           - name: facts
-            label: Rakamlar
+            label: Rakamlar (isteğe bağlı)
             type: object
             list: true
             fields:
@@ -322,6 +347,16 @@ content:
           - { name: topic, label: Tez konusu, component: bi }
       - name: collaborations
         label: İş birlikleri
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - { name: name, label: Ad, type: string }
+          - { name: place, label: Kurum, type: string }
+      - name: past_collaborations
+        label: Geçmiş iş birlikleri
         type: object
         list:
           collapsible:

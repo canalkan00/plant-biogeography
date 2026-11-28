@@ -436,6 +436,15 @@ section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";
 .project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
 .project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
 .project .facts div:first-child{border-left:0;padding-left:0}
+.features{display:grid;align-content:start;min-width:0}
+.features .project{grid-row:auto}
+.project .pinfo{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.4rem 1.2rem;margin:.3rem 0 0;font-size:.92rem;line-height:1.45}
+.project .pinfo div{display:contents}
+.project .pinfo dt{color:var(--steppe-ink);font-weight:600}
+.project .pinfo dd{margin:0}
+@media (max-width:600px){.project .pinfo{grid-template-columns:minmax(0,1fr);gap:.1rem}.project .pinfo dd{margin-bottom:.45rem}}
+.past-title{font-family:var(--f-map);font-size:.98rem;margin-top:1.6rem;color:var(--ink-soft)}
+.roster.past{border-top-color:color-mix(in srgb,var(--ink) 40%,transparent)}
 .project .facts dt{color:var(--steppe-ink);font-size:.76rem}
 .project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
 .sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}
@@ -700,11 +709,13 @@ footer .data{opacity:.8}
           <p class="tr">{{ tr }}</p>
 {% endif %}
 {% endfor %}
+{% if about.hotspots %}
           <div class="hotspots" aria-label="Hotspots">
 {% for h in about.hotspots %}
             {{ h|bi }}
 {% endfor %}
           </div>
+{% endif %}
         </div>
         <figure class="photo">
           {{ picture(photos.about_photo.image, [700, 1200], "(max-width: 980px) 92vw, 36vw", photos.about_photo.alt) }}
@@ -732,14 +743,6 @@ footer .data{opacity:.8}
           <p class="en">{{ en }}</p>
           <p class="tr">{{ tr }}</p>
 {% endfor %}
-          <dl class="stats data">
-            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd><span data-count="pubs">66</span></dd></div>
-            <div><dt><span class="en">Citations</span><span class="tr">Atıf</span></dt><dd data-metric="citations">{{ metrics.citations_fmt }}</dd></div>
-            <div><dt><span class="en">h-index</span><span class="tr">h-indeksi</span></dt><dd data-metric="h">{{ metrics.h }}</dd></div>
-            <div><dt><span class="en">i10-index</span><span class="tr">i10-indeksi</span></dt><dd data-metric="i10">{{ metrics.i10 }}</dd></div>
-            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd><span data-count="projects">18</span></dd></div>
-          </dl>
-          <p class="src data"><span class="en">Citation figures from Google Scholar, updated weekly · last update: <span data-metric="date-en">{{ metrics.date_en }}</span></span><span class="tr">Atıf rakamları Google Scholar'dan her hafta güncellenir · son güncelleme: <span data-metric="date-tr">{{ metrics.date_tr }}</span></span></p>
           <div class="pi-details">
             <section class="pd pd-wide" aria-labelledby="pd-int"><h4 id="pd-int"><span class="en">Research interests</span><span class="tr">Araştırma ilgi alanları</span></h4><ul class="tags">{% for x in profile.interests %}<li>{{ x|bi }}</li>{% endfor %}</ul></section>
             <section class="pd" aria-labelledby="pd-edu"><h4 id="pd-edu"><span class="en">Education</span><span class="tr">Eğitim</span></h4>
@@ -749,7 +752,7 @@ footer .data{opacity:.8}
             <section class="pd" aria-labelledby="pd-tea"><h4 id="pd-tea"><span class="en">Teaching</span><span class="tr">Verdiği dersler</span></h4><ul class="dl">{% for x in profile.teaching %}<li>{{ x|bi }}</li>{% endfor %}</ul></section>
             <section class="pd" aria-labelledby="pd-ser"><h4 id="pd-ser"><span class="en">Academic and professional service</span><span class="tr">Akademik ve mesleki hizmetler</span></h4><ul class="dl">{% for x in profile.service %}<li>{{ x|bi }}</li>{% endfor %}</ul></section>
             <section class="pd pd-wide" aria-labelledby="pd-prof"><h4 id="pd-prof"><span class="en">Academic profiles</span><span class="tr">Akademik profiller</span></h4>
-              <div class="profiles">{% for p in profile.profiles %}<a class="tlink" href="{{ p.url }}" target="_blank" rel="noopener">{% if p.label.tr and p.label.tr != p.label.en %}{{ p.label|bi }}{% else %}{{ p.label.en|md }}{% endif %} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>{% endfor %}</div></section>
+              <div class="profiles">{% for p in profile.profiles %}<a class="tlink" href="{{ p.url }}" target="_blank" rel="noopener">{% if p.label.tr and p.label.tr != p.label.en %}{{ p.label|bi }}{% else %}{{ p.label.en|md }}{% endif %} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>{% endfor %}{% if profile.cv %}<a class="tlink" href="{{ profile.cv }}" target="_blank" rel="noopener"><span class="en">Curriculum vitae (PDF)</span><span class="tr">Özgeçmiş (PDF)</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a>{% endif %}</div></section>
           </div>
         </div>
       </article>
@@ -795,11 +798,23 @@ footer .data{opacity:.8}
       <h3 class="sub-head" id="projects-h"><span class="en">Projects</span><span class="tr">Projeler</span></h3>
       <div class="projects">
         <div class="feature-wrap">
-{% set F = projects.featured %}
+        <div class="features">
+{% for F in projects.featured %}
         <article class="project feature">
           <h4>{{ F.title|bi }}</h4>
-          <p class="desc">{{ F.text|bi }}</p>
+{% for en, tr in F.text|pairs %}
+          <p class="desc"><span class="en">{{ en }}</span><span class="tr">{{ tr }}</span></p>
+{% endfor %}
+{% if F.meta and (F.meta.en or F.meta.tr) %}
           <p class="m data">{{ F.meta|bi }}</p>
+{% endif %}
+{% if F.details %}
+          <dl class="pinfo">
+{% for x in F.details %}
+            <div><dt>{{ x.label|bi }}</dt><dd>{{ x.value|bi }}</dd></div>
+{% endfor %}
+          </dl>
+{% endif %}
 {% if F.facts %}
           <dl class="facts data">
 {% for x in F.facts %}
@@ -808,6 +823,8 @@ footer .data{opacity:.8}
           </dl>
 {% endif %}
         </article>
+{% endfor %}
+        </div>
           <figure class="side-photo">{{ picture(photos.projects_photo.image, [600, 1000], "(max-width: 980px) 92vw, 30vw", photos.projects_photo.alt) }}{% if photos.projects_photo.label %}<figcaption class="ptag">{{ photos.projects_photo.label|md }}</figcaption>{% endif %}</figure>
         </div>
         <div class="timeline">
@@ -922,6 +939,14 @@ footer .data{opacity:.8}
             <li><b>{{ c.name }}</b><span class="note">{{ c.place|md }}</span></li>
 {% endfor %}
           </ul>
+{% if people.past_collaborations %}
+          <h4 class="sub-title past-title"><span class="en">Past collaborations</span><span class="tr">Geçmiş iş birlikleri</span></h4>
+          <ul class="roster collab past">
+{% for c in people.past_collaborations %}
+            <li><b>{{ c.name }}</b><span class="note">{{ c.place|md }}</span></li>
+{% endfor %}
+          </ul>
+{% endif %}
         </div>
       </div>
       <div class="join">

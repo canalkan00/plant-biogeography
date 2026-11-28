@@ -1,5 +1,52 @@
 featured:
-  title:
+- title:
+    en: 'AlyDivEvo — Türkiye as a centre of plant diversity and evolution: European–Anatolian biogeographic connections'
+    tr: 'AlyDivEvo — Bitki çeşitliliğinin ve evriminin merkezi olarak Türkiye: Avrupa–Anadolu biyocoğrafik bağlantıları'
+  text:
+    en: |-
+      Using *Alyssum* (Brassicaceae) as a model system, this project investigates the evolutionary processes that have shaped plant diversity in Anatolia and Europe. It examines the roles of polyploidy, hybridisation, geographical isolation and ecological differentiation in plant diversification and speciation.
+
+      By integrating phylogenomics (Hyb-Seq), population genomics (RADseq), flow cytometry, chromosome counting, morphometrics and ecological niche modelling, the project tests whether Anatolia has acted as a centre of diversification and a source of plant colonisation of Europe, or whether present-day diversity patterns reflect the fragmentation of formerly widespread ancestral lineages.
+    tr: |-
+      *Alyssum* (Brassicaceae) cinsini model sistem olarak kullanan bu proje, Anadolu'da ve Avrupa'da bitki çeşitliliğini biçimlendiren evrimsel süreçleri araştırıyor. Poliploidi, hibritleşme, coğrafi izolasyon ve ekolojik farklılaşmanın bitki çeşitlenmesi ve türleşmesindeki rolünü inceliyor.
+
+      Filogenomik (Hyb-Seq), popülasyon genomiği (RADseq), akış sitometrisi, kromozom sayımı, morfometri ve ekolojik niş modellemesini bir araya getiren proje, Anadolu'nun bir çeşitlenme merkezi ve Avrupa'nın bitkilerle kolonizasyonunda bir kaynak olup olmadığını, yoksa bugünkü çeşitlilik örüntülerinin bir zamanlar geniş yayılışlı atasal soy hatlarının parçalanmasını mı yansıttığını test ediyor.
+  meta:
+    en: ''
+    tr: ''
+  details:
+  - label:
+      en: Programme
+      tr: Program
+    value:
+      en: TÜBİTAK–SAS Bilateral Research Programme
+      tr: TÜBİTAK–SAS İkili İş Birliği Programı
+  - label:
+      en: Duration
+      tr: Süre
+    value:
+      en: 36 months (2026–2029)
+      tr: 36 ay (2026–2029)
+  - label:
+      en: Principal investigators
+      tr: Yürütücüler
+    value:
+      en: Prof. Dr. Barış Özüdoğru (Türkiye) & Prof. Dr. Karol Marhold (Slovakia)
+      tr: Prof. Dr. Barış Özüdoğru (Türkiye) ve Prof. Dr. Karol Marhold (Slovakya)
+  - label:
+      en: Partner institutions
+      tr: Ortak kurumlar
+    value:
+      en: Hacettepe University & Plant Science and Biodiversity Centre, Slovak Academy of Sciences
+      tr: Hacettepe Üniversitesi ve Slovak Bilimler Akademisi Bitki Bilimi ve Biyoçeşitlilik Merkezi
+  - label:
+      en: Model taxa
+      tr: Model taksonlar
+    value:
+      en: '*Alyssum* (Gamosepalum lineage, *A. praecox–A. rossetii* group, *A. fulvescens*) and *Odontarrhena sibirica*'
+      tr: '*Alyssum* (Gamosepalum soy hattı, *A. praecox–A. rossetii* grubu, *A. fulvescens*) ve *Odontarrhena sibirica*'
+  facts: []
+- title:
     en: How Anatolian high-mountain plants responded to Quaternary climate change
     tr: Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişimlerine tepkisi
   text:
@@ -8,6 +55,7 @@ featured:
   meta:
     en: 'TÜBİTAK 1001 · 2021–2024 · Principal investigator: Prof. Dr. Barış Özüdoğru'
     tr: 'TÜBİTAK 1001 · 2021–2024 · Yürütücü: Prof. Dr. Barış Özüdoğru'
+  details: []
   facts:
   - label:
       en: Taxa
@@ -26,6 +74,26 @@ featured:
       tr: Yöntem
     value: RADseq · ENM
 list:
+- title:
+    en: 'Türkiye as the centre of plant diversity and evolution explored with the genus *Alyssum* (Brassicaceae): European–Anatolian biogeographic connections (AlyDivEvo)'
+    tr: '*Alyssum* (Brassicaceae) cinsi örneğinde bitki çeşitliliğinin ve evriminin merkezi olarak Türkiye: Avrupa–Anadolu biyocoğrafik bağlantıları (AlyDivEvo)'
+  funder: tub
+  programme:
+    en: TÜBİTAK–SAS Bilateral Programme
+    tr: TÜBİTAK–SAS İkili İş Birliği
+  role: pi
+  start: 2026
+  end: 2029
+- title:
+    en: Taxonomic revision and phylogenetic relationships of *Campanula* (Campanulaceae) in Türkiye
+    tr: Türkiye'deki *Campanula* (Campanulaceae) taksonlarının taksonomik revizyonu ve filogenetik ilişkileri
+  funder: tub
+  programme:
+    en: TÜBİTAK 1001
+    tr: TÜBİTAK 1001
+  role: researcher
+  start: 2024
+  end: 2027
 - title:
     en: Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye
     tr: Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü

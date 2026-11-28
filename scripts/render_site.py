@@ -10,7 +10,7 @@ hand: the next build overwrites it.
 Text fields understand a little Markdown: *italic*, **bold**, [text](link),
 and a blank line between paragraphs in the longer fields.
 """
-import datetime as dt, glob, hashlib, html, json, os, re
+import datetime as dt, glob, hashlib, html, os, re
 
 import yaml
 from jinja2 import ChainableUndefined, Environment, FileSystemLoader
@@ -19,10 +19,6 @@ from PIL import Image, ImageOps
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONTENT = os.path.join(ROOT, "content")
 SIZED = "img/sized"
-MONTHS_TR = ["Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran", "Temmuz",
-             "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"]
-MONTHS_EN = ["January", "February", "March", "April", "May", "June", "July",
-             "August", "September", "October", "November", "December"]
 
 # ---------------------------------------------------------------- text ------
 ESC = re.compile(r"\\([\\`*_{}\[\]()#+\-.!|>~])")
@@ -250,15 +246,6 @@ def load(name):
         return yaml.safe_load(f) or {}
 
 
-def metrics():
-    m = json.load(open(os.path.join(ROOT, "data", "metrics.json"), encoding="utf-8"))
-    d = dt.date.fromisoformat(m["last_success"])
-    m["date_en"] = f"{d.day} {MONTHS_EN[d.month - 1]} {d.year}"
-    m["date_tr"] = f"{d.day} {MONTHS_TR[d.month - 1]} {d.year}"
-    m["citations_fmt"] = f'{m["citations"]:,}'
-    return m
-
-
 def render():
     env = Environment(loader=FileSystemLoader(os.path.join(ROOT, "templates")), autoescape=False,
                       undefined=ChainableUndefined, trim_blocks=True, lstrip_blocks=True, keep_trailing_newline=True)
@@ -267,7 +254,6 @@ def render():
     env.globals.update(picture=picture, figure_img=figure_img, timeline=timeline, FUNDERS=FUNDERS)
     ctx = {n: load(n) for n in ("home", "about", "profile", "research", "projects", "publications",
                                 "theses", "people", "contact", "photos")}
-    ctx["metrics"] = metrics()
     out = env.get_template("site.html").render(**ctx)
     open(os.path.join(ROOT, "site.html"), "w", encoding="utf-8").write(out)
     # remove resized copies nothing uses any more

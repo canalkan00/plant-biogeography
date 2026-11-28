@@ -440,6 +440,15 @@ section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";
 .project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
 .project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
 .project .facts div:first-child{border-left:0;padding-left:0}
+.features{display:grid;align-content:start;min-width:0}
+.features .project{grid-row:auto}
+.project .pinfo{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.4rem 1.2rem;margin:.3rem 0 0;font-size:.92rem;line-height:1.45}
+.project .pinfo div{display:contents}
+.project .pinfo dt{color:var(--steppe-ink);font-weight:600}
+.project .pinfo dd{margin:0}
+@media (max-width:600px){.project .pinfo{grid-template-columns:minmax(0,1fr);gap:.1rem}.project .pinfo dd{margin-bottom:.45rem}}
+.past-title{font-family:var(--f-map);font-size:.98rem;margin-top:1.6rem;color:var(--ink-soft)}
+.roster.past{border-top-color:color-mix(in srgb,var(--ink) 40%,transparent)}
 .project .facts dt{color:var(--steppe-ink);font-size:.76rem}
 .project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
 .sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}
@@ -685,19 +694,24 @@ footer .data{opacity:.8}
         <div id="collaborations">
           <h3 class="sub-title"><span class="en">Collaborations</span><span class="tr">İş birlikleri</span></h3>
           <ul class="roster collab">
-            <li><b>Dr. Barış Uzilday</b><span class="note">Ege University, İzmir</span></li>
-            <li><b>Dr. Çağaşan Karacaoğlu</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Çağatay Tavşanoğlu</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Ihsan Al-Shehbaz</b><span class="note">Missouri Botanical Garden, St. Louis</span></li>
-            <li><b>Dr. Dmitry A. German</b><span class="note">Altai State University, Barnaul</span></li>
+            <li><b>Dr. Ihsan A. Al-Shehbaz</b><span class="note">Missouri Botanical Garden, St. Louis, USA</span></li>
+            <li><b>Dr. Dmitry A. German</b><span class="note">Altai State University, Barnaul, Russia</span></li>
+            <li><b>Dr. Hakan Gür</b><span class="note">Kırşehir Ahi Evran University, Kırşehir, Türkiye</span></li>
+            <li><b>Dr. Kasper P. Hendriks</b><span class="note">Naturalis Biodiversity Center, Leiden, the Netherlands</span></li>
+            <li><b>Dr. Martin A. Lysák</b><span class="note">Masaryk University, Brno, Czechia</span></li>
+            <li><b>Dr. Karol Marhold</b><span class="note">Slovak Academy of Sciences, Bratislava, Slovakia</span></li>
+            <li><b>Dr. Hamid Moazzeni</b><span class="note">Ferdowsi University of Mashhad, Mashhad, Iran</span></li>
+            <li><b>Dr. Klaus Mummenhoff</b><span class="note">Osnabrück University, Osnabrück, Germany</span></li>
+            <li><b>Dr. Kurtuluş Özgişi</b><span class="note">Eskişehir Osmangazi University, Eskişehir, Türkiye</span></li>
+            <li><b>Dr. İsmail Kudret Sağlam</b><span class="note">Koç University, İstanbul, Türkiye</span></li>
+            <li><b>Dr. Stanislav Španiel</b><span class="note">Slovak Academy of Sciences, Bratislava, Slovakia</span></li>
+            <li><b>Dr. Çağatay Tavşanoğlu</b><span class="note">Hacettepe University, Ankara, Türkiye</span></li>
+            <li><b>Dr. Hasan Yıldırım</b><span class="note">Ege University, İzmir, Türkiye</span></li>
+          </ul>
+          <h4 class="sub-title past-title"><span class="en">Past collaborations</span><span class="tr">Geçmiş iş birlikleri</span></h4>
+          <ul class="roster collab past">
             <li><b>Dr. Emre Çilden</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Hasan Yıldırım</b><span class="note">Ege University, İzmir</span></li>
-            <li><b>Dr. Hakan Gür</b><span class="note">Ahi Evran University, Kırşehir</span></li>
             <li><b>Dr. İsmail Eker</b><span class="note">Abant İzzet Baysal University, Bolu</span></li>
-            <li><b>Dr. İsmail Kudret Sağlam</b><span class="note">Koç University, İstanbul</span></li>
-            <li><b>Dr. Klaus Mummenhoff</b><span class="note">Osnabrück University</span></li>
-            <li><b>Dr. Kurtuluş Özgişi</b><span class="note">Osmangazi University, Eskişehir</span></li>
-            <li><b>Dr. Martin Lysák</b><span class="note">Masaryk University, Brno</span></li>
             <li><b>Dr. Utku Perktaş</b><span class="note">Hacettepe University, Ankara</span></li>
           </ul>
         </div>

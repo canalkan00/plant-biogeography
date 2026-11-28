@@ -434,6 +434,15 @@ section.band .sec-title::before,section.band>.wrap>.sub-head::before{content:"";
 .project .facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem 0;margin:.6rem 0 0}
 .project .facts div{padding:0 1rem;display:flex;flex-direction:column-reverse;justify-content:flex-end;gap:.2rem;border-left:1px solid color-mix(in srgb,var(--steppe-ink) 35%,transparent)}
 .project .facts div:first-child{border-left:0;padding-left:0}
+.features{display:grid;align-content:start;min-width:0}
+.features .project{grid-row:auto}
+.project .pinfo{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:.4rem 1.2rem;margin:.3rem 0 0;font-size:.92rem;line-height:1.45}
+.project .pinfo div{display:contents}
+.project .pinfo dt{color:var(--steppe-ink);font-weight:600}
+.project .pinfo dd{margin:0}
+@media (max-width:600px){.project .pinfo{grid-template-columns:minmax(0,1fr);gap:.1rem}.project .pinfo dd{margin-bottom:.45rem}}
+.past-title{font-family:var(--f-map);font-size:.98rem;margin-top:1.6rem;color:var(--ink-soft)}
+.roster.past{border-top-color:color-mix(in srgb,var(--ink) 40%,transparent)}
 .project .facts dt{color:var(--steppe-ink);font-size:.76rem}
 .project .facts dd{margin:0;font-family:var(--f-map);font-stretch:125%;font-weight:700;font-size:clamp(1.3rem,2.6vw,1.7rem);line-height:1.05;color:var(--ink)}
 .sub-title{font-size:1.15rem;font-stretch:112%;letter-spacing:.01em;margin-top:.5rem}
@@ -709,11 +718,6 @@ footer .data{opacity:.8}
           <p class="tr">Bitkilerin evrimsel geçmişini anlamanın ötesinde, özellikle Anadolu'da bitki çeşitliliğinin belgelenmesine, taksonomik revizyonuna ve korunmasına katkı sağlamayı amaçlarız. Biyoçeşitliliğin altında yatan evrimsel ve biyocoğrafik süreçleri anlamanın, hızlanan çevresel değişim karşısında etkili koruma stratejileri geliştirmek için vazgeçilmez olduğunu düşünüyoruz.</p>
           <p class="en">The laboratory is funded by the Scientific and Technological Research Council of Türkiye (TÜBİTAK) and the Hacettepe University Scientific Research Projects Coordination Unit (BAP), and collaborates with research groups in Türkiye, Germany, the Czech Republic, Russia, Slovakia, the Netherlands and the United States.</p>
           <p class="tr">Laboratuvar, Türkiye Bilimsel ve Teknolojik Araştırma Kurumu (TÜBİTAK) ve Hacettepe Üniversitesi Bilimsel Araştırma Projeleri Koordinasyon Birimi (BAP) tarafından desteklenmekte; Türkiye, Almanya, Çekya, Rusya, Slovakya, Hollanda ve ABD'deki araştırma gruplarıyla iş birliği yapmaktadır.</p>
-          <div class="hotspots" aria-label="Hotspots">
-            <span class="en">Mediterranean Basin</span><span class="tr">Akdeniz Havzası</span>
-            <span class="en">Irano-Anatolian</span><span class="tr">İran-Anadolu</span>
-            <span class="en">Caucasus</span><span class="tr">Kafkasya</span>
-          </div>
         </div>
         <figure class="photo">
           <img src="img/phyllolepidium-1200.jpg" srcset="img/sized/phyllolepidium-1200-8fc8a66a-700.jpg 700w, img/phyllolepidium-1200.jpg 1200w" sizes="(max-width: 980px) 92vw, 36vw" width="1200" height="1200" loading="lazy" decoding="async" alt="Phyllolepidium in flower, growing from a crack in limestone rock">
@@ -758,16 +762,8 @@ footer .data{opacity:.8}
           <p class="tr">Taksonomik katkıları arasında yeni bir cinsin ve bilim için yeni çok sayıda bitki türünün tanımlanması yer alır. Brassicaceae'nin küresel filogenisini yeniden kurmaya yönelik uluslararası ortak çalışmalara ve BrassiTEN taksonomi uzmanları ağı aracılığıyla familyanın taksonomisi ve sistematiğinin geliştirilmesine katkı vermektedir.</p>
           <p class="en">He teaches undergraduate and graduate courses and supervises research on plant evolution, systematics, biogeography and population genomics. His research also contributes to the documentation, taxonomic revision and conservation of plant diversity in Türkiye.</p>
           <p class="tr">Lisans ve lisansüstü dersler vermekte; bitki evrimi, sistematiği, biyocoğrafyası ve popülasyon genomiği üzerine araştırmalara danışmanlık yapmaktadır. Çalışmaları Türkiye'de bitki çeşitliliğinin belgelenmesine, taksonomik revizyonuna ve korunmasına da katkı sağlamaktadır.</p>
-          <dl class="stats data">
-            <div><dt><span class="en">Journal articles</span><span class="tr">Makale</span></dt><dd><span data-count="pubs">66</span></dd></div>
-            <div><dt><span class="en">Citations</span><span class="tr">Atıf</span></dt><dd data-metric="citations">1,052</dd></div>
-            <div><dt><span class="en">h-index</span><span class="tr">h-indeksi</span></dt><dd data-metric="h">17</dd></div>
-            <div><dt><span class="en">i10-index</span><span class="tr">i10-indeksi</span></dt><dd data-metric="i10">27</dd></div>
-            <div><dt><span class="en">Projects</span><span class="tr">Proje</span></dt><dd><span data-count="projects">18</span></dd></div>
-          </dl>
-          <p class="src data"><span class="en">Citation figures from Google Scholar, updated weekly · last update: <span data-metric="date-en">27 November 2026</span></span><span class="tr">Atıf rakamları Google Scholar'dan her hafta güncellenir · son güncelleme: <span data-metric="date-tr">27 Kasım 2026</span></span></p>
           <div class="pi-details">
-            <section class="pd pd-wide" aria-labelledby="pd-int"><h4 id="pd-int"><span class="en">Research interests</span><span class="tr">Araştırma ilgi alanları</span></h4><ul class="tags"><li><span class="en">Plant biogeography and evolutionary biology</span><span class="tr">Bitki biyocoğrafyası ve evrimsel biyoloji</span></li><li><span class="en">Historical biogeography and floristic assembly</span><span class="tr">Tarihsel biyocoğrafya ve floristik oluşum</span></li><li><span class="en">Molecular phylogenetics and phylogenomics</span><span class="tr">Moleküler filogenetik ve filogenomik</span></li><li><span class="en">Population genomics and phylogeography</span><span class="tr">Popülasyon genomiği ve filocoğrafya</span></li><li><span class="en">Speciation, hybridisation and integrative species delimitation</span><span class="tr">Türleşme, hibritleşme ve bütünleştirici tür sınırlandırması</span></li><li><span class="en">Alpine plant evolution and Quaternary climate change</span><span class="tr">Alpin bitki evrimi ve Kuvaterner iklim değişimi</span></li><li><span class="en">Ecological niche modelling and historical range dynamics</span><span class="tr">Ekolojik niş modellemesi ve tarihsel yayılış dinamikleri</span></li><li><span class="en">Taxonomic and phylogenetic patterns of plant diversity</span><span class="tr">Bitki çeşitliliğinin taksonomik ve filogenetik örüntüleri</span></li><li><span class="en">Floristic and phylogenetic bioregionalisation</span><span class="tr">Floristik ve filogenetik biyobölgeleme</span></li><li><span class="en">Plant systematics and integrative taxonomy</span><span class="tr">Bitki sistematiği ve bütünleştirici taksonomi</span></li><li><span class="en">Evolution and diversification of Brassicaceae</span><span class="tr">Brassicaceae'nin evrimi ve çeşitlenmesi</span></li><li><span class="en">Conservation biogeography</span><span class="tr">Koruma biyocoğrafyası</span></li></ul></section>
+            <section class="pd pd-wide" aria-labelledby="pd-int"><h4 id="pd-int"><span class="en">Research interests</span><span class="tr">Araştırma ilgi alanları</span></h4><ul class="tags"><li><span class="en">Plant biogeography and evolutionary biology</span><span class="tr">Bitki biyocoğrafyası ve evrimsel biyoloji</span></li><li><span class="en">Molecular phylogenetics and phylogenomics</span><span class="tr">Moleküler filogenetik ve filogenomik</span></li><li><span class="en">Population genomics and phylogeography</span><span class="tr">Popülasyon genomiği ve filocoğrafya</span></li><li><span class="en">Plant systematics, speciation and integrative taxonomy</span><span class="tr">Bitki sistematiği, türleşme ve bütünleştirici taksonomi</span></li><li><span class="en">Alpine plant evolution and climate change</span><span class="tr">Alpin bitki evrimi ve iklim değişimi</span></li><li><span class="en">Ecological niche modelling and historical range dynamics</span><span class="tr">Ekolojik niş modellemesi ve tarihsel yayılış dinamikleri</span></li><li><span class="en">Plant diversity and conservation biogeography</span><span class="tr">Bitki çeşitliliği ve koruma biyocoğrafyası</span></li></ul></section>
             <section class="pd" aria-labelledby="pd-edu"><h4 id="pd-edu"><span class="en">Education</span><span class="tr">Eğitim</span></h4>
               <table class="edu-t"><thead><tr><th><span class="en">Degree</span><span class="tr">Derece</span></th><th><span class="en">Institution</span><span class="tr">Kurum</span></th><th><span class="en">Year</span><span class="tr">Yıl</span></th></tr></thead>
               <tbody><tr><td><span class="en">PhD in Biology</span><span class="tr">Biyoloji doktora</span></td><td><span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></td><td>2015</td></tr><tr><td><span class="en">MSc in Biology</span><span class="tr">Biyoloji yüksek lisans</span></td><td><span class="en">Hacettepe University</span><span class="tr">Hacettepe Üniversitesi</span></td><td>2009</td></tr></tbody></table></section>
@@ -775,7 +771,7 @@ footer .data{opacity:.8}
             <section class="pd" aria-labelledby="pd-tea"><h4 id="pd-tea"><span class="en">Teaching</span><span class="tr">Verdiği dersler</span></h4><ul class="dl"><li><span class="en">Plant Ecology and Geography</span><span class="tr">Bitki Ekolojisi ve Coğrafyası</span></li><li><span class="en">Computational Biology</span><span class="tr">Hesaplamalı Biyoloji</span></li><li><span class="en">Molecular Phylogenetics</span><span class="tr">Moleküler Filogenetik</span></li></ul></section>
             <section class="pd" aria-labelledby="pd-ser"><h4 id="pd-ser"><span class="en">Academic and professional service</span><span class="tr">Akademik ve mesleki hizmetler</span></h4><ul class="dl"><li><span class="en">Associate Editor, <i>Turkish Journal of Botany</i> (since 2019)</span><span class="tr">Yardımcı editör, <i>Turkish Journal of Botany</i> (2019'dan beri)</span></li><li><span class="en">Associate Editor, <i>Nordic Journal of Botany</i> (since 2021)</span><span class="tr">Yardımcı editör, <i>Nordic Journal of Botany</i> (2021'den beri)</span></li><li><span class="en">Member of the BrassiTEN taxonomic expert network</span><span class="tr">BrassiTEN taksonomi uzmanları ağı üyesi</span></li><li><span class="en">Contributor to international collaborative research on Brassicaceae phylogeny, evolution and systematics</span><span class="tr">Brassicaceae filogenisi, evrimi ve sistematiği üzerine uluslararası ortak araştırmalara katkı</span></li><li><span class="en">Supervision of undergraduate and graduate research</span><span class="tr">Lisans ve lisansüstü araştırmalara danışmanlık</span></li></ul></section>
             <section class="pd pd-wide" aria-labelledby="pd-prof"><h4 id="pd-prof"><span class="en">Academic profiles</span><span class="tr">Akademik profiller</span></h4>
-              <div class="profiles"><a class="tlink" href="https://orcid.org/0000-0002-8855-5718" target="_blank" rel="noopener">ORCID <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.scopus.com/authid/detail.uri?authorId=37061606000" target="_blank" rel="noopener">Scopus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.webofscience.com/wos/author/record/G-9173-2013" target="_blank" rel="noopener">Web of Science <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://research.hacettepe.edu.tr/en/persons/bar%C4%B1%C5%9F-%C3%B6z%C3%BCdo%C4%9Fru-3/" target="_blank" rel="noopener"><span class="en">Research Portal</span><span class="tr">Araştırma Portalı</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://avesis.hacettepe.edu.tr/barisoz/indir?languageCode=en" target="_blank" rel="noopener"><span class="en">Curriculum vitae (PDF)</span><span class="tr">Özgeçmiş (PDF)</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></section>
+              <div class="profiles"><a class="tlink" href="https://orcid.org/0000-0002-8855-5718" target="_blank" rel="noopener">ORCID <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://scholar.google.com/citations?user=N8nlB4wAAAAJ" target="_blank" rel="noopener">Google Scholar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.researchgate.net/profile/Baris-Oezuedogru" target="_blank" rel="noopener">ResearchGate <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.scopus.com/authid/detail.uri?authorId=37061606000" target="_blank" rel="noopener">Scopus <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://www.webofscience.com/wos/author/record/G-9173-2013" target="_blank" rel="noopener">Web of Science <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://avesis.hacettepe.edu.tr/barisoz" target="_blank" rel="noopener">AVESİS <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="https://research.hacettepe.edu.tr/en/persons/bar%C4%B1%C5%9F-%C3%B6z%C3%BCdo%C4%9Fru-3/" target="_blank" rel="noopener"><span class="en">Research Portal</span><span class="tr">Araştırma Portalı</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a><a class="tlink" href="files/Baris_Ozudogru_CV.pdf" target="_blank" rel="noopener"><span class="en">Curriculum vitae (PDF)</span><span class="tr">Özgeçmiş (PDF)</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg></a></div></section>
           </div>
         </div>
       </article>
@@ -846,6 +842,19 @@ footer .data{opacity:.8}
       <h3 class="sub-head" id="projects-h"><span class="en">Projects</span><span class="tr">Projeler</span></h3>
       <div class="projects">
         <div class="feature-wrap">
+        <div class="features">
+        <article class="project feature">
+          <h4><span class="en">AlyDivEvo — Türkiye as a centre of plant diversity and evolution: European–Anatolian biogeographic connections</span><span class="tr">AlyDivEvo — Bitki çeşitliliğinin ve evriminin merkezi olarak Türkiye: Avrupa–Anadolu biyocoğrafik bağlantıları</span></h4>
+          <p class="desc"><span class="en">Using <i>Alyssum</i> (Brassicaceae) as a model system, this project investigates the evolutionary processes that have shaped plant diversity in Anatolia and Europe. It examines the roles of polyploidy, hybridisation, geographical isolation and ecological differentiation in plant diversification and speciation.</span><span class="tr"><i>Alyssum</i> (Brassicaceae) cinsini model sistem olarak kullanan bu proje, Anadolu'da ve Avrupa'da bitki çeşitliliğini biçimlendiren evrimsel süreçleri araştırıyor. Poliploidi, hibritleşme, coğrafi izolasyon ve ekolojik farklılaşmanın bitki çeşitlenmesi ve türleşmesindeki rolünü inceliyor.</span></p>
+          <p class="desc"><span class="en">By integrating phylogenomics (Hyb-Seq), population genomics (RADseq), flow cytometry, chromosome counting, morphometrics and ecological niche modelling, the project tests whether Anatolia has acted as a centre of diversification and a source of plant colonisation of Europe, or whether present-day diversity patterns reflect the fragmentation of formerly widespread ancestral lineages.</span><span class="tr">Filogenomik (Hyb-Seq), popülasyon genomiği (RADseq), akış sitometrisi, kromozom sayımı, morfometri ve ekolojik niş modellemesini bir araya getiren proje, Anadolu'nun bir çeşitlenme merkezi ve Avrupa'nın bitkilerle kolonizasyonunda bir kaynak olup olmadığını, yoksa bugünkü çeşitlilik örüntülerinin bir zamanlar geniş yayılışlı atasal soy hatlarının parçalanmasını mı yansıttığını test ediyor.</span></p>
+          <dl class="pinfo">
+            <div><dt><span class="en">Programme</span><span class="tr">Program</span></dt><dd><span class="en">TÜBİTAK–SAS Bilateral Research Programme</span><span class="tr">TÜBİTAK–SAS İkili İş Birliği Programı</span></dd></div>
+            <div><dt><span class="en">Duration</span><span class="tr">Süre</span></dt><dd><span class="en">36 months (2026–2029)</span><span class="tr">36 ay (2026–2029)</span></dd></div>
+            <div><dt><span class="en">Principal investigators</span><span class="tr">Yürütücüler</span></dt><dd><span class="en">Prof. Dr. Barış Özüdoğru (Türkiye) &amp; Prof. Dr. Karol Marhold (Slovakia)</span><span class="tr">Prof. Dr. Barış Özüdoğru (Türkiye) ve Prof. Dr. Karol Marhold (Slovakya)</span></dd></div>
+            <div><dt><span class="en">Partner institutions</span><span class="tr">Ortak kurumlar</span></dt><dd><span class="en">Hacettepe University &amp; Plant Science and Biodiversity Centre, Slovak Academy of Sciences</span><span class="tr">Hacettepe Üniversitesi ve Slovak Bilimler Akademisi Bitki Bilimi ve Biyoçeşitlilik Merkezi</span></dd></div>
+            <div><dt><span class="en">Model taxa</span><span class="tr">Model taksonlar</span></dt><dd><span class="en"><i>Alyssum</i> (Gamosepalum lineage, <i>A. praecox–A. rossetii</i> group, <i>A. fulvescens</i>) and <i>Odontarrhena sibirica</i></span><span class="tr"><i>Alyssum</i> (Gamosepalum soy hattı, <i>A. praecox–A. rossetii</i> grubu, <i>A. fulvescens</i>) ve <i>Odontarrhena sibirica</i></span></dd></div>
+          </dl>
+        </article>
         <article class="project feature">
           <h4><span class="en">How Anatolian high-mountain plants responded to Quaternary climate change</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişimlerine tepkisi</span></h4>
           <p class="desc"><span class="en">Alpine crucifers whose ranges follow the Anatolian Diagonal and the Taurus Mountains, <i>Heldreichia bupleurifolia</i> (all six infraspecific taxa), <i>Noccaea oppositifolia</i> and <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, are studied with RADseq genomic data and ecological niche modelling. The project tests whether the glacial expansion–contraction model built for Europe and North America fits a landscape as complex as Anatolia, maps genomic hotspots (refugia), and uses <i>Arabidopsis thaliana</i> as the reference genome to look for genes behind adaptation to altitude, temperature and precipitation.</span><span class="tr">Yayılışı Anadolu Diyagonali ve Toros Dağları ile örtüşen alpin turpgiller, <i>Heldreichia bupleurifolia</i> (altı alttürün tamamı), <i>Noccaea oppositifolia</i> ve <i>Phyllolepidium cyclocarpum</i> subsp. <i>cyclocarpum</i>, RADseq genomik verisi ve ekolojik niş modellemesiyle çalışılıyor. Proje, Avrupa ve Kuzey Amerika için kurulan buzul dönemi genişleme–daralma modelinin Anadolu gibi karmaşık bir coğrafyaya uyup uymadığını test ediyor, genomik sıcak noktaları (refugia) belirliyor ve <i>Arabidopsis thaliana</i>'yı referans genom olarak kullanarak yükselti, sıcaklık ve yağışa uyumda rol oynayan genleri arıyor.</span></p>
@@ -857,81 +866,90 @@ footer .data{opacity:.8}
             <div><dt><span class="en">Methods</span><span class="tr">Yöntem</span></dt><dd>RADseq · ENM</dd></div>
           </dl>
         </article>
+        </div>
           <figure class="side-photo"><img src="img/heldreichia-flower-1000.jpg" srcset="img/sized/heldreichia-flower-1000-e4f57cf9-600.jpg 600w, img/heldreichia-flower-1000.jpg 1000w" sizes="(max-width: 980px) 92vw, 30vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Heldreichia in flower among rust-coloured boulders"><figcaption class="ptag"><i>Heldreichia</i></figcaption></figure>
         </div>
         <div class="timeline">
           <div class="tl-key">
             <span class="k tub">TÜBİTAK</span><span class="k bap"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span></span><span class="k oth"><span class="en">Other</span><span class="tr">Diğer</span></span><span class="k pi-k"><span class="en">Led by Barış Özüdoğru</span><span class="tr">Yürütücü: Barış Özüdoğru</span></span>
           </div>
-          <div class="tl-axis" aria-hidden="true"><div class="tl-axis-in"><span style="left:0.00%">2009</span><span style="left:16.67%">2012</span><span style="left:33.33%">2015</span><span style="left:50.00%">2018</span><span style="left:66.67%">2021</span><span style="left:83.33%">2024</span><span style="left:100.00%">2027</span></div></div>
+          <div class="tl-axis" aria-hidden="true"><div class="tl-axis-in"><span style="left:0.00%">2009</span><span style="left:14.29%">2012</span><span style="left:28.57%">2015</span><span style="left:42.86%">2018</span><span style="left:57.14%">2021</span><span style="left:71.43%">2024</span><span style="left:85.71%">2027</span><span style="left:100.00%">2030</span></div></div>
           <ol class="tl-list">
+            <li class="tl-row tub lead">
+              <div class="tl-label"><p class="t"><span class="en">Türkiye as the centre of plant diversity and evolution explored with the genus <i>Alyssum</i> (Brassicaceae): European–Anatolian biogeographic connections (AlyDivEvo)</span><span class="tr"><i>Alyssum</i> (Brassicaceae) cinsi örneğinde bitki çeşitliliğinin ve evriminin merkezi olarak Türkiye: Avrupa–Anadolu biyocoğrafik bağlantıları (AlyDivEvo)</span></p><p class="m"><span class="en">TÜBİTAK–SAS Bilateral Programme</span><span class="tr">TÜBİTAK–SAS İkili İş Birliği</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
+              <div class="tl-track" title="2026–2029"><span class="tl-bar end" style="left:80.95%;width:19.05%"><span class="tl-yr">2026–2029</span></span></div>
+            </li>
+            <li class="tl-row tub">
+              <div class="tl-label"><p class="t"><span class="en">Taxonomic revision and phylogenetic relationships of <i>Campanula</i> (Campanulaceae) in Türkiye</span><span class="tr">Türkiye'deki <i>Campanula</i> (Campanulaceae) taksonlarının taksonomik revizyonu ve filogenetik ilişkileri</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
+              <div class="tl-track" title="2024–2027"><span class="tl-bar end" style="left:71.43%;width:19.05%"><span class="tl-yr">2024–2027</span></span></div>
+            </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Bioregions and geographical species-richness pattern of Brassicaceae in Türkiye</span><span class="tr">Türkiye'deki Brassicaceae familyası için biyobölgeler ve coğrafi tür zenginlik örüntüsü</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2023–2024"><span class="tl-bar end" style="left:77.78%;width:11.11%"><span class="tl-yr">2023–2024</span></span></div>
+              <div class="tl-track" title="2023–2024"><span class="tl-bar" style="left:66.67%;width:9.52%"><span class="tl-yr">2023–2024</span></span></div>
             </li>
             <li class="tl-row tub lead">
               <div class="tl-label"><p class="t"><span class="en">Responses of Anatolian high-mountain plants to Quaternary climate change, studied with genomic methods and niche modelling</span><span class="tr">Anadolu yüksek dağ bitkilerinin Kuvaterner iklim değişikliklerine verdiği cevapların genomik yöntemler ve niş modellemesi yaklaşımıyla araştırılması</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar" style="left:57.14%;width:19.05%"><span class="tl-yr">2021–2024</span></span></div>
             </li>
             <li class="tl-row tub">
               <div class="tl-label"><p class="t"><span class="en">Revision of the genus <i>Asyneuma</i> (Campanulaceae) in Türkiye</span><span class="tr">Türkiye <i>Asyneuma</i> (Campanulaceae) cinsinin revizyonu</span></p><p class="m"><span class="en">TÜBİTAK 1001</span><span class="tr">TÜBİTAK 1001</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2021–2024"><span class="tl-bar end" style="left:66.67%;width:22.22%"><span class="tl-yr">2021–2024</span></span></div>
+              <div class="tl-track" title="2021–2024"><span class="tl-bar" style="left:57.14%;width:19.05%"><span class="tl-yr">2021–2024</span></span></div>
             </li>
             <li class="tl-row tub lead">
               <div class="tl-label"><p class="t"><span class="en">Molecular phylogeny and biogeography of <i>Asphodeline</i></span><span class="tr"><i>Asphodeline</i> cinsinin moleküler filogenisi ve biyocoğrafyası</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2021–2022"><span class="tl-bar" style="left:66.67%;width:11.11%"><span class="tl-yr">2021–2022</span></span></div>
+              <div class="tl-track" title="2021–2022"><span class="tl-bar" style="left:57.14%;width:9.52%"><span class="tl-yr">2021–2022</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Contributions to the flora of Türkiye</span><span class="tr">Türkiye florasına katkılar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2020–2022"><span class="tl-bar" style="left:61.11%;width:16.67%"><span class="tl-yr">2020–2022</span></span></div>
+              <div class="tl-track" title="2020–2022"><span class="tl-bar" style="left:52.38%;width:14.29%"><span class="tl-yr">2020–2022</span></span></div>
             </li>
             <li class="tl-row tub">
               <div class="tl-label"><p class="t"><span class="en">Functional traits and their relationships in a Central Anatolian steppe plant community</span><span class="tr">İç Anadolu bozkırında bir bitki komünitesinde fonksiyonel karakterler ve aralarındaki ilişkiler</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2020–2021"><span class="tl-bar" style="left:61.11%;width:11.11%"><span class="tl-yr">2020–2021</span></span></div>
+              <div class="tl-track" title="2020–2021"><span class="tl-bar" style="left:52.38%;width:9.52%"><span class="tl-yr">2020–2021</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Population structure, morphometric species delimitation and a DNA bank for <i>Pseudosempervivum</i></span><span class="tr">Kaşıkotu (<i>Pseudosempervivum</i>) türlerinin popülasyon yapıları, morfometrik tür sınırlandırması ve DNA bankası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2019–2020"><span class="tl-bar" style="left:55.56%;width:11.11%"><span class="tl-yr">2019–2020</span></span></div>
+              <div class="tl-track" title="2019–2020"><span class="tl-bar" style="left:47.62%;width:9.52%"><span class="tl-yr">2019–2020</span></span></div>
             </li>
             <li class="tl-row bap">
               <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Iberis simplex</i></span><span class="tr">Civanotunun (<i>Iberis simplex</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2018–2021"><span class="tl-bar" style="left:50.00%;width:22.22%"><span class="tl-yr">2018–2021</span></span></div>
+              <div class="tl-track" title="2018–2021"><span class="tl-bar" style="left:42.86%;width:19.05%"><span class="tl-yr">2018–2021</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Molecular phylogenetics of the tribes Conringieae and Coluteocarpeae</span><span class="tr">Conringieae ve Coluteocarpeae tribusları üzerine moleküler filogenetik çalışmalar</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2018–2019"><span class="tl-bar" style="left:50.00%;width:11.11%"><span class="tl-yr">2018–2019</span></span></div>
+              <div class="tl-track" title="2018–2019"><span class="tl-bar" style="left:42.86%;width:9.52%"><span class="tl-yr">2018–2019</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Phylogenetic relationships in <i>Noccaea</i> from high-throughput genetic data</span><span class="tr">Yüksek çözünürlüklü genetik veriyle <i>Noccaea</i> cinsindeki filogenetik ilişkiler</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2017–2019"><span class="tl-bar" style="left:44.44%;width:16.67%"><span class="tl-yr">2017–2019</span></span></div>
+              <div class="tl-track" title="2017–2019"><span class="tl-bar" style="left:38.10%;width:14.29%"><span class="tl-yr">2017–2019</span></span></div>
             </li>
             <li class="tl-row tub lead">
               <div class="tl-label"><p class="t"><span class="en">Phylogeny of <i>Scilla</i>, <i>Prospero</i> and <i>Puschkinia</i> (Asparagaceae) in Türkiye</span><span class="tr">Türkiye'deki <i>Scilla</i>, <i>Prospero</i> ve <i>Puschkinia</i> (Asparagaceae) taksonlarının filogenisi</span></p><p class="m"><span class="en">TÜBİTAK 1002</span><span class="tr">TÜBİTAK 1002</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2017–2018"><span class="tl-bar" style="left:44.44%;width:11.11%"><span class="tl-yr">2017–2018</span></span></div>
+              <div class="tl-track" title="2017–2018"><span class="tl-bar" style="left:38.10%;width:9.52%"><span class="tl-yr">2017–2018</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Phylogeography of <i>Noccaea iberidea</i></span><span class="tr">Ak kayagülünün (<i>Noccaea iberidea</i>) filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2016–2017"><span class="tl-bar" style="left:38.89%;width:11.11%"><span class="tl-yr">2016–2017</span></span></div>
+              <div class="tl-track" title="2016–2017"><span class="tl-bar" style="left:33.33%;width:9.52%"><span class="tl-yr">2016–2017</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Establishing phylogenetic and phylogeographic methods in botany</span><span class="tr">Filogenetik ve filocoğrafik yöntemlerin botanikte kullanımı</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2016"><span class="tl-bar" style="left:38.89%;width:5.56%"><span class="tl-yr">2016</span></span></div>
+              <div class="tl-track" title="2016"><span class="tl-bar" style="left:33.33%;width:4.76%"><span class="tl-yr">2016</span></span></div>
             </li>
             <li class="tl-row bap lead">
               <div class="tl-label"><p class="t"><span class="en">Phylogenetic position and taxonomic assignment of <i>Thlaspi aghricum</i></span><span class="tr"><i>Thlaspi aghricum</i>'un filogenetik pozisyonu ve taksonomik ataması</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Principal investigator</span><span class="tr">Yürütücü</span></p></div>
-              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:28.57%;width:4.76%"><span class="tl-yr">2015</span></span></div>
             </li>
             <li class="tl-row bap">
               <div class="tl-label"><p class="t"><span class="en">Molecular biogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin moleküler biyocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2015"><span class="tl-bar" style="left:33.33%;width:5.56%"><span class="tl-yr">2015</span></span></div>
+              <div class="tl-track" title="2015"><span class="tl-bar" style="left:28.57%;width:4.76%"><span class="tl-yr">2015</span></span></div>
             </li>
             <li class="tl-row bap">
               <div class="tl-label"><p class="t"><span class="en">Software for molecular systematics (PAUP, Geneious, CodonCode Aligner)</span><span class="tr">Moleküler sistematik için yazılım altyapısı (PAUP, Geneious, CodonCode Aligner)</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2014–2015"><span class="tl-bar" style="left:27.78%;width:11.11%"><span class="tl-yr">2014–2015</span></span></div>
+              <div class="tl-track" title="2014–2015"><span class="tl-bar" style="left:23.81%;width:9.52%"><span class="tl-yr">2014–2015</span></span></div>
             </li>
             <li class="tl-row bap">
               <div class="tl-label"><p class="t"><span class="en">Phylogeny and phylogeography of <i>Ricotia</i></span><span class="tr"><i>Ricotia</i> cinsinin filogeni ve filocoğrafyası</span></p><p class="m"><span class="en">Hacettepe University BAP</span><span class="tr">Hacettepe Üniversitesi BAP</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
-              <div class="tl-track" title="2013–2016"><span class="tl-bar" style="left:22.22%;width:22.22%"><span class="tl-yr">2013–2016</span></span></div>
+              <div class="tl-track" title="2013–2016"><span class="tl-bar" style="left:19.05%;width:19.05%"><span class="tl-yr">2013–2016</span></span></div>
             </li>
             <li class="tl-row oth">
               <div class="tl-label"><p class="t"><span class="en">Nature conservation and biodiversity</span><span class="tr">Doğa koruma ve biyoçeşitlilik</span></p><p class="m"><span class="en">Presidency of Strategy and Budget</span><span class="tr">Strateji ve Bütçe Başkanlığı</span> · <span class="en">Researcher</span><span class="tr">Araştırmacı</span></p></div>
@@ -1135,19 +1153,24 @@ footer .data{opacity:.8}
         <div id="collaborations">
           <h3 class="sub-title"><span class="en">Collaborations</span><span class="tr">İş birlikleri</span></h3>
           <ul class="roster collab">
-            <li><b>Dr. Barış Uzilday</b><span class="note">Ege University, İzmir</span></li>
-            <li><b>Dr. Çağaşan Karacaoğlu</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Çağatay Tavşanoğlu</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Ihsan Al-Shehbaz</b><span class="note">Missouri Botanical Garden, St. Louis</span></li>
-            <li><b>Dr. Dmitry A. German</b><span class="note">Altai State University, Barnaul</span></li>
+            <li><b>Dr. Ihsan A. Al-Shehbaz</b><span class="note">Missouri Botanical Garden, St. Louis, USA</span></li>
+            <li><b>Dr. Dmitry A. German</b><span class="note">Altai State University, Barnaul, Russia</span></li>
+            <li><b>Dr. Hakan Gür</b><span class="note">Kırşehir Ahi Evran University, Kırşehir, Türkiye</span></li>
+            <li><b>Dr. Kasper P. Hendriks</b><span class="note">Naturalis Biodiversity Center, Leiden, the Netherlands</span></li>
+            <li><b>Dr. Martin A. Lysák</b><span class="note">Masaryk University, Brno, Czechia</span></li>
+            <li><b>Dr. Karol Marhold</b><span class="note">Slovak Academy of Sciences, Bratislava, Slovakia</span></li>
+            <li><b>Dr. Hamid Moazzeni</b><span class="note">Ferdowsi University of Mashhad, Mashhad, Iran</span></li>
+            <li><b>Dr. Klaus Mummenhoff</b><span class="note">Osnabrück University, Osnabrück, Germany</span></li>
+            <li><b>Dr. Kurtuluş Özgişi</b><span class="note">Eskişehir Osmangazi University, Eskişehir, Türkiye</span></li>
+            <li><b>Dr. İsmail Kudret Sağlam</b><span class="note">Koç University, İstanbul, Türkiye</span></li>
+            <li><b>Dr. Stanislav Španiel</b><span class="note">Slovak Academy of Sciences, Bratislava, Slovakia</span></li>
+            <li><b>Dr. Çağatay Tavşanoğlu</b><span class="note">Hacettepe University, Ankara, Türkiye</span></li>
+            <li><b>Dr. Hasan Yıldırım</b><span class="note">Ege University, İzmir, Türkiye</span></li>
+          </ul>
+          <h4 class="sub-title past-title"><span class="en">Past collaborations</span><span class="tr">Geçmiş iş birlikleri</span></h4>
+          <ul class="roster collab past">
             <li><b>Dr. Emre Çilden</b><span class="note">Hacettepe University, Ankara</span></li>
-            <li><b>Dr. Hasan Yıldırım</b><span class="note">Ege University, İzmir</span></li>
-            <li><b>Dr. Hakan Gür</b><span class="note">Ahi Evran University, Kırşehir</span></li>
             <li><b>Dr. İsmail Eker</b><span class="note">Abant İzzet Baysal University, Bolu</span></li>
-            <li><b>Dr. İsmail Kudret Sağlam</b><span class="note">Koç University, İstanbul</span></li>
-            <li><b>Dr. Klaus Mummenhoff</b><span class="note">Osnabrück University</span></li>
-            <li><b>Dr. Kurtuluş Özgişi</b><span class="note">Osmangazi University, Eskişehir</span></li>
-            <li><b>Dr. Martin Lysák</b><span class="note">Masaryk University, Brno</span></li>
             <li><b>Dr. Utku Perktaş</b><span class="note">Hacettepe University, Ankara</span></li>
           </ul>
         </div>

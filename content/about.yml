@@ -19,13 +19,7 @@ text:
     Bitkilerin evrimsel geçmişini anlamanın ötesinde, özellikle Anadolu'da bitki çeşitliliğinin belgelenmesine, taksonomik revizyonuna ve korunmasına katkı sağlamayı amaçlarız. Biyoçeşitliliğin altında yatan evrimsel ve biyocoğrafik süreçleri anlamanın, hızlanan çevresel değişim karşısında etkili koruma stratejileri geliştirmek için vazgeçilmez olduğunu düşünüyoruz.
 
     Laboratuvar, Türkiye Bilimsel ve Teknolojik Araştırma Kurumu (TÜBİTAK) ve Hacettepe Üniversitesi Bilimsel Araştırma Projeleri Koordinasyon Birimi (BAP) tarafından desteklenmekte; Türkiye, Almanya, Çekya, Rusya, Slovakya, Hollanda ve ABD'deki araştırma gruplarıyla iş birliği yapmaktadır.
-hotspots:
-- en: Mediterranean Basin
-  tr: Akdeniz Havzası
-- en: Irano-Anatolian
-  tr: İran-Anadolu
-- en: Caucasus
-  tr: Kafkasya
+hotspots: []
 methods:
 - title:
     en: Molecular phylogenetics and phylogenomics
